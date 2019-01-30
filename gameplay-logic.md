@@ -1,4 +1,8 @@
+<<<<<<< HEAD:gameplay-logic.md
+﻿# Game Play Logic Flow
+=======
 # Game Play Logic Flow
+>>>>>>> master:client/gameplay-logic.md
 ---
 ## *This Markdown file is for detailing all 'user stories' that relate to gameplay/gameplay-logic.*
 >The information in this file will be combined with the research that is being done on the implementation of the gameplay-logic to create the issues that will need to be solved to get this portion of the project to the next phase.
