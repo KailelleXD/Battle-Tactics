@@ -7,11 +7,12 @@ class NextButton extends React.Component {
   render() {
     return (
       <Button
-        title={this.props.title}
-        onPress={() => { this.props.navigation.navigate(this.props.title) }}
+        title="NEXT"
+
+        onPress={() => { this.props.navigation.navigate(this.props.path) }}
       />
     )
   }
 }
 
-export default withNavigation(HomeScreenButton);
+export default withNavigation(NextButton);

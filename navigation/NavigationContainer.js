@@ -7,6 +7,9 @@ import SettingsScreen from '../screens/SettingsScreen';
 import ChooseTerrainScreen from '../screens/ChooseTerrainScreen';
 import PlayerOneScreen from '../screens/PlayerOneScreen';
 import PlayerTwoScreen from '../screens/PlayerTwoScreen';
+import BattleScribeScreen from '../screens/BattleScribeScreen';
+import ChooseFactionScreen from '../screens/ChooseFactionScreen';
+import FactionDetailScreen from '../screens/FactionDetailScreen';
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -15,7 +18,10 @@ const StackNavigator = createStackNavigator({
     Settings: SettingsScreen,
     Terrain: ChooseTerrainScreen,
     PlayerOne: PlayerOneScreen,
-    PlayerTwo: PlayerTwoScreen
+    PlayerTwo: PlayerTwoScreen,
+    BattleScribe: BattleScribeScreen,
+    Factions: ChooseFactionScreen,
+    FactionDetail: FactionDetailScreen
   });
   
 const NavigationContainer = createAppContainer(StackNavigator);

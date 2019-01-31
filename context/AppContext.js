@@ -29,16 +29,27 @@ export class AppProvider extends React.Component {
     }
 
     setName = (newName) => {
-        this.setState({playerOne: {name: newName}});
+      const playerOne = {...this.state.playerOne}
+      playerOne.name = newName
+        this.setState( {playerOne} );
+    }
+
+    setFaction = (newFaction) => {
+      const playerOne = {...this.state.playerOne}
+      playerOne.faction = newFaction
+        this.setState( {playerOne} );
     }
 
     setMap = (newMap) => {
-        this.setState({playerOne: {mapName: newMap}})
+      const playerOne = {...this.state.playerOne}
+      playerOne.mapName = newMap
+        this.setState( {playerOne} )
     }
 
     addTerrainObject = (newTerrainObject) => {
-        var joined = this.state.playerOne.terrain.concat(newTerrainObject);
-        this.setState({ playerOne: {terrain: joined}})
+      const playerOne = {...this.state.playerOne}
+      playerOne.terrain = playerOne.terrain.concat(newTerrainObject);
+        this.setState( {playerOne} )
     }
 
     render () {
@@ -47,7 +58,8 @@ export class AppProvider extends React.Component {
                 state: this.state,
                 setName: this.setName,
                 setMap: this.setMap,
-                addTerrainObject: this.addTerrainObject
+                addTerrainObject: this.addTerrainObject,
+                setFaction: this.setFaction
             }}>
                 {this.props.children}
             </AppContext.Provider>

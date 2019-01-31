@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Button } from 'react-native'
+import { AppConsumer } from '../context/AppContext';
+
 // components
 import MapSelector from '../components/MapSelector'
+import NextButton from '../components/NextButton';
 
 export default class ChooseMap extends Component {
   static navigationOptions = {
@@ -9,19 +12,22 @@ export default class ChooseMap extends Component {
   };
 
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigate } = this.props.navigation;
 
     return (
-      <View>
-        <Text>This is the choose Map screen</Text>
+      <AppConsumer>
+        {(context) => (
+          <View>
+            <Text>This is the choose Map screen</Text>
 
-        <MapSelector />
+            <MapSelector />
+            <Text>{context.state.playerOne.mapName}</Text>
 
-        <Button
-          title="Choose Terrain"
-          onPress={() => navigate('Terrain', { name: 'Terrain' })}
-        />
-      </View>
+            <NextButton path="Terrain" />
+
+          </View>
+        )}
+      </AppConsumer>
     );
   }
 }
