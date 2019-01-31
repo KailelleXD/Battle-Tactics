@@ -1,26 +1,30 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button } from 'react-native'
+import { Text, StyleSheet, View, Button, TouchableHighlight} from 'react-native'
 import { Container, Header, Content, Card, CardItem, Body, } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
-
-const FactionCard = (props) => {
-  return (
-    <View>
-      <Card onPress={console.log(props.name)}>
-        <CardItem>
-          <Body>
-            <Text> {props.name} </Text>
-            <Button
-              title="View Detail"
-              // onPress={() => { this.props.navigation.navigate('FactionDetail') }}
-            />
-          </Body>
-        </CardItem>
-      </Card>
-    </View>
-
-  )
+class FactionCard extends Component {
+  render () {
+    return (
+      <TouchableHighlight onPress={this.props.cardPress}>
+        <View>
+          <Card>
+            <CardItem>
+              <Body>
+                <Text> {this.props.name} </Text>
+                  <Button 
+                    title="View Detail"
+                    onPress={() => { this.props.navigation.navigate(this.props.path, {
+                      detail: this.props.detail
+                    })}}
+                  />
+              </Body>
+            </CardItem>
+          </Card>
+        </View>
+      </TouchableHighlight>
+    )
+  }
 }
 
 const styles = StyleSheet.create({})
