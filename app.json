@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "client",
-    "slug": "client",
+    "name": "Battle-Tactics",
+    "slug": "Battle-Tactics",
     "privacy": "public",
     "sdkVersion": "32.0.0",
     "platforms": [
