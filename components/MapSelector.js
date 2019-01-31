@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, ScrollView, Dimensions, Image } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button } from 'react-native';
+
+import { AppConsumer } from '../context/AppContext';
 import map1 from '../assets/img/map1.jpg';
 import map2 from '../assets/img/map2.jpg';
+
+import Maps from '../utils/data/maps.json';
 
 export default class MapSelector extends Component {
   render() {
@@ -10,20 +14,22 @@ export default class MapSelector extends Component {
     const resizeMode = 'center';
 
     return (
-      <ScrollView
-        horizontal={true}
-        // pagingEnabled={true}
-        // showsHorizontalScrollIndicator={true}
-        contentContainerStyle={styles.contentContainer}
-        alwaysBounceHorizontal={true}
-        >
-  
-        <Image source={map1} />
-        <Image source={map2} />
-        <Image source={map1} />
-
-      </ScrollView>
-    );
+        <AppConsumer>
+            {(context) => (
+              <View>
+                  {Maps.map(map => (
+                    <Button 
+                      title={map.name}
+                      key={map.id}
+                      onPress={() => {
+                        context.setMap(map.name);
+                      }}
+                    />
+                  ))}
+              </View>
+            )}
+        </AppConsumer>
+    )
   }
 }
 
