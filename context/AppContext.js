@@ -16,7 +16,7 @@ export class AppProvider extends React.Component {
                 points: 0,
                 randomStart: false
             },
-            playerTwo : {
+            playerTwo: {
                 name: "jill",
                 mapName: "",
                 terrain: [],
@@ -24,7 +24,7 @@ export class AppProvider extends React.Component {
                 units: [],
                 points: 0,
                 randomStart: false
-            }
+            },
         }
     }
 
@@ -32,11 +32,22 @@ export class AppProvider extends React.Component {
         this.setState({playerOne: {name: newName}});
     }
 
+    setMap = (newMap) => {
+        this.setState({playerOne: {mapName: newMap}})
+    }
+
+    addTerrainObject = (newTerrainObject) => {
+        var joined = this.state.playerOne.terrain.concat(newTerrainObject);
+        this.setState({ playerOne: {terrain: joined}})
+    }
+
     render () {
         return (
             <AppContext.Provider value={{
                 state: this.state,
                 setName: this.setName,
+                setMap: this.setMap,
+                addTerrainObject: this.addTerrainObject
             }}>
                 {this.props.children}
             </AppContext.Provider>
