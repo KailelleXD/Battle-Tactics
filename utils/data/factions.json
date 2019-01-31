@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Chaos Demons",
-    "detail": "Chaos Demons: Some details here"
+    "detail": "Some Chaos Demons details here"
   },
   {
     "id": 2,
@@ -12,6 +12,6 @@
   {
     "id": 3,
     "name": "Skitarii",
-    "detail": "Some details here for Skitarii"
+    "detail": "Some Skitarii details here"
   }
 ]
