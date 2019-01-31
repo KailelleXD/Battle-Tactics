@@ -42,6 +42,7 @@ export default class PlayerOneScreen extends Component {
               }}
             
             />
+            {console.log(context.state)}
           </View>
         )}
       </AppConsumer>

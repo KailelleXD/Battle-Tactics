@@ -22,7 +22,7 @@ export default class SettingsScreen extends Component {
           title="Player Two"
           onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
         />
-
+       
         {/* <RandomStart random={this.props.randomStart} /> */}
       </View>
     );
