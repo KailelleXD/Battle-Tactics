@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Chaos Demons",
+    "detail": "Some Chaos Demons details here"
+  },
+  {
+    "id": 2,
+    "name": "Tau",
+    "detail": "Some Tau details here"
+  },
+  {
+    "id": 3,
+    "name": "Skitarii",
+    "detail": "Some Skitarii details here"
+  }
+]
