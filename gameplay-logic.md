@@ -38,6 +38,7 @@ Combat Phases Reference (PDF) | https://drive.google.com/file/d/17GSuJhBQ064sSG1
 1.  **Movement Phase**
     * As a user I would like to be able to tell when I am in the **Movement Phase** so that I can perform the necessary actions for that phase.
     * As a user I want to be able to move my _models_ anywhere on the map so even if the rules would normally prevent an action, I can make adjustments whenever I see fit to better strategize.
+    * As a user I would like to be able to have my devices screen scaled correctly to match the 4' x 6' game area so that I know my strategies are being planned on an accurate representation of the game.
     * As a user I want to clearly see where my _model_ was before I moved it so that I can consider the different possible strategies.
     * As a user if a _model_ has a **minimum move** I would like to be able to easily tell so that I can follow the requirements of that specific _model_.
     * As a user I want to know when a _model_ I'm placing has moved outside of it's movement range (**maximum speed**) so that I can practice a realistic strategy.
