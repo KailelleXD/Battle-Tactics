@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import NavigationContainer from './navigation/NavigationContainer';
 
 // context
-import { AppProvider } from './context/AppContext';
+import { AppProvider } from './storage/AppContext';
 
 export default class App extends React.Component {
 

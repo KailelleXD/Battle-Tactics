@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
 
 class FactionDetailScreen extends Component {
   render () {

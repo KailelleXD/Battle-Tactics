@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, Button } from 'react-native';
 // import Drawer from 'react-native-drawer';
 import Terrains from '../utils/data/terrains.json';
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
 
 export default class TerrainSideMenu extends Component {
   render() {

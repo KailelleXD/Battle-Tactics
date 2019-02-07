@@ -4,7 +4,7 @@ import { Button, Text } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
 
-class NextButton extends React.Component {
+class BackButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,11 +29,11 @@ class NextButton extends React.Component {
           info
           large
           style={styles.button}
-          onPress={() => { this.props.navigation.navigate(this.props.path) }}
+          onPress={() => { this.props.navigation.goBack()}}
         >
-          <Text>Next</Text>
+          <Text>Back</Text>
         </Button>
-      ):<Text>"Font of NextButton not loaded"</Text>}
+      ):<Text>"Font of BackButton not loaded."</Text>}
     </View>
     )
   }
@@ -51,4 +51,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default withNavigation(NextButton);
+export default withNavigation(BackButton);

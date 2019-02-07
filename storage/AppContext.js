@@ -1,6 +1,5 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-// import { } from '../utils/asyncStorage'
 
 export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
@@ -8,8 +7,6 @@ export const AppConsumer = AppContext.Consumer;
 export class AppProvider extends React.Component {
     constructor(props) {
         super(props);
-
-
 
         // this.state = {
         //     playerOne: {
@@ -32,9 +29,7 @@ export class AppProvider extends React.Component {
         //     },
         // }
 
-    //ignore
-
-    const defaultPlayerAll = {
+    const initialState = {
         playerOne: {
             name: "jack",
             mapName: "",
@@ -57,13 +52,12 @@ export class AppProvider extends React.Component {
 
     let allPlayers = {}
 
-
     AsyncStorage.getItem("playerAll").then((value) => {
 
 
         if (!value) {
             allPlayers = defaultPlayerAll
-            AsyncStorage.setItem('playerAll', JSON.stringify(defaultPlayerAll))
+            AsyncStorage.setItem('playerAll', JSON.stringify(initialState))
 
         } else {
             allPlayers = JSON.parse(value)
@@ -73,20 +67,14 @@ export class AppProvider extends React.Component {
         this.setState(allPlayers)
     })
 
-    //ignore
-
     }
-
-
-            
-    
 
     setName = (newName) => {
       const playerOne = {...this.state.playerOne}
       playerOne.name = newName
         this.setState( {playerOne}, () => {
             AsyncStorage.setItem('playerAll',JSON.stringify(this.state))
-        } )
+        })
 
     }
 
@@ -108,6 +96,12 @@ export class AppProvider extends React.Component {
         this.setState( {playerOne} )
     }
 
+    setUnit = (newUnits) => {
+        const playerOne = {...this.state.playerOne}
+        playerOne.units = playerOne.terrain.concat(newUnits);
+          this.setState( {playerOne} );
+    }
+
     render () {
         return (
             <AppContext.Provider value={{
@@ -115,7 +109,8 @@ export class AppProvider extends React.Component {
                 setName: this.setName,
                 setMap: this.setMap,
                 addTerrainObject: this.addTerrainObject,
-                setFaction: this.setFaction
+                setFaction: this.setFaction,
+                setUnit: this.setUnit
             }}>
                 {this.props.children}
             </AppContext.Provider>

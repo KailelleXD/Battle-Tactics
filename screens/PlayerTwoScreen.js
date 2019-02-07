@@ -3,7 +3,7 @@ import { Text, StyleSheet, View, Button } from 'react-native'
 // components
 import PlayerScreenSubHeader from '../components/PlayerScreenSubHeader'
 // context
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class PlayeTwoScreen extends Component {
