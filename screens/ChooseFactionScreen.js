@@ -16,7 +16,7 @@ export default class ChooseFactionScreen extends Component {
       <View>
         <Text>This is the Choose Faction screen</Text>
         <FactionSelector />
-        <NextButton path=""/>
+        <NextButton path="Units"/>
       </View>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View } from 'react-native'
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
 import TerrainSideMenu from '../components/TerrainSideMenu';
 import NextButton from '../components/NextButton';
 

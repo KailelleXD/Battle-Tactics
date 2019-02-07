@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
 
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
 import FactionCard from '../components/FactionCard';
 import Factions from '../utils/data/factions.json';
 

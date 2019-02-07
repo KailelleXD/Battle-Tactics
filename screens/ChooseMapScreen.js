@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Button } from 'react-native'
-import { AppConsumer } from '../context/AppContext';
+import { AppConsumer } from '../storage/AppContext';
+import NextBackWrapper from '../components/NextBackWrapper';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 
 // components
 import MapSelector from '../components/MapSelector'
@@ -17,19 +19,34 @@ export default class ChooseMap extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <View>
-            <Text>This is the choose Map screen</Text>
+          <Grid style={styles.wrapper}>
 
-            <MapSelector />
-            <Text>{context.state.playerOne.mapName}</Text>
+            <Row size={15}>
+              <Text>This is the choose Map screen</Text>
+            </Row>
 
-            <NextButton path="Terrain" />
+            <Row size={70}>
+              <MapSelector />
+              <Text>{context.state.playerOne.mapName}</Text>
+            </Row>
 
-          </View>
+            {/* <NextButton path="Terrain" /> */}
+            <Row size={15}>
+              <NextBackWrapper path="Terrain" />
+            </Row>
+
+          </Grid>
         )}
       </AppConsumer>
     );
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+})

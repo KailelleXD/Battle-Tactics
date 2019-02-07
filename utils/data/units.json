@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "name": "Mk X Gravis",
+      "detail": "Some Gravis Mk details here",
+      "faction": "Chaos Demons"
+  
+    },
+    {
+      "id": 2,
+      "name": "Primaris",
+      "detail": "Some Primaris details here",
+      "faction": "Tau"
+    },
+    {
+      "id": 3,
+      "name": "Teleport Strike",
+      "detail": "Some blah Teleport details here",
+      "faction": "Skitarii"
+    }
+  ]
