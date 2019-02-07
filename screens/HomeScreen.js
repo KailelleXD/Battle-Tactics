@@ -20,7 +20,7 @@ export default class HomeScreen extends Component {
             <HomeScreenButton title='Create' />
             <HomeScreenButton title='Load' />
             <HomeScreenButton title='Settings' />
-            <HomeScreenButton title='Deployment' />
+            <HomeScreenButton title='Detachment' />
           </View>
         )}
       </AppConsumer>
