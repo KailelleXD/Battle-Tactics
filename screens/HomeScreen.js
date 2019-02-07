@@ -33,6 +33,12 @@ export default class HomeScreen extends Component {
                   <Row style={styles.row}>
                     <HomeScreenButton title='Settings' />
                   </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='Detachment' />
+                  </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='TestScreen' />
+                  </Row>
 
               </Col>
 
