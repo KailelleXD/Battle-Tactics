@@ -6,6 +6,11 @@ import UnitSelector from '../components/UnitSelector';
 import NextBackWrapper from '../components/NextBackWrapper';
 
 export default class ChooseUnitScreen extends Component {
+  static navigationOptions = {
+    title: 'Choose Unit',
+    headerLeft: null
+  };
+
   render() {
     return (
       <Container>
