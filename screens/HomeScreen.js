@@ -13,16 +13,23 @@ export default class HomeScreen extends Component {
     title: 'Battle-Tactics',
   };
 
+  
   render() {
     // const { navigate } = this.props.navigation;
     return (
       <AppConsumer>
         { (context) => (
           <Container>
-          
+            {console.log(context.state)}        
             <Grid>
 
               <Col style={styles.col}>
+
+                  {/* for testing 
+                   <Row style={styles.row}>
+                     <HomeScreenButton title='GameReview' />
+                   </Row> */}
+
 
                   <Row style={styles.row}>
                     <HomeScreenButton title='Create' />

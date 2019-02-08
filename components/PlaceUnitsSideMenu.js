@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, Button } from 'react-native';
 // import Drawer from 'react-native-drawer';
 import { AppConsumer } from '../storage/AppContext';
+// import { uuid } from 'react-native-uuid'
 
 export default class PlaceUnitsSideMenu extends Component {
+
   render() {
     return (
       <AppConsumer>
@@ -17,6 +19,7 @@ export default class PlaceUnitsSideMenu extends Component {
                   context.addUnitPlacementObject({
                     name: unit.name,
                     id: unit.id
+                    // id: uuid()
                   });
                 }}
               />

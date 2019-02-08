@@ -26,12 +26,19 @@ export default class ChooseTerrain extends Component {
                   <Text>This is the choose terrain screen</Text>
                   <Text>Current Map:{context.state.playerOne.mapName}</Text>
                 </Row>
-                <Row size={70}>
+                
+                <Row size={35}>
                 <TerrainSideMenu />
-                  {context.state.playerOne.terrain.map(terrain => (
-                    <Text key={terrain.id}>{terrain.name}</Text>
-                    ))}
                 </Row>
+
+                <Row size={35}>
+                  <Col>
+                    {context.state.playerOne.terrain.map(terrain => (
+                      <Text key={terrain.id}>{terrain.name}</Text>
+                    ))}
+                  </Col>
+                </Row>
+                
                 <Row size={15}>
                   <NextBackWrapper path="BattleScribe"/>
                 </Row>

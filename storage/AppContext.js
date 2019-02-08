@@ -48,18 +48,19 @@ export class AppProvider extends React.Component {
             faction: "",
             units: [],
             points: 0,
+            test: "**** TESTER ****",
             randomStart: false
         },
     }
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("playerAll").then((value) => {
+    AsyncStorage.getItem("Game").then((value) => {
 
 
         if (!value) {
             allPlayers = initialState
-            AsyncStorage.setItem('playerAll', JSON.stringify(initialState))
+            AsyncStorage.setItem('Game', JSON.stringify(initialState))
 
         } else {
             allPlayers = JSON.parse(value)
@@ -75,7 +76,7 @@ export class AppProvider extends React.Component {
       const playerOne = {...this.state.playerOne}
       playerOne.name = newName
         this.setState( {playerOne}, () => {
-            AsyncStorage.setItem('playerAll',JSON.stringify(this.state))
+            AsyncStorage.setItem('Game',JSON.stringify(this.state))
         })
 
     }
@@ -107,6 +108,7 @@ export class AppProvider extends React.Component {
     addUnitPlacementObject = (newUnitPlacementObject) => {
       const playerOne = {...this.state.playerOne}
       playerOne.unitPlacement = playerOne.unitPlacement.concat(newUnitPlacementObject);
+      // playerone.units = playerOne.units.slice( { id: newUnitPlacementObject.id } );
         this.setState( {playerOne} )
     }
 

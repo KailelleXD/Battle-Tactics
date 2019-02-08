@@ -37,7 +37,7 @@ class HomeScreenButton extends Component {
           >
             <Text>{this.props.title}</Text>
           </Button>
-        ):<Text>"font not loaded"</Text>}
+        ):<Text style={styles.text}>"font not loaded"</Text>}
       </View>
 
 
@@ -62,6 +62,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10
   },
+
+  text: {
+    color: "red"
+  }
 
 })
 
