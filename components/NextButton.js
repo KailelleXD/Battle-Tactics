@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Container, Button, Text } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
 
@@ -23,7 +23,7 @@ class NextButton extends React.Component {
 
   render() {
     return (
-      <View>
+      <Container>
       {this.state.fontLoaded ? (
         <Button 
           info
@@ -34,7 +34,7 @@ class NextButton extends React.Component {
           <Text>Next</Text>
         </Button>
       ):<Text>"Font of NextButton not loaded"</Text>}
-    </View>
+    </Container>
     )
   }
 }

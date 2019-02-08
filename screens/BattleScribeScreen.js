@@ -1,31 +1,44 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Container, Text, Button } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
-import NextButton from '../components/NextButton';
+import NextBackWrapper from '../components/NextBackWrapper';
 
 export default class BattleScribeScreen extends Component {
   static navigationOptions = {
     title: 'BattleScribe Import',
+    headerLeft: null
   };
 
   render() {
     const { navigate } = this.props.navigation;
 
     return (
-      <View>
-        <Text>This is the BattleScribe screen</Text>
-
-        <Button
-          title="IMPORT"
-        // onPress={() => }
-        />
-
-
-        <NextButton path="Factions" />
-
-      </View>
+      <Container>
+        <Grid style={styles.grid}>
+          <Row size={15}>
+            <Text>This is the BattleScribe screen</Text>
+          </Row>
+          <Row size={70}>
+            <Button>
+              <Text>Import</Text>
+            </Button>
+          </Row>
+          <Row size={15}>
+            <NextBackWrapper path="Factions" />
+          </Row>
+        </Grid>
+      </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  grid: {
+    display: "flex",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around"
+  },
+})

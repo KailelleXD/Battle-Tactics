@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button } from 'react-native'
-import { AppConsumer } from '../storage/AppContext';
-import NextBackWrapper from '../components/NextBackWrapper';
+import { StyleSheet } from 'react-native';
+import { Text } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
-
 // components
 import MapSelector from '../components/MapSelector'
-import NextButton from '../components/NextButton';
+import NextBackWrapper from '../components/NextBackWrapper';
+// context
+import { AppConsumer } from '../storage/AppContext';
 
 export default class ChooseMap extends Component {
   static navigationOptions = {
     title: 'Choose Map',
+    headerLeft: null
   };
 
   render() {
@@ -19,7 +20,7 @@ export default class ChooseMap extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <Grid style={styles.wrapper}>
+          <Grid style={styles.grid}>
 
             <Row size={15}>
               <Text>This is the choose Map screen</Text>
@@ -43,7 +44,7 @@ export default class ChooseMap extends Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  grid: {
     display: "flex",
     flex: 1,
     alignItems: "center",

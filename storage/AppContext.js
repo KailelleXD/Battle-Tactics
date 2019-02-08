@@ -56,7 +56,7 @@ export class AppProvider extends React.Component {
 
 
         if (!value) {
-            allPlayers = defaultPlayerAll
+            allPlayers = initialState
             AsyncStorage.setItem('playerAll', JSON.stringify(initialState))
 
         } else {
