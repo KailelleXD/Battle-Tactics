@@ -13,6 +13,8 @@ import FactionDetailScreen from '../screens/FactionDetailScreen';
 import ChooseUnitScreen from '../screens/ChooseUnitScreen';
 import Detachment from '../components/Detachment/Detachment';
 import TestScreen from '../screens/TestScreen';
+import ChooseDeploymentScreen from '../screens/ChooseDeploymentScreen';
+import PlaceUnitsScreen from '../screens/PlaceUnitsScreen';
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -27,7 +29,9 @@ const StackNavigator = createStackNavigator({
     FactionDetail: FactionDetailScreen,
     Units: ChooseUnitScreen,
     Detachment: Detachment,
-    TestScreen: TestScreen
+    TestScreen: TestScreen,
+    DeploymentArea: ChooseDeploymentScreen,
+    PlaceUnits: PlaceUnitsScreen
   });
   
 const NavigationContainer = createAppContainer(StackNavigator);

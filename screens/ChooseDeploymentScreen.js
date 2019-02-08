@@ -5,12 +5,12 @@ import NextBackWrapper from '../components/NextBackWrapper';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 
 // components
-import MapSelector from '../components/MapSelector'
+import DeploymentSelector from '../components/DeploymentSelector'
 import NextButton from '../components/NextButton';
 
-export default class ChooseMap extends Component {
+export default class ChooseDeployment extends Component {
   static navigationOptions = {
-    title: 'Choose Map',
+    title: 'Choose Deployment',
   };
 
   render() {
@@ -22,20 +22,19 @@ export default class ChooseMap extends Component {
           <Grid style={styles.wrapper}>
 
             <Row size={15}>
-              <Text>This is the choose Map screen</Text>
+              <Text>This is the choose Deployment screen</Text>
             </Row>
 
             <Row size={60}>
-              <MapSelector />
+              <DeploymentSelector />
             </Row>
 
             <Row size={10}>
-              <Text>{context.state.playerOne.mapName}</Text>
+            <Text>{context.state.playerOne.deploymentArea}</Text>
             </Row>
 
-            {/* <NextButton path="Terrain" /> */}
             <Row size={15}>
-              <NextBackWrapper path="Terrain" />
+              <NextBackWrapper path="PlaceUnits" />
             </Row>
 
           </Grid>

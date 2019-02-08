@@ -17,11 +17,16 @@ export default class UnitSelector extends Component {
                   key={unit.id} 
                   name={unit.name} 
                   cardPress={() => {
-                    context.setUnit(unit.name)
+                    context.setUnit({name: unit.name, id: unit.id})
                   }}
                 ></UnitCard>
             ))}
-            <Text>Unit: {context.state.playerOne.unit}</Text>
+
+            {context.state.playerOne.units.map(unit => (
+            <Text key={unit.id}>Unit: {unit.name}</Text>
+            ))}
+          
+          
           </View>
         )}
       </AppConsumer>
