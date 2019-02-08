@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native';
-import { Text } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
-// components
-import MapSelector from '../components/MapSelector'
-import NextBackWrapper from '../components/NextBackWrapper';
-// context
+import { Text, StyleSheet, View, Button } from 'react-native'
 import { AppConsumer } from '../storage/AppContext';
+import NextBackWrapper from '../components/NextBackWrapper';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 
-export default class ChooseMap extends Component {
+// components
+import DeploymentSelector from '../components/DeploymentSelector'
+import NextButton from '../components/NextButton';
+
+export default class ChooseDeployment extends Component {
   static navigationOptions = {
-    title: 'Choose Map',
-    headerLeft: null
+    title: 'Choose Deployment',
   };
 
   render() {
@@ -20,23 +19,22 @@ export default class ChooseMap extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <Grid style={styles.grid}>
+          <Grid style={styles.wrapper}>
 
             <Row size={15}>
-              <Text>This is the choose Map screen</Text>
+              <Text>This is the choose Deployment screen</Text>
             </Row>
 
             <Row size={60}>
-              <MapSelector />
+              <DeploymentSelector />
             </Row>
 
             <Row size={10}>
-              <Text>{context.state.playerOne.mapName}</Text>
+            <Text>{context.state.playerOne.deploymentArea}</Text>
             </Row>
 
-            {/* <NextButton path="Terrain" /> */}
             <Row size={15}>
-              <NextBackWrapper path="Terrain" />
+              <NextBackWrapper path="PlaceUnits" />
             </Row>
 
           </Grid>
@@ -47,7 +45,7 @@ export default class ChooseMap extends Component {
 }
 
 const styles = StyleSheet.create({
-  grid: {
+  wrapper: {
     display: "flex",
     flex: 1,
     alignItems: "center",

@@ -33,9 +33,11 @@ export class AppProvider extends React.Component {
         playerOne: {
             name: "jack",
             mapName: "",
+            deploymentArea: "",
             terrain: [],
             faction: "",
             units: [],
+            unitPlacement: [],
             points: 0,
             randomStart: false
         },
@@ -46,18 +48,19 @@ export class AppProvider extends React.Component {
             faction: "",
             units: [],
             points: 0,
+            test: "**** TESTER ****",
             randomStart: false
         },
     }
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("playerAll").then((value) => {
+    AsyncStorage.getItem("Game").then((value) => {
 
 
         if (!value) {
             allPlayers = initialState
-            AsyncStorage.setItem('playerAll', JSON.stringify(initialState))
+            AsyncStorage.setItem('Game', JSON.stringify(initialState))
 
         } else {
             allPlayers = JSON.parse(value)
@@ -73,7 +76,7 @@ export class AppProvider extends React.Component {
       const playerOne = {...this.state.playerOne}
       playerOne.name = newName
         this.setState( {playerOne}, () => {
-            AsyncStorage.setItem('playerAll',JSON.stringify(this.state))
+            AsyncStorage.setItem('Game',JSON.stringify(this.state))
         })
 
     }
@@ -90,15 +93,28 @@ export class AppProvider extends React.Component {
         this.setState( {playerOne} )
     }
 
+    setDeploymentArea = (newDeploymentArea) => {
+      const playerOne = {...this.state.playerOne}
+      playerOne.deploymentArea = newDeploymentArea
+        this.setState( {playerOne} )
+    }
+
     addTerrainObject = (newTerrainObject) => {
       const playerOne = {...this.state.playerOne}
       playerOne.terrain = playerOne.terrain.concat(newTerrainObject);
         this.setState( {playerOne} )
     }
 
-    setUnit = (newUnits) => {
+    addUnitPlacementObject = (newUnitPlacementObject) => {
+      const playerOne = {...this.state.playerOne}
+      playerOne.unitPlacement = playerOne.unitPlacement.concat(newUnitPlacementObject);
+      // playerone.units = playerOne.units.slice( { id: newUnitPlacementObject.id } );
+        this.setState( {playerOne} )
+    }
+
+    setUnit = (newUnit) => {
         const playerOne = {...this.state.playerOne}
-        playerOne.units = playerOne.terrain.concat(newUnits);
+        playerOne.units = playerOne.units.concat(newUnit);
           this.setState( {playerOne} );
     }
 
@@ -110,7 +126,9 @@ export class AppProvider extends React.Component {
                 setMap: this.setMap,
                 addTerrainObject: this.addTerrainObject,
                 setFaction: this.setFaction,
-                setUnit: this.setUnit
+                setUnit: this.setUnit,
+                setDeploymentArea: this.setDeploymentArea,
+                addUnitPlacementObject: this.addUnitPlacementObject
             }}>
                 {this.props.children}
             </AppContext.Provider>
