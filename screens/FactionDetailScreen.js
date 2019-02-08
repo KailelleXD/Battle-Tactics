@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Container, Text } from 'native-base';
 import { AppConsumer } from '../storage/AppContext';
 
 class FactionDetailScreen extends Component {
@@ -7,9 +8,9 @@ class FactionDetailScreen extends Component {
     const { navigation } = this.props
     const detail = navigation.getParam('detail', 'default value')
     return (
-      <View>
+      <Container>
         <Text>Detail:{detail}</Text>
-      </View>
+      </Container>
     )
   }
 }
