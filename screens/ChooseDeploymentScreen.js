@@ -11,6 +11,7 @@ import NextButton from '../components/NextButton';
 export default class ChooseDeployment extends Component {
   static navigationOptions = {
     title: 'Choose Deployment',
+    headerLeft: null
   };
 
   render() {

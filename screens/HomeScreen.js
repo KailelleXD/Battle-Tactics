@@ -25,8 +25,8 @@ export default class HomeScreen extends Component {
 
               <Col style={styles.col}>
 
-                  {/* for testing 
-                   <Row style={styles.row}>
+
+                   {/* <Row style={styles.row}>
                      <HomeScreenButton title='GameReview' />
                    </Row> */}
 
