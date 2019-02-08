@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, ScrollView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
+import { Container, Text } from 'native-base';
+import { Grid, Col, Row } from 'react-native-easy-grid';
 
 import { AppConsumer } from '../storage/AppContext';
 import FactionCard from '../components/FactionCard';
@@ -11,23 +13,22 @@ export default class FactionSelector extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <View>
+          <Container>
+
             {Factions.map(faction => (
-                <FactionCard 
-                  key={faction.id} 
-                  name={faction.name} 
-                  detail={faction.detail} 
-                  path="FactionDetail"
-                  cardPress={() => {
-                    context.setFaction(faction.name)
-                  }}
-                ></FactionCard>
-            ))}
+              <FactionCard 
+              key={faction.id} 
+              name={faction.name} 
+              detail={faction.detail} 
+              path="FactionDetail"
+              cardPress={() => {
+                context.setFaction(faction.name)
+              }}
+              ></FactionCard>
+              ))}
+
             <Text>Faction: {context.state.playerOne.faction}</Text>
-
-            
-
-          </View>
+          </Container>
         )}
       </AppConsumer>
     )

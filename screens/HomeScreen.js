@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Container } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-import { Container, Content } from 'native-base';
 // screens
 import HomeScreenButton from '../components/HomeScreenButton';
 // context
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     // flex: 1,
     // justifyContent: "center",
     // margin: 20,
-    padding: 80,
+    padding: 10,
     // display: "flex",
     // borderWidth: 1,
     // borderColor: "black",
