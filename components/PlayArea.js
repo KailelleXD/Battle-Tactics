@@ -11,6 +11,23 @@ import {
 
 let Window = Dimensions.get("window");
 export default class PlayArea extends Component {
+    state = {
+        zoom: true,
+    };
+
+    lastTap = null;
+    handleDoubleTap = () => {
+        const now = Date.now();
+        const DOUBLE_PRESS_DELAY = 300;
+        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
+            this.toggleZoom();
+            console.log("DoubleTap!");
+        } else {
+            this.lastTap = now;
+            console.log("no Doubletap.");
+        }
+    };
+    
     constructor(props) {
       super(props);
     
@@ -20,7 +37,11 @@ export default class PlayArea extends Component {
       position.addListener((value) => this.val = value);
     
       const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: () => {
+            if(this.state.zoom === true){
+                return true;
+            }
+        },
         onPanResponderGrant: (e, gesture) => {
             this.position.setOffset({
               x: this.val.x,
@@ -40,34 +61,16 @@ export default class PlayArea extends Component {
     
     }
     
-    lastTap = null;
-    handleDoubleTap = () => {
-        const now = Date.now();
-        const DOUBLE_PRESS_DELAY = 300;
-        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            this.toggleLike();
-            console.log("DoubleTap!");
-        } else {
-            this.lastTap = now;
-            console.log("no Doubletap.");
-        }
-    };
-
-    state = {
-        zoom: true,
-      };
-    
-    toggleLike = () => this.setState(state => ({ zoom: !state.zoom }));
-
+    toggleZoom = () => this.setState(state => ({ zoom: !state.zoom }));
 
     renderMap() {
         return (
             <Animated.View
-                style={this.position.getLayout()} {...this.panResponder.panHandlers}>
-                    <Image
-                        style={this.state.zoom ? styles.mapStyleZoom : styles.mapStyle}
-                        source={require("../graphics/temp/fullsize4x6gridModified.png")}
-                    />
+                style={this.position.getLayout()}>
+                <Image
+                    style={this.state.zoom ? styles.mapStyleZoom : styles.mapStyle}
+                    source={require("../graphics/temp/fullsize4x6gridModified.png")}
+                />
             </Animated.View>
         );
     }
@@ -75,11 +78,11 @@ export default class PlayArea extends Component {
     touchableMap() {
         return (
             <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-                {this.renderMap()}
+                {this.renderMap()}                
             </TouchableWithoutFeedback>
         )
     }
-    
+
     render() {
         return (
             <View>
