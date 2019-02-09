@@ -10,8 +10,6 @@ import {
 } from "react-native";
 
 let Window = Dimensions.get("window");
-const SCREEN_WIDTH = Window.width;
-
 export default class PlayArea extends Component {
     constructor(props) {
       super(props);
@@ -26,7 +24,7 @@ export default class PlayArea extends Component {
         onPanResponderGrant: (e, gesture) => {
             this.position.setOffset({
               x: this.val.x,
-              y:this.val.y
+              y: this.val.y
             });
           },
         onPanResponderMove: (event, gesture) => {
@@ -56,27 +54,38 @@ export default class PlayArea extends Component {
     };
 
     state = {
-        zoom: false,
+        zoom: true,
       };
     
     toggleLike = () => this.setState(state => ({ zoom: !state.zoom }));
 
 
-    renderModels() {
+    renderMap() {
         return (
-            <Animated.View {...this.panResponder.panHandlers}>
-                {/* <TouchableWithoutFeedback onPress={this.handleDoubleTap}> */}
+            <Animated.View
+                style={this.position.getLayout()} {...this.panResponder.panHandlers}>
                     <Image
                         style={this.state.zoom ? styles.mapStyleZoom : styles.mapStyle}
                         source={require("../graphics/temp/fullsize4x6gridModified.png")}
                     />
-                {/* </TouchableWithoutFeedback> */}
             </Animated.View>
         );
     }
 
+    touchableMap() {
+        return (
+            <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
+                {this.renderMap()}
+            </TouchableWithoutFeedback>
+        )
+    }
+    
     render() {
-        return <View>{this.renderModels()}</View>;
+        return (
+            <View>
+                {this.touchableMap()}
+            </View>
+        )
     }
 }
 
