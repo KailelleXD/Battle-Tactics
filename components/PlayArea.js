@@ -63,12 +63,10 @@ export default class PlayArea extends Component {
         }
     };
 
-    toggleLike() {
-        console.log("state has been switched " + this.state.isZoomedOut)
-        this.setState({
-            isZoomedOut: !this.state.zoom
-        })
-        console.log("state has been switched " + this.state.isZoomedOut)
+    toggleLike = () => {
+        this.setState(previousState => (
+            { isZoomedOut: !previousState.isZoomedOut }
+        ))
     }
 
 render() {
