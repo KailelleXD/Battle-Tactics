@@ -34,8 +34,8 @@ export default class PlayArea extends Component {
         return (
             <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
                 <Image
-                    style={styles.mapStyle}
-                    source={require("../graphics/temp/fullsize4x6grid1424pxBorder.png")}
+                    style={this.state.liked ? styles.mapStyle : styles.mapStyleZoom}
+                    source={require("../graphics/temp/fullsize4x6gridModified.png")}
                 />
             </TouchableWithoutFeedback>
         );
@@ -54,5 +54,9 @@ const styles = StyleSheet.create({
     mapStyle: {
         height: Window.height,
         width: Window.width
+    },
+    mapStyleZoom: {
+        height: Window.height * 4,
+        width: Window.Width * 4
     }
 });
