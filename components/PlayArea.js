@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { 
     Image, 
     StyleSheet, 
-    View,
     Animated,
     PanResponder,
     Dimensions,
@@ -41,7 +40,7 @@ export default class PlayArea extends Component {
                 position.setValue({ x: gesture.dx, y: gesture.dy })
             },
             onPanResponderRelease: (event, gesture) => {
-                position.setValue({ x: gesture.dx, y: gesture.dy })
+                // position.setValue({ x: gesture.dx, y: gesture.dy })
             }
         });
 
@@ -67,6 +66,12 @@ export default class PlayArea extends Component {
         this.setState(previousState => (
             { isZoomedOut: !previousState.isZoomedOut }
         ))
+        console.log(this.state.isZoomedOut);
+        if (this.state.isZoomedOut === false) {    
+            Animated.spring(this.position, {
+                toValue: { x: 0, y: 0 }
+            }).start()
+        }
     }
 
 render() {
