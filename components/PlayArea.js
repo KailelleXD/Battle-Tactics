@@ -1,108 +1,93 @@
-import React, { Component } from "react";
-import {
-    Image,
+import React, { Component } from 'react'
+import { 
+    Image, 
+    StyleSheet, 
     View,
-    Dimensions,
-    StyleSheet,
-    PanResponder,
     Animated,
+    PanResponder,
+    Dimensions,
     TouchableWithoutFeedback
-} from "react-native";
+} from 'react-native'
 
-let Window = Dimensions.get("window");
+let Window = Dimensions.get('window');
 export default class PlayArea extends Component {
-    state = {
-        zoom: true,
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isZoomedOut: true
+        }
+
+        const position = new Animated.ValueXY();
+
+        this.val = { x:0, y:0 }
+        position.addListener((value) => this.val = value);
+
+        const panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: (event, gesture) => {
+                if (gesture.numberActiveTouches > 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            onPanResponderGrant: (event, gesture) => {
+                this.position.setOffset({
+                    x: this.val.x,
+                    y: this.val.y
+                });
+            },
+            onPanResponderMove: (event, gesture) => {
+                position.setValue({ x: gesture.dx, y: gesture.dy })
+            },
+            onPanResponderRelease: (event, gesture) => {
+                position.setValue({ x: gesture.dx, y: gesture.dy })
+            }
+        });
+
+        this.panResponder = panResponder;
+        this.position = position;
+
+    }
 
     lastTap = null;
     handleDoubleTap = () => {
         const now = Date.now();
         const DOUBLE_PRESS_DELAY = 300;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            this.toggleZoom();
+            this.toggleLike();
             console.log("DoubleTap!");
         } else {
             this.lastTap = now;
             console.log("no Doubletap.");
         }
     };
-    
-    constructor(props) {
-      super(props);
-    
-      const position = new Animated.ValueXY();
-    
-      this.val = { x:0, y:0 }
-      position.addListener((value) => this.val = value);
-    
-      const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: () => {
-            if(this.state.zoom === true){
-                return true;
-            }
-        },
-        onPanResponderGrant: (e, gesture) => {
-            this.position.setOffset({
-              x: this.val.x,
-              y: this.val.y
-            });
-          },
-        onPanResponderMove: (event, gesture) => {
-            position.setValue({ x: gesture.dx, y: gesture.dy })
-        },
-        onPanResponderRelease: (event, gesture) => {
-            position.setValue({ x: gesture.dx, y: gesture.dy })
-        }
-    });
-    
-    this.panResponder = panResponder;
-    this.position = position;
-    
-    }
-    
-    toggleZoom = () => this.setState(state => ({ zoom: !state.zoom }));
 
-    renderMap() {
-        return (
-            <Animated.View
-                style={this.position.getLayout()}>
-                <Image
-                    style={this.state.zoom ? styles.mapStyleZoom : styles.mapStyle}
-                    source={require("../graphics/temp/fullsize4x6gridModified.png")}
-                />
-            </Animated.View>
-        );
+    toggleLike() {
+        console.log("state has been switched " + this.state.isZoomedOut)
+        this.setState({
+            isZoomedOut: !this.state.zoom
+        })
+        console.log("state has been switched " + this.state.isZoomedOut)
     }
 
-    touchableMap() {
-        return (
-            <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-                {this.renderMap()}                
-            </TouchableWithoutFeedback>
-        )
-    }
-
-    render() {
-        return (
-            <View>
-                {this.touchableMap()}
-            </View>
-        )
-    }
+render() {
+    return (
+        <Animated.View
+            style={[this.position.getLayout(), styles.containerStyle]}
+            {...this.panResponder.panHandlers}
+        >
+        <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
+            <Image source={this.state.isZoomedOut ? require('../graphics/temp/fullsize4x6grid11pt5pct.png') : require('../graphics/temp/fullsize4x6grid25pct.png')} />
+        </TouchableWithoutFeedback>
+        </Animated.View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
     containerStyle: {
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    mapStyle: {
-        height: Window.height,
-        width: Window.width
-    },
-    mapStyleZoom: {
-        height: Window.height * 4,
-        width: Window.Width * 4
+        justifyContent: 'center',
+        alignItems: 'center'
     }
-});
+})
