@@ -29,8 +29,7 @@ export default class PlayArea extends Component {
             },
             onPanResponderGrant: (event, gesture) => {
                 this.position.setOffset(this.position.__getValue());
-                console.log(this.position);
-                this.position.setValue({ x: 0, y: 0 });
+                // this.position.setValue({ x: 0, y: 0 });
             },
             onPanResponderMove: (event, gesture) => {
                 if (this.state.isZoomedOut === false) {
@@ -39,6 +38,7 @@ export default class PlayArea extends Component {
             },
             onPanResponderRelease: (event, gesture) => {
                 // position.setValue({ x: gesture.dx, y: gesture.dy })
+                this.position.flattenOffset()
             }
         });
 
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     },
     zoomOut: {
         transform: [
-            {scaleX: 0.5},
-            {scaleY: 0.5}
+            {scaleX: 0.47},
+            {scaleY: 0.47}
         ]
     }
 })
