@@ -67,7 +67,7 @@ export default class PlayArea extends Component {
         // console.log(this.state.isZoomedOut);
         if (this.state.isZoomedOut === false) {    
             Animated.spring(this.position, {
-                toValue: { x: this.val.x, y: this.val.y }
+                toValue: { x: 0, y: 0 }
             }).start()
         }
     }
