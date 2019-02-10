@@ -4,11 +4,8 @@ import {
     StyleSheet, 
     Animated,
     PanResponder,
-    Dimensions,
     TouchableWithoutFeedback
 } from 'react-native'
-
-let Window = Dimensions.get('window');
 export default class PlayArea extends Component {
     constructor(props) {
         super(props);
@@ -31,13 +28,14 @@ export default class PlayArea extends Component {
                 }
             },
             onPanResponderGrant: (event, gesture) => {
-                this.position.setOffset({
-                    x: this.val.x,
-                    y: this.val.y
-                });
+                this.position.setOffset(this.position.__getValue());
+                console.log(this.position);
+                this.position.setValue({ x: 0, y: 0 });
             },
             onPanResponderMove: (event, gesture) => {
-                position.setValue({ x: gesture.dx, y: gesture.dy })
+                if (this.state.isZoomedOut === false) {
+                    position.setValue({ x: gesture.dx, y: gesture.dy })
+                }
             },
             onPanResponderRelease: (event, gesture) => {
                 // position.setValue({ x: gesture.dx, y: gesture.dy })
@@ -55,10 +53,10 @@ export default class PlayArea extends Component {
         const DOUBLE_PRESS_DELAY = 300;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
             this.toggleLike();
-            console.log("DoubleTap!");
+            // console.log("DoubleTap!");
         } else {
             this.lastTap = now;
-            console.log("no Doubletap.");
+            // console.log("no Doubletap.");
         }
     };
 
@@ -66,10 +64,10 @@ export default class PlayArea extends Component {
         this.setState(previousState => (
             { isZoomedOut: !previousState.isZoomedOut }
         ))
-        console.log(this.state.isZoomedOut);
+        // console.log(this.state.isZoomedOut);
         if (this.state.isZoomedOut === false) {    
             Animated.spring(this.position, {
-                toValue: { x: 0, y: 0 }
+                toValue: { x: this.val.x, y: this.val.y }
             }).start()
         }
     }
@@ -81,7 +79,7 @@ render() {
             {...this.panResponder.panHandlers}
         >
         <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-            <Image source={this.state.isZoomedOut ? require('../graphics/temp/fullsize4x6grid11pt5pct.png') : require('../graphics/temp/fullsize4x6grid25pct.png')} />
+            <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pct.png')} />
         </TouchableWithoutFeedback>
         </Animated.View>
     )
@@ -91,6 +89,20 @@ render() {
 const styles = StyleSheet.create({
     containerStyle: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%',
+        height: '100%'
+    },
+    zoomIn: {
+        transform: [
+            {scaleX: 1},
+            {scaleY: 1}
+        ]
+    },
+    zoomOut: {
+        transform: [
+            {scaleX: 0.5},
+            {scaleY: 0.5}
+        ]
     }
 })
