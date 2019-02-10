@@ -1,21 +1,440 @@
 [
-    {
-      "id": 1,
-      "name": "Mk X Gravis",
-      "detail": "Some Gravis Mk details here",
-      "faction": "Chaos Demons"
-  
+  {
+	"id": "2342-4534-2341",
+	"name": "Broodlord",
+	"type": "model",
+  "bf_role": "HQ",
+	"profile": {
+
+		"M": 8,
+		"WS": 2,
+		"BS": null,
+		"S": 5,
+		"T": 5,
+		"W": 6,
+		"A": 6,
+		"Ld": 10,
+		"Sv": "+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileTwo": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileThree": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		}
+	},
+	"abilities": {
+    "Synapse, Shadow in the Warp": "Enemy PSYKERS must subtract 1 from any Pyschic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affect.",
+    "Lightning Reflexes": "This model has a 5+ invulnerable save.",
+    "Swift and Deadly": "This model can charge even if it Advanced during it's turn.",
+    "Brood Telepathy": "You can add 1 to hit rolls in the Fight phase for <HIVE FLEET> Genestealer units within 6\" of any friendly <HIVE FLEET> Broodlords."
+	},
+  "Monstrous Rending Claws": {
+    "range": "Melee",
+    "type": "Melee",
+    "s": "User",
+    "ap": "-3",
+    "d": "d3",
+    "abilities": "You can re-roll failed wound rolls for this weapon. In addition, each time you make a wound roll of 6+, that hit is resolved with an AP of -6 and Damage of 3."
+  },
+	"keywords": ["CHARACTER", "INFANTRY", "GENESTEALER", "PSYKER", "SYNAPSE", "BROODLORD"],
+	"faction": ["TYRANIDS", "<HIVE FLEET>"]
+},
+{
+	"id": "2342-4534-2342",
+	"name": "Hive Tyrant",
+	"type": "model",
+  "bf_role": "HQ",
+	"profile": {
+
+		"M": "*",
+		"WS": "*",
+		"BS": "*",
+		"S": 6,
+		"T": 7,
+		"W": 12,
+		"A": 4,
+		"Ld": 10,
+		"Sv": "3+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": "7/12+",
+			"M": "9/16",
+			"WS": "2+",
+			"BS": "3+"
+		},
+		"profileTwo": {
+			"W": "4-6",
+			"M": "7/12",
+			"WS": "3+",
+			"BS": "3+"
+		},
+		"profileThree": {
+			"W": "1-3",
+			"M": "5/8",
+			"WS": "4+",
+			"BS": "4+"
+		}
+	},
+	"abilities": {
+    "Synapse, Shadow in the Warp": "Enemy PSYKERS must subtract 1 from any Pyschic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affect.",
+    "The Will of the Hive Mind": "The range of a Hive Tyrant's Synapse ability is 18\" rather than 12\".",
+    "Swooping Assault": "During deployment, you can set up a Hive Tyrant with wings circling high above instead of placing it on the battlefield. At the end of any of your Movement phases it can swoop down – set it up anywhere on the battlefield that is more than 9\" from any enemy models.",
+    "Death Throes": "If this model is reduced to 0 wounds, roll a dice before removing the model from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds.",
+    "Psychic Barrier": "A Hive Tyrant has a 4+ invulnerable save."
+	},
+  "Monstrous scything talons": {
+    "range": "Melee",
+    "type": "Melee",
+    "s": "User",
+    "ap": "-3",
+    "d": "3",
+    "abilities": "You can re-roll hit rolls of 1 for this weapon. If the bearer has more than one pair of monstrous scything talons, it can make 1 additional attack with this weapon each time it fights."
+  },
+  "Prehensile pincer tail": {
+    "range": "Melee",
+    "type": "Melee",
+    "s": "User",
+    "ap": "-3",
+    "d": 3,
+    "abilities": "Each time the bearer fights, it can make one (and only one) attack with this weapon. This is in addition to the bearer’s attacks."
+  },
+	"keywords": ["CHARACTER", "MONSTER", "PSYKER", "SYNAPSE", "HIVE TYRANT"],
+	"faction": ["TYRANIDS", "<HIVE FLEET>"]
+},
+{
+	"id": "2342-4534-2343",
+	"name": "Tyranid Warriors",
+	"type": "model",
+  "bf_role": "Troops",
+	"profile": {
+
+		"M": 6,
+		"WS": "3+",
+		"BS": "4+",
+		"S": 4,
+		"T": 4,
+		"W": 3,
+		"A": 3,
+		"Ld": 9,
+		"Sv": "4+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileTwo": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileThree": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		}
+	},
+	"abilities": {
+    "Synapse, Shadow in the Warp": "Enemy PSYKERS must subtract 1 from any Pyschic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affect."
+	},
+	"weapons": {
+    "Devourer": {
+      "range": 18,
+      "type": "Assault 3",
+      "s": 4,
+      "ap": 0,
+      "d": 1,
+      "abilities": "-"
     },
-    {
-      "id": 2,
-      "name": "Primaris",
-      "detail": "Some Primaris details here",
-      "faction": "Tau"
+    "Flesh hooks": {
+      "range": 6,
+      "type": "Assault 2",
+      "s": "User",
+      "ap": 0,
+      "d": 1,
+      "abilities": "This weapon can be fired within 1\" of an enemy unit, and can target enemy units within 1\" of friendly units."
     },
-    {
-      "id": 3,
-      "name": "Teleport Strike",
-      "detail": "Some blah Teleport details here",
-      "faction": "Skitarii"
+    "Scything talons": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "User",
+      "ap": 0,
+      "d": 1,
+      "abilities": "You can re-roll hit rolls of 1 for this weapon. If the bearer has more than one pair of scything talons, it can make 1 additional attack with this weapon each time it fights."
     }
-  ]
+	},
+	"keywords": ["INFANTRY", "SYNAPSE", "TYRANID WARRIORS"],
+	"faction": ["TYRANIDS", "<HIVE FLEET>"]
+},
+{
+	"id": "2342-4534-2344",
+	"name": "Genestealers",
+	"type": "model",
+  "bf_role": "Troops",
+	"profile": {
+
+		"M": 8,
+		"WS": "3+",
+		"BS": "4+",
+		"S": 4,
+		"T": 4,
+		"W": 1,
+		"A": 3,
+		"Ld": 9,
+		"Sv": "5+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileTwo": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileThree": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		}
+	},
+	"abilities": {
+    "Flurry of Claws": "This model has 4 Attacks instead of 3 whilst their unit has 10 or more models.",
+    "Lightning Reflexes": "This model has a 5+ invulnerable save.",
+    "Swift and Deadly": "This model can charge even if it Advanced during it's turn.",
+    "Extended Carapaces": "Genestealers with extended carapaces have a Save characteristic of 4+ but lose the Swift and Deadly ability.",
+    "Infestation": "If your army includes any units of Genestealers, you can place up to four infestation nodes anywhere in your deployment zone when your army deploys. You can then set up any units of Genestealers lurking, instead of setting them up on the battlefield. If an enemy model is ever within 9\" of an infestation node, the node is destroyed and removed from the battlefield. Whilst there are any friendly infestation nodes on the battlefield, this unit can stop lurking: at the end of your Movement phase, set it up wholly within 6\" of a friendly infestation node. That infestation node is then removed from the battlefield. If this unit is still lurking when the last friendly infestation node is removed, this unit is destroyed."
+	},
+	"weapons": {
+    "Flesh hooks": {
+      "range": 6,
+      "type": "Assault 2",
+      "s": "User",
+      "ap": 0,
+      "d": 1,
+      "abilities": "This weapon can be fired within 1\" of an enemy unit, and can target enemy units within 1\" of friendly units."
+    },
+    "Acid Maw": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "User",
+      "ap": "-3",
+      "d": 1,
+      "abilities": "-"
+    },
+    "Rending Claws": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "User",
+      "ap": "-1",
+      "d": 1,
+      "abilities": "You can re-roll hit rolls of 1 or this weapon."
+    },
+    "Scything talons": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "User",
+      "ap": 0,
+      "d": 1,
+      "abilities": "You can re-roll hit rolls of 1 for this weapon. If the bearer has more than one pair of scything talons, it can make 1 additional attack with this weapon each time it fights."
+    }
+	},
+	"keywords": ["INFANTRY", "GENESTEALERS"],
+	"faction": ["TYRANIDS", "<HIVE FLEET>"]
+},
+{
+	"id": "2342-4534-2345",
+	"name": "Belisarius Cawl",
+	"type": "model",
+  "bf_role": "HQ",
+	"profile": {
+
+		"M": 6,
+		"WS": "2+",
+		"BS": "2+",
+		"S": 5,
+		"T": 6,
+		"W": 8,
+		"A": 4,
+		"Ld": 9,
+		"Sv": "2+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileTwo": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileThree": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		}
+	},
+	"abilities": {
+    "Canticles of the Omnissiah": "See page 73 of the Adeptus Mechanicus Codex",
+    "Archmagos": "Whilst Belisarius Cawl is on the battlefield, you can add or subtract 1 when rolling on the Canticles of the Omnissiah table",
+    "Refractor Field": "Belisarius Cawl has a 5+ invulnerable save.",
+    "Self-repair Mechanisms": "At the beginning of each of your turns, Belisarius Cawl regains D3 lost wounds.",
+    "Master of Machines": "At the end of your Movement phase Belisarius Cawl can repair a single friendly IMPERIUM model within 3\" (but not himself). The model being repaired regains 1 lost wound, unless it is an ADEPTUS MECHANICUS model, in which case it regains D3 lost wounds. A model may not be the target of the Master of Machines ability more than once per turn.",
+    "Lord of Mars": "You can re-roll any hit rolls in the Shooting phase for friendly MARS units within 6\"."
+	},
+	"weapons": {
+    "Solar atomiser": {
+      "range": 12,
+      "type": "Assault d3",
+      "s": 10,
+      "ap": "-4",
+      "d": "d3",
+      "abilities": "If the target is within half range of this weapon, it has a Damage of D6."
+    },
+    "Arc scourge": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "x2",
+      "ap": "-1",
+      "d": 1,
+      "abilities": "When attacking a VEHICLE, this weapon has a Damage of D3."
+    },
+    "Mechandendrite hive": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "User",
+      "ap": 0,
+      "d": 1,
+      "abilities": "Each time Belisarius Cawl fights, he can make 2D6 additional attacks with this weapon."
+    },
+    "Omnissian axe": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "+1",
+      "ap": "-2",
+      "d": 2,
+      "abilities": "-"
+    }
+	},
+	"keywords": ["IMPERIUM", "ADEPTUS MECHANICUS", "CULT MECHANICUS", "MARS"],
+	"faction": ["CHARACTER", "INFANTRY", "TECH-PRIEST", "BELISARIUS CAWL"]
+},
+{
+	"id": "2342-4534-2346",
+	"name": "Tech-Priest Dominus",
+	"type": "model",
+  "bf_role": "HQ",
+	"profile": {
+
+		"M": 6,
+		"WS": "3+",
+		"BS": "2+",
+		"S": 4,
+		"T": 4,
+		"W": 5,
+		"A": 3,
+		"Ld": 8,
+		"Sv": "2+"
+	},
+	"profile_additional": {
+		"profileOne": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileTwo": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		},
+		"profileThree": {
+			"W": null,
+			"M": null,
+			"WS": null,
+			"BS": null
+		}
+	},
+	"abilities": {
+    "Canticles of the Omnissiah": "See page 73 of the Adeptus Mechanicus Codex",
+    "Master of Machines": "At the end of your Movement phase this model can repair a single friendly <FORGE WORLD> or QUESTOR MECHANICUS model within 3\" (but not itself). If the model being repaired is a <FORGE WORLD> model, it regains D3 lost wounds; if it is a QUESTOR MECHANICUS model, it regains 1 lost wound. A model may not be the target of the Master of Machines ability more than once per turn.",
+    "Masterwork Bionics": "At the beginning of each of your turns, this model regains D3 lost wounds.",
+    "Lord of the Machine Cult": "You can re-roll hit rolls of 1 in the Shooting phase for friendly <FORGE WORLD> units within 6\".",
+    "Refractor Field": "This model has a 5+ invulnerable save."
+	},
+	"weapons": {
+    "Eradication ray": {
+      "range": 24,
+      "type": "heavy d3",
+      "s": 6,
+      "ap": "-2",
+      "d": 1,
+      "abilities": "Attacks from this weapon that target enemies at 8\" or less are resolved with an AP of -4 and a Damage of D3."
+    },
+    "Microstubber": {
+      "range": 12,
+      "type": "pistol 5",
+      "s": 4,
+      "ap": 0,
+      "d": 1,
+      "abilities": "-"
+    },
+    "Volkite blaster": {
+      "range": 24,
+      "type": "heavy 3",
+      "s": 6,
+      "ap": 0,
+      "d": 1,
+      "abilities": "Each time you make a wound roll of 6+ for this weapon, the target suffers a mortal wound in addition to any other damage."
+    },
+    "Omnissian axe": {
+      "range": "Melee",
+      "type": "Melee",
+      "s": "+1",
+      "ap": "-2",
+      "d": 2,
+      "abilities": "-"
+    },
+    "Phosphor serpenta": {
+      "range": 18,
+      "type": "assault 1",
+      "s": 5,
+      "ap": "-1",
+      "d": 1,
+      "abilities": "Units attacked by this weapon do not gain any bonus to their saving throws for being in cover."
+    }
+	},
+	"keywords": ["IMPERIUM", "ADEPTUS MECHANICUS", "CULT MECHANICUS", "<FORGE WORLD>"],
+	"faction": ["CHARACTER", "INFANTRY", "TECH-PRIEST", "DOMINUS"]
+}
+]

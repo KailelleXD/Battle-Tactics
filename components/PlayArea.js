@@ -33,6 +33,7 @@ export default class PlayArea extends Component {
             },
             onPanResponderMove: (event, gesture) => {
                 if (this.state.isZoomedOut === false) {
+                    console.log(gesture)
                     position.setValue({ x: gesture.dx, y: gesture.dy })
                 }
             },
