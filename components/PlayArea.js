@@ -79,7 +79,7 @@ render() {
             {...this.panResponder.panHandlers}
         >
         <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-            <Image source={this.state.isZoomedOut ? require('../graphics/temp/fullsize4x6grid11pt5pct.png') : require('../graphics/temp/fullsize4x6grid25pct.png')} />
+            <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pct.png')} />
         </TouchableWithoutFeedback>
         </Animated.View>
     )
@@ -92,5 +92,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '100%',
         height: '100%'
+    },
+    zoomIn: {
+        transform: [
+            {scaleX: 1},
+            {scaleY: 1}
+        ]
+    },
+    zoomOut: {
+        transform: [
+            {scaleX: 0.5},
+            {scaleY: 0.5}
+        ]
     }
 })
