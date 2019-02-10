@@ -4,8 +4,11 @@ import {
     StyleSheet, 
     Animated,
     PanResponder,
+    Dimensions,
     TouchableWithoutFeedback
 } from 'react-native'
+
+let Window = Dimensions.get('window');
 export default class PlayArea extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +24,7 @@ export default class PlayArea extends Component {
 
         const panResponder = PanResponder.create({
             onStartShouldSetPanResponder: (event, gesture) => {
+                
                 if (gesture.numberActiveTouches > 1) {
                     return true;
                 } else {
@@ -33,7 +37,7 @@ export default class PlayArea extends Component {
             },
             onPanResponderMove: (event, gesture) => {
                 if (this.state.isZoomedOut === false) {
-                    console.log(gesture)
+                    // console.log(gesture);
                     position.setValue({ x: gesture.dx, y: gesture.dy })
                 }
             },
@@ -45,6 +49,7 @@ export default class PlayArea extends Component {
 
         this.panResponder = panResponder;
         this.position = position;
+        
 
     }
 
@@ -80,7 +85,7 @@ render() {
             {...this.panResponder.panHandlers}
         >
         <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-            <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pct.png')} />
+            <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pctborderFAT.png')} />
         </TouchableWithoutFeedback>
         </Animated.View>
     )
