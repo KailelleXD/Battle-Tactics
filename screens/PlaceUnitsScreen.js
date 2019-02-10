@@ -9,6 +9,7 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 export default class PlaceUnitsScreen extends Component {
   static navigationOptions = {
     title: 'Place Units',
+    headerLeft: null
   };
 
   render() {
@@ -40,7 +41,7 @@ export default class PlaceUnitsScreen extends Component {
                 </Row>
 
                 <Row size={15}>
-                  <NextBackWrapper path="GameReview"/>
+                  <NextBackWrapper path="GameScreen"/>
                 </Row>
 
 

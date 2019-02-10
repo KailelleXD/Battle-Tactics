@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Container, Text } from 'native-base';
 import { Grid, Row, Col } from 'react-native-easy-grid';
 import { AppConsumer } from '../storage/AppContext';
+import SaveButton from '../components/SaveButton';
 
 export default class GameReviewScreen extends Component {
   static navigationOptions = {
@@ -59,6 +60,9 @@ export default class GameReviewScreen extends Component {
                 {context.state.playerOne.terrain.map(terrainObj => (
                   <Text style={styles.text} key={terrainObj.id}>Terrain:{terrainObj.name}</Text>
                 ))}
+              </Row>
+              <Row>
+                <SaveButton />
               </Row>
 
             </Grid>
