@@ -29,6 +29,7 @@ export default class Model extends Component {
             });
           },
         onPanResponderMove: (event, gesture) => {
+            console.log("*** gesture of model that is being moved ***");
             console.log(gesture);
             position.setValue({ x: gesture.dx, y: gesture.dy })
         },
