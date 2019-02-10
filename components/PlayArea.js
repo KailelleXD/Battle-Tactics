@@ -4,11 +4,8 @@ import {
     StyleSheet, 
     Animated,
     PanResponder,
-    Dimensions,
     TouchableWithoutFeedback
 } from 'react-native'
-
-let Window = Dimensions.get('window');
 export default class PlayArea extends Component {
     constructor(props) {
         super(props);
@@ -31,13 +28,14 @@ export default class PlayArea extends Component {
                 }
             },
             onPanResponderGrant: (event, gesture) => {
-                this.position.setOffset({
-                    x: this.val.x,
-                    y: this.val.y
-                });
+                this.position.setOffset(this.position.__getValue());
+                console.log(this.position);
+                this.position.setValue({ x: 0, y: 0 });
             },
             onPanResponderMove: (event, gesture) => {
-                position.setValue({ x: gesture.dx, y: gesture.dy })
+                if (this.state.isZoomedOut === false) {
+                    position.setValue({ x: gesture.dx, y: gesture.dy })
+                }
             },
             onPanResponderRelease: (event, gesture) => {
                 // position.setValue({ x: gesture.dx, y: gesture.dy })
@@ -55,10 +53,10 @@ export default class PlayArea extends Component {
         const DOUBLE_PRESS_DELAY = 300;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
             this.toggleLike();
-            console.log("DoubleTap!");
+            // console.log("DoubleTap!");
         } else {
             this.lastTap = now;
-            console.log("no Doubletap.");
+            // console.log("no Doubletap.");
         }
     };
 
@@ -66,10 +64,10 @@ export default class PlayArea extends Component {
         this.setState(previousState => (
             { isZoomedOut: !previousState.isZoomedOut }
         ))
-        console.log(this.state.isZoomedOut);
+        // console.log(this.state.isZoomedOut);
         if (this.state.isZoomedOut === false) {    
             Animated.spring(this.position, {
-                toValue: { x: 0, y: 0 }
+                toValue: { x: this.val.x, y: this.val.y }
             }).start()
         }
     }
@@ -91,6 +89,8 @@ render() {
 const styles = StyleSheet.create({
     containerStyle: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '100%',
+        height: '100%'
     }
 })
