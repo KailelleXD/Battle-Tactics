@@ -1,0 +1,58 @@
+[
+    { 
+        "id": 1, 
+        "text": "HQ", 
+        "style": "modelKiwi",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 2, 
+        "text": "El", 
+        "style": "modelRed",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 3, 
+        "text": "El", 
+        "style": "modelRed",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 4, 
+        "text": "S", 
+        "style": "modelBlue",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 5, 
+        "text": "S", 
+        "style": "modelBlue",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 6, 
+        "text": "S", 
+        "style": "modelBlue",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 7, 
+        "text": "S", 
+        "style": "modelBlue",
+        "x": 0,
+        "y": 0
+    },
+    { 
+        "id": 8, 
+        "text": "S", 
+        "style": "modelBlue",
+        "x": 0,
+        "y": 0
+    }
+  ]

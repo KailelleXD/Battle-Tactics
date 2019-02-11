@@ -1,41 +1,46 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Model from "./Model/Model";
+import { AppConsumer } from "../../storage/AppContext";
 
-const ROSTER = [
-  { id: 1, text: 'HQ', color: '#808000'},
-  { id: 2, text: 'El', color: '#800000'},
-  { id: 3, text: 'El', color: '#800000'},
-  { id: 4, text: 'S', color: '#000080'},
-  { id: 5, text: 'S', color: '#000080'},
-  { id: 6, text: 'S', color: '#000080'},
-  { id: 7, text: 'S', color: '#000080'},
-  { id: 8, text: 'S', color: '#000080'},
-];
+import models from "../../utils/data/models.json";
+
 
 export default class Detachment extends React.Component {
+    state = {
+        models: models
+    }
+
+    
     render() {
+
         return (
-            <View style={styles.container}>
-                <Model model={styles.modelKiwi} name={"HQ"} />
-                <Model model={styles.modelRed} name={"El"} />
-                <Model model={styles.modelRed} name={"El"} />
-                <Model model={styles.modelBlue} name={"S"} />
-                <Model model={styles.modelBlue} name={"S"} />
-                <Model model={styles.modelBlue} name={"S"} />
-                <Model model={styles.modelBlue} name={"S"} />
-                <Model model={styles.modelBlue} name={"S"} />
-            </View>
+            <AppConsumer>
+                {(context) => (
+                    <View style={styles.container}>
+                        {console.log(context.state.playerOne.units)}
+                        {context.state.playerOne.units.map(model => (
+                        <Model 
+                            id={model.id} 
+                            key={model.id} 
+                            model={styles[model.style]}
+                            name={model.text}
+                            playerState={context.state.playerOne}
+                            updateUnits={context.updateUnits} />
+                    ))}
+                    </View>
+                )}
+            </AppConsumer>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
+        // flex: 1,
+        // backgroundColor: "#fff",
+        // alignItems: "center",
+        // justifyContent: "center"
     },
     modelPurple: {
         backgroundColor: "#800080"

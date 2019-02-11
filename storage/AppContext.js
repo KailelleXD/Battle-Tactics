@@ -1,5 +1,6 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
+import models from "../utils/data/models.json";
 
 export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
@@ -36,7 +37,7 @@ export class AppProvider extends React.Component {
             deploymentArea: "",
             terrain: [],
             faction: "",
-            units: [],
+            units: models,
             unitPlacement: [],
             points: 0,
             randomStart: false
@@ -55,12 +56,12 @@ export class AppProvider extends React.Component {
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("Game").then((value) => {
+    AsyncStorage.getItem("Game2").then((value) => {
 
 
         if (!value) {
             allPlayers = initialState
-            AsyncStorage.setItem('Game', JSON.stringify(initialState))
+            AsyncStorage.setItem('Game2', JSON.stringify(initialState))
 
         } else {
             allPlayers = JSON.parse(value)
@@ -118,6 +119,12 @@ export class AppProvider extends React.Component {
           this.setState( {playerOne} );
     }
 
+    updateUnits = (newUnits) => {
+        const playerOne = {...this.state.playerOne};
+        playerOne.units = newUnits;
+        this.setState({ playerOne });
+    }
+
     render () {
         return (
             <AppContext.Provider value={{
@@ -127,6 +134,7 @@ export class AppProvider extends React.Component {
                 addTerrainObject: this.addTerrainObject,
                 setFaction: this.setFaction,
                 setUnit: this.setUnit,
+                updateUnits: this.updateUnits,
                 setDeploymentArea: this.setDeploymentArea,
                 addUnitPlacementObject: this.addUnitPlacementObject
             }}>

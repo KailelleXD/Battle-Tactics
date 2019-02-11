@@ -13,33 +13,52 @@ let MODEL_RADIUS = SCREEN_WIDTH / 12;
 
 export default class Model extends Component {
     constructor(props) {
-      super(props);
+        super(props);
 
-      const position = new Animated.ValueXY();
+        const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
+        const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
-      this.val = { x:0, y:0 }
-      position.addListener((value) => this.val = value);
+        this.val = { x: unit.x, y: unit.y }
+        position.addListener((value) => this.val = value);
 
-      const panResponder = PanResponder.create({
+        const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
-        onPanResponderGrant: (e, gesture) => {
+        onPanResponderGrant: (event, gesture) => {
             this.position.setOffset({
               x: this.val.x,
-              y:this.val.y
+              y: this.val.y
             });
+            console.log(gesture);
           },
         onPanResponderMove: (event, gesture) => {
             console.log(gesture);
             position.setValue({ x: gesture.dx, y: gesture.dy })
         },
         onPanResponderRelease: (event, gesture) => {
-            position.setValue({ x: gesture.dx, y: gesture.dy })
+            this.updateModelLocation(gesture);
         }
-    });
 
-    this.panResponder = panResponder;
-    this.position = position;
+        });
 
+        this.panResponder = panResponder;
+        this.position = position;
+
+    }
+
+    updateModelLocation (gesture) {
+        const oldUnits = [...this.props.playerState.units];
+        const updatedUnits = oldUnits.map(unit => {
+            if (unit.id === this.props.id) {
+                const newUnit = {...unit};
+                newUnit.x = unit.x + gesture.dx;
+                newUnit.y = unit.y + gesture.dy;
+                return newUnit;
+            } else {
+                return unit;
+            }
+        });
+
+        this.props.updateUnits(updatedUnits);
     }
 
     renderModels() {
@@ -73,8 +92,10 @@ const styles = {
         flex: 1,
         height: Window.height,
         width: Window.width,
-        top: 40,
-        left: Window.width / 2 - MODEL_RADIUS / 2
+        top: 0,
+        left: 0
+        // top: 40,
+        // left: Window.width / 2 - MODEL_RADIUS / 2
     },
     model: {
         width: MODEL_RADIUS,
