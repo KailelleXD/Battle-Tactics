@@ -3,8 +3,8 @@ import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button } from 'r
 
 import { AppConsumer } from '../storage/AppContext';
 
-
 import Maps from '../utils/data/maps.json';
+
 
 export default class MapSelector extends Component {
   render() {
@@ -13,6 +13,7 @@ export default class MapSelector extends Component {
         <AppConsumer>
             {(context) => (
               <View>
+             
                   {Maps.map(map => (
                     <Button 
                       title={map.name}

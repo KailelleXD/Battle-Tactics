@@ -1,0 +1,3412 @@
+[
+    {
+        "id": "d957-0f84-bce5-1298",
+        "name": "Biovores",
+        "type": "unit",
+        "bf_role": "Heavy Support",
+        "pts": "2.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {},
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "96c9-795a-8498-07e6",
+        "name": "Carnifexes",
+        "type": "unit",
+        "bf_role": "Heavy Support",
+        "pts": "6.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {},
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "a886-3ba1-c505-1200",
+        "name": "Exocrine",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "170.0",
+        "PL": "11.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "8",
+            "W": "12",
+            "A": "*",
+            "Ld": "6",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": "D3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "21fc-05c5-6fd6-2d0a",
+        "name": "Gargoyles",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "3.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "8",
+            "W": "12",
+            "A": "*",
+            "Ld": "6",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "593d-594c-e42d-02f5",
+        "name": "Genestealers",
+        "type": "unit",
+        "bf_role": "Troops",
+        "pts": "4.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "8",
+            "W": "12",
+            "A": "*",
+            "Ld": "6",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "ee16-7977-eb9b-88e7",
+        "name": "Harpy",
+        "type": "model",
+        "bf_role": null,
+        "pts": "105.0",
+        "PL": "9.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "6",
+            "T": "6",
+            "W": "12",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "30\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "20\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "10\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "10\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "a753-2d35-9437-02d3",
+        "name": "Haruspex",
+        "type": "model",
+        "bf_role": "Elites",
+        "pts": "170.0",
+        "PL": "10.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "7\"",
+            "WS": "*",
+            "BS": "*",
+            "S": "*",
+            "T": "8",
+            "W": "13",
+            "A": "4",
+            "Ld": "6",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-13+",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": "7",
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": "6",
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "7c4f-3eb2-a044-15a8",
+        "name": "Hive Crone",
+        "type": "model",
+        "bf_role": null,
+        "pts": "135.0",
+        "PL": "8.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "6",
+            "T": "6",
+            "W": "12",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "30\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "20\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "10\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "10\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "c941-0aa1-f972-429c",
+        "name": "Hive Guard",
+        "type": "unit",
+        "bf_role": "Elites",
+        "pts": "7.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "6",
+            "T": "6",
+            "W": "12",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "add7-3535-a4cd-9ba5",
+        "name": "Hive Tyrant",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "143.0",
+        "PL": "9.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "6",
+            "T": "7",
+            "W": "12",
+            "A": "4",
+            "Ld": "10",
+            "Sv": "3+/4++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": "2+",
+                    "Strength": null,
+                    "BS": "3+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": "3+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0843-c3c5-0340-2a53",
+        "name": "Hormagaunts",
+        "type": "unit",
+        "bf_role": "Troops",
+        "pts": "3.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "6",
+            "T": "7",
+            "W": "12",
+            "A": "4",
+            "Ld": "10",
+            "Sv": "3+/4++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "a5e2-a0a5-57f0-27b6",
+        "name": "Lictor",
+        "type": "model",
+        "bf_role": "Elites",
+        "pts": "30.0",
+        "PL": "2.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "9\"",
+            "WS": "2+",
+            "BS": "4+",
+            "S": "6",
+            "T": "4",
+            "W": "4",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "5+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "9801-59fc-296b-6b85",
+        "name": "Maleceptor",
+        "type": "model",
+        "bf_role": "Elites",
+        "pts": "150.0",
+        "PL": "9.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "7\"",
+            "WS": "*",
+            "BS": "4+",
+            "S": "*",
+            "T": "7",
+            "W": "12",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "3+/4++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": "6 Units",
+                    "S": "7"
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": "3 Units",
+                    "S": "6"
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "6+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": "D3 Units",
+                    "S": "5"
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "6+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": "D3 Units",
+                    "S": "5"
+                }
+            }
+        ]
+    },
+    {
+        "id": "92ec-64fb-e5a7-65c1",
+        "name": "Mawloc",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "104.0",
+        "PL": "6.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": "4+",
+                    "Strength": "6",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "6+",
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "6+",
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "9773-03e8-68e5-8ea1",
+        "name": "Mucolid Spores",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "1.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": "4+",
+                    "Strength": "6",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "6+",
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "6+",
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "cb6d-b756-8436-074e",
+        "name": "Pyrovores",
+        "type": "unit",
+        "bf_role": "Elites",
+        "pts": "2.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "eda6-2686-5153-3ac8",
+        "name": "Raveners",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "4.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "04a7-33a3-6396-b371",
+        "name": "Ripper Swarms",
+        "type": "unit",
+        "bf_role": "Troops",
+        "pts": "2.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "d7ba-bc0a-efeb-36f3",
+        "name": "Sky-slasher Swarms",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "2.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0a0b-c7ca-2804-4f90",
+        "name": "Spore Mines",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "2.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "-",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "7",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "4fe0-a701-3f44-b703",
+        "name": "Sporocyst",
+        "type": "model",
+        "bf_role": "Fortification",
+        "pts": "79.0",
+        "PL": "7.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "-",
+            "WS": "5+",
+            "BS": "5+",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": "D6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": "D3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "3",
+                    "BS": null,
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "3",
+                    "BS": null,
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "2e2b-aedb-e20b-9c8b",
+        "name": "Termagants",
+        "type": "unit",
+        "bf_role": "Troops",
+        "pts": "3.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "-",
+            "WS": "5+",
+            "BS": "5+",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0507-f341-5267-7cc5",
+        "name": "Tervigon",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "180.0",
+        "PL": "13.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "8",
+            "W": "14",
+            "A": "3",
+            "Ld": "9",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "8-14+",
+                    "Movement": "8\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-7",
+                    "Movement": "6\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "4\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "4\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "cdd9-7d89-df58-3760",
+        "name": "Toxicrene",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "140.0",
+        "PL": "8.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "8\"",
+            "WS": "*",
+            "BS": "4+",
+            "S": "*",
+            "T": "7",
+            "W": "12",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": null,
+                    "WS": "3+",
+                    "Strength": "7",
+                    "BS": null,
+                    "Attacks": "6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": null,
+                    "WS": "4+",
+                    "Strength": "6",
+                    "BS": null,
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": "5+",
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "f628-1bb2-0620-3beb",
+        "name": "Trygon",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "108.0",
+        "PL": "9.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "6",
+            "W": "12",
+            "A": "6",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "1864-f6fc-3f51-0c34",
+        "name": "Trygon Prime",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "138.0",
+        "PL": "10.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "6",
+            "W": "12",
+            "A": "6",
+            "Ld": "9",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0435-abe8-4398-eff8",
+        "name": "Tyranid Shrikes",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "6.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "6",
+            "W": "12",
+            "A": "6",
+            "Ld": "9",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "8ffc-a0f3-766e-8ae4",
+        "name": "Tyranid Warriors",
+        "type": "unit",
+        "bf_role": "Troops",
+        "pts": "5.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "6",
+            "W": "12",
+            "A": "6",
+            "Ld": "9",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0daf-d491-1f32-1322",
+        "name": "Tyrannocyte",
+        "type": "model",
+        "bf_role": "Dedicated Transport",
+        "pts": "75.0",
+        "PL": "8.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "5+",
+            "BS": "5+",
+            "S": "*",
+            "T": "6",
+            "W": "12",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "6\"",
+                    "WS": null,
+                    "Strength": "5",
+                    "BS": null,
+                    "Attacks": "D6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "4\"",
+                    "WS": null,
+                    "Strength": "4",
+                    "BS": null,
+                    "Attacks": "D3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "2\"",
+                    "WS": null,
+                    "Strength": "3",
+                    "BS": null,
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "2\"",
+                    "WS": null,
+                    "Strength": "3",
+                    "BS": null,
+                    "Attacks": "1",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "f535-4e40-2b57-2bf7",
+        "name": "Tyrannofex",
+        "type": "model",
+        "bf_role": "Heavy Support",
+        "pts": "151.0",
+        "PL": "11.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "4+",
+            "BS": "*",
+            "S": "*",
+            "T": "8",
+            "W": "14",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "8-14+",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "7",
+                    "BS": "4+",
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-7",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "6",
+                    "BS": "5+",
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "5",
+                    "BS": "5+",
+                    "Attacks": "2",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": "5",
+                    "BS": "5+",
+                    "Attacks": "2",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "66df-c9ba-5ea8-e524",
+        "name": "Tyrant Guard",
+        "type": "unit",
+        "bf_role": "Elites",
+        "pts": "7.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "4+",
+            "BS": "*",
+            "S": "*",
+            "T": "8",
+            "W": "14",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "90b8-1695-18c9-1512",
+        "name": "Venomthropes",
+        "type": "unit",
+        "bf_role": "Elites",
+        "pts": "5.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "4+",
+            "BS": "*",
+            "S": "*",
+            "T": "8",
+            "W": "14",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "c1b3-01e5-3175-3107",
+        "name": "Zoanthropes",
+        "type": "unit",
+        "bf_role": "Elites",
+        "pts": "0.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "4+",
+            "BS": "*",
+            "S": "*",
+            "T": "8",
+            "W": "14",
+            "A": "*",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "0e09-72a3-df36-ebd8",
+        "name": "Deathleaper",
+        "type": "model",
+        "bf_role": "Elites",
+        "pts": "60.0",
+        "PL": "5.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "9\"",
+            "WS": "2+",
+            "BS": "4+",
+            "S": "6",
+            "T": "4",
+            "W": "6",
+            "A": "4",
+            "Ld": "10",
+            "Sv": "5+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "d83b-acf3-2677-40e1",
+        "name": "Old One Eye",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "200.0",
+        "PL": "10.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "7\"",
+            "WS": "3+",
+            "BS": "-",
+            "S": "7",
+            "T": "7",
+            "W": "9",
+            "A": "5",
+            "Ld": "7",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "6bad-120f-afa0-1745",
+        "name": "The Red Terror",
+        "type": "model",
+        "bf_role": "Elites",
+        "pts": "50.0",
+        "PL": "4.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "12\"",
+            "WS": "3+",
+            "BS": "4+",
+            "S": "5",
+            "T": "5",
+            "W": "6",
+            "A": "4",
+            "Ld": "7",
+            "Sv": "4+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "5a85-738f-f138-2640",
+        "name": "The Swarmlord",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "250.0",
+        "PL": "15.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "2+",
+            "BS": "3+",
+            "S": "*",
+            "T": "7",
+            "W": "12",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "3+/4++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "7-12+",
+                    "Movement": "9\"",
+                    "WS": null,
+                    "Strength": "8",
+                    "BS": null,
+                    "Attacks": "6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-6",
+                    "Movement": "7\"",
+                    "WS": null,
+                    "Strength": "7",
+                    "BS": null,
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": null,
+                    "Strength": "6",
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "5\"",
+                    "WS": null,
+                    "Strength": "6",
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "d254-4969-7e67-32a9",
+        "name": "Tyranid Prime",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "70.0",
+        "PL": "6.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "6\"",
+            "WS": "2+",
+            "BS": "3+",
+            "S": "5",
+            "T": "5",
+            "W": "6",
+            "A": "4",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "35c3-a8c2-fe10-325f",
+        "name": "Barbed Hierodule",
+        "type": "model",
+        "bf_role": "Lord of War",
+        "pts": "420.0",
+        "PL": "22.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "3+",
+            "BS": "*",
+            "S": "10",
+            "T": "8",
+            "W": "22",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "11-22+",
+                    "Movement": "12\"",
+                    "WS": null,
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "6-10",
+                    "Movement": "8\"",
+                    "WS": null,
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-5",
+                    "Movement": "4\"",
+                    "WS": null,
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-5",
+                    "Movement": "4\"",
+                    "WS": null,
+                    "Strength": null,
+                    "BS": "6+",
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "31b7-cfad-2be9-9997",
+        "name": "Dimachaeron",
+        "type": "model",
+        "bf_role": "Fast Attack",
+        "pts": "200.0",
+        "PL": "10.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "3+",
+            "S": "6",
+            "T": "6",
+            "W": "14",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "8-14+",
+                    "Movement": "12\"",
+                    "WS": "2+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "4-7",
+                    "Movement": "9\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-3",
+                    "Movement": "6\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-3",
+                    "Movement": "6\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "d1cb-8964-788a-7e66",
+        "name": "Harridan",
+        "type": "model",
+        "bf_role": "Lord of War",
+        "pts": "740.0",
+        "PL": "32.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "7",
+            "W": "30",
+            "A": "5",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "16-30+",
+                    "Movement": "30\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": "3+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "10-15",
+                    "Movement": "20\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": "4+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "5-9",
+                    "Movement": "15\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "5-9",
+                    "Movement": "15\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": "5+",
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "fb84-bb9f-5abe-be3f",
+        "name": "Malanthropes",
+        "type": "unit",
+        "bf_role": "HQ",
+        "pts": "5.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "7",
+            "W": "30",
+            "A": "5",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "dec0-7f71-801a-6d37",
+        "name": "Meiotic Spores",
+        "type": "unit",
+        "bf_role": "Fast Attack",
+        "pts": "3.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "*",
+            "S": "7",
+            "T": "7",
+            "W": "30",
+            "A": "5",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "633b-45d1-420d-61ba",
+        "name": "Scythed Hierodule",
+        "type": "model",
+        "bf_role": "Lord of War",
+        "pts": "350.0",
+        "PL": "22.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "4+",
+            "S": "10",
+            "T": "8",
+            "W": "22",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "3+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "11-22+",
+                    "Movement": "12\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "7",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "6-10",
+                    "Movement": "8\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "1-5",
+                    "Movement": "4\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "1-5",
+                    "Movement": "4\"",
+                    "WS": "5+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "3",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "8d05-bafd-ea07-c4af",
+        "name": "Hierophant Bio-titan",
+        "type": "model",
+        "bf_role": "Lord of War",
+        "pts": "2000.0",
+        "PL": "90.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "3+",
+            "S": "10",
+            "T": "8",
+            "W": "50",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "2+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": "35-50+",
+                    "Movement": "12\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "6",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": "20-34",
+                    "Movement": "9\"",
+                    "WS": "3+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "5",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": "5-19",
+                    "Movement": "6\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": "5-19",
+                    "Movement": "6\"",
+                    "WS": "4+",
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": "4",
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "5c6d-f382-b731-f5ca",
+        "name": "Stone Crusher Carnifex Brood",
+        "type": "unit",
+        "bf_role": "Heavy Support",
+        "pts": "5.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "3+",
+            "S": "10",
+            "T": "8",
+            "W": "50",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "2+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "797b-c7fe-679a-7117",
+        "name": "Screamer-Killers",
+        "type": "unit",
+        "bf_role": null,
+        "pts": "6.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "*",
+            "WS": "*",
+            "BS": "3+",
+            "S": "10",
+            "T": "8",
+            "W": "50",
+            "A": "*",
+            "Ld": "10",
+            "Sv": "2+"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "cd9f-f30b-27c3-2869",
+        "name": "Neurothrope",
+        "type": "model",
+        "bf_role": "HQ",
+        "pts": "90.0",
+        "PL": "4.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "5\"",
+            "WS": "4+",
+            "BS": "3+",
+            "S": "4",
+            "T": "4",
+            "W": "5",
+            "A": "1",
+            "Ld": "9",
+            "Sv": "5+/3++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    },
+    {
+        "id": "6f2a-1546-df78-9521",
+        "name": "Thornbacks",
+        "type": "unit",
+        "bf_role": null,
+        "pts": "6.0",
+        "PL": "0.0",
+        "CP": "0.0",
+        "profile": {
+            "M": "5\"",
+            "WS": "4+",
+            "BS": "3+",
+            "S": "4",
+            "T": "4",
+            "W": "5",
+            "A": "1",
+            "Ld": "9",
+            "Sv": "5+/3++"
+        },
+        "profile_additional": [
+            {
+                "profileOne": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileTwo": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileThree": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            },
+            {
+                "profileFour": {
+                    "W": null,
+                    "Movement": null,
+                    "WS": null,
+                    "Strength": null,
+                    "BS": null,
+                    "Attacks": null,
+                    "PsychicOverLoad": null,
+                    "S": null
+                }
+            }
+        ]
+    }
+]

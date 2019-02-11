@@ -52,6 +52,10 @@ export class AppProvider extends React.Component {
             test: "**** TESTER ****",
             randomStart: false
         },
+        modelData: {
+            msg: "save data from model movement",
+            data: {}
+        }
     }
 
     let allPlayers = {}

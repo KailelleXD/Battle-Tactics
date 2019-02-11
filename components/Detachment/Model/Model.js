@@ -15,8 +15,10 @@ export default class Model extends Component {
     constructor(props) {
         super(props);
 
+
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
+
 
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
@@ -31,6 +33,7 @@ export default class Model extends Component {
             console.log(gesture);
           },
         onPanResponderMove: (event, gesture) => {
+            console.log("*** gesture of model that is being moved ***");
             console.log(gesture);
             position.setValue({ x: gesture.dx, y: gesture.dy })
         },
@@ -89,7 +92,7 @@ const styles = {
         color: '#fff'
         },
     mainContainer: {
-        flex: 1,
+        // flex: 1,
         height: Window.height,
         width: Window.width,
         top: 0,
