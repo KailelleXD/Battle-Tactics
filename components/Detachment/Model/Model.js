@@ -92,7 +92,7 @@ const styles = {
         color: '#fff'
         },
     mainContainer: {
-        // flex: 1,
+        flex: 1,
         height: Window.height,
         width: Window.width,
         top: 0,
