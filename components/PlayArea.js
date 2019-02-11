@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { 
+    View,
     Image, 
     StyleSheet, 
     Animated,
@@ -78,18 +79,27 @@ export default class PlayArea extends Component {
         }
     }
 
-render() {
-    return (
-        <Animated.View
-            style={[this.position.getLayout(), styles.containerStyle]}
-            {...this.panResponder.panHandlers}
-        >
-        <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
-            <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pctborderFAT.png')} />
-        </TouchableWithoutFeedback>
-        </Animated.View>
-    )
-  }
+    render() {
+        return (
+            <View>
+                <Image source={require('../graphics/temp/fullsize4x6grid25pct.png')} />
+            </View>
+        )
+    }
+
+// render() {
+//     return (
+//         <Animated.View
+//             style={[this.position.getLayout(), styles.containerStyle]}
+//             {...this.panResponder.panHandlers}
+//         >
+//         <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
+//             <Image style={this.state.isZoomedOut ? styles.zoomOut : styles.zoomIn} source={require('../graphics/temp/fullsize4x6grid25pctborderFAT.png')} />
+//         </TouchableWithoutFeedback>
+//         </Animated.View>
+//     )
+//   }
+
 }
 
 const styles = StyleSheet.create({
