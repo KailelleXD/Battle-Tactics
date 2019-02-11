@@ -11,7 +11,7 @@ export default class BattleScribeScreen extends Component {
     headerLeft: null
   };
 
-  render() {
+render() {
     const { navigate } = this.props.navigation;
 
     return (

@@ -18,13 +18,13 @@ export default class Detachment extends React.Component {
         return (
             <View style={styles.container}>
                 <Model model={styles.modelKiwi} name={"HQ"} />
+                {/* <Model model={styles.modelRed} name={"El"} />
                 <Model model={styles.modelRed} name={"El"} />
-                <Model model={styles.modelRed} name={"El"} />
                 <Model model={styles.modelBlue} name={"S"} />
                 <Model model={styles.modelBlue} name={"S"} />
                 <Model model={styles.modelBlue} name={"S"} />
                 <Model model={styles.modelBlue} name={"S"} />
-                <Model model={styles.modelBlue} name={"S"} />
+                <Model model={styles.modelBlue} name={"S"} /> */}
             </View>
         );
     }
@@ -32,10 +32,10 @@ export default class Detachment extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
         backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
+        // alignItems: "center",
+        // justifyContent: "center"
     },
     modelPurple: {
         backgroundColor: "#800080"
