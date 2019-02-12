@@ -17,6 +17,7 @@ import ChooseDeploymentScreen from '../screens/ChooseDeploymentScreen';
 import PlaceUnitsScreen from '../screens/PlaceUnitsScreen';
 import GameReviewScreen from '../screens/GameReviewScreen';
 import GameScreen from '../screens/GameScreen';
+import GameStartScreen from '../screens/GameStartScreen';
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -35,7 +36,8 @@ const StackNavigator = createStackNavigator({
     DeploymentArea: ChooseDeploymentScreen,
     PlaceUnits: PlaceUnitsScreen,
     GameReview: GameReviewScreen,
-    GameScreen: GameScreen
+    GameScreen: GameScreen,
+    GameStart: GameStartScreen
   });
   
 const NavigationContainer = createAppContainer(StackNavigator);

@@ -15,8 +15,8 @@ export default class PinchZoomView extends Component {
 
   static defaultProps = {
     scalable: true,
-    minScale: 1.0,
-    maxScale: 3.5
+    minScale: 0.5,
+    maxScale: 2
   };
 
   constructor(props) {
@@ -40,39 +40,39 @@ export default class PinchZoomView extends Component {
       onPanResponderGrant: this._handlePanResponderGrant,
       onPanResponderMove: this._handlePanResponderMove,
       onPanResponderRelease: this._handlePanResponderEnd,
-      onPanResponderTerminationRequest: evt => true,
-      onShouldBlockNativeResponder: evt => false
+      onPanResponderTerminationRequest: event => true,
+      onShouldBlockNativeResponder: event => false
     });
   }
 
-  _handleStartShouldSetPanResponder = (e, gestureState) => {
+  _handleStartShouldSetPanResponder = (event, gesture) => {
     // don't respond to single touch to avoid shielding click on child components
     return false;
   };
 
-  _handleMoveShouldSetPanResponder = (e, gestureState) => {
+  _handleMoveShouldSetPanResponder = (event, gesture) => {
     return (
       this.props.scalable &&
-      (Math.abs(gestureState.dx) > 2 ||
-        Math.abs(gestureState.dy) > 2 ||
-        gestureState.numberActiveTouches === 2)
+      (Math.abs(gesture.dx) > 2 ||
+        Math.abs(gesture.dy) > 2 ||
+        gesture.numberActiveTouches === 2)
     );
   };
 
-  _handlePanResponderGrant = (e, gestureState) => {
-    if (gestureState.numberActiveTouches === 2) {
+  _handlePanResponderGrant = (event, gesture) => {
+    if (gesture.numberActiveTouches === 2) {
       let dx = Math.abs(
-        e.nativeEvent.touches[0].pageX - e.nativeEvent.touches[1].pageX
+        event.nativeEvent.touches[0].pageX - event.nativeEvent.touches[1].pageX
       );
       let dy = Math.abs(
-        e.nativeEvent.touches[0].pageY - e.nativeEvent.touches[1].pageY
+        event.nativeEvent.touches[0].pageY - event.nativeEvent.touches[1].pageY
       );
       let distant = Math.sqrt(dx * dx + dy * dy);
       this.distant = distant;
     }
   };
 
-  _handlePanResponderEnd = (e, gestureState) => {
+  _handlePanResponderEnd = (event, gesture) => {
     this.setState({
       lastX: this.state.offsetX,
       lastY: this.state.offsetY,
@@ -80,14 +80,14 @@ export default class PinchZoomView extends Component {
     });
   };
 
-  _handlePanResponderMove = (e, gestureState) => {
+  _handlePanResponderMove = (event, gesture) => {
     // zoom
-    if (gestureState.numberActiveTouches === 2) {
+    if (gesture.numberActiveTouches === 2) {
       let dx = Math.abs(
-        e.nativeEvent.touches[0].pageX - e.nativeEvent.touches[1].pageX
+        event.nativeEvent.touches[0].pageX - event.nativeEvent.touches[1].pageX
       );
       let dy = Math.abs(
-        e.nativeEvent.touches[0].pageY - e.nativeEvent.touches[1].pageY
+        event.nativeEvent.touches[0].pageY - event.nativeEvent.touches[1].pageY
       );
       let distant = Math.sqrt(dx * dx + dy * dy);
       let scale = (distant / this.distant) * this.state.lastScale;
@@ -97,17 +97,16 @@ export default class PinchZoomView extends Component {
       }
     }
     // translate
-    else if (gestureState.numberActiveTouches === 1 && this.state.scale !== 1.0) {
+    else if (gesture.numberActiveTouches === 1) {
       if (this.state.lastMovePinch) {
-        gestureState.dx = 0;
-        gestureState.dy = 0;
+        gesture.dx = 0;
+        gesture.dy = 0;
       }
-      let offsetX = this.state.lastX + gestureState.dx / this.state.scale;
-      let offsetY = this.state.lastY + gestureState.dy / this.state.scale;
+      let offsetX = this.state.lastX + gesture.dx / this.state.scale;
+      let offsetY = this.state.lastY + gesture.dy / this.state.scale;
       // if ( offsetX < 0  || offsetY <  0 )
       this.setState({ offsetX, offsetY, lastMovePinch: false });
     }
-    
   };
 
   render() {

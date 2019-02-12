@@ -44,7 +44,7 @@ export default class HomeScreen extends Component {
                     <HomeScreenButton title='Detachment' />
                   </Row>
                   <Row style={styles.row}>
-                    <HomeScreenButton title='TestScreen' />
+                    <HomeScreenButton title='GameStart' />
                   </Row>
 
               </Col>

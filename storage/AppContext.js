@@ -55,6 +55,15 @@ export class AppProvider extends React.Component {
         modelData: {
             msg: "save data from model movement",
             data: {}
+        },
+        posData: {
+            scale: 1,
+            lastScale: 1,
+            offsetX: 0,
+            offsetY: 0,
+            lastX: 0,
+            lastY: 0,
+            distant: 150
         }
     }
 
@@ -140,7 +149,7 @@ export class AppProvider extends React.Component {
                 setUnit: this.setUnit,
                 updateUnits: this.updateUnits,
                 setDeploymentArea: this.setDeploymentArea,
-                addUnitPlacementObject: this.addUnitPlacementObject
+                addUnitPlacementObject: this.addUnitPlacementObject,
             }}>
                 {this.props.children}
             </AppContext.Provider>
