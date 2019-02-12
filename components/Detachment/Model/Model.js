@@ -39,7 +39,8 @@ export default class Model extends Component {
         },
         onPanResponderRelease: (event, gesture) => {
             this.updateModelLocation(gesture);
-        }
+        },
+        onPanResponderTerminationRequest: (evnt, gesture) => false,
 
         });
 
