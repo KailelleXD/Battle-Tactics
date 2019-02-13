@@ -20,7 +20,7 @@ export default class HomeScreen extends Component {
       <AppConsumer>
         { (context) => (
           <Container>
-            {console.log(context.state)}        
+            {/* {console.log(context.state)}         */}
             <Grid>
 
               <Col style={styles.col}>

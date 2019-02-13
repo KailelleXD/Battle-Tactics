@@ -21,6 +21,10 @@ export default class PinchZoomView extends Component {
 
   constructor(props) {
     super(props);
+
+    // const posData = this.props.posData
+    // console.log("TEST " + posData);
+
     this.state = {
       scale: 1,
       lastScale: 1,
@@ -61,14 +65,17 @@ export default class PinchZoomView extends Component {
 
   _handlePanResponderGrant = (event, gesture) => {
     if (gesture.numberActiveTouches === 2) {
-      let dx = Math.abs(
-        event.nativeEvent.touches[0].pageX - event.nativeEvent.touches[1].pageX
-      );
-      let dy = Math.abs(
-        event.nativeEvent.touches[0].pageY - event.nativeEvent.touches[1].pageY
-      );
-      let distant = Math.sqrt(dx * dx + dy * dy);
-      this.distant = distant;
+      // let dx = Math.abs(
+      //   event.nativeEvent.touches[0].pageX - event.nativeEvent.touches[1].pageX
+      // );
+      // let dy = Math.abs(
+      //   event.nativeEvent.touches[0].pageY - event.nativeEvent.touches[1].pageY
+      // );
+      // let distant = Math.sqrt(dx * dx + dy * dy);
+      // this.distant = distant;
+      this.props.calcDistance(event);
+      console.log(this.distant);
+
     }
   };
 
@@ -81,6 +88,7 @@ export default class PinchZoomView extends Component {
   };
 
   _handlePanResponderMove = (event, gesture) => {
+    // console.log("scale: " + this.state.scale + "\nlastscale: " + this.state.lastScale)
     // zoom
     if (gesture.numberActiveTouches === 2) {
       let dx = Math.abs(
@@ -94,6 +102,7 @@ export default class PinchZoomView extends Component {
       //check scale min to max hello
       if (scale < this.props.maxScale && scale > this.props.minScale) {
         this.setState({ scale, lastMovePinch: true });
+
       }
     }
     // translate

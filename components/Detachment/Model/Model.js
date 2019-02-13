@@ -15,10 +15,12 @@ export default class Model extends Component {
     constructor(props) {
         super(props);
 
-
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
+
+        // let scaleData = this.props.scaleData.scale;
+        // console.log(scaleData);
 
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
@@ -30,12 +32,13 @@ export default class Model extends Component {
               x: this.val.x,
               y: this.val.y
             });
-            console.log(gesture);
+            // console.log(gesture);
           },
         onPanResponderMove: (event, gesture) => {
-            console.log("*** gesture of model that is being moved ***");
-            console.log(gesture);
-            position.setValue({ x: gesture.dx, y: gesture.dy })
+            // console.log(scaleData);
+            if (gesture.numberActiveTouches === 1) {
+                position.setValue({ x: gesture.dx, y: gesture.dy })
+            }
         },
         onPanResponderRelease: (event, gesture) => {
             this.updateModelLocation(gesture);

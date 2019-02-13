@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, ImageBackground, Dimensions } from "react-native";
-import { AppConsumer } from "../storage/AppContext";
+import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
 import MapGrid from "../graphics/temp/fullsize4x6grid15.png";
@@ -12,9 +12,11 @@ const SCREEN_HEIGHT = SCREEN_WIDTH * 1.5;
 export default class GameStartScreen extends Component {
     render() {
         return (
-            <AppConsumer>
+            <PhysConsumer>
                 {(context) => (
-                    <PinchZoomView>
+                    <PinchZoomView
+                        calcDistance={context.state.calcDistance}
+                    >
                         <Detachment 
                             style={{ zIndex: 99 }} />
                         <ImageBackground
@@ -27,7 +29,7 @@ export default class GameStartScreen extends Component {
                         />
                     </PinchZoomView>
                 )}
-            </AppConsumer>
+            </PhysConsumer>
         );
     }
 }

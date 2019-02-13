@@ -18,7 +18,7 @@ export default class Detachment extends React.Component {
             <AppConsumer>
                 {(context) => (
                     <View style={styles.container}>
-                        {console.log(context.state.playerOne.units)}
+                        {/* {console.log(context.state.playerOne.units)} */}
                         {context.state.playerOne.units.map(model => (
                         <Model 
                             id={model.id} 

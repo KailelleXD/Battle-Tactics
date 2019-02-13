@@ -6,6 +6,7 @@ export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
 
 export class AppProvider extends React.Component {
+    
     constructor(props) {
         super(props);
 
@@ -57,15 +58,14 @@ export class AppProvider extends React.Component {
             data: {}
         },
         posData: {
-            scale: 1,
+            scaleData: 1,
             lastScale: 1,
-            offsetX: 0,
-            offsetY: 0,
-            lastX: 0,
-            lastY: 0,
-            distant: 150
         }
+
+
     }
+
+    
 
     let allPlayers = {}
 
@@ -132,6 +132,19 @@ export class AppProvider extends React.Component {
           this.setState( {playerOne} );
     }
 
+    setScale = (newScale) => {
+        posData = {...this.state.posData}
+        // console.log("posData: " + posData);
+        posData.lastScale = posData.scaleData;
+        posData.scaleData = newScale;
+        // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
+            console.log("posData.scaleData: " + posData.scaleData)
+            console.log("posData.lastScale: " + posData.lastScale)
+            this.setState({ posData });
+            // console.log(this.state.posData.scaleData);
+        // }
+    }
+
     updateUnits = (newUnits) => {
         const playerOne = {...this.state.playerOne};
         playerOne.units = newUnits;
@@ -150,6 +163,7 @@ export class AppProvider extends React.Component {
                 updateUnits: this.updateUnits,
                 setDeploymentArea: this.setDeploymentArea,
                 addUnitPlacementObject: this.addUnitPlacementObject,
+                setScale: this.setScale,
             }}>
                 {this.props.children}
             </AppContext.Provider>
