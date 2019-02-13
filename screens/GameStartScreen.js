@@ -15,11 +15,10 @@ export default class GameStartScreen extends Component {
             <PhysConsumer>
                 {(context) => (
                     <PinchZoomView 
+                        updateOffset={context.updateOffset}
                         updateScale={context.updateScale}
                         state={context.state}
                     >
-                    {/* {console.log(context.state)} */}
-
                         <View>
                             <Detachment style={{ zIndex: 99 }} />
                             <ImageBackground

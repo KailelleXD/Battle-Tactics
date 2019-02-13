@@ -37,10 +37,6 @@ export default class Model extends Component {
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
-
-        // let scaleData = this.props.scaleData.scale;
-        // console.log(scaleData);
-
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
 
@@ -48,15 +44,18 @@ export default class Model extends Component {
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: (event, gesture) => {
             this.position.setOffset({
-              x: this.val.x,
-              y: this.val.y
+                x: this.val.x ,
+                y: this.val.y 
             });
             // console.log(gesture);
           },
         onPanResponderMove: (event, gesture) => {
-            // console.log(scaleData);
+            console.log(this.props.state.scale)
             if (gesture.numberActiveTouches === 1) {
-                position.setValue({ x: gesture.dx, y: gesture.dy })
+                position.setValue({
+                    x: gesture.dx / this.props.state.scale, 
+                    y: gesture.dy / this.props.state.scale 
+                })
             }
         },
         onPanResponderRelease: (event, gesture) => {
@@ -76,8 +75,8 @@ export default class Model extends Component {
         const updatedUnits = oldUnits.map(unit => {
             if (unit.id === this.props.id) {
                 const newUnit = {...unit};
-                newUnit.x = unit.x + gesture.dx;
-                newUnit.y = unit.y + gesture.dy;
+                newUnit.x = unit.x + gesture.dx / this.props.state.scale;
+                newUnit.y = unit.y + gesture.dy / this.props.state.scale;
                 return newUnit;
             } else {
                 return unit;

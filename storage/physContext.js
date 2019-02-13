@@ -9,11 +9,18 @@ export class PhysProvider extends React.Component {
         super(props);
 
         this.state = {
-            scale: 1
+            scale: 1,
+            offsetX: 0,
+            offsetY: 0
         };
     }
 
-    // updateLastXY = ()
+    updateOffset = (newOffsetX, newOffsetY) => {
+        this.setState({
+            offsetX: newOffsetX,
+            offsetY: newOffsetY
+        })
+    }
 
     updateScale = (newScale) => {
         this.setState({
@@ -25,7 +32,8 @@ export class PhysProvider extends React.Component {
         return (
             <PhysContext.Provider value={{
                 state: this.state,
-                updateScale: this.updateScale
+                updateScale: this.updateScale,
+                updateOffset: this.updateOffset
             }}>
                 {this.props.children}
             </PhysContext.Provider>

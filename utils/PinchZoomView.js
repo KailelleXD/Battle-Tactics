@@ -45,6 +45,11 @@ export default class PinchZoomView extends Component {
     });
   }
 
+  componentDidMount() {
+    this.props.updateScale(1);
+  }
+
+
   _handleStartShouldSetPanResponder = (e, gestureState) => {
     // don't respond to single touch to avoid shielding click on child components
     return false;
@@ -93,6 +98,7 @@ export default class PinchZoomView extends Component {
       let scale = (distant / this.distant) * this.state.lastScale;
       //check scale min to max hello
       if (scale < this.props.maxScale && scale > this.props.minScale) {
+        this.props.updateScale(scale);
         this.setState({ scale, lastMovePinch: true });
       }
     }
@@ -104,6 +110,7 @@ export default class PinchZoomView extends Component {
       }
       let offsetX = this.state.lastX + gestureState.dx / this.state.scale;
       let offsetY = this.state.lastY + gestureState.dy / this.state.scale;
+      this.props.updateOffset(offsetX, offsetY);
       // if ( offsetX < 0  || offsetY <  0 )
       this.setState({ offsetX, offsetY, lastMovePinch: false });
     }

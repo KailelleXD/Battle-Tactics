@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Model from "./Model/Model";
 import { AppConsumer } from "../../storage/AppContext";
+import { PhysConsumer } from '../../storage/physContext';
 
 import models from "../../utils/data/models.json";
 
@@ -15,23 +16,26 @@ export default class Detachment extends React.Component {
     render() {
 
         return (
-            <AppConsumer>
-                {(context) => (
-                    <View style={styles.container}>
-                        {/* {console.log(context.state.playerOne.units)} */}
-                        {context.state.playerOne.units.map(model => (
-                        <Model 
-                            id={model.id} 
-                            key={model.id} 
-                            model={styles[model.style]}
-                            name={model.text}
-                            playerState={context.state.playerOne}
-                            updateUnits={context.updateUnits}
-                            state={context.state} />
-                    ))}
-                    </View>
+            <PhysConsumer>
+                {(PhysContext) => (
+                <AppConsumer>
+                    {(context) => (
+                        <View style={styles.container}>
+                            {context.state.playerOne.units.map(model => (
+                            <Model 
+                                id={model.id} 
+                                key={model.id} 
+                                model={styles[model.style]}
+                                name={model.text}
+                                playerState={context.state.playerOne}
+                                updateUnits={context.updateUnits}
+                                state={PhysContext.state} />
+                        ))}
+                        </View>
+                    )}
+                </AppConsumer>
                 )}
-            </AppConsumer>
+            </PhysConsumer>
         );
     }
 }
