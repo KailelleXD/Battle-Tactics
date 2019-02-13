@@ -12,10 +12,9 @@ class FactionCard extends Component {
               <Body>
                   <Text> {this.props.name} </Text>
                   <Button 
-                      // title="View Detail"
-                      onPress={() => { this.props.navigation.navigate(this.props.path, {
-                        detail: this.props.detail
-                      })}}
+                      // onPress={() => { this.props.navigation.navigate(this.props.path, {
+                      //   detail: this.props.detail
+                      // })}}
                       >
                     <Text>View Detail</Text>
                   </Button>
