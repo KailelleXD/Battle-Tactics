@@ -14,19 +14,21 @@ export default class GameStartScreen extends Component {
         return (
             <PhysConsumer>
                 {(context) => (
-                    <PinchZoomView
-                        calcDistance={context.state.calcDistance}
+                    <PinchZoomView 
+                        updateScale={context.updateScale}
+                        state={context.state}
                     >
-                        <Detachment 
-                            style={{ zIndex: 99 }} />
-                        <ImageBackground
-                            source={MapGrid}
-                            style={{
-                                width: SCREEN_WIDTH,
-                                height: SCREEN_HEIGHT,
-                                zIndex: -5
-                            }}
-                        />
+                        <View>
+                            <Detachment style={{ zIndex: 99 }} />
+                            <ImageBackground
+                                source={MapGrid}
+                                style={{
+                                    width: SCREEN_WIDTH,
+                                    height: SCREEN_HEIGHT,
+                                    zIndex: -5
+                                }}
+                            />
+                        </View>
                     </PinchZoomView>
                 )}
             </PhysConsumer>
