@@ -1,17 +1,158 @@
 [
   {
     "id": 1,
-    "name": "Chaos Demons",
-    "detail": "Some Chaos Demons details here"
+    "name": "Aeldari - Drukhari"
   },
   {
     "id": 2,
-    "name": "Tau",
-    "detail": "Some Tau details here"
+    "name": "Aeldari - FW Corsairs"
   },
   {
     "id": 3,
-    "name": "Skitarii",
-    "detail": "Some Skitarii details here"
+    "name": "Aeldari - Harlequins"
+  },
+  {
+    "id": 4,
+    "name": "Aeldari - Ynnari"
+  },
+  {
+    "id": 5,
+    "name": "Chaos - Chaos Space Marines"
+  },
+  {
+    "id": 6,
+    "name": "Chaos - Daemons"
+  },
+  {
+    "id": 7,
+    "name": "Chaos - Dark Mechanicum"
+  },
+  {
+    "id": 8,
+    "name": "Chaos - Death Guard"
+  },
+  {
+    "id": 9,
+    "name": "Chaos - FW Heretic Astartes"
+  },
+  {
+    "id": 10,
+    "name": "Chaos - FW Renegade and Heretics"
+  },
+  {
+    "id": 11,
+    "name": "Chaos - Questor Traitoris"
+  },
+  {
+    "id": 12,
+    "name": "Chaos - Thousand Sons"
+  },
+  {
+    "id": 13,
+    "name": "Chaos - Titanicus Traitoris"
+  },
+  {
+    "id": 14,
+    "name": "Imperium - Adeptus Astra Telepathica"
+  },
+  {
+    "id": 15,
+    "name": "Imperium - Adeptus Custodes"
+  },
+  {
+    "id": 16,
+    "name": "Imperium - Adeptus Mechanicus"
+  },
+  {
+    "id": 17,
+    "name": "Imperium - Adeptus Ministorum"
+  },
+  {
+    "id": 18,
+    "name": "Imperium - Adeptus Titanicus"
+  },
+  {
+    "id": 19,
+    "name": "Imperium - Astra Militarum"
+  },
+  {
+    "id": 20,
+    "name": "Imperium - Blood Angels"
+  },
+  {
+    "id": 21,
+    "name": "Imperium - Dark Angels"
+  },
+  {
+    "id": 22,
+    "name": "Imperium - Deathwatch"
+  },
+  {
+    "id": 23,
+    "name": "Imperium - FW Adeptus Astartes"
+  },
+  {
+    "id": 24,
+    "name": "Imperium - FW Death Korps of Krieg"
+  },
+  {
+    "id": 25,
+    "name": "Imperium - FW Elysians"
+  },
+  {
+    "id": 26,
+    "name": "Imperium - Grey Knights"
+  },
+  {
+    "id": 27,
+    "name": "Imperium - Inquisition"
+  },
+  {
+    "id": 28,
+    "name": "Imperium - Legion of the Damned"
+  },
+  {
+    "id": 29,
+    "name": "Imperium - Officio Assassinorum"
+  },
+  {
+    "id": 30,
+    "name": "Imperium - Questor Imperialis"
+  },
+  {
+    "id": 31,
+    "name": "Imperium - Sisters of Silence"
+  },
+  {
+    "id": 32,
+    "name": "Imperium - Space Marines"
+  },
+  {
+    "id": 33,
+    "name": "Imperium - Space Wolves"
+  },
+  {
+    "id": 34,
+    "name": "Necrons"
+  },
+  {
+    "id": 35,
+    "name": "Orks"
+  },
+  {
+    "id": 36,
+    "name": "T'au Empire"
+  },
+  {
+    "id": 37,
+    "name": "Tyranids - Genestealer Cults"
+  },
+  {
+    "id": 38,
+    "name": "Tyranids"
+  },
+  {
+    "id": 39,
+    "name": "Warhammer 40,000 8th Edition"
   }
 ]
