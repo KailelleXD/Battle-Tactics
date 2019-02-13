@@ -18,6 +18,8 @@ export default class GameStartScreen extends Component {
                         updateScale={context.updateScale}
                         state={context.state}
                     >
+                    {/* {console.log(context.state)} */}
+
                         <View>
                             <Detachment style={{ zIndex: 99 }} />
                             <ImageBackground

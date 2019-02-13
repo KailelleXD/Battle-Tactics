@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { 
     View,
     Text,
     Animated,
     PanResponder,
+    ViewPropTypes,
     Dimensions
 } from 'react-native';
+
+// Fallback when RN version is < 0.44
+const viewPropTypes = ViewPropTypes || View.propTypes;
+
 
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 let MODEL_RADIUS = SCREEN_WIDTH / 12;
 
 export default class Model extends Component {
+    static propTypes = {
+        ...viewPropTypes,
+        scalable: PropTypes.bool,
+        minScale: PropTypes.number,
+        maxScale: PropTypes.number
+      };
+    
+      static defaultProps = {
+        scalable: true,
+        minScale: 0.5,
+        maxScale: 2
+      };
+
     constructor(props) {
         super(props);
 

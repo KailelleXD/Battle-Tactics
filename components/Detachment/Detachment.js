@@ -26,7 +26,8 @@ export default class Detachment extends React.Component {
                             model={styles[model.style]}
                             name={model.text}
                             playerState={context.state.playerOne}
-                            updateUnits={context.updateUnits} />
+                            updateUnits={context.updateUnits}
+                            state={context.state} />
                     ))}
                     </View>
                 )}
