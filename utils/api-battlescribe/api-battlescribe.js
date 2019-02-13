@@ -163,14 +163,33 @@ router.get('/searchCodex/:codex', function (req, res) {
 
 
 					}
+					if (!fullList[i].costs[0]) {
+						var cost = null;
+					} else {
+						var cost = fullList[i].costs[0].cost
 
+						for (var j = 0; j < cost.length; j++) {
+
+							if (cost[j].$.name === "pts") {
+								var pts = cost[j].$.value
+							}
+							if (cost[j].$.name === " PL") {
+								var PL = cost[j].$.value
+							}
+							if (cost[j].$.name === "CP") {
+								var CP = cost[j].$.value
+							}
+						}
+
+
+					}
 					// define cost 
 					//use name matching on PTS etc
-					if (fullList[i].costs[0]) {
-						var pts = fullList[i].costs[0].cost[0].$.value
-						var PL = fullList[i].costs[0].cost[1].$.value
-						var CP = fullList[i].costs[0].cost[2].$.value
-					}
+					// if (fullList[i].costs[0]) {
+					// 	var pts = fullList[i].costs[0].cost[0].$.value
+					// 	var PL = fullList[i].costs[0].cost[1].$.value
+					// 	var CP = fullList[i].costs[0].cost[2].$.value
+					// }
 
 
 					var bf_role = returnUnit(unitRole)
