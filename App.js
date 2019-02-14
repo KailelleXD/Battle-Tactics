@@ -5,14 +5,17 @@ import NavigationContainer from './navigation/NavigationContainer';
 
 // context
 import { AppProvider } from './storage/AppContext';
+import { PhysProvider } from './storage/physContext';
 
 export default class App extends React.Component {
 
   render() {
     return (
+      <PhysProvider>
       <AppProvider>
         <NavigationContainer />
       </AppProvider>
+      </PhysProvider>
     );
   }
 }
