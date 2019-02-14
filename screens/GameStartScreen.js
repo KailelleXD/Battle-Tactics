@@ -28,7 +28,7 @@ export default class GameStartScreen extends Component {
                                 style={{
                                     width: SCREEN_WIDTH,
                                     height: SCREEN_HEIGHT,
-                                    zIndex: -5
+                                    zIndex: -5,
                                 }}
                             />
                         </View>
