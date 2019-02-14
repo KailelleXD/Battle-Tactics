@@ -3,7 +3,7 @@ import { View, ImageBackground, Dimensions } from "react-native";
 import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
-import MapGrid from "../graphics/temp/fullsize4x6grid15.png";
+import MapGrid from "../graphics/maps/SandDunes.png";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
@@ -17,6 +17,8 @@ export default class GameStartScreen extends Component {
                     <PinchZoomView 
                         updateOffset={context.updateOffset}
                         updateScale={context.updateScale}
+                        updateLast={context.updateLast}
+                        updateDistant={context.updateDistant}
                         state={context.state}
                     >
                         <View>
@@ -26,7 +28,7 @@ export default class GameStartScreen extends Component {
                                 style={{
                                     width: SCREEN_WIDTH,
                                     height: SCREEN_HEIGHT,
-                                    zIndex: -5
+                                    zIndex: -5,
                                 }}
                             />
                         </View>

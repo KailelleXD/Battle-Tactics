@@ -218,41 +218,41 @@ export class AppProvider extends React.Component {
 
 
 
-    setScale = (newScale) => {
-        posData = {...this.state.posData}
-        // console.log("posData: " + posData);
-        posData.lastScale = posData.scaleData;
-        posData.scaleData = newScale;
-        // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
-            console.log("posData.scaleData: " + posData.scaleData)
-            console.log("posData.lastScale: " + posData.lastScale)
-            this.setState({ posData });
-            // console.log(this.state.posData.scaleData);
-        // }
-    }
+//     setScale = (newScale) => {
+//         posData = {...this.state.posData}
+//         // console.log("posData: " + posData);
+//         posData.lastScale = posData.scaleData;
+//         posData.scaleData = newScale;
+//         // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
+//             console.log("posData.scaleData: " + posData.scaleData)
+//             console.log("posData.lastScale: " + posData.lastScale)
+//             this.setState({ posData });
+//             // console.log(this.state.posData.scaleData);
+//         // }
+//     }
 
-    updateUnits = (newUnits) => {
-        const playerOne = {...this.state.playerOne};
-        playerOne.units = newUnits;
-        this.setState({ playerOne });
-    }
+//     updateUnits = (newUnits) => {
+//         const playerOne = {...this.state.playerOne};
+//         playerOne.units = newUnits;
+//         this.setState({ playerOne });
+//     }
 
-    render () {
-        return (
-            <AppContext.Provider value={{
-                state: this.state,
-                setName: this.setName,
-                setMap: this.setMap,
-                addTerrainObject: this.addTerrainObject,
-                setFaction: this.setFaction,
-                setUnit: this.setUnit,
-                updateUnits: this.updateUnits,
-                setDeploymentArea: this.setDeploymentArea,
-                addUnitPlacementObject: this.addUnitPlacementObject,
-                setScale: this.setScale,
-            }}>
-                {this.props.children}
-            </AppContext.Provider>
-        )
-    }
-}
+//     render () {
+//         return (
+//             <AppContext.Provider value={{
+//                 state: this.state,
+//                 setName: this.setName,
+//                 setMap: this.setMap,
+//                 addTerrainObject: this.addTerrainObject,
+//                 setFaction: this.setFaction,
+//                 setUnit: this.setUnit,
+//                 updateUnits: this.updateUnits,
+//                 setDeploymentArea: this.setDeploymentArea,
+//                 addUnitPlacementObject: this.addUnitPlacementObject,
+//                 setScale: this.setScale,
+//             }}>
+//                 {this.props.children}
+//             </AppContext.Provider>
+//         )
+//     }
+// }

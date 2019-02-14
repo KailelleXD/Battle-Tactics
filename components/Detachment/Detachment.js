@@ -49,21 +49,21 @@ const styles = StyleSheet.create({
         // justifyContent: "center"
     },
     modelPurple: {
-        backgroundColor: "#800080"
+        backgroundColor: "#FF00FF"
     },
     modelKiwi: {
-        backgroundColor: "#808000",
+        backgroundColor: "#FFFF00",
     },
     modelAqua: {
-        backgroundColor: "#008080"
+        backgroundColor: "#00FFFF"
     },
     modelRed: {
-        backgroundColor: "#800000"
+        backgroundColor: "#FF0000"
     },
     modelGreen: {
-        backgroundColor: "#008000"
+        backgroundColor: "#00FF00"
     },
     modelBlue: {
-        backgroundColor: "#000080"
+        backgroundColor: "#0000FF"
     }
 });
