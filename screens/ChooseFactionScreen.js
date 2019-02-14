@@ -21,10 +21,10 @@ export default class ChooseFactionScreen extends Component {
     return (
       <Container>
         <Grid style={styles.grid}>
-          <Row size={15}>
+          <Row size={5}>
             <Text>This is the Choose Faction screen</Text>
           </Row>
-          <Row size={70}>
+          <Row size={80}>
             <FactionSelector />
           </Row>
           <Row size={15}>

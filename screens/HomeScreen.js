@@ -27,7 +27,7 @@ export default class HomeScreen extends Component {
 
 
                    {/* <Row style={styles.row}>
-                     <HomeScreenButton title='GameReview' />
+                     <HomeScreenButton title='Factions' />
                    </Row> */}
 
 
