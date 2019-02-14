@@ -6,12 +6,12 @@ import {
   PanResponder, 
   ViewPropTypes, 
   TouchableWithoutFeedback,
-  Animated 
+  Animated,
+  Dimensions
 } from 'react-native';
 
 // Fallback when RN version is < 0.44
 const viewPropTypes = ViewPropTypes || View.propTypes;
-
 export default class PinchZoomView extends Component {
   static propTypes = {
     ...viewPropTypes,
@@ -31,6 +31,10 @@ export default class PinchZoomView extends Component {
 
     const position = new Animated.ValueXY();
     this.position = position;
+
+    let Window = Dimensions.get('window');
+    const SCREEN_WIDTH = Window.width;
+    const SCREEN_HEIGHT = Window.height;
 
     this.state = {
       // scale: 1,
@@ -114,6 +118,7 @@ export default class PinchZoomView extends Component {
   };
 
   _handlePanResponderMove = (event, gesture) => {
+
     // zoom
     if (gesture.numberActiveTouches === 2) {
       let dx = Math.abs(

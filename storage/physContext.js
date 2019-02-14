@@ -15,7 +15,9 @@ export class PhysProvider extends React.Component {
             offsetY: 0,
             lastX: 0,
             lastY: 0,
-            distant: 150
+            distant: 150,
+            maxWOffset: 0, 
+            maxHOffset: 0
         };
     }
 
@@ -46,6 +48,13 @@ export class PhysProvider extends React.Component {
         })
     }
 
+    updateMaxOffset = (maxW, maxH) => {
+        this.setState({
+            maxWOffset: maxW, 
+            maxHOffset: maxH
+        })
+    }
+
     render() {
         return (
             <PhysContext.Provider value={{
@@ -53,7 +62,8 @@ export class PhysProvider extends React.Component {
                 updateScale: this.updateScale,
                 updateOffset: this.updateOffset,
                 updateLast: this.updateLast,
-                updateDistant: this.updateDistant
+                updateDistant: this.updateDistant,
+                updateMaxOffset: this.updateMaxOffset
             }}>
                 {this.props.children}
             </PhysContext.Provider>
