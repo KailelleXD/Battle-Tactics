@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
 import { Container, Header, Content, Button, Text, Body } from 'native-base';
 import { withNavigation } from 'react-navigation';
+import Image from "../assets/img/map3.jpg"
+
 // import loadAsync from '../utils/loadAsync/LoadAsync';
 
 
@@ -10,9 +12,12 @@ class HomeScreenButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fontLoaded: false
+      fontLoaded: false,
+      // imageSource: "./assets/img/map3.jpg"
     }
   }
+
+  
 
   async componentWillMount() {
     await Expo.Font.loadAsync({
@@ -38,8 +43,13 @@ class HomeScreenButton extends Component {
             <Text>{this.props.title}</Text>
           </Button>
         ):<Text style={styles.text}>"font not loaded"</Text>}
+        <ImageBackground source={Image} style={{width: '100%', height: '100%'}}>
+        
+        </ImageBackground>
+
       </View>
 
+      );
 
 
         // <Button
@@ -48,7 +58,7 @@ class HomeScreenButton extends Component {
         // />
 
 
-    )
+    
   }
 }
 
@@ -60,9 +70,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     width: 180,
     justifyContent: "center",
-    borderRadius: 10
-  },
+    borderRadius: 10,
+    backgroundColor: "orange"
 
+  },
   text: {
     color: "red"
   }

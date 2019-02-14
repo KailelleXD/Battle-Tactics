@@ -25,7 +25,7 @@ export default class HomeScreen extends Component {
             <Grid>
             <ImageBackground source={Image} style={{width: '100%', height: '100%'}}>
         
-        </ImageBackground>
+        
 
               <Col style={styles.col}>
 
@@ -50,9 +50,9 @@ export default class HomeScreen extends Component {
                   <Row style={styles.row}>
                     <HomeScreenButton title='GameStart' />
                   </Row>
-
+        
               </Col>
-
+              </ImageBackground>
             </Grid>
           
           </Container>
