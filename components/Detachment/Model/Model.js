@@ -13,14 +13,9 @@ const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
 const ON_TOUCH_MULTIPLIER = 6;
 const ON_TOUCH_MODEL_RADIUS = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
-const ON_TOUCH_OFFSET = 19;
-
 export default class Model extends Component {
     constructor(props) {
         super(props);
-
-        // const ON_TOUCH_OFFSET = 1 / this.props.state.scale;
-        // this.ON_TOUCH_OFFSET = ON_TOUCH_OFFSET;
 
         this.state = {
             onTouch: false
@@ -80,8 +75,8 @@ export default class Model extends Component {
         const updatedUnits = oldUnits.map(unit => {
             if (unit.id === this.props.id) {
                 const newUnit = {...unit};
-                newUnit.x = unit.x + gesture.dx + ON_TOUCH_OFFSET / this.props.state.scale;
-                newUnit.y = unit.y + gesture.dy + ON_TOUCH_OFFSET / this.props.state.scale;
+                newUnit.x = unit.x + gesture.dx / this.props.state.scale;
+                newUnit.y = unit.y + gesture.dy / this.props.state.scale;
                 return newUnit;
             } else {
                 return unit;
