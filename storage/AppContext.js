@@ -477,7 +477,7 @@ updateUnits = (newUnits) => {
   //   }
   // }
 
-  function returnUnit(unitRole) {
+  returnUnit = (unitRole) =>{
     if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
       return "No Force Org Slot"
     }
@@ -512,7 +512,7 @@ updateUnits = (newUnits) => {
     }
   }
   
-  function parseAdditionalArray(additionalArray) {
+  parseAdditionalArray = (additionalArray) => {
   
     var profileOne = {
       "W": null,
