@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
 import { Container } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 // screens
@@ -7,6 +7,7 @@ import HomeScreenButton from '../components/HomeScreenButton';
 // context
 import { AppConsumer } from '../storage/AppContext';
 import { ScrollView } from 'react-native-gesture-handler';
+import Image from '../assets/img/map3.jpg'
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -22,6 +23,9 @@ export default class HomeScreen extends Component {
           <Container>
             {/* {console.log(context.state)}         */}
             <Grid>
+            <ImageBackground source={Image} style={{width: '100%', height: '100%'}}>
+        
+        </ImageBackground>
 
               <Col style={styles.col}>
 
