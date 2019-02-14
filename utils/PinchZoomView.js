@@ -16,7 +16,7 @@ export default class PinchZoomView extends Component {
   static defaultProps = {
     scalable: true,
     minScale: 0.5,
-    maxScale: 2
+    maxScale: 5.0
   };
 
   constructor(props) {
@@ -110,7 +110,6 @@ export default class PinchZoomView extends Component {
       }
       let offsetX = this.state.lastX + gestureState.dx / this.state.scale;
       let offsetY = this.state.lastY + gestureState.dy / this.state.scale;
-      this.props.updateOffset(offsetX, offsetY);
       // if ( offsetX < 0  || offsetY <  0 )
       this.setState({ offsetX, offsetY, lastMovePinch: false });
     }

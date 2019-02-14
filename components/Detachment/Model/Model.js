@@ -5,34 +5,26 @@ import {
     Text,
     Animated,
     PanResponder,
-    ViewPropTypes,
     Dimensions
 } from 'react-native';
 
-// Fallback when RN version is < 0.44
-const viewPropTypes = ViewPropTypes || View.propTypes;
-
-
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
-let MODEL_RADIUS = SCREEN_WIDTH / 12;
+const MODEL_RADIUS = SCREEN_WIDTH / 48;
+const ON_TOUCH_MULTIPLIER = 6;
+const ON_TOUCH_MODEL_RADIUS = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
+const ON_TOUCH_OFFSET = 19;
 
 export default class Model extends Component {
-    static propTypes = {
-        ...viewPropTypes,
-        scalable: PropTypes.bool,
-        minScale: PropTypes.number,
-        maxScale: PropTypes.number
-      };
-    
-      static defaultProps = {
-        scalable: true,
-        minScale: 0.5,
-        maxScale: 2
-      };
-
     constructor(props) {
         super(props);
+
+        // const ON_TOUCH_OFFSET = 1 / this.props.state.scale;
+        // this.ON_TOUCH_OFFSET = ON_TOUCH_OFFSET;
+
+        this.state = {
+            onTouch: false
+        }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
@@ -41,16 +33,25 @@ export default class Model extends Component {
         position.addListener((value) => this.val = value);
 
         const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: (event, gesture) => {
+            console.log("I'm being touched!!!");
+            this.setState({
+                onTouch: true
+            })
+            return true;
+        },
         onPanResponderGrant: (event, gesture) => {
             this.position.setOffset({
-                x: this.val.x ,
+                // x: this.val.x,
+                // y: this.val.y 
+                x: this.val.x,
                 y: this.val.y 
             });
             // console.log(gesture);
           },
         onPanResponderMove: (event, gesture) => {
-            console.log(this.props.state.scale)
+            // console.log(this.props.state.scale)
+            // console.log("onTouch state: " + this.state.onTouch)
             if (gesture.numberActiveTouches === 1) {
                 position.setValue({
                     x: gesture.dx / this.props.state.scale, 
@@ -59,6 +60,10 @@ export default class Model extends Component {
             }
         },
         onPanResponderRelease: (event, gesture) => {
+            console.log("I'm no longer being touched!")
+            this.setState({
+                onTouch: false
+            })
             this.updateModelLocation(gesture);
         },
         onPanResponderTerminationRequest: (event, gesture) => false,
@@ -75,8 +80,8 @@ export default class Model extends Component {
         const updatedUnits = oldUnits.map(unit => {
             if (unit.id === this.props.id) {
                 const newUnit = {...unit};
-                newUnit.x = unit.x + gesture.dx / this.props.state.scale;
-                newUnit.y = unit.y + gesture.dy / this.props.state.scale;
+                newUnit.x = unit.x + gesture.dx + ON_TOUCH_OFFSET / this.props.state.scale;
+                newUnit.y = unit.y + gesture.dy + ON_TOUCH_OFFSET / this.props.state.scale;
                 return newUnit;
             } else {
                 return unit;
@@ -86,13 +91,26 @@ export default class Model extends Component {
         this.props.updateUnits(updatedUnits);
     }
 
+    onTouchModelStyle () {
+        if (this.state.onTouch === true) {
+            return styles.onTouch;
+            // return styles.model;
+
+        } else {
+            return styles.model;
+        }
+    }
+
     renderModels() {
         return (
+            // <Animated.View
+            //     style={[this.position.getLayout(), this.onTouchModelStyle(this.onTouch), this.props.model]}
+            //     {...this.panResponder.panHandlers}
+            // >
             <Animated.View
-                style={[this.position.getLayout(), styles.model, this.props.model]}
+                style={[this.position.getLayout(), this.onTouchModelStyle(), this.props.model]}
                 {...this.panResponder.panHandlers}
             >
-               <Text style={styles.text}>{this.props.name}</Text>
             </Animated.View>
         )
     }
@@ -128,9 +146,21 @@ const styles = {
         borderColor: '#000',
         borderWidth: 2,
         borderRadius: MODEL_RADIUS,
-        margin: 0,
+        marginTop: ON_TOUCH_MODEL_RADIUS,
+        marginLeft: ON_TOUCH_MODEL_RADIUS,
         padding: 0
-    }
+    },
+    onTouch: {
+        width: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
+        height: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
+        backgroundColor: '#fff',
+        borderColor: '#0f0',
+        borderWidth: 2,
+        borderRadius: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
+        margin: 0,
+        padding: 0,
+        opacity: 0.75,
+    },
 };
 
 

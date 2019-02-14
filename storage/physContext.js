@@ -15,13 +15,6 @@ export class PhysProvider extends React.Component {
         };
     }
 
-    updateOffset = (newOffsetX, newOffsetY) => {
-        this.setState({
-            offsetX: newOffsetX,
-            offsetY: newOffsetY
-        })
-    }
-
     updateScale = (newScale) => {
         this.setState({
             scale: newScale
@@ -33,7 +26,6 @@ export class PhysProvider extends React.Component {
             <PhysContext.Provider value={{
                 state: this.state,
                 updateScale: this.updateScale,
-                updateOffset: this.updateOffset
             }}>
                 {this.props.children}
             </PhysContext.Provider>
