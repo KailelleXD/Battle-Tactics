@@ -10,8 +10,12 @@ export class PhysProvider extends React.Component {
 
         this.state = {
             scale: 1,
+            lastScale: 1,
             offsetX: 0,
-            offsetY: 0
+            offsetY: 0,
+            lastX: 0,
+            lastY: 0,
+            distant: 150
         };
     }
 
@@ -21,11 +25,35 @@ export class PhysProvider extends React.Component {
         })
     };
 
+    updateOffset = (x, y) => {
+        this.setState({
+            offsetX: x,
+            offsetY: y
+        })
+    }
+
+    updateLast = (lastX, lastY, lastScale) => {
+        this.setState({
+            lastX: lastX,
+            lastY: lastY,
+            lastScale: lastScale
+        })
+    }
+
+    updateDistant = (distant) => {
+        this.setState({
+            distant: distant
+        })
+    }
+
     render() {
         return (
             <PhysContext.Provider value={{
                 state: this.state,
                 updateScale: this.updateScale,
+                updateOffset: this.updateOffset,
+                updateLast: this.updateLast,
+                updateDistant: this.updateDistant
             }}>
                 {this.props.children}
             </PhysContext.Provider>
