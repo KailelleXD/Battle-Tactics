@@ -15,6 +15,8 @@ export default class FactionSelector extends Component {
         {(context) => (
           // <ScrollView>
             <Container>
+                <Grid>
+                  <Row size={70}>
               <Content>
                   {Factions.map(faction => (
                     <FactionCard 
@@ -27,8 +29,15 @@ export default class FactionSelector extends Component {
                     }}
                     ></FactionCard>
                     ))}
-                  <Text>Faction: {context.state.playerOne.faction}</Text>
+
                 </Content>
+                  </Row>
+
+                  <Row size={30}>
+                  <Text>Faction: {context.state.playerOne.faction}</Text>
+
+                  </Row>
+                </Grid>
             </Container>
           // </ScrollView>
         )}

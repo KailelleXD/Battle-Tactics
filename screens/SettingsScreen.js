@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { Container, Text, Button } from 'native-base'
 // components
 import RandomStart from '../components/RandomStart'
+import { AppConsumer } from '../storage/AppContext'
 
 export default class SettingsScreen extends Component {
   static navigationOptions = {
@@ -10,24 +12,64 @@ export default class SettingsScreen extends Component {
 
   render () {
     return (
-      <View>
+      <AppConsumer>
+
+      {(context) => (
+      <Container>
+      
+
         <Text>This is the Screen screen</Text>
+        
+        <Button
+        info
+        rounded
+        large
+        style={styles.button}
+        onPress={() => { this.props.navigation.navigate("PlayerOne") }}
+        >
+        <Text>Player One</Text>
+        </Button>
 
         <Button
-          title="Player One"
-          onPress={() => { this.props.navigation.navigate("PlayerOne") }}
-        />
+        info
+        rounded
+        large
+        style={styles.button} 
+        onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
+        >
+        <Text>Player Two</Text>
+        </Button>
+
 
         <Button
-          title="Player Two"
-          onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
-        />
+        info
+        rounded
+        large
+        style={styles.button}
+        onPress={() => {context.getAllData()}}
+        >
+          <Text>Import Armies</Text>
+        </Button>
        
-        {/* <RandomStart random={this.props.randomStart} /> */}
-      </View>
+        {/* <RandomStart random={this.props.randomStart} />  */}
+
+      </Container>
+      )}
+      
+      </AppConsumer>
     );
 
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  button: {
+    margin: 20,
+    padding: 50,
+    paddingRight: 10,
+    paddingLeft: 10,
+    width: 180,
+    justifyContent: "center",
+    borderRadius: 10
+  }
+})
