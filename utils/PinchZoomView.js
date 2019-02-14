@@ -23,7 +23,7 @@ export default class PinchZoomView extends Component {
   static defaultProps = {
     scalable: true,
     minScale: 1.0,
-    maxScale: 5.0
+    maxScale: 3.0
   };
 
   constructor(props) {

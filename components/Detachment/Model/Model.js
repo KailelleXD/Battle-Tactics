@@ -11,7 +11,7 @@ import {
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
-const ON_TOUCH_MULTIPLIER = 5;
+const ON_TOUCH_MULTIPLIER = 4.5;
 const ON_TOUCH_MODEL_OFFSET = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
 const ON_TOUCH_MODEL_HIGHLIGHT = MODEL_RADIUS*ON_TOUCH_MULTIPLIER;
 
@@ -24,7 +24,7 @@ export default class Model extends Component {
             onTouch: false
         }
 
-        this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
+        // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });

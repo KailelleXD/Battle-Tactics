@@ -15,7 +15,11 @@ export class PhysProvider extends React.Component {
             offsetY: 0,
             lastX: 0,
             lastY: 0,
-            distant: 150
+            distant: 150,
+            screenWidth: 720,
+            ppi: 1,
+            distance: 150,
+            inches: 0
         };
     }
 
@@ -46,6 +50,29 @@ export class PhysProvider extends React.Component {
         })
     }
 
+    getPixelsPerInch = (screenWidth) => {
+        const PPI = screenWidth/48;
+        console.log("screenWidth: " + screenWidth);
+        console.log("Pixels/Inch: " + PPI);
+        this.setState({
+            screenWidth: screenWidth,
+            ppi: PPI
+        })
+    }
+
+    calcDistance = (xyObj1, xyObj2) => {
+        let dx = Math.abs(xyObj1.x - xyObj2.x);
+        let dy = Math.abs(xyObj1.y - xyObj2.y);
+        let distance = Math.sqrt(dx * dx + dy * dy);
+        let inches = distance / this.state.ppi;
+        console.log("Total Distance in Pixels: " + distance);
+        console.log("Total Distance in Inches: " + inches);
+        this.setState({
+            distance: distance,
+            inches: inches
+        })
+    }
+
     render() {
         return (
             <PhysContext.Provider value={{
@@ -53,7 +80,9 @@ export class PhysProvider extends React.Component {
                 updateScale: this.updateScale,
                 updateOffset: this.updateOffset,
                 updateLast: this.updateLast,
-                updateDistant: this.updateDistant
+                updateDistant: this.updateDistant,
+                getPixelsPerInch: this.getPixelsPerInch,
+                calcDistance: this.calcDistance
             }}>
                 {this.props.children}
             </PhysContext.Provider>
