@@ -84,6 +84,9 @@ export default class Model extends Component {
                     x: unit.x - gesture.dx/this.props.state.scale,
                     y: unit.y - gesture.dy/this.props.state.scale
                 })
+                this.setState({
+                    resetPosition: false
+                })
                 this.updateModelLocation(gesture);
             } 
             this.props.calcDistance(gesture);
@@ -126,15 +129,21 @@ export default class Model extends Component {
 
     
     updateModelLocation (gesture) {
+        console.log("resetPosition: " + this.state.resetPosition)
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
+            console.log(unit);
+            // Should only be used if model location reset.
             if (unit.id === this.props.id &&
                 this.state.resetPosition === true) {
+                    console.log("Reset Unit Positions");
                 const newUnit = {...unit};
                 newUnit.x = unit.x - gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y - gesture.dy / this.props.state.scale;
                 return newUnit;
+            // Should only be used if model location not reset.
             } else if (unit.id === this.props.id) {
+                console.log("Don't Reset Unit Positions");
                 const newUnit = {...unit};
                 newUnit.x = unit.x + gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y + gesture.dy / this.props.state.scale;
