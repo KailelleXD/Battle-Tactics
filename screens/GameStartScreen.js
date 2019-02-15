@@ -19,6 +19,7 @@ export default class GameStartScreen extends Component {
                         updateScale={context.updateScale}
                         updateLast={context.updateLast}
                         updateDistant={context.updateDistant}
+                        getPixelsPerInch={context.getPixelsPerInch}
                         state={context.state}
                     >
                         <View>
