@@ -3,7 +3,9 @@ import { View, ImageBackground, Dimensions } from "react-native";
 import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
-import MapGrid from "../graphics/maps/SandDunes.png";
+import SandDunes from "../graphics/maps/SandDunes.png";
+import RockFormations from "../graphics/maps/RockFormations.png";
+import DustPlains from "../graphics/maps/DustPlains.png";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
@@ -25,7 +27,7 @@ export default class GameStartScreen extends Component {
                         <View>
                             <Detachment style={{ zIndex: 99 }} />
                             <ImageBackground
-                                source={MapGrid}
+                                source={SandDunes}
                                 style={{
                                     width: SCREEN_WIDTH,
                                     height: SCREEN_HEIGHT,

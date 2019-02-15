@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import GhostModel from '../Model/ghostModel';
 import { 
     View,
     Text,
@@ -26,7 +27,8 @@ export default class Model extends Component {
         super(props);
 
         this.state = {
-            onTouch: false
+            onTouch: false,
+            ghostModel: false,
         }
 
         // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
@@ -41,9 +43,10 @@ export default class Model extends Component {
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-            // console.log("I'm being touched!!!");
+            console.log("I'm being touched!!!");
             this.setState({
-                onTouch: true
+                onTouch: true,
+                ghostModel: true
             })
             return true;
         },
@@ -74,7 +77,8 @@ export default class Model extends Component {
             this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
             console.log("I'm no longer being touched!")
             this.setState({
-                onTouch: false
+                onTouch: false,
+                ghostModel: false
             })
             this.updateModelLocation(gesture);
             this.props.calcDistance(gesture);
@@ -89,6 +93,7 @@ export default class Model extends Component {
 
     }
 
+    
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -101,20 +106,20 @@ export default class Model extends Component {
                 return unit;
             }
         });
-
+        
         this.props.updateUnits(updatedUnits);
     }
-
+    
     onTouchModelStyle () {
         if (this.state.onTouch === true) {
             return styles.onTouch;
             // return styles.model;
-
+            
         } else {
             return styles.model;
         }
     }
-
+    
     maxMovementStyle () {
         if (this.props.state.inches <= this.movement && this.state.onTouch) {
             // Border Color should be Red!
@@ -124,6 +129,18 @@ export default class Model extends Component {
             return styles.underMaxDistance;
         } else {
             return styles.offTouch;
+        }
+    }
+    
+    placeGhostModel () {
+        // This function is designed to place a temporary model in the location the model was last located.
+        // IF, this.state.onTouch === true // THEN, return ghostModel component.
+        if (this.state.onTouch === true) {
+            return (
+                <GhostModel position={this.position} modelStyle={styles[this.props.model, styles.model]} />
+            )
+        } else if (this.state.onTouch === false) {
+
         }
     }
 
@@ -140,11 +157,12 @@ export default class Model extends Component {
             </Animated.View>
         )
     }
-
+    
     render() {
         return (
             <View style={styles.mainContainer}>
                 {this.renderModels()}
+                {this.placeGhostModel()}
             </View>
         )
     }

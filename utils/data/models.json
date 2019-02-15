@@ -11,6 +11,8 @@
         "id": 2, 
         "text": "", 
         "style": "modelPurple",
+        "lastX": 0,
+        "lastY": 0,
         "x": 0,
         "y": 0,
         "m": 15
