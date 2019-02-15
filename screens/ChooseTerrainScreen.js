@@ -24,7 +24,7 @@ export default class ChooseTerrain extends Component {
 
                 <Row size={15}>
                   <Text>This is the choose terrain screen</Text>
-                  <Text>Current Map:{context.state.playerOne.mapName}</Text>
+                  <Text>Current Map:{context.state.gameData.mapName}</Text>
                 </Row>
                 
                 <Row size={35}>
@@ -33,7 +33,7 @@ export default class ChooseTerrain extends Component {
 
                 <Row size={35}>
                   <Col>
-                    {context.state.playerOne.terrain.map(terrain => (
+                    {context.state.gameData.terrain.map(terrain => (
                       <Text key={terrain.id}>{terrain.name}</Text>
                     ))}
                   </Col>
