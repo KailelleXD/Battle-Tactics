@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GhostModel from '../Model/GhostModel';
+import GhostModel from './GhostModel';
 import { 
     View,
     Text,
@@ -43,14 +43,13 @@ export default class Model extends Component {
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-
-                console.log("I'm being touched!!!");
-                this.setState({
-                    onTouch: true,
-                    ghostModel: true,
-                    resetPosition: false
-                })
-                return true;
+            console.log("I'm being touched!!!");
+            this.setState({
+                onTouch: true,
+                ghostModel: true,
+                resetPosition: false,
+            })
+            return true;
         },
         onPanResponderGrant: (event, gesture) => {
             // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
@@ -66,31 +65,23 @@ export default class Model extends Component {
         onPanResponderMove: (event, gesture) => {
             // console.log(this.props.state.scale)
             // console.log("onTouch state: " + this.state.onTouch)
-            // if (gesture.numberActiveTouches === 1 && 
-            //     this.state.resetPosition === false) {
             if (gesture.numberActiveTouches === 1) {
                 position.setValue({
                     x: gesture.dx / this.props.state.scale, 
                     y: gesture.dy / this.props.state.scale 
                 })
             }
-
+            
             if (gesture.numberActiveTouches === 2) {
-                console.log("Reset Position Enabled!")
                 this.setState({
                     resetPosition: true
                 })
                 this.position.setOffset({
-                    x: unit.x - gesture.dx/this.props.state.scale,
-                    y: unit.y - gesture.dy/this.props.state.scale
+                    x: -gesture.dx/this.props.state.scale,
+                    y: -gesture.dy/this.props.state.scale
                 })
-                this.setState({
-                    resetPosition: false
-                })
-                this.updateModelLocation(gesture);
             } 
             this.props.calcDistance(gesture);
-
         },
         onPanResponderRelease: (event, gesture) => {
             // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
@@ -98,13 +89,12 @@ export default class Model extends Component {
             console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false,
-                ghostModel: false,
+                ghostModel: false
             })
             if (this.state.resetPosition) {
-                console.log("Position Reset!")
                 this.position.setOffset({
-                    x: unit.x - gesture.dx/this.props.state.scale,
-                    y: unit.y - gesture.dy/this.props.state.scale
+                    x: -gesture.dx/this.props.scale,
+                    y: -gesture.dy/this.props.scale
                 })
                 this.setState({
                     resetPosition: true
@@ -126,24 +116,11 @@ export default class Model extends Component {
         this.position = position;
 
     }
-
     
     updateModelLocation (gesture) {
-        console.log("resetPosition: " + this.state.resetPosition)
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
-            console.log(unit);
-            // Should only be used if model location reset.
-            if (unit.id === this.props.id &&
-                this.state.resetPosition === true) {
-                    console.log("Reset Unit Positions");
-                const newUnit = {...unit};
-                newUnit.x = unit.x - gesture.dx / this.props.state.scale;
-                newUnit.y = unit.y - gesture.dy / this.props.state.scale;
-                return newUnit;
-            // Should only be used if model location not reset.
-            } else if (unit.id === this.props.id) {
-                console.log("Don't Reset Unit Positions");
+            if (unit.id === this.props.id) {
                 const newUnit = {...unit};
                 newUnit.x = unit.x + gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y + gesture.dy / this.props.state.scale;
@@ -152,6 +129,7 @@ export default class Model extends Component {
                 return unit;
             }
         });
+        
         this.props.updateUnits(updatedUnits);
     }
     
