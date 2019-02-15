@@ -8,11 +8,19 @@ import {
     Dimensions
 } from 'react-native';
 
+// this.props.calcDistance();
+// this.props.getStartXY(x, y);
+// this.props.getEndXY(x, y);
+// this.props.calcDistance();
+
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
-const ON_TOUCH_MULTIPLIER = 6;
-const ON_TOUCH_MODEL_RADIUS = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
+const ON_TOUCH_MULTIPLIER = 4.5;
+const ON_TOUCH_MODEL_OFFSET = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
+const ON_TOUCH_MODEL_HIGHLIGHT = MODEL_RADIUS*ON_TOUCH_MULTIPLIER;
+
+this.ON_TOUCH_MODEL_HIGHLIGHT = ON_TOUCH_MODEL_HIGHLIGHT;
 export default class Model extends Component {
     constructor(props) {
         super(props);
@@ -20,6 +28,8 @@ export default class Model extends Component {
         this.state = {
             onTouch: false
         }
+
+        // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
@@ -29,13 +39,15 @@ export default class Model extends Component {
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-            console.log("I'm being touched!!!");
+            // console.log("I'm being touched!!!");
             this.setState({
                 onTouch: true
             })
             return true;
         },
         onPanResponderGrant: (event, gesture) => {
+            // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
+            this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
             this.position.setOffset({
                 // x: this.val.x,
                 // y: this.val.y 
@@ -53,13 +65,18 @@ export default class Model extends Component {
                     y: gesture.dy / this.props.state.scale 
                 })
             }
+            this.props.calcDistance(gesture);
         },
         onPanResponderRelease: (event, gesture) => {
-            console.log("I'm no longer being touched!")
+            // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
+            this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
+            // console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false
             })
             this.updateModelLocation(gesture);
+            this.props.calcDistance(gesture);
+            this.props.clearEndXY();
         },
         onPanResponderTerminationRequest: (event, gesture) => false,
 
@@ -141,17 +158,17 @@ const styles = {
         borderColor: '#000',
         borderWidth: 2,
         borderRadius: MODEL_RADIUS,
-        marginTop: ON_TOUCH_MODEL_RADIUS,
-        marginLeft: ON_TOUCH_MODEL_RADIUS,
+        marginTop: ON_TOUCH_MODEL_OFFSET,
+        marginLeft: ON_TOUCH_MODEL_OFFSET,
         padding: 0
     },
     onTouch: {
-        width: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
-        height: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
+        width: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        height: this.ON_TOUCH_MODEL_HIGHLIGHT,
         backgroundColor: '#fff',
         borderColor: '#0f0',
         borderWidth: 2,
-        borderRadius: MODEL_RADIUS*ON_TOUCH_MULTIPLIER,
+        borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
         margin: 0,
         padding: 0,
         opacity: 0.75,
