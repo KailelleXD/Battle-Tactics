@@ -30,6 +30,10 @@ export default class Detachment extends React.Component {
                                 playerState={context.state.playerOne}
                                 updateUnits={context.updateUnits}
                                 state={PhysContext.state} 
+                                calcDistance={PhysContext.calcDistance}
+                                getStartXY={PhysContext.getStartXY}
+                                getEndXY={PhysContext.getEndXY}
+                                clearEndXY={PhysContext.clearEndXY}
                                 />
                         ))}
                         </View>
