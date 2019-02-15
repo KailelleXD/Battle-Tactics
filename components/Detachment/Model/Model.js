@@ -16,7 +16,7 @@ import {
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
-const ON_TOUCH_MULTIPLIER = 4.5;
+const ON_TOUCH_MULTIPLIER = 6;
 const ON_TOUCH_MODEL_OFFSET = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
 const ON_TOUCH_MODEL_HIGHLIGHT = MODEL_RADIUS*ON_TOUCH_MULTIPLIER;
 
@@ -33,6 +33,8 @@ export default class Model extends Component {
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
+
+        this.movement = unit.m;
 
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
@@ -70,7 +72,7 @@ export default class Model extends Component {
         onPanResponderRelease: (event, gesture) => {
             // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
             this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-            // console.log("I'm no longer being touched!")
+            console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false
             })
@@ -113,6 +115,18 @@ export default class Model extends Component {
         }
     }
 
+    maxMovementStyle () {
+        if (this.props.state.inches <= this.movement && this.state.onTouch) {
+            // Border Color should be Red!
+            return styles.overMaxDistance;
+        } else if (this.props.state.inches >= this.movement && this.state.onTouch) {
+            // Border Color should be Green!
+            return styles.underMaxDistance;
+        } else {
+            return styles.offTouch;
+        }
+    }
+
     renderModels() {
         return (
             // <Animated.View
@@ -120,7 +134,7 @@ export default class Model extends Component {
             //     {...this.panResponder.panHandlers}
             // >
             <Animated.View
-                style={[this.position.getLayout(), this.onTouchModelStyle(), this.props.model]}
+                style={[this.position.getLayout(), this.onTouchModelStyle(), this.maxMovementStyle(), this.props.model]}
                 {...this.panResponder.panHandlers}
             >
             </Animated.View>
@@ -156,7 +170,7 @@ const styles = {
         width: MODEL_RADIUS,
         height: MODEL_RADIUS,
         borderColor: '#000',
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: MODEL_RADIUS,
         marginTop: ON_TOUCH_MODEL_OFFSET,
         marginLeft: ON_TOUCH_MODEL_OFFSET,
@@ -165,14 +179,28 @@ const styles = {
     onTouch: {
         width: this.ON_TOUCH_MODEL_HIGHLIGHT,
         height: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        margin: 0,
+        padding: 0,
+        opacity: 0.6,
+    },
+    offTouch: {
+        borderColor: '#000',
+        borderWidth: 1,
+        borderRadius: MODEL_RADIUS,
+        opacity: 1.0
+    },
+    underMaxDistance: {
+        backgroundColor: '#fff',
+        borderColor: '#f00',
+        borderWidth: 6,
+        borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
+    },
+    overMaxDistance: {
         backgroundColor: '#fff',
         borderColor: '#0f0',
         borderWidth: 2,
         borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
-        margin: 0,
-        padding: 0,
-        opacity: 0.75,
-    },
+    }
 };
 
 

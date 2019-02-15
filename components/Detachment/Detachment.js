@@ -26,7 +26,7 @@ export default class Detachment extends React.Component {
                                 id={model.id} 
                                 key={model.id} 
                                 model={styles[model.style]}
-                                // name={model.text}
+                                movement={model.m}
                                 playerState={context.state.playerOne}
                                 updateUnits={context.updateUnits}
                                 state={PhysContext.state} 
