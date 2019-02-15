@@ -137,7 +137,7 @@ export default class Model extends Component {
         // IF, this.state.onTouch === true // THEN, return ghostModel component.
         if (this.state.onTouch === true) {
             return (
-                <GhostModel position={this.position} modelStyle={styles[this.props.model, styles.model]} />
+                <GhostModel val={this.val} modelStyle={styles[this.props.model, styles.model]} />
             )
         } else if (this.state.onTouch === false) {
 

@@ -12,17 +12,17 @@ export default class ghostModel extends Component {
     constructor(props) {
         super(props);
 
-        console.log(this.props.position);
-    }
+        this.val = {...this.props.val};      
 
+      }
+      
     render() {
         return (
             <View style={[{
-              transform: [
-                { translateX: 0 },
-                { translateY: 0 }
-              ]
-            },
+          transform: [
+            { translateX: this.val.x },
+            { translateY: this.val.y }
+          ]},
               styles.positionStyle
             ]}>
               <View style={styles.ghostStyle} />
@@ -38,14 +38,14 @@ const styles = StyleSheet.create({
   ghostStyle: {
     width: MODEL_RADIUS,
     height: MODEL_RADIUS,
-    borderColor: '#000',
-    borderWidth: 1,
+    borderColor: '#dfdfdf',
+    borderWidth: 2,
     borderRadius: MODEL_RADIUS,
     marginTop: ON_TOUCH_MODEL_OFFSET,
     marginLeft: ON_TOUCH_MODEL_OFFSET,
     padding: 0,
-    backgroundColor: '#d5c68e',
-    opacity: 0.8
+    backgroundColor: '#f5aDfe',
+    opacity: 1.0
   }
 })
 
