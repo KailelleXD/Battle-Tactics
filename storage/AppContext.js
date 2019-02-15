@@ -176,6 +176,7 @@ export class AppProvider extends React.Component {
             }
             let array = []
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
+            
             for (var i = 0; i < fullList.length; i++) {
 
               if (fullList[i].$.type != 'upgrade') {
