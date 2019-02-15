@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GhostModel from '../Model/GhostModel';
+import GhostModel from './GhostModel';
 import { 
     View,
     Text,
@@ -46,7 +46,8 @@ export default class Model extends Component {
             console.log("I'm being touched!!!");
             this.setState({
                 onTouch: true,
-                ghostModel: true
+                ghostModel: true,
+                resetPosition: false,
             })
             return true;
         },
@@ -70,7 +71,7 @@ export default class Model extends Component {
                     y: gesture.dy / this.props.state.scale 
                 })
             }
-
+            
             if (gesture.numberActiveTouches === 2) {
                 this.setState({
                     resetPosition: true
@@ -79,10 +80,8 @@ export default class Model extends Component {
                     x: -gesture.dx/this.props.state.scale,
                     y: -gesture.dy/this.props.state.scale
                 })
-                this.updateModelLocation(gesture);
             } 
             this.props.calcDistance(gesture);
-
         },
         onPanResponderRelease: (event, gesture) => {
             // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
@@ -117,7 +116,6 @@ export default class Model extends Component {
         this.position = position;
 
     }
-
     
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
