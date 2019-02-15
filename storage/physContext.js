@@ -58,7 +58,7 @@ export class PhysProvider extends React.Component {
         const SCREEN_WIDTH = Window.width*this.state.scale;
         const PPI = SCREEN_WIDTH/48;
         // console.log("screenWidth: " + SCREEN_WIDTH);
-        console.log("Pixels/Inch: " + PPI);
+        // console.log("Pixels/Inch: " + PPI);
         this.setState({
             screenWidth: SCREEN_WIDTH,
             ppi: PPI
@@ -89,11 +89,11 @@ export class PhysProvider extends React.Component {
 
     calcDistance = (gesture) => {
         if(this.state.endXY.x == null && this.state.endXY.y == null) {
-            console.log("Running Calc");
+            // console.log("Running Calc");
             let distance = Math.sqrt(gesture.dx * gesture.dx + gesture.dy * gesture.dy);
             // let scaleDistance = distance / this.state.scale;
             let inches = distance / this.state.ppi;
-            console.log("Total Distance in Pixels: " + distance);
+            // console.log("Total Distance in Pixels: " + distance);
             console.log("Total Distance in Inches: " + inches);
             this.setState({
                 distance: distance,
