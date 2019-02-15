@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Model from "./Model/Model";
 import { AppConsumer } from "../../storage/AppContext";
+import { PhysConsumer } from '../../storage/physContext';
 
 import models from "../../utils/data/models.json";
 
@@ -15,22 +16,31 @@ export default class Detachment extends React.Component {
     render() {
 
         return (
-            <AppConsumer>
-                {(context) => (
-                    <View style={styles.container}>
-                        {console.log(context.state.playerOne.units)}
-                        {context.state.playerOne.units.map(model => (
-                        <Model 
-                            id={model.id} 
-                            key={model.id} 
-                            model={styles[model.style]}
-                            name={model.text}
-                            playerState={context.state.playerOne}
-                            updateUnits={context.updateUnits} />
-                    ))}
-                    </View>
+            <PhysConsumer>
+                {(PhysContext) => (
+                <AppConsumer>
+                    {(context) => (
+                        <View style={styles.container}>
+                            {context.state.playerOne.units.map(model => (
+                            <Model 
+                                id={model.id} 
+                                key={model.id} 
+                                model={styles[model.style]}
+                                movement={model.m}
+                                playerState={context.state.playerOne}
+                                updateUnits={context.updateUnits}
+                                state={PhysContext.state} 
+                                calcDistance={PhysContext.calcDistance}
+                                getStartXY={PhysContext.getStartXY}
+                                getEndXY={PhysContext.getEndXY}
+                                clearEndXY={PhysContext.clearEndXY}
+                                />
+                        ))}
+                        </View>
+                    )}
+                </AppConsumer>
                 )}
-            </AppConsumer>
+            </PhysConsumer>
         );
     }
 }
@@ -43,21 +53,21 @@ const styles = StyleSheet.create({
         // justifyContent: "center"
     },
     modelPurple: {
-        backgroundColor: "#800080"
+        backgroundColor: "#FF00FF"
     },
     modelKiwi: {
-        backgroundColor: "#808000",
+        backgroundColor: "#FFFF00",
     },
     modelAqua: {
-        backgroundColor: "#008080"
+        backgroundColor: "#00FFFF"
     },
     modelRed: {
-        backgroundColor: "#800000"
+        backgroundColor: "#FF0000"
     },
     modelGreen: {
-        backgroundColor: "#008000"
+        backgroundColor: "#00FF00"
     },
     modelBlue: {
-        backgroundColor: "#000080"
+        backgroundColor: "#0000FF"
     }
 });

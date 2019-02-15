@@ -1,58 +1,66 @@
 [
     { 
         "id": 1, 
-        "text": "HQ", 
+        "text": "", 
         "style": "modelKiwi",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 30
     },
     { 
         "id": 2, 
-        "text": "El", 
-        "style": "modelRed",
+        "text": "", 
+        "style": "modelPurple",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 15
     },
     { 
         "id": 3, 
-        "text": "El", 
-        "style": "modelRed",
+        "text": "", 
+        "style": "modelPurple",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 15
     },
     { 
         "id": 4, 
-        "text": "S", 
+        "text": "", 
         "style": "modelBlue",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 5
     },
     { 
         "id": 5, 
-        "text": "S", 
+        "text": "", 
         "style": "modelBlue",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 5
     },
     { 
         "id": 6, 
-        "text": "S", 
+        "text": "", 
         "style": "modelBlue",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 5
     },
     { 
         "id": 7, 
-        "text": "S", 
+        "text": "", 
         "style": "modelBlue",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 5
     },
     { 
         "id": 8, 
-        "text": "S", 
+        "text": "", 
         "style": "modelBlue",
         "x": 0,
-        "y": 0
+        "y": 0,
+        "m": 5
     }
   ]

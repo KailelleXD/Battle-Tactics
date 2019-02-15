@@ -15,8 +15,8 @@ export default class PinchZoomView extends Component {
 
   static defaultProps = {
     scalable: true,
-    minScale: 0.5,
-    maxScale: 2
+    minScale: 1.0,
+    maxScale: 3.5
   };
 
   constructor(props) {
@@ -97,7 +97,7 @@ export default class PinchZoomView extends Component {
       }
     }
     // translate
-    else if (gestureState.numberActiveTouches === 1) {
+    else if (gestureState.numberActiveTouches === 1 && this.state.scale !== 1.0) {
       if (this.state.lastMovePinch) {
         gestureState.dx = 0;
         gestureState.dy = 0;
@@ -107,6 +107,7 @@ export default class PinchZoomView extends Component {
       // if ( offsetX < 0  || offsetY <  0 )
       this.setState({ offsetX, offsetY, lastMovePinch: false });
     }
+    
   };
 
   render() {
