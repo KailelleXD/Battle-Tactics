@@ -8,10 +8,15 @@ import {
     Dimensions
 } from 'react-native';
 
+// this.props.calcDistance();
+// this.props.getStartXY(x, y);
+// this.props.getEndXY(x, y);
+// this.props.calcDistance();
+
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
-const ON_TOUCH_MULTIPLIER = 5;
+const ON_TOUCH_MULTIPLIER = 6;
 const ON_TOUCH_MODEL_OFFSET = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
 const ON_TOUCH_MODEL_HIGHLIGHT = MODEL_RADIUS*ON_TOUCH_MULTIPLIER;
 
@@ -24,23 +29,27 @@ export default class Model extends Component {
             onTouch: false
         }
 
-        this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
+        // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
+
+        this.movement = unit.m;
 
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-            console.log("I'm being touched!!!");
+            // console.log("I'm being touched!!!");
             this.setState({
                 onTouch: true
             })
             return true;
         },
         onPanResponderGrant: (event, gesture) => {
+            // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
+            this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
             this.position.setOffset({
                 // x: this.val.x,
                 // y: this.val.y 
@@ -58,13 +67,18 @@ export default class Model extends Component {
                     y: gesture.dy / this.props.state.scale 
                 })
             }
+            this.props.calcDistance(gesture);
         },
         onPanResponderRelease: (event, gesture) => {
+            // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
+            this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
             console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false
             })
             this.updateModelLocation(gesture);
+            this.props.calcDistance(gesture);
+            this.props.clearEndXY();
         },
         onPanResponderTerminationRequest: (event, gesture) => false,
 
@@ -101,6 +115,18 @@ export default class Model extends Component {
         }
     }
 
+    maxMovementStyle () {
+        if (this.props.state.inches <= this.movement && this.state.onTouch) {
+            // Border Color should be Red!
+            return styles.overMaxDistance;
+        } else if (this.props.state.inches >= this.movement && this.state.onTouch) {
+            // Border Color should be Green!
+            return styles.underMaxDistance;
+        } else {
+            return styles.offTouch;
+        }
+    }
+
     renderModels() {
         return (
             // <Animated.View
@@ -108,7 +134,7 @@ export default class Model extends Component {
             //     {...this.panResponder.panHandlers}
             // >
             <Animated.View
-                style={[this.position.getLayout(), this.onTouchModelStyle(), this.props.model]}
+                style={[this.position.getLayout(), this.onTouchModelStyle(), this.maxMovementStyle(), this.props.model]}
                 {...this.panResponder.panHandlers}
             >
             </Animated.View>
@@ -144,7 +170,7 @@ const styles = {
         width: MODEL_RADIUS,
         height: MODEL_RADIUS,
         borderColor: '#000',
-        borderWidth: 2,
+        borderWidth: 1,
         borderRadius: MODEL_RADIUS,
         marginTop: ON_TOUCH_MODEL_OFFSET,
         marginLeft: ON_TOUCH_MODEL_OFFSET,
@@ -153,14 +179,28 @@ const styles = {
     onTouch: {
         width: this.ON_TOUCH_MODEL_HIGHLIGHT,
         height: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        margin: 0,
+        padding: 0,
+        opacity: 0.6,
+    },
+    offTouch: {
+        borderColor: '#000',
+        borderWidth: 1,
+        borderRadius: MODEL_RADIUS,
+        opacity: 1.0
+    },
+    underMaxDistance: {
+        backgroundColor: '#fff',
+        borderColor: '#f00',
+        borderWidth: 6,
+        borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
+    },
+    overMaxDistance: {
         backgroundColor: '#fff',
         borderColor: '#0f0',
         borderWidth: 2,
         borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
-        margin: 0,
-        padding: 0,
-        opacity: 0.75,
-    },
+    }
 };
 
 
