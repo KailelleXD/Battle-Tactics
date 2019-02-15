@@ -43,13 +43,14 @@ export default class Model extends Component {
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-            console.log("I'm being touched!!!");
-            this.setState({
-                onTouch: true,
-                ghostModel: true,
-                resetPosition: false
-            })
-            return true;
+
+                console.log("I'm being touched!!!");
+                this.setState({
+                    onTouch: true,
+                    ghostModel: true,
+                    resetPosition: false
+                })
+                return true;
         },
         onPanResponderGrant: (event, gesture) => {
             // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
@@ -100,8 +101,8 @@ export default class Model extends Component {
             if (this.state.resetPosition) {
                 console.log("Position Reset!")
                 this.position.setOffset({
-                    x: -gesture.dx/this.props.scale,
-                    y: -gesture.dy/this.props.scale
+                    x: -gesture.dx/this.props.state.scale,
+                    y: -gesture.dy/this.props.state.scale
                 })
                 this.setState({
                     resetPosition: true
