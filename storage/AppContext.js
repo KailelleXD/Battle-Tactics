@@ -33,9 +33,7 @@ export class AppProvider extends React.Component {
     const initialState = {
         playerOne: {
             name: "jack",
-            mapName: "",
             deploymentArea: "",
-            terrain: [],
             faction: "",
             units: models,
             unitPlacement: [],
@@ -44,13 +42,17 @@ export class AppProvider extends React.Component {
         },
         playerTwo: {
             name: "jill",
-            mapName: "",
-            terrain: [],
+            // mapName: "",
+            // terrain: [],
             faction: "",
             units: [],
             points: 0,
-            test: "**** TESTER ****",
+            // test: "**** TESTER ****",
             randomStart: false
+        },
+        gameData: {
+            mapName: "",
+            terrain: [],
         },
         modelData: {
             msg: "save data from model movement",
@@ -60,12 +62,12 @@ export class AppProvider extends React.Component {
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("Game2").then((value) => {
+    AsyncStorage.getItem("Game7").then((value) => {
 
 
         if (!value) {
             allPlayers = initialState
-            AsyncStorage.setItem('Game2', JSON.stringify(initialState))
+            AsyncStorage.setItem('Game7', JSON.stringify(initialState))
 
         } else {
             allPlayers = JSON.parse(value)
@@ -81,7 +83,7 @@ export class AppProvider extends React.Component {
       const playerOne = {...this.state.playerOne}
       playerOne.name = newName
         this.setState( {playerOne}, () => {
-            AsyncStorage.setItem('Game',JSON.stringify(this.state))
+            AsyncStorage.setItem('Game7',JSON.stringify(this.state))
         })
 
     }
@@ -93,9 +95,9 @@ export class AppProvider extends React.Component {
     }
 
     setMap = (newMap) => {
-      const playerOne = {...this.state.playerOne}
-      playerOne.mapName = newMap
-        this.setState( {playerOne} )
+      const gameData = {...this.state.gameData}
+      gameData.mapName = newMap
+        this.setState( {gameData} )
     }
 
     setDeploymentArea = (newDeploymentArea) => {
@@ -105,9 +107,9 @@ export class AppProvider extends React.Component {
     }
 
     addTerrainObject = (newTerrainObject) => {
-      const playerOne = {...this.state.playerOne}
-      playerOne.terrain = playerOne.terrain.concat(newTerrainObject);
-        this.setState( {playerOne} )
+      const gameData = {...this.state.gameData}
+      gameData.terrain = gameData.terrain.concat(newTerrainObject);
+        this.setState( {gameData} )
     }
 
     addUnitPlacementObject = (newUnitPlacementObject) => {

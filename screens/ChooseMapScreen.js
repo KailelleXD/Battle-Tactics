@@ -31,7 +31,7 @@ export default class ChooseMap extends Component {
             </Row>
 
             <Row size={10}>
-              <Text>{context.state.playerOne.mapName}</Text>
+              <Text>{context.state.gameData.mapName}</Text>
             </Row>
 
             {/* <NextButton path="Terrain" /> */}
