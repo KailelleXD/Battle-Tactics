@@ -81,8 +81,8 @@ export default class Model extends Component {
                     resetPosition: true
                 })
                 this.position.setOffset({
-                    x: -gesture.dx/this.props.state.scale,
-                    y: -gesture.dy/this.props.state.scale
+                    x: unit.x - gesture.dx/this.props.state.scale,
+                    y: unit.y - gesture.dy/this.props.state.scale
                 })
                 this.updateModelLocation(gesture);
             } 
@@ -96,13 +96,12 @@ export default class Model extends Component {
             this.setState({
                 onTouch: false,
                 ghostModel: false,
-                // resetPosition: false
             })
             if (this.state.resetPosition) {
                 console.log("Position Reset!")
                 this.position.setOffset({
-                    x: -gesture.dx/this.props.state.scale,
-                    y: -gesture.dy/this.props.state.scale
+                    x: unit.x - gesture.dx/this.props.state.scale,
+                    y: unit.y - gesture.dy/this.props.state.scale
                 })
                 this.setState({
                     resetPosition: true
@@ -129,7 +128,13 @@ export default class Model extends Component {
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
-            if (unit.id === this.props.id) {
+            if (unit.id === this.props.id &&
+                this.state.resetPosition === true) {
+                const newUnit = {...unit};
+                newUnit.x = unit.x - gesture.dx / this.props.state.scale;
+                newUnit.y = unit.y - gesture.dy / this.props.state.scale;
+                return newUnit;
+            } else if (unit.id === this.props.id) {
                 const newUnit = {...unit};
                 newUnit.x = unit.x + gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y + gesture.dy / this.props.state.scale;
@@ -138,7 +143,6 @@ export default class Model extends Component {
                 return unit;
             }
         });
-        
         this.props.updateUnits(updatedUnits);
     }
     
