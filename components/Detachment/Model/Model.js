@@ -46,7 +46,8 @@ export default class Model extends Component {
             console.log("I'm being touched!!!");
             this.setState({
                 onTouch: true,
-                ghostModel: true
+                ghostModel: true,
+                resetPosition: false
             })
             return true;
         },
@@ -64,6 +65,8 @@ export default class Model extends Component {
         onPanResponderMove: (event, gesture) => {
             // console.log(this.props.state.scale)
             // console.log("onTouch state: " + this.state.onTouch)
+            // if (gesture.numberActiveTouches === 1 && 
+            //     this.state.resetPosition === false) {
             if (gesture.numberActiveTouches === 1) {
                 position.setValue({
                     x: gesture.dx / this.props.state.scale, 
@@ -72,6 +75,7 @@ export default class Model extends Component {
             }
 
             if (gesture.numberActiveTouches === 2) {
+                console.log("Reset Position Enabled!")
                 this.setState({
                     resetPosition: true
                 })
@@ -90,9 +94,11 @@ export default class Model extends Component {
             console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false,
-                ghostModel: false
+                ghostModel: false,
+                // resetPosition: false
             })
             if (this.state.resetPosition) {
+                console.log("Position Reset!")
                 this.position.setOffset({
                     x: -gesture.dx/this.props.scale,
                     y: -gesture.dy/this.props.scale
