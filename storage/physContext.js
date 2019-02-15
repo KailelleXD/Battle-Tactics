@@ -94,7 +94,7 @@ export class PhysProvider extends React.Component {
             // let scaleDistance = distance / this.state.scale;
             let inches = distance / this.state.ppi;
             // console.log("Total Distance in Pixels: " + distance);
-            console.log("Total Distance in Inches: " + inches);
+            // console.log("Total Distance in Inches: " + inches);
             this.setState({
                 distance: distance,
                 inches: inches
