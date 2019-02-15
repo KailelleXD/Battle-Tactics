@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GhostModel from '../Model/ghostModel';
+import GhostModel from '../Model/GhostModel';
 import { 
     View,
     Text,
