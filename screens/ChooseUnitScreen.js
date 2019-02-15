@@ -7,8 +7,16 @@ import NextBackWrapper from '../components/NextBackWrapper';
 
 export default class ChooseUnitScreen extends Component {
   static navigationOptions = {
-    title: 'Choose Unit',
-    headerLeft: null
+    title: 'CHOOSE UNIT',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render() {

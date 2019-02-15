@@ -43,9 +43,7 @@ class HomeScreenButton extends Component {
             <Text>{this.props.title}</Text>
           </Button>
         ):<Text style={styles.text}>"font not loaded"</Text>}
-        <ImageBackground source={Image} style={{width: '100%', height: '100%'}}>
-        
-        </ImageBackground>
+
 
       </View>
 
@@ -71,7 +69,7 @@ const styles = StyleSheet.create({
     width: 180,
     justifyContent: "center",
     borderRadius: 10,
-    backgroundColor: "orange"
+    backgroundColor: "#e5b83b",
 
   },
   text: {

@@ -8,8 +8,16 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 
 export default class PlaceUnitsScreen extends Component {
   static navigationOptions = {
-    title: 'Place Units',
-    headerLeft: null
+    title: 'PLACE UNITS',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render() {

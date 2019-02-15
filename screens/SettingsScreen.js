@@ -7,7 +7,16 @@ import { AppConsumer } from '../storage/AppContext'
 
 export default class SettingsScreen extends Component {
   static navigationOptions = {
-    title: 'Settings',
+    title: 'SETTINGS',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render () {

@@ -7,8 +7,16 @@ import SaveButton from '../components/SaveButton';
 
 export default class GameReviewScreen extends Component {
   static navigationOptions = {
-    title: 'Gave Review',
-    headerLeft: null
+    title: 'GAME REVIEW',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render() {

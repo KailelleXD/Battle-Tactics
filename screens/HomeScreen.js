@@ -11,7 +11,16 @@ import Image from '../assets/img/map3.jpg'
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Battle-Tactics',
+    title: 'BATTLE-TACTICS',
+    headerTintColor: '#ffffff',
+          headerStyle: {
+            backgroundColor: '#1e8fb5',
+            borderBottomColor: '#ffffff',
+            borderBottomWidth: 3,
+          },
+          headerTitleStyle: {
+            fontSize: 23,
+          },
   };
 
   
@@ -48,7 +57,7 @@ export default class HomeScreen extends Component {
                     <HomeScreenButton title='Detachment' />
                   </Row>
                   <Row style={styles.row}>
-                    <HomeScreenButton title='GameStart' />
+                    <HomeScreenButton title='Gamestart' />
                   </Row>
         
               </Col>
@@ -84,4 +93,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   }
+
+
 })
+
+
+;
