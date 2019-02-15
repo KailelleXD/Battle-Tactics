@@ -10,8 +10,16 @@ import { AppConsumer } from '../storage/AppContext';
 
 export default class ChooseMap extends Component {
   static navigationOptions = {
-    title: 'Choose Map',
-    headerLeft: null
+    title: 'CHOOSE MAP',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render() {

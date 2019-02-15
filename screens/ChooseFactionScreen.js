@@ -11,8 +11,16 @@ import NextBackWrapper from '../components/NextBackWrapper';
 
 export default class ChooseFactionScreen extends Component {
   static navigationOptions = {
-    title: 'Choose Faction',
-    headerLeft: null
+    title: 'CHOOSE FACTION',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   render() {

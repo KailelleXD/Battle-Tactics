@@ -7,8 +7,16 @@ import NextBackWrapper from '../components/NextBackWrapper';
 
 export default class BattleScribeScreen extends Component {
   static navigationOptions = {
-    title: 'BattleScribe Import',
-    headerLeft: null
+    title: 'BATTLESCRIBE IMPORT',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
 render() {

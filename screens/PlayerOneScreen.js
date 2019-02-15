@@ -9,7 +9,16 @@ import { TextInput } from 'react-native-gesture-handler';
 
 export default class PlayerOneScreen extends Component {
   static navigationOptions = {
-    title: 'Player One',
+    title: 'PLAYER ONE',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   constructor(props) {

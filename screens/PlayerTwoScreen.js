@@ -8,7 +8,16 @@ import { TextInput } from 'react-native-gesture-handler';
 
 export default class PlayeTwoScreen extends Component {
   static navigationOptions = {
-    title: 'Player Two',
+    title: 'PLAYER TWO',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   };
 
   constructor(props) {

@@ -10,8 +10,16 @@ import DiceManager from '../components/DiceManager';
 
 export default class GameScreen extends Component {
     static navigationOptions = {
-        title: 'Game Screen',
-        headerLeft: null
+        title: 'GAME SCREEN',
+        headerTintColor: '#ffffff',
+        headerStyle: {
+          backgroundColor: '#1e8fb5',
+          borderBottomColor: '#ffffff',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          fontSize: 23,
+        },
     };
 
     constructor(props) {

@@ -3,7 +3,16 @@ import { Text, StyleSheet, View } from 'react-native'
 
 export default class LoadScreen extends Component {
   static navigationOptions = {
-    title: 'Load Screen',
+    title: 'LOAD SCREEN',
+    headerTintColor: '#ffffff',
+    headerStyle: {
+      backgroundColor: '#1e8fb5',
+      borderBottomColor: '#ffffff',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 23,
+    },
   }; 
 
   render() {
