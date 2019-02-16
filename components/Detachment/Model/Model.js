@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GhostModel from '../Model/GhostModel';
+import GhostModel from './GhostModel';
 import { 
     View,
     Text,
@@ -29,11 +29,18 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
+            resetPosition: false
         }
 
         // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
+        console.log("=================================================")
+        console.log(unit);
+
+
+        
+        console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.movement = unit.m;
@@ -43,19 +50,21 @@ export default class Model extends Component {
 
         const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: (event, gesture) => {
-            console.log("I'm being touched!!!");
-            this.setState({
-                onTouch: true,
-                ghostModel: true
-            })
-            return true;
+
+                console.log("I'm being touched!!!");
+                this.setState({
+                    onTouch: true,
+                    ghostModel: true,
+                    resetPosition: false
+                })
+                return true;
         },
         onPanResponderGrant: (event, gesture) => {
-            // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
+            console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
             this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
             this.position.setOffset({
-                // x: this.val.x,
-                // y: this.val.y 
+                // x: unit.x,
+                // y: unit.y
                 x: this.val.x,
                 y: this.val.y 
             });
@@ -64,13 +73,35 @@ export default class Model extends Component {
         onPanResponderMove: (event, gesture) => {
             // console.log(this.props.state.scale)
             // console.log("onTouch state: " + this.state.onTouch)
+            // if (gesture.numberActiveTouches === 1 && 
+            //     this.state.resetPosition === false) {
             if (gesture.numberActiveTouches === 1) {
-                position.setValue({
+                this.position.setValue({
                     x: gesture.dx / this.props.state.scale, 
                     y: gesture.dy / this.props.state.scale 
                 })
             }
+
+            if (gesture.numberActiveTouches === 2) {
+                // console.log("Reset Position Enabled!")
+                this.setState({
+                    resetPosition: true
+                })
+                this.position.setOffset({
+                //     x: 0,
+                //     y: 0
+                    x: unit.x - gesture.dx/this.props.state.scale,
+                    y: unit.y - gesture.dy/this.props.state.scale
+                })
+                
+                // this.setState({
+                //     resetPosition: false
+                // })
+                this.resetModelLocation();
+                // this.updateModelLocation(gesture);
+            } 
             this.props.calcDistance(gesture);
+
         },
         onPanResponderRelease: (event, gesture) => {
             // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
@@ -78,8 +109,22 @@ export default class Model extends Component {
             console.log("I'm no longer being touched!")
             this.setState({
                 onTouch: false,
-                ghostModel: false
+                ghostModel: false,
             })
+            if (this.state.resetPosition) {
+                console.log("Position Reset!")
+                this.position.setOffset({
+                    x: unit.x - gesture.dx/this.props.state.scale,
+                    y: unit.y - gesture.dy/this.props.state.scale
+                })
+                this.setState({
+                    resetPosition: true
+                })
+            } else {
+                this.setState({
+                    resetPosition: false
+                })
+            }
             this.updateModelLocation(gesture);
             this.props.calcDistance(gesture);
             this.props.clearEndXY();
@@ -93,11 +138,39 @@ export default class Model extends Component {
 
     }
 
+    resetModelLocation () {
+        const oldUnits = [...this.props.playerState.units];
+        const updatedUnits = oldUnits.map(unit => {
+            if (unit.id === this.props.id) {
+                const newUnit = {...unit};
+                newUnit.x = this.position.x;
+                newUnit.y = this.position.y;
+                console.log("newUnit.x")
+                console.log(newUnit.x)
+                return newUnit;
+            } else {
+                return unit;
+            }
+
+
+        })
+        this.setState({
+          resetPosition: false
+        })
+        this.props.updateUnits(updatedUnits);
+    }   
+
     
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
-            if (unit.id === this.props.id) {
+            if (unit.id === this.props.id &&
+                this.state.resetPosition === true) {
+                const newUnit = {...unit};
+                newUnit.x = unit.x - gesture.dx / this.props.state.scale;
+                newUnit.y = unit.y - gesture.dy / this.props.state.scale;
+                return newUnit;
+            } else if (unit.id === this.props.id) {
                 const newUnit = {...unit};
                 newUnit.x = unit.x + gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y + gesture.dy / this.props.state.scale;
@@ -106,7 +179,6 @@ export default class Model extends Component {
                 return unit;
             }
         });
-        
         this.props.updateUnits(updatedUnits);
     }
     

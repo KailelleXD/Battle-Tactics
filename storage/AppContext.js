@@ -448,24 +448,24 @@ export class AppProvider extends React.Component {
 
 
 
-setScale = (newScale) => {
-  posData = { ...this.state.posData }
-  // console.log("posData: " + posData);
-  posData.lastScale = posData.scaleData;
-  posData.scaleData = newScale;
-  // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
-  // console.log("posData.scaleData: " + posData.scaleData)
-  // console.log("posData.lastScale: " + posData.lastScale)
-  this.setState({ posData });
-  // console.log(this.state.posData.scaleData);
-  // }
-}
+// setScale = (newScale) => {
+//   posData = { ...this.state.posData }
+//   // console.log("posData: " + posData);
+//   posData.lastScale = posData.scaleData;
+//   posData.scaleData = newScale;
+//   // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
+//   // console.log("posData.scaleData: " + posData.scaleData)
+//   // console.log("posData.lastScale: " + posData.lastScale)
+//   this.setState({ posData });
+//   // console.log(this.state.posData.scaleData);
+//   // }
+// }
 
-updateUnits = (newUnits) => {
-  const playerOne = { ...this.state.playerOne };
-  playerOne.units = newUnits;
-  this.setState({ playerOne });
-}
+// updateUnits = (newUnits) => {
+//   const playerOne = { ...this.state.playerOne };
+//   playerOne.units = newUnits;
+//   this.setState({ playerOne });
+// }
 
   //   render ()  {
   //       return (
@@ -487,234 +487,234 @@ updateUnits = (newUnits) => {
   //   }
   // }
 
-  returnUnit = (unitRole) =>{
-    if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
-      return "No Force Org Slot"
-    }
-    else if (unitRole === "848a6ff2-0def-4c72-8433-ff7da70e6bc7") {
-      return "HQ"
-    }
-    else if (unitRole === "5d76b6f5-20ae-4d70-8f59-ade72a2add3a") {
-      return "Troops"
-    }
-    else if (unitRole === "638d74c6-bd97-4de5-b65a-6aaa24e9f4b2") {
-      return "Elites"
-    }
-    else if (unitRole === "c274d0b0-5866-44bc-9810-91c136ae7438") {
-      return "Fast Attack"
-    }
-    else if (unitRole === "abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6") {
-      return "Heavy Support"
-    }
-    else if (unitRole === "e888-1504-aa61-95ff") {
-      return "Flyer"
-    }
-    else if (unitRole === "1b66-3f5f-6705-079a") {
-      return "Dedicated Transport"
-    }
-    else if (unitRole === "c888f08a-6cea-4a01-8126-d374a9231554") {
-      return "Lord of War"
-    }
-    else if (unitRole === "d713cda3-5d0f-40d8-b621-69233263ec2a") {
-      return "Fortification"
-    } else {
-      return null
-    }
-  }
+  // returnUnit = (unitRole) =>{
+  //   if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
+  //     return "No Force Org Slot"
+  //   }
+  //   else if (unitRole === "848a6ff2-0def-4c72-8433-ff7da70e6bc7") {
+  //     return "HQ"
+  //   }
+  //   else if (unitRole === "5d76b6f5-20ae-4d70-8f59-ade72a2add3a") {
+  //     return "Troops"
+  //   }
+  //   else if (unitRole === "638d74c6-bd97-4de5-b65a-6aaa24e9f4b2") {
+  //     return "Elites"
+  //   }
+  //   else if (unitRole === "c274d0b0-5866-44bc-9810-91c136ae7438") {
+  //     return "Fast Attack"
+  //   }
+  //   else if (unitRole === "abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6") {
+  //     return "Heavy Support"
+  //   }
+  //   else if (unitRole === "e888-1504-aa61-95ff") {
+  //     return "Flyer"
+  //   }
+  //   else if (unitRole === "1b66-3f5f-6705-079a") {
+  //     return "Dedicated Transport"
+  //   }
+  //   else if (unitRole === "c888f08a-6cea-4a01-8126-d374a9231554") {
+  //     return "Lord of War"
+  //   }
+  //   else if (unitRole === "d713cda3-5d0f-40d8-b621-69233263ec2a") {
+  //     return "Fortification"
+  //   } else {
+  //     return null
+  //   }
+  // }
   
-  parseAdditionalArray = (additionalArray) => {
+  // parseAdditionalArray = (additionalArray) => {
   
-    var profileOne = {
-      "W": null,
-      "Movement": null,
-      "WS": null,
-      "Strength": null,
-      "BS": null,
-      "Attacks": null,
-      "PsychicOverLoad": null,
-      "S": null
-    }
+  //   var profileOne = {
+  //     "W": null,
+  //     "Movement": null,
+  //     "WS": null,
+  //     "Strength": null,
+  //     "BS": null,
+  //     "Attacks": null,
+  //     "PsychicOverLoad": null,
+  //     "S": null
+  //   }
   
-    var profileTwo = {
-      "W": null,
-      "Movement": null,
-      "WS": null,
-      "Strength": null,
-      "BS": null,
-      "Attacks": null,
-      "PsychicOverLoad": null,
-      "S": null
-    }
+  //   var profileTwo = {
+  //     "W": null,
+  //     "Movement": null,
+  //     "WS": null,
+  //     "Strength": null,
+  //     "BS": null,
+  //     "Attacks": null,
+  //     "PsychicOverLoad": null,
+  //     "S": null
+  //   }
   
-    var profileThree = {
-      "W": null,
-      "Movement": null,
-      "WS": null,
-      "Strength": null,
-      "BS": null,
-      "Attacks": null,
-      "PsychicOverLoad": null,
-      "S": null
-    }
+  //   var profileThree = {
+  //     "W": null,
+  //     "Movement": null,
+  //     "WS": null,
+  //     "Strength": null,
+  //     "BS": null,
+  //     "Attacks": null,
+  //     "PsychicOverLoad": null,
+  //     "S": null
+  //   }
   
-    var profileFour = {
-      "W": null,
-      "Movement": null,
-      "WS": null,
-      "Strength": null,
-      "BS": null,
-      "Attacks": null,
-      "PsychicOverLoad": null,
-      "S": null
-    }
+  //   var profileFour = {
+  //     "W": null,
+  //     "Movement": null,
+  //     "WS": null,
+  //     "Strength": null,
+  //     "BS": null,
+  //     "Attacks": null,
+  //     "PsychicOverLoad": null,
+  //     "S": null
+  //   }
   
-    if (!additionalArray) {
-      return null
-    } else
-      for (var i = 0; i < additionalArray.length; i++) {
-  
-  
-        if (additionalArray[i].profiletype == "(1)") {
+  //   if (!additionalArray) {
+  //     return null
+  //   } else
+  //     for (var i = 0; i < additionalArray.length; i++) {
   
   
-          for (j = 0; j < additionalArray[i].characteristic.length; j++) {
-            if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
-              profileOne.W = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Movement") {
-              profileOne.Movement = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "WS") {
-              profileOne.WS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Strength") {
-              profileOne.Strength = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "BS") {
-              profileOne.BS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Attacks") {
-              profileOne.Attacks = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
-              profileOne.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "S") {
-              profileOne.S = additionalArray[i].characteristic[j].$.value
-            }
-  
-          }
-  
-        }
-  
-        if (additionalArray[i].profiletype == "(2)") {
+  //       if (additionalArray[i].profiletype == "(1)") {
   
   
-          for (j = 0; j < additionalArray[i].characteristic.length; j++) {
-            if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
-              profileTwo.W = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Movement") {
-              profileTwo.Movement = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "WS") {
-              profileTwo.WS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Strength") {
-              profileTwo.Strength = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "BS") {
-              profileTwo.BS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Attacks") {
-              profileTwo.Attacks = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
-              profileTwo.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "S") {
-              profileTwo.S = additionalArray[i].characteristic[j].$.value
-            }
+  //         for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+  //           if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+  //             profileOne.W = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Movement") {
+  //             profileOne.Movement = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "WS") {
+  //             profileOne.WS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Strength") {
+  //             profileOne.Strength = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "BS") {
+  //             profileOne.BS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+  //             profileOne.Attacks = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+  //             profileOne.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "S") {
+  //             profileOne.S = additionalArray[i].characteristic[j].$.value
+  //           }
   
-          }
+  //         }
   
-        }
+  //       }
   
-        if (additionalArray[i].profiletype == "(3)") {
-  
-  
-          for (j = 0; j < additionalArray[i].characteristic.length; j++) {
-            if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
-              profileThree.W = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Movement") {
-              profileThree.Movement = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "WS") {
-              profileThree.WS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Strength") {
-              profileThree.Strength = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "BS") {
-              profileThree.BS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Attacks") {
-              profileThree.Attacks = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
-              profileThree.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "S") {
-              profileThree.S = additionalArray[i].characteristic[j].$.value
-            }
-  
-          }
-  
-        }
-  
-        if (additionalArray[i].profiletype == "(3)") {
+  //       if (additionalArray[i].profiletype == "(2)") {
   
   
-          for (j = 0; j < additionalArray[i].characteristic.length; j++) {
-            if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
-              profileFour.W = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Movement") {
-              profileFour.Movement = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "WS") {
-              profileFour.WS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Strength") {
-              profileFour.Strength = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "BS") {
-              profileFour.BS = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Attacks") {
-              profileFour.Attacks = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
-              profileFour.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
-            }
-            if (additionalArray[i].characteristic[j].$.name == "S") {
-              profileFour.S = additionalArray[i].characteristic[j].$.value
-            }
+  //         for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+  //           if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+  //             profileTwo.W = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Movement") {
+  //             profileTwo.Movement = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "WS") {
+  //             profileTwo.WS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Strength") {
+  //             profileTwo.Strength = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "BS") {
+  //             profileTwo.BS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+  //             profileTwo.Attacks = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+  //             profileTwo.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "S") {
+  //             profileTwo.S = additionalArray[i].characteristic[j].$.value
+  //           }
   
-          }
+  //         }
   
-        }
+  //       }
   
-      }
+  //       if (additionalArray[i].profiletype == "(3)") {
   
-    return [{ "profileOne": profileOne },
-    { "profileTwo": profileTwo },
-    { "profileThree": profileThree },
-    { "profileFour": profileFour }
-    ]
   
-  }
+  //         for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+  //           if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+  //             profileThree.W = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Movement") {
+  //             profileThree.Movement = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "WS") {
+  //             profileThree.WS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Strength") {
+  //             profileThree.Strength = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "BS") {
+  //             profileThree.BS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+  //             profileThree.Attacks = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+  //             profileThree.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "S") {
+  //             profileThree.S = additionalArray[i].characteristic[j].$.value
+  //           }
+  
+  //         }
+  
+  //       }
+  
+  //       if (additionalArray[i].profiletype == "(3)") {
+  
+  
+  //         for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+  //           if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+  //             profileFour.W = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Movement") {
+  //             profileFour.Movement = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "WS") {
+  //             profileFour.WS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Strength") {
+  //             profileFour.Strength = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "BS") {
+  //             profileFour.BS = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+  //             profileFour.Attacks = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+  //             profileFour.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+  //           }
+  //           if (additionalArray[i].characteristic[j].$.name == "S") {
+  //             profileFour.S = additionalArray[i].characteristic[j].$.value
+  //           }
+  
+  //         }
+  
+  //       }
+  
+  //     }
+  
+  //   return [{ "profileOne": profileOne },
+  //   { "profileTwo": profileTwo },
+  //   { "profileThree": profileThree },
+  //   { "profileFour": profileFour }
+  //   ]
+  
+  // }
   
   
   
