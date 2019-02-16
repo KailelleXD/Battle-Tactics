@@ -204,10 +204,12 @@ export class AppProvider extends React.Component {
             codexObj = result.catalogue;
             catalogue = codexObj[Object.keys(codexObj)[0]];
             categories = codexObj.categoryEntries[0].categoryEntry;
-            console.log("END PARSSTRING: " + factionName)
+            console.log("END PARSSTRING: " + factionName);
 
-            let array = []
+            let array = [];
+            let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
+
 
             for (var i = 0; i < fullList.length; i++) {
               if (fullList[i].$.type != 'upgrade') {
@@ -348,6 +350,43 @@ export class AppProvider extends React.Component {
                 // }
                 var bf_role = returnUnit(unitRole)
 
+                let abilityTargetIdArray = []
+
+                //  grab list of abilities
+                if (fullList[i].infoLinks[0].infoLink) {
+                  let abilitiesList = fullList[i].infoLinks[0].infoLink
+                  for (var j = 0; j < abilitiesList.length; j++) {
+                    if (abilitiesList[j].$.type == "profile") {
+                      abilityTargetIdArray.push(abilitiesList[j].$.targetId)
+                    }
+                  }
+                }
+      
+                var abilityObjectArray = []
+      
+                for (var j = 0; j < abilityTargetIdArray.length; j++) {
+                  var abilityid = abilityTargetIdArray[j]
+      
+                  for (k = 0; k < abilitiesArray.length; k++) { 
+                    if (abilityid == abilitiesArray[k].$.id && abilitiesArray[k].$.profileTypeName == "Abilities") {
+                      
+                      var abilityName = abilitiesArray[k].$.name;
+                      var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
+                      console.log(abilityDescription)
+      
+                      var abilityObject = {
+                        "name" : abilityName,
+                        "description" : abilityDescription
+                      }
+      
+                      abilityObjectArray.push(abilityObject)
+      
+      
+                    }
+                  }
+                  
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
@@ -379,7 +418,8 @@ export class AppProvider extends React.Component {
                     "landing pad configuration": landingPad,
                     "weapon": weapon,
                   },
-                  "profile_additional": parseAdditionalArray(additionalArray)
+                  "profile_additional": parseAdditionalArray(additionalArray),
+                  "abilities": abilityObjectArray
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
