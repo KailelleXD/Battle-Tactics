@@ -56,8 +56,8 @@ export default class Model extends Component {
             // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
             this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
             this.position.setOffset({
-                // x: this.val.x,
-                // y: this.val.y 
+                // x: unit.x,
+                // y: unit.y
                 x: this.val.x,
                 y: this.val.y 
             });
@@ -76,18 +76,22 @@ export default class Model extends Component {
             }
 
             if (gesture.numberActiveTouches === 2) {
-                console.log("Reset Position Enabled!")
+                // console.log("Reset Position Enabled!")
                 this.setState({
                     resetPosition: true
                 })
                 this.position.setOffset({
+                //     x: 0,
+                //     y: 0
                     x: unit.x - gesture.dx/this.props.state.scale,
                     y: unit.y - gesture.dy/this.props.state.scale
                 })
+
                 this.setState({
                     resetPosition: false
                 })
-                this.updateModelLocation(gesture);
+                this.resetModelLocation();
+                // this.updateModelLocation(gesture);
             } 
             this.props.calcDistance(gesture);
 
@@ -127,12 +131,43 @@ export default class Model extends Component {
 
     }
 
+    resetModelLocation () {
+        const oldUnits = [...this.props.playerState.units];
+        const updatedUnits = oldUnits.map(unit => {
+            // console.log("resetModelLoction");
+            // console.log("this one: " + unit.id);
+            if (unit.id === this.props.id) {
+                const newUnit = {...unit};
+                // newUnit.x = 0;
+                // newUnit.y = 0;
+                newUnit = {
+                    id: this.props.key,
+                    m: this.props.movement,
+                    style: "modelBlue",
+                    text: "",
+                    x: this.position.x,
+                    y: this.position.y
+                }
+                // newUnit.x = this.position.x;
+                // newUnit.y = this.position.y;
+                // console.log("=====================");
+                // console.log(this.position.x);
+                // console.log("=====================");
+                console.log(newUnit)
+                return newUnit;
+            } else {
+                return unit;
+            }
+        })
+        this.props.updateUnits(updatedUnits);
+    }   
+
     
     updateModelLocation (gesture) {
         console.log("resetPosition: " + this.state.resetPosition)
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
-            console.log(unit);
+            // console.log(unit);
             // Should only be used if model location reset.
             if (unit.id === this.props.id &&
                 this.state.resetPosition === true) {
@@ -265,5 +300,3 @@ const styles = {
         borderRadius: this.ON_TOUCH_MODEL_HIGHLIGHT,
     }
 };
-
-
