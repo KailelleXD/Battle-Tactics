@@ -30,6 +30,8 @@ export default class Model extends Component {
             onTouch: false,
             ghostModel: false,
             resetPosition: false,
+            offsetX: 0,
+            offsetY: 0
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
@@ -95,17 +97,31 @@ export default class Model extends Component {
             this.position.setOffset({
                 x: this.unit.x - gesture.dx / this.props.state.scale,
                 y: this.unit.y - gesture.dy / this.props.state.scale
+                })
+
+            //---------------------------------------------------////
+            // Console.log of X and Y values used in .setOffset()
+            console.log(
+                this.unit.x - gesture.dx / this.props.state.scale
+                )
+            console.log(
+                this.unit.y - gesture.dy / this.props.state.scale
+                )
+            //---------------------------------------------------////
+
+            // Set LOCAL-STATE for the values of X and Y from the above position.setOffset()
+            this.setState({
+                offsetX: this.unit.x - gesture.dx / this.props.state.scale,
+                offsetY: this.unit.y - gesture.dy / this.props.state.scale,
+            }, () => {console.log(
+                "offsetX: " + this.state.offsetX + "\n" + 
+                "offsetY: " + this.state.offsetY
+                )
+                // CB-function to call helper function that will assign the offset X Y values to our models.json in the correct location.
+                this.resetModelLocation(
+                    this.state.offsetX, this.state.offsetY
+                    );
             })
-
-            // Find out what the value of X and Y are in the above position offset.
-
-            // Store those values in local state.
-
-            // Use setState CB function to call a helper function that will take those values and set them into the correct model.json data.
-
-            // This should resolve my issues..
-
-
         } // END_IF    
     }
 
@@ -122,6 +138,37 @@ export default class Model extends Component {
     }
 
     // HELPER FUNCTIONS ////
+
+    resetModelLocation (offsetX, offsetY) {
+        console.log("The resetModelLocation function has been called.")
+        // Check that the values have been passed in correctly.
+        // console.log(
+        //     "offsetX: " + offsetX + "\n" +
+        //     "offsetY: " + offsetY
+        //     )
+        // Functional Code to dynamically replace the X and Y values for this specific component within Models.json
+        // Use the SPREAD OPERATOR to assign the data inside of Models.json into a CONST variable called 'oldUnits'.
+        const oldUnits = [...this.props.playerState.units];
+        // Console.log oldUnits to check for correct data.
+        // console.log(oldUnits);
+        // Use the .map method to iterate through the oldUnits array and assign the results into a CONST variable called 'updatedUnits'.
+        const updatedUnits = oldUnits.map(unit => {
+            // IF, the unit.id matches the .id of this component...
+            if (unit.id === this.props.id) {
+                // THEN, assign the offsetX and Y values to the proper location.
+                // Use the SPREAD OPERATOR to allow us to assign offsetX and Y.
+                const newUnit = {...unit};
+                newUnit.x = offsetX;
+                newUnit.y = offsetY;
+                return newUnit;
+            } else {
+                // ELSE, don't make any changes and just return the same object.
+                return unit;    
+            }
+        });
+        // call the .updateUnits(updatedUnits); function from AppContext.js.
+        this.props.updateUnits(updatedUnits);        
+    }
 
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
