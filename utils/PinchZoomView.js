@@ -21,7 +21,7 @@ export default class PinchZoomView extends Component {
 
   static defaultProps = {
     scalable: true,
-    minScale: .5,
+    minScale: .25,
     maxScale: 3.0
   };
 
@@ -60,14 +60,14 @@ export default class PinchZoomView extends Component {
   }
 
   componentDidUpdate() {
-    // if (this.props.state.scale < 1.25) {
-    //   Animated.spring(this.position, {
-    //     toValue: { 
-    //       x: -this.props.state.offsetX, 
-    //       y: -this.props.state.offsetY
-    //     }
-    // }).start()
-    // }
+    if (this.props.state.scale < 1.25) {
+      Animated.spring(this.position, {
+        toValue: { 
+          x: -this.props.state.offsetX, 
+          y: -this.props.state.offsetY
+        }
+    }).start()
+    }
   }
 
 
@@ -132,7 +132,7 @@ export default class PinchZoomView extends Component {
     }
     // translate
     // else if (gesture.numberActiveTouches === 1) {
-    else if (gesture.numberActiveTouches === 1 && this.props.state.scale > 0) {
+    else if (gesture.numberActiveTouches === 1 && this.props.state.scale > 1.25) {
     // if (gesture.numberActiveTouches === 1 && this.props.state.scale > 1.0) {
       if (this.state.lastMovePinch) {
         gesture.dx = 0;

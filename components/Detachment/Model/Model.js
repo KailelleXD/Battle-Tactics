@@ -60,6 +60,8 @@ export default class Model extends Component {
         this.setState({
             onTouch: true,
             ghostModel: true
+        }, () => {
+            // console.log(this.state)
         })
         return true;
     }
@@ -86,12 +88,12 @@ export default class Model extends Component {
 
         // Two Finger touch places component in 'reset' state.
         if (gesture.numberActiveTouches === 2 && this.state.resetPosition === false) {
-            console.log("Reset State has been activated!");
+            console.log("The RESET PROCESS has been initiated!");
 
             // Set 'resetPosition' to true. to prevent this code from firing more than once.
             this.setState({
                 resetPosition: true,
-            }, () => console.log("resetPosition: " + this.state.resetPosition))
+            }, () => console.log(this.state))
 
             // Change the OFFSET of the 'position' object to visually show that this component will be reset back to it's prior position.
             this.position.setOffset({
@@ -101,12 +103,12 @@ export default class Model extends Component {
 
             //---------------------------------------------------////
             // Console.log of X and Y values used in .setOffset()
-            console.log(
-                this.unit.x - gesture.dx / this.props.state.scale
-                )
-            console.log(
-                this.unit.y - gesture.dy / this.props.state.scale
-                )
+            // console.log(
+            //     this.unit.x - gesture.dx / this.props.state.scale
+            //     )
+            // console.log(
+            //     this.unit.y - gesture.dy / this.props.state.scale
+            //     )
             //---------------------------------------------------////
 
             // Set LOCAL-STATE for the values of X and Y from the above position.setOffset()
@@ -114,13 +116,15 @@ export default class Model extends Component {
                 offsetX: this.unit.x - gesture.dx / this.props.state.scale,
                 offsetY: this.unit.y - gesture.dy / this.props.state.scale,
             }, () => {console.log(
-                "offsetX: " + this.state.offsetX + "\n" + 
-                "offsetY: " + this.state.offsetY
+                // "offsetX: " + this.state.offsetX + "\n" + 
+                // "offsetY: " + this.state.offsetY
                 )
                 // CB-function to call helper function that will assign the offset X Y values to our models.json in the correct location.
                 this.resetModelLocation(
                     this.state.offsetX, this.state.offsetY
                     );
+                // Console.log that the 'Reset Procedure has been completed'
+                console.log("The RESET PROCESS has been completed.")
             })
         } // END_IF    
     }
@@ -130,7 +134,10 @@ export default class Model extends Component {
         console.log("You are no longer touching the model component.")
         this.setState({
             onTouch: false,
-            ghostModel: false
+            ghostModel: false,
+            resetPosition: false,
+        }, () => {
+            // console.log(this.state)
         })
         this.updateModelLocation(gesture);
         this.props.calcDistance(gesture);
@@ -167,7 +174,9 @@ export default class Model extends Component {
             }
         });
         // call the .updateUnits(updatedUnits); function from AppContext.js.
-        this.props.updateUnits(updatedUnits);        
+        this.props.updateUnits(updatedUnits);
+        // Console.log the end of this function..
+        console.log("The resetModelLocation function has ended.")    
     }
 
     updateModelLocation (gesture) {
@@ -274,8 +283,8 @@ const styles = {
         opacity: 0.6,
     },
     offTouch: {
-        borderColor: '#000',
-        borderWidth: 1,
+        borderColor: '#fff',
+        borderWidth: .5,
         borderRadius: MODEL_RADIUS,
         opacity: 1.0
     },
