@@ -156,9 +156,10 @@ export class AppProvider extends React.Component {
     let unitID = 1;
 
 
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < 38; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
+      let factionCode = this.state.BSData.factions[j].factionName
       let URLname = this.state.BSData.factions[j].name.replace(/\s/g, '%20')
       // let urlifiedName = name.replace(/\s/g, '%20')
       await fetch('https://raw.githubusercontent.com/BSData/wh40k/master/' + URLname + '.cat')
@@ -406,9 +407,15 @@ export class AppProvider extends React.Component {
             //   categoryArr
             // }
             BSData.data = BSData.data.concat(array);
+            AsyncStorage.setItem(factionCode,JSON.stringify(array))
+
+            // just for testing
+            // AsyncStorage.getItem("2-Aeldari-FW-Corsairs").then((value) => {
+            //   console.log(value)
+            // })
             // categoryArr = [];
           })
-          console.log(BSData.data)
+          
         })
         .catch((err) => {
           console.log('fetch', err)
@@ -420,7 +427,7 @@ export class AppProvider extends React.Component {
     })
 
     // console.log(this.state.BSData.data)
-    return categoryArr;
+    // return categoryArr;
 
   }
 
