@@ -31,8 +31,6 @@ export default class Model extends Component {
             ghostModel: false,
         }
 
-        // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
-
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
@@ -41,59 +39,60 @@ export default class Model extends Component {
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
 
-        const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: (event, gesture) => {
-            console.log("I'm being touched!!!");
-            this.setState({
-                onTouch: true,
-                ghostModel: true
-            })
-            return true;
-        },
-        onPanResponderGrant: (event, gesture) => {
-            // console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
-            this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
-            this.position.setOffset({
-                // x: this.val.x,
-                // y: this.val.y 
-                x: this.val.x,
-                y: this.val.y 
-            });
-            // console.log(gesture);
-          },
-        onPanResponderMove: (event, gesture) => {
-            // console.log(this.props.state.scale)
-            // console.log("onTouch state: " + this.state.onTouch)
-            if (gesture.numberActiveTouches === 1) {
-                position.setValue({
-                    x: gesture.dx / this.props.state.scale, 
-                    y: gesture.dy / this.props.state.scale 
-                })
-            }
-            this.props.calcDistance(gesture);
-        },
-        onPanResponderRelease: (event, gesture) => {
-            // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
-            this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-            console.log("I'm no longer being touched!")
-            this.setState({
-                onTouch: false,
-                ghostModel: false
-            })
-            this.updateModelLocation(gesture);
-            this.props.calcDistance(gesture);
-            this.props.clearEndXY();
-        },
-        onPanResponderTerminationRequest: (event, gesture) => false,
-
-        });
-
-        this.panResponder = panResponder;
         this.position = position;
-
     }
 
-    
+    componentWillMount() {
+        this.panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
+            onPanResponderGrant: this._handlePanResponderGrant,
+            onPanResponderMove: this._handlePanResponderMove,
+            onPanResponderRelease: this._handlePanResponderEnd,
+            onPanResponderTerminationRequest: (event, gesture) => false,
+        });
+    }
+
+    _handleStartShouldSetPanResponder = (event, gesture) => {
+        console.log("I'm being touched!!!");
+        this.setState({
+            onTouch: true,
+            ghostModel: true
+        })
+        return true;
+    }
+
+    _handlePanResponderGrant = (event, gesture) => {
+        this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
+        this.position.setOffset({
+            x: this.val.x,
+            y: this.val.y 
+        });
+    }
+
+    _handlePanResponderMove = (event, gesture) => {
+        if (gesture.numberActiveTouches === 1) {
+            this.position.setValue({
+                x: gesture.dx / this.props.state.scale, 
+                y: gesture.dy / this.props.state.scale 
+            })
+        }
+        this.props.calcDistance(gesture);
+    }
+
+    _handlePanResponderEnd =  (event, gesture) => {
+        this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
+        console.log("I'm no longer being touched!")
+        this.setState({
+            onTouch: false,
+            ghostModel: false
+        })
+        this.updateModelLocation(gesture);
+        this.props.calcDistance(gesture);
+        this.props.clearEndXY();
+    }
+
+    // HELPER FUNCTIONS ////
+
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -109,12 +108,12 @@ export default class Model extends Component {
         
         this.props.updateUnits(updatedUnits);
     }
+
+    // STYLE FUNCTIONS ////
     
     onTouchModelStyle () {
         if (this.state.onTouch === true) {
-            return styles.onTouch;
-            // return styles.model;
-            
+            return styles.onTouch;            
         } else {
             return styles.model;
         }
@@ -131,10 +130,10 @@ export default class Model extends Component {
             return styles.offTouch;
         }
     }
+
+    // RENDER FUNCTIONS ////
     
     placeGhostModel () {
-        // This function is designed to place a temporary model in the location the model was last located.
-        // IF, this.state.onTouch === true // THEN, return ghostModel component.
         if (this.state.onTouch === true) {
             return (
                 <GhostModel val={this.val} modelStyle={styles[this.props.model, styles.model]} />
@@ -146,10 +145,6 @@ export default class Model extends Component {
 
     renderModels() {
         return (
-            // <Animated.View
-            //     style={[this.position.getLayout(), this.onTouchModelStyle(this.onTouch), this.props.model]}
-            //     {...this.panResponder.panHandlers}
-            // >
             <Animated.View
                 style={[this.position.getLayout(), this.onTouchModelStyle(), this.maxMovementStyle(), this.props.model]}
                 {...this.panResponder.panHandlers}

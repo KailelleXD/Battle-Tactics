@@ -146,6 +146,7 @@ export class AppProvider extends React.Component {
   updateUnits = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
+    // console.log(playerOne.units)
     this.setState({ playerOne });
   }
 
@@ -448,24 +449,24 @@ export class AppProvider extends React.Component {
 
 
 
-setScale = (newScale) => {
-  posData = { ...this.state.posData }
-  // console.log("posData: " + posData);
-  posData.lastScale = posData.scaleData;
-  posData.scaleData = newScale;
-  // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
-  // console.log("posData.scaleData: " + posData.scaleData)
-  // console.log("posData.lastScale: " + posData.lastScale)
-  this.setState({ posData });
-  // console.log(this.state.posData.scaleData);
-  // }
-}
+// setScale = (newScale) => {
+//   posData = { ...this.state.posData }
+//   // console.log("posData: " + posData);
+//   posData.lastScale = posData.scaleData;
+//   posData.scaleData = newScale;
+//   // if (typeof posData.scaleData !== undefined || posData.lastScale !== undefined) {
+//   // console.log("posData.scaleData: " + posData.scaleData)
+//   // console.log("posData.lastScale: " + posData.lastScale)
+//   this.setState({ posData });
+//   // console.log(this.state.posData.scaleData);
+//   // }
+// }
 
-updateUnits = (newUnits) => {
-  const playerOne = { ...this.state.playerOne };
-  playerOne.units = newUnits;
-  this.setState({ playerOne });
-}
+// updateUnits = (newUnits) => {
+//   const playerOne = { ...this.state.playerOne };
+//   playerOne.units = newUnits;
+//   this.setState({ playerOne });
+// }
 
   //   render ()  {
   //       return (

@@ -22,7 +22,10 @@ export class PhysProvider extends React.Component {
             screenWidth: 720,
             ppi: 1,
             distance: 150,
-            inches: 0
+            inches: 0,
+            distanceBetweenPoints: 0,
+            TempX: 0,
+            TempY: 0
         };
     }
 
@@ -87,6 +90,14 @@ export class PhysProvider extends React.Component {
         })
     }
 
+    getTempXY = (x, y) => {
+        console.log("x: " + x + " | " + "y: " + y)
+        this.setState({
+            tempX: x,
+            tempY: y
+        })
+    }
+
     calcDistance = (gesture) => {
         if(this.state.endXY.x == null && this.state.endXY.y == null) {
             // console.log("Running Calc");
@@ -99,22 +110,16 @@ export class PhysProvider extends React.Component {
                 distance: distance,
                 inches: inches
             })
-        } 
-        // else {
-        //     console.log("On Release Calc");
-        //     console.log(gesture.dx);
-        //     let dx = Math.abs(this.state.startXY.x - this.state.endXY.x);
-        //     let dy = Math.abs(this.state.startXY.y - this.state.endXY.y);
-        //     let distance = Math.sqrt(dx * dx + dy * dy);
-        //     let scaleDistance = distance * this.state.scale;
-        //     let inches = scaleDistance / this.state.ppi;
-        //     console.log("Total Distance in Pixels: " + scaleDistance);
-        //     console.log("Total Distance in Inches: " + inches);
-        //     this.setState({
-        //         distance: scaleDistance,
-        //         inches: inches
-        //     })
-        // }
+        }
+    }
+
+    distanceFromTwoPoints = (startXYObj, endXYObj) => {
+        let dx = Math.abs(startXYObj.x - endXYObj.x);
+        let dy = Math.abs(startXYObj.y - endXYObj.y);
+        let distanceBetweenPoints = Math.sqrt(dx * dx + dy * dy);
+        this.setState({
+            distanceBetweenPoints: distanceBetweenPoints
+        })
     }
 
     clearEndXY = () => {
@@ -125,8 +130,6 @@ export class PhysProvider extends React.Component {
             }
         })
     }
-
-
 
     render() {
         return (
@@ -140,7 +143,9 @@ export class PhysProvider extends React.Component {
                 calcDistance: this.calcDistance,
                 getStartXY: this.getStartXY,
                 getEndXY: this.getEndXY,
-                clearEndXY: this.clearEndXY
+                clearEndXY: this.clearEndXY,
+                distanceFromTwoPoints: this.distanceFromTwoPoints,
+                getTempXY: this.getTempXY
             }}>
                 {this.props.children}
             </PhysContext.Provider>
