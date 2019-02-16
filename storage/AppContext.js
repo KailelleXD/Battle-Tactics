@@ -139,6 +139,7 @@ export class AppProvider extends React.Component {
   updateUnits = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
+    console.log(playerOne.units)
     this.setState({ playerOne });
   }
 

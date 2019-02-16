@@ -29,10 +29,10 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
-            resetPosition: false
+            resetPosition: false,
+            offsetX: 0,
+            offsetY: 0
         }
-
-        // this.ON_TOUCH_MODEL_HIGHLIGHT *= this.props.state.scale;
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         console.log("=================================================")
@@ -43,101 +43,150 @@ export default class Model extends Component {
         console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
-        this.movement = unit.m;
-
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
-
-        const panResponder = PanResponder.create({
-        onStartShouldSetPanResponder: (event, gesture) => {
-
-                console.log("I'm being touched!!!");
-                this.setState({
-                    onTouch: true,
-                    ghostModel: true,
-                    resetPosition: false
-                })
-                return true;
-        },
-        onPanResponderGrant: (event, gesture) => {
-            console.log("On Press: " + event.nativeEvent.touches[0].pageX + " | " + event.nativeEvent.touches[0].pageY);
-            this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
-            this.position.setOffset({
-                // x: unit.x,
-                // y: unit.y
-                x: this.val.x,
-                y: this.val.y 
-            });
-            // console.log(gesture);
-          },
-        onPanResponderMove: (event, gesture) => {
-            // console.log(this.props.state.scale)
-            // console.log("onTouch state: " + this.state.onTouch)
-            // if (gesture.numberActiveTouches === 1 && 
-            //     this.state.resetPosition === false) {
-            if (gesture.numberActiveTouches === 1) {
-                this.position.setValue({
-                    x: gesture.dx / this.props.state.scale, 
-                    y: gesture.dy / this.props.state.scale 
-                })
-            }
-
-            if (gesture.numberActiveTouches === 2) {
-                // console.log("Reset Position Enabled!")
-                this.setState({
-                    resetPosition: true
-                })
-                this.position.setOffset({
-                //     x: 0,
-                //     y: 0
-                    x: unit.x - gesture.dx/this.props.state.scale,
-                    y: unit.y - gesture.dy/this.props.state.scale
-                })
-                
-                // this.setState({
-                //     resetPosition: false
-                // })
-                this.resetModelLocation();
-                // this.updateModelLocation(gesture);
-            } 
-            this.props.calcDistance(gesture);
-
-        },
-        onPanResponderRelease: (event, gesture) => {
-            // console.log("On Release: " + event.nativeEvent.pageX + " | " + event.nativeEvent.pageY);
-            this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-            console.log("I'm no longer being touched!")
-            this.setState({
-                onTouch: false,
-                ghostModel: false,
-            })
-            if (this.state.resetPosition) {
-                console.log("Position Reset!")
-                this.position.setOffset({
-                    x: unit.x - gesture.dx/this.props.state.scale,
-                    y: unit.y - gesture.dy/this.props.state.scale
-                })
-                this.setState({
-                    resetPosition: true
-                })
-            } else {
-                this.setState({
-                    resetPosition: false
-                })
-            }
-            this.updateModelLocation(gesture);
-            this.props.calcDistance(gesture);
-            this.props.clearEndXY();
-        },
-        onPanResponderTerminationRequest: (event, gesture) => false,
-
-        });
-
-        this.panResponder = panResponder;
+        
+        this.unit = unit;
+        this.movement = unit.m;
         this.position = position;
-
     }
 
+    componentWillMount() {
+        this.panResponder = PanResponder.create({
+            onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
+            onPanResponderGrant: this._handlePanResponderGrant,
+            onPanResponderMove: this._handlePanResponderMove,
+            onPanResponderRelease: this._handlePanResponderEnd,
+            onPanResponderTerminationRequest: (event, gesture) => false,
+        });
+    }
+
+    _handleStartShouldSetPanResponder = (event, gesture) => {
+        console.log("You are now touching the model component.");
+        this.setState({
+            onTouch: true,
+            ghostModel: true
+        }, () => {
+            // console.log(this.state)
+        })
+        return true;
+    }
+
+    _handlePanResponderGrant = (event, gesture) => {
+        this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
+        this.position.setOffset({
+            x: this.val.x,
+            y: this.val.y 
+        });
+    }
+
+    _handlePanResponderMove = (event, gesture) => {
+        // Single Touch moves the Model.js component.
+        if (gesture.numberActiveTouches === 1) {
+            this.position.setValue({
+                x: gesture.dx / this.props.state.scale, 
+                y: gesture.dy / this.props.state.scale 
+            })
+
+            // Only calc distance if 1 finger is touching the screen.
+            this.props.calcDistance(gesture);
+        } // END_IF
+
+        // Two Finger touch places component in 'reset' state.
+        if (gesture.numberActiveTouches === 2 && this.state.resetPosition === false) {
+            console.log("The RESET PROCESS has been initiated!");
+
+            // Set 'resetPosition' to true. to prevent this code from firing more than once.
+            this.setState({
+                resetPosition: true,
+            }, () => console.log(this.state))
+
+            // Change the OFFSET of the 'position' object to visually show that this component will be reset back to it's prior position.
+            this.position.setOffset({
+                x: this.unit.x - gesture.dx / this.props.state.scale,
+                y: this.unit.y - gesture.dy / this.props.state.scale
+                })
+
+            //---------------------------------------------------////
+            // Console.log of X and Y values used in .setOffset()
+            // console.log(
+            //     this.unit.x - gesture.dx / this.props.state.scale
+            //     )
+            // console.log(
+            //     this.unit.y - gesture.dy / this.props.state.scale
+            //     )
+            //---------------------------------------------------////
+
+            // Set LOCAL-STATE for the values of X and Y from the above position.setOffset()
+            this.setState({
+                offsetX: this.unit.x - gesture.dx / this.props.state.scale,
+                offsetY: this.unit.y - gesture.dy / this.props.state.scale,
+            }, () => {console.log(
+                // "offsetX: " + this.state.offsetX + "\n" + 
+                // "offsetY: " + this.state.offsetY
+                )
+                // CB-function to call helper function that will assign the offset X Y values to our models.json in the correct location.
+                this.resetModelLocation(
+                    this.state.offsetX, this.state.offsetY
+                    );
+                // Console.log that the 'Reset Procedure has been completed'
+                console.log("The RESET PROCESS has been completed.")
+            })
+        } // END_IF    
+    }
+
+    _handlePanResponderEnd =  (event, gesture) => {
+        this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
+        console.log("You are no longer touching the model component.")
+        this.setState({
+            onTouch: false,
+            ghostModel: false,
+            resetPosition: false,
+        }, () => {
+            // console.log(this.state)
+        })
+        this.updateModelLocation(gesture);
+        this.props.calcDistance(gesture);
+        this.props.clearEndXY();
+    }
+
+    // HELPER FUNCTIONS ////
+
+    resetModelLocation (offsetX, offsetY) {
+        console.log("The resetModelLocation function has been called.")
+        // Check that the values have been passed in correctly.
+        // console.log(
+        //     "offsetX: " + offsetX + "\n" +
+        //     "offsetY: " + offsetY
+        //     )
+        // Functional Code to dynamically replace the X and Y values for this specific component within Models.json
+        // Use the SPREAD OPERATOR to assign the data inside of Models.json into a CONST variable called 'oldUnits'.
+        const oldUnits = [...this.props.playerState.units];
+        // Console.log oldUnits to check for correct data.
+        // console.log(oldUnits);
+        // Use the .map method to iterate through the oldUnits array and assign the results into a CONST variable called 'updatedUnits'.
+        const updatedUnits = oldUnits.map(unit => {
+            // IF, the unit.id matches the .id of this component...
+            if (unit.id === this.props.id) {
+                // THEN, assign the offsetX and Y values to the proper location.
+                // Use the SPREAD OPERATOR to allow us to assign offsetX and Y.
+                const newUnit = {...unit};
+                newUnit.x = offsetX;
+                newUnit.y = offsetY;
+                return newUnit;
+            } else {
+                // ELSE, don't make any changes and just return the same object.
+                return unit;    
+            }
+        });
+        // call the .updateUnits(updatedUnits); function from AppContext.js.
+        this.props.updateUnits(updatedUnits);
+        // Console.log the end of this function..
+        console.log("The resetModelLocation function has ended.")    
+    }
+
+<<<<<<< HEAD
+=======
     resetModelLocation () {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -161,6 +210,7 @@ export default class Model extends Component {
     }   
 
     
+>>>>>>> master
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -181,12 +231,12 @@ export default class Model extends Component {
         });
         this.props.updateUnits(updatedUnits);
     }
+
+    // STYLE FUNCTIONS ////
     
     onTouchModelStyle () {
         if (this.state.onTouch === true) {
-            return styles.onTouch;
-            // return styles.model;
-            
+            return styles.onTouch;            
         } else {
             return styles.model;
         }
@@ -203,10 +253,10 @@ export default class Model extends Component {
             return styles.offTouch;
         }
     }
+
+    // RENDER FUNCTIONS ////
     
     placeGhostModel () {
-        // This function is designed to place a temporary model in the location the model was last located.
-        // IF, this.state.onTouch === true // THEN, return ghostModel component.
         if (this.state.onTouch === true) {
             return (
                 <GhostModel val={this.val} modelStyle={styles[this.props.model, styles.model]} />
@@ -218,10 +268,6 @@ export default class Model extends Component {
 
     renderModels() {
         return (
-            // <Animated.View
-            //     style={[this.position.getLayout(), this.onTouchModelStyle(this.onTouch), this.props.model]}
-            //     {...this.panResponder.panHandlers}
-            // >
             <Animated.View
                 style={[this.position.getLayout(), this.onTouchModelStyle(), this.maxMovementStyle(), this.props.model]}
                 {...this.panResponder.panHandlers}
@@ -274,8 +320,8 @@ const styles = {
         opacity: 0.6,
     },
     offTouch: {
-        borderColor: '#000',
-        borderWidth: 1,
+        borderColor: '#fff',
+        borderWidth: .5,
         borderRadius: MODEL_RADIUS,
         opacity: 1.0
     },
