@@ -185,32 +185,6 @@ export default class Model extends Component {
         console.log("The resetModelLocation function has ended.")    
     }
 
-<<<<<<< HEAD
-=======
-    resetModelLocation () {
-        const oldUnits = [...this.props.playerState.units];
-        const updatedUnits = oldUnits.map(unit => {
-            if (unit.id === this.props.id) {
-                const newUnit = {...unit};
-                newUnit.x = this.position.x;
-                newUnit.y = this.position.y;
-                console.log("newUnit.x")
-                console.log(newUnit.x)
-                return newUnit;
-            } else {
-                return unit;
-            }
-
-
-        })
-        this.setState({
-          resetPosition: false
-        })
-        this.props.updateUnits(updatedUnits);
-    }   
-
-    
->>>>>>> master
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
