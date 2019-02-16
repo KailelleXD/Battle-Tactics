@@ -11,33 +11,10 @@ export class AppProvider extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //     playerOne: {
-    //         name: "jack",
-    //         mapName: "",
-    //         terrain: [],
-    //         faction: "",
-    //         units: [],
-    //         points: 0,
-    //         randomStart: false
-    //     },
-    //     playerTwo: {
-    //         name: "jill",
-    //         mapName: "",
-    //         terrain: [],
-    //         faction: "",
-    //         units: [],
-    //         points: 0,
-    //         randomStart: false
-    //     },
-    // }
-
     const initialState = {
       playerOne: {
         name: "jack",
-        // mapName: "",
         deploymentArea: "",
-        // terrain: [],
         faction: "",
         units: models,
         unitPlacement: [],
@@ -46,18 +23,15 @@ export class AppProvider extends React.Component {
       },
       playerTwo: {
         name: "jill",
-        // mapName: "",
-        // terrain: [],
         faction: "",
         units: [],
         points: 0,
-        test: "**** TESTER ****",
         randomStart: false
-      }, 
+      },
       gameData: {
-            mapName: "",
-            terrain: [],
-        },
+        mapName: "",
+        terrain: [],
+      },
       BSData: {
         gotData: false,
         factions: factions,
@@ -67,41 +41,28 @@ export class AppProvider extends React.Component {
         scaleData: 1,
         lastScale: 1,
       }
-
-
     }
 
 
 
     let allPlayers = {}
-
     AsyncStorage.getItem("Game7").then((value) => {
-
-
-        if (!value) {
-            allPlayers = initialState
-            AsyncStorage.setItem('Game7', JSON.stringify(initialState))
-
- 
-
+      if (!value) {
+        allPlayers = initialState
+        AsyncStorage.setItem('Game7', JSON.stringify(initialState))
       } else {
         allPlayers = JSON.parse(value)
-
       }
-
       this.setState(allPlayers)
     })
-
   }
 
-    setName = (newName) => {
-      const playerOne = {...this.state.playerOne}
-      playerOne.name = newName
-        this.setState( {playerOne}, () => {
-            AsyncStorage.setItem('Game7',JSON.stringify(this.state))
-        })
-
-
+  setName = (newName) => {
+    const playerOne = { ...this.state.playerOne }
+    playerOne.name = newName
+    this.setState({ playerOne }, () => {
+      AsyncStorage.setItem('Game7', JSON.stringify(this.state))
+    })
   }
 
   setFaction = (newFaction) => {
@@ -110,11 +71,11 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-    setMap = (newMap) => {
-      const gameData = {...this.state.gameData}
-      gameData.mapName = newMap
-        this.setState( {gameData} )
-    }
+  setMap = (newMap) => {
+    const gameData = { ...this.state.gameData }
+    gameData.mapName = newMap
+    this.setState({ gameData })
+  }
 
 
   setDeploymentArea = (newDeploymentArea) => {
@@ -123,11 +84,11 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne })
   }
 
-    addTerrainObject = (newTerrainObject) => {
-      const gameData = {...this.state.gameData}
-      gameData.terrain = gameData.terrain.concat(newTerrainObject);
-        this.setState( {gameData} )
-    }
+  addTerrainObject = (newTerrainObject) => {
+    const gameData = { ...this.state.gameData }
+    gameData.terrain = gameData.terrain.concat(newTerrainObject);
+    this.setState({ gameData })
+  }
 
 
   addUnitPlacementObject = (newUnitPlacementObject) => {
@@ -155,8 +116,7 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
     let unitID = 1;
 
-
-    for (let j = 0; j < 38; j++) {
+    for (let j = 0; j < this.state.BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
@@ -190,36 +150,36 @@ export class AppProvider extends React.Component {
             for (var i = 0; i < fullList.length; i++) {
 
               if (fullList[i].$.type != 'upgrade') {
-      
-      
-      
-      
+
+
+
+
                 if (fullList[i].categoryLinks[0].categoryLink) {
                   for (var j = 0; j < fullList[i].categoryLinks[0].categoryLink.length; j++) {
-      
+
                     var value = fullList[i].categoryLinks[0].categoryLink
-      
+
                     if (value[j].$.primary === "true") {
                       var unitRole = value[j].$.targetId
-      
+
                       break
-      
+
                     } else {
                       var unitRole = null
                     }
-      
+
                   }
-      
+
                 }
-      
+
                 // Logic to derive profile
                 if (!fullList[i].profiles[0].profile) {
                   var profile = null
                 } else {
                   var profile = fullList[i].profiles[0].profile[0].characteristics[0].characteristic
-      
+
                   for (var j = 0; j < profile.length; j++) {
-      
+
                     if (profile[j].$.name === "M") {
                       var profileM = profile[j].$.value
                     }
@@ -247,15 +207,15 @@ export class AppProvider extends React.Component {
                     if (profile[j].$.name === "Save") {
                       var profileSave = profile[j].$.value
                     }
-      
-      
-      
+
+
+
                   }
-      
-      
+
+
                 }
-                
-      
+
+
                 //logic to derive profileTypeId:  Weapon, Abilities, Transport, Psyker, Psychic Power, Wound Track, Unit, Stat Damage - BS, S & A, Keywords, Landing Pad Configuration
                 if (!fullList[i].profiles[0].profile) {
                   var profile = null
@@ -263,7 +223,7 @@ export class AppProvider extends React.Component {
                   var profileType = fullList[i].profiles[0].profile;
                   //fullList[i].profiles[0].profile[0].$.profileTypeName
                   for (var j = 0; j < profileType.length; j++) {
-      
+
                     if (profileType[j].$.profileTypeName === "Weapon") {
                       var weapon = profileType[j].$.name
                     }
@@ -295,18 +255,18 @@ export class AppProvider extends React.Component {
                       var landingPad = profileType[j].$.name
                     }
                   }
-      
-      
+
+
                 }
-      
+
                 // logic to derive additional profile
                 if (!fullList[i].profiles[0].profile) {
                   var profile = null
                 } else {
-      
+
                   var profileAdditional = fullList[i].profiles[0].profile
                   var additionalArray = []
-      
+
                   for (var j = 0; j < profileAdditional.length; j++) {
                     if (profileAdditional[j].$.profileTypeName.match(/^Stat Damage.*$/)) {
                       var profileAdditionalObj = {
@@ -314,25 +274,25 @@ export class AppProvider extends React.Component {
                         "profiletype": profileAdditional[j].$.name.substr(-3),
                         "characteristic": profileAdditional[j].characteristics[0].characteristic
                       }
-      
+
                       additionalArray.push(profileAdditionalObj)
-      
-      
-      
+
+
+
                     }
-      
+
                   }
-      
-      
-      
+
+
+
                 }
                 if (!fullList[i].costs[0]) {
                   var cost = null;
                 } else {
                   var cost = fullList[i].costs[0].cost
-      
+
                   for (var j = 0; j < cost.length; j++) {
-      
+
                     if (cost[j].$.name === "pts") {
                       var pts = cost[j].$.value
                     }
@@ -343,8 +303,8 @@ export class AppProvider extends React.Component {
                       var CP = cost[j].$.value
                     }
                   }
-      
-      
+
+
                 }
                 // define cost 
                 //use name matching on PTS etc
@@ -353,21 +313,21 @@ export class AppProvider extends React.Component {
                 // 	var PL = fullList[i].costs[0].cost[1].$.value
                 // 	var CP = fullList[i].costs[0].cost[2].$.value
                 // }
-      
-      
+
+
                 var bf_role = returnUnit(unitRole)
-      
-      
-      
-      
+
+
+
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
                   "type": fullList[i].$.type,
                   "bf_role": bf_role,
-                  "pts" : pts,
-                  "PL" : PL,
-                  "CP" : CP,
+                  "pts": pts,
+                  "PL": PL,
+                  "CP": CP,
                   "profile": {
                     "M": profileM,
                     "WS": profileWS,
@@ -379,7 +339,7 @@ export class AppProvider extends React.Component {
                     "Ld": profileLd,
                     "Sv": profileSave
                   },
-                  "profileType":{
+                  "profileType": {
                     "abilities": abilities,
                     "transport": transport,
                     "psyker": psyker,
@@ -387,16 +347,16 @@ export class AppProvider extends React.Component {
                     "wound track": wound,
                     "unit": unit,
                     "Stat Damage - BS, S & A": statDamage,
-                    "keywords" : keywords,
+                    "keywords": keywords,
                     "landing pad configuration": landingPad,
-                    "weapon" : weapon,
+                    "weapon": weapon,
                   },
                   "profile_additional": parseAdditionalArray(additionalArray)
                   // "test" : fullList[i]
                 }
-      
+
                 array.push(characterList)
-      
+
               }
             }
 
@@ -407,7 +367,7 @@ export class AppProvider extends React.Component {
             //   categoryArr
             // }
             BSData.data = BSData.data.concat(array);
-            AsyncStorage.setItem(factionCode,JSON.stringify(array))
+            AsyncStorage.setItem(factionCode, JSON.stringify(array))
 
             // just for testing
             // AsyncStorage.getItem("2-Aeldari-FW-Corsairs").then((value) => {
@@ -415,7 +375,7 @@ export class AppProvider extends React.Component {
             // })
             // categoryArr = [];
           })
-          
+
         })
         .catch((err) => {
           console.log('fetch', err)
@@ -474,26 +434,62 @@ export class AppProvider extends React.Component {
 //   this.setState({ playerOne });
 // }
 
-  //   render ()  {
-  //       return (
-  //           <AppContext.Provider value={{
-  //               state: this.state,
-  //               setName: this.setName,
-  //               setMap: this.setMap,
-  //               addTerrainObject: this.addTerrainObject,
-  //               setFaction: this.setFaction,
-  //               setUnit: this.setUnit,
-  //               updateUnits: this.updateUnits,
-  //               setDeploymentArea: this.setDeploymentArea,
-  //               addUnitPlacementObject: this.addUnitPlacementObject,
-  //               setScale: this.setScale,
-  //           }}>
-  //               {this.props.children}
-  //           </AppContext.Provider>
-  //       )
-  //   }
-  // }
+//   render ()  {
+//       return (
+//           <AppContext.Provider value={{
+//               state: this.state,
+//               setName: this.setName,
+//               setMap: this.setMap,
+//               addTerrainObject: this.addTerrainObject,
+//               setFaction: this.setFaction,
+//               setUnit: this.setUnit,
+//               updateUnits: this.updateUnits,
+//               setDeploymentArea: this.setDeploymentArea,
+//               addUnitPlacementObject: this.addUnitPlacementObject,
+//               setScale: this.setScale,
+//           }}>
+//               {this.props.children}
+//           </AppContext.Provider>
+//       )
+//   }
+// }
 
+returnUnit = (unitRole) => {
+  if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
+    return "No Force Org Slot"
+  }
+  else if (unitRole === "848a6ff2-0def-4c72-8433-ff7da70e6bc7") {
+    return "HQ"
+  }
+  else if (unitRole === "5d76b6f5-20ae-4d70-8f59-ade72a2add3a") {
+    return "Troops"
+  }
+  else if (unitRole === "638d74c6-bd97-4de5-b65a-6aaa24e9f4b2") {
+    return "Elites"
+  }
+  else if (unitRole === "c274d0b0-5866-44bc-9810-91c136ae7438") {
+    return "Fast Attack"
+  }
+  else if (unitRole === "abf5fd55-9ac7-4263-8bc1-a9fb0a8fa6a6") {
+    return "Heavy Support"
+  }
+  else if (unitRole === "e888-1504-aa61-95ff") {
+    return "Flyer"
+  }
+  else if (unitRole === "1b66-3f5f-6705-079a") {
+    return "Dedicated Transport"
+  }
+  else if (unitRole === "c888f08a-6cea-4a01-8126-d374a9231554") {
+    return "Lord of War"
+  }
+  else if (unitRole === "d713cda3-5d0f-40d8-b621-69233263ec2a") {
+    return "Fortification"
+  } else {
+    return null
+  }
+}
+
+<<<<<<< Updated upstream
   // returnUnit = (unitRole) =>{
   //   if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
   //     return "No Force Org Slot"
@@ -727,6 +723,206 @@ export class AppProvider extends React.Component {
   
   
   
+=======
+parseAdditionalArray = (additionalArray) => {
+
+  var profileOne = {
+    "W": null,
+    "Movement": null,
+    "WS": null,
+    "Strength": null,
+    "BS": null,
+    "Attacks": null,
+    "PsychicOverLoad": null,
+    "S": null
+  }
+
+  var profileTwo = {
+    "W": null,
+    "Movement": null,
+    "WS": null,
+    "Strength": null,
+    "BS": null,
+    "Attacks": null,
+    "PsychicOverLoad": null,
+    "S": null
+  }
+
+  var profileThree = {
+    "W": null,
+    "Movement": null,
+    "WS": null,
+    "Strength": null,
+    "BS": null,
+    "Attacks": null,
+    "PsychicOverLoad": null,
+    "S": null
+  }
+
+  var profileFour = {
+    "W": null,
+    "Movement": null,
+    "WS": null,
+    "Strength": null,
+    "BS": null,
+    "Attacks": null,
+    "PsychicOverLoad": null,
+    "S": null
+  }
+
+  if (!additionalArray) {
+    return null
+  } else
+    for (var i = 0; i < additionalArray.length; i++) {
+
+
+      if (additionalArray[i].profiletype == "(1)") {
+
+
+        for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+          if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+            profileOne.W = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Movement") {
+            profileOne.Movement = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "WS") {
+            profileOne.WS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Strength") {
+            profileOne.Strength = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "BS") {
+            profileOne.BS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+            profileOne.Attacks = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+            profileOne.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "S") {
+            profileOne.S = additionalArray[i].characteristic[j].$.value
+          }
+
+        }
+
+      }
+
+      if (additionalArray[i].profiletype == "(2)") {
+
+
+        for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+          if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+            profileTwo.W = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Movement") {
+            profileTwo.Movement = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "WS") {
+            profileTwo.WS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Strength") {
+            profileTwo.Strength = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "BS") {
+            profileTwo.BS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+            profileTwo.Attacks = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+            profileTwo.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "S") {
+            profileTwo.S = additionalArray[i].characteristic[j].$.value
+          }
+
+        }
+
+      }
+
+      if (additionalArray[i].profiletype == "(3)") {
+
+
+        for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+          if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+            profileThree.W = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Movement") {
+            profileThree.Movement = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "WS") {
+            profileThree.WS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Strength") {
+            profileThree.Strength = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "BS") {
+            profileThree.BS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+            profileThree.Attacks = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+            profileThree.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "S") {
+            profileThree.S = additionalArray[i].characteristic[j].$.value
+          }
+
+        }
+
+      }
+
+      if (additionalArray[i].profiletype == "(3)") {
+
+
+        for (j = 0; j < additionalArray[i].characteristic.length; j++) {
+          if (additionalArray[i].characteristic[j].$.name == "Remaining W") {
+            profileFour.W = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Movement") {
+            profileFour.Movement = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "WS") {
+            profileFour.WS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Strength") {
+            profileFour.Strength = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "BS") {
+            profileFour.BS = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Attacks") {
+            profileFour.Attacks = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "Psychic Overload") {
+            profileFour.PsychicOverLoad = additionalArray[i].characteristic[j].$.value
+          }
+          if (additionalArray[i].characteristic[j].$.name == "S") {
+            profileFour.S = additionalArray[i].characteristic[j].$.value
+          }
+
+        }
+
+      }
+
+    }
+
+  return [{ "profileOne": profileOne },
+  { "profileTwo": profileTwo },
+  { "profileThree": profileThree },
+  { "profileFour": profileFour }
+  ]
+
+}
+
+
+
+
+
+>>>>>>> Stashed changes
 //     setScale = (newScale) => {
 //         posData = {...this.state.posData}
 //         // console.log("posData: " + posData);
