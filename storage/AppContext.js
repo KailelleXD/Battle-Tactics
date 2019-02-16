@@ -1,6 +1,7 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-import models from "../utils/data/models.json";
+import modelP1 from "../utils/data/modelP1.json";
+import modelP2 from "../utils/data/modelP2.json";
 import factions from "../utils/data/factions.json";
 
 export const AppContext = React.createContext();
@@ -50,7 +51,7 @@ export class AppProvider extends React.Component {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: models,
+        units: modelP1,
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -58,7 +59,7 @@ export class AppProvider extends React.Component {
       playerTwo: {
         name: "jill",
         faction: "",
-        units: [],
+        units: modelP2,
         points: 0,
         randomStart: false
       },
@@ -136,11 +137,18 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-  updateUnits = (newUnits) => {
+  updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
-    console.log(playerOne.units)
+    // console.log(playerOne.units)
     this.setState({ playerOne });
+  }
+  
+  updateP2Units = (newUnits) => {
+    const playerTwo = { ...this.state.playerTwo };
+    playerTwo.units = newUnits;
+    // console.log(playerOne.units)
+    this.setState({ playerTwo });
   }
 
   getFactionFromStorage = (faction) => {
@@ -403,7 +411,8 @@ export class AppProvider extends React.Component {
         addTerrainObject: this.addTerrainObject,
         setFaction: this.setFaction,
         setUnit: this.setUnit,
-        updateUnits: this.updateUnits,
+        updateP1Units: this.updateP1Units,
+        updateP2Units: this.updateP2Units,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData,

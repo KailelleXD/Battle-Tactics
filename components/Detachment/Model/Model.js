@@ -254,12 +254,28 @@ export default class Model extends Component {
         }
     }
 
+    whichPlayerStyle () {
+        if (this.props.modelP1 === undefined) {
+            return this.props.modelP2
+        } else {
+            return this.props.modelP1
+        }
+    }
+
+    whichPlayerBorder () {
+        if (this.props.modelP1 === undefined) {
+            return styles.borderP2
+        } else {
+            return styles.borderP1
+        }
+    }
+
     // RENDER FUNCTIONS ////
     
     placeGhostModel () {
         if (this.state.onTouch === true) {
             return (
-                <GhostModel val={this.val} modelStyle={styles[this.props.model, styles.model]} />
+                <GhostModel val={this.val} modelStyle={styles[styles.model]} />
             )
         } else if (this.state.onTouch === false) {
 
@@ -269,7 +285,7 @@ export default class Model extends Component {
     renderModels() {
         return (
             <Animated.View
-                style={[this.position.getLayout(), this.onTouchModelStyle(), this.maxMovementStyle(), this.props.model]}
+                style={[this.position.getLayout(), this.whichPlayerBorder(), this.onTouchModelStyle(), this.maxMovementStyle(), this.whichPlayerStyle()]}
                 {...this.panResponder.panHandlers}
             >
             </Animated.View>
@@ -305,12 +321,17 @@ const styles = {
     model: {
         width: MODEL_RADIUS,
         height: MODEL_RADIUS,
-        borderColor: '#000',
-        borderWidth: 1,
+        borderWidth: .025,
         borderRadius: MODEL_RADIUS,
         marginTop: ON_TOUCH_MODEL_OFFSET,
         marginLeft: ON_TOUCH_MODEL_OFFSET,
         padding: 0
+    },
+    borderP1: {
+        borderColor: '#000',
+    },
+    borderP2: {
+        borderColor: '#fff',
     },
     onTouch: {
         width: this.ON_TOUCH_MODEL_HIGHLIGHT,
@@ -320,7 +341,6 @@ const styles = {
         opacity: 0.6,
     },
     offTouch: {
-        borderColor: '#fff',
         borderWidth: .5,
         borderRadius: MODEL_RADIUS,
         opacity: 1.0
