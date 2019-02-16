@@ -29,16 +29,17 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
+            resetPosition: false,
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
-        this.movement = unit.m;
-
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
-
+        
+        this.unit = unit;
+        this.movement = unit.m;
         this.position = position;
     }
 
@@ -53,7 +54,7 @@ export default class Model extends Component {
     }
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
-        console.log("I'm being touched!!!");
+        console.log("You are now touching the model component.");
         this.setState({
             onTouch: true,
             ghostModel: true
@@ -70,18 +71,47 @@ export default class Model extends Component {
     }
 
     _handlePanResponderMove = (event, gesture) => {
+        // Single Touch moves the Model.js component.
         if (gesture.numberActiveTouches === 1) {
             this.position.setValue({
                 x: gesture.dx / this.props.state.scale, 
                 y: gesture.dy / this.props.state.scale 
             })
-        }
-        this.props.calcDistance(gesture);
+
+            // Only calc distance if 1 finger is touching the screen.
+            this.props.calcDistance(gesture);
+        } // END_IF
+
+        // Two Finger touch places component in 'reset' state.
+        if (gesture.numberActiveTouches === 2 && this.state.resetPosition === false) {
+            console.log("Reset State has been activated!");
+
+            // Set 'resetPosition' to true. to prevent this code from firing more than once.
+            this.setState({
+                resetPosition: true,
+            }, () => console.log("resetPosition: " + this.state.resetPosition))
+
+            // Change the OFFSET of the 'position' object to visually show that this component will be reset back to it's prior position.
+            this.position.setOffset({
+                x: this.unit.x - gesture.dx / this.props.state.scale,
+                y: this.unit.y - gesture.dy / this.props.state.scale
+            })
+
+            // Find out what the value of X and Y are in the above position offset.
+
+            // Store those values in local state.
+
+            // Use setState CB function to call a helper function that will take those values and set them into the correct model.json data.
+
+            // This should resolve my issues..
+
+
+        } // END_IF    
     }
 
     _handlePanResponderEnd =  (event, gesture) => {
         this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-        console.log("I'm no longer being touched!")
+        console.log("You are no longer touching the model component.")
         this.setState({
             onTouch: false,
             ghostModel: false
