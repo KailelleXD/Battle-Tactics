@@ -6,8 +6,9 @@ import {
     Text,
     Animated,
     PanResponder,
-    Dimensions
+    Dimensions,
 } from 'react-native';
+import { Platform } from 'expo-core';
 
 // this.props.calcDistance();
 // this.props.getStartXY(x, y);

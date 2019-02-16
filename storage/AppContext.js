@@ -72,16 +72,21 @@ export class AppProvider extends React.Component {
       posData: {
         scaleData: 1,
         lastScale: 1,
+      },
+      modalData: {
+        isModalVisible: true,
+        unitID: 0,
+        modalText: "This is a modal"
       }
     }
 
 
 
     let allPlayers = {}
-    AsyncStorage.getItem("Game9").then((value) => {
+    AsyncStorage.getItem("Game13").then((value) => {
       if (!value) {
         allPlayers = initialState
-        AsyncStorage.setItem('Game9', JSON.stringify(initialState))
+        AsyncStorage.setItem('Game13', JSON.stringify(initialState))
       } else {
         allPlayers = JSON.parse(value)
       }
@@ -93,7 +98,7 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne }
     playerOne.name = newName
     this.setState({ playerOne }, () => {
-      AsyncStorage.setItem('Game9', JSON.stringify(this.state))
+      AsyncStorage.setItem('Game13', JSON.stringify(this.state))
     })
   }
 
@@ -140,6 +145,14 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
     this.setState({ playerOne });
+  }
+
+  updateModalVisibility = (newVisibility) => {
+    console.log("Attempting to update modal visibility");
+    const modalData = {...this.state.modalData};
+    modalData.isModalVisible = newVisibility;
+    this.setState({ modalData });
+    console.log(this.state.modalData);
   }
 
   getFactionFromStorage = (faction) => {
@@ -403,6 +416,7 @@ export class AppProvider extends React.Component {
         setFaction: this.setFaction,
         setUnit: this.setUnit,
         updateUnits: this.updateUnits,
+        updateModalVisibility: this.updateModalVisibility,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData,

@@ -5,6 +5,7 @@ import { AppConsumer } from "../../storage/AppContext";
 import { PhysConsumer } from '../../storage/physContext';
 
 import models from "../../utils/data/models.json";
+import BattlescribeModal from "./BattlescribeModal";
 
 
 export default class Detachment extends React.Component {
@@ -39,6 +40,7 @@ export default class Detachment extends React.Component {
                               />
                             
                             ))}
+                            <BattlescribeModal data={context.state.modalData} updateVis={context.updateModalVisibility}/>
                         </View>
                     )}
                 </AppConsumer>
