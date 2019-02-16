@@ -22,14 +22,14 @@ export default class Detachment extends React.Component {
                     {(context) => (
                         <View>
                             <View style={styles.container}>
-                                {context.state.playerOne.units.map(model => (
+                                {context.state.playerTwo.units.map(modelP2 => (
                                 <Model 
-                                    id={model.id} 
-                                    key={model.id} 
-                                    model={styles[model.style]}
-                                    movement={model.m}
-                                    playerState={context.state.playerOne}
-                                    updateUnits={context.updateUnits}
+                                    id={modelP2.id} 
+                                    key={modelP2.id} 
+                                    modelP1={styles[modelP2.style]}
+                                    movement={modelP2.m}
+                                    playerState={context.state.playerTwo}
+                                    updateUnits={context.updateP2Units}
                                     state={PhysContext.state} 
                                     calcDistance={PhysContext.calcDistance}
                                     getStartXY={PhysContext.getStartXY}
@@ -40,14 +40,14 @@ export default class Detachment extends React.Component {
                             ))}
                             </View>
                             <View style={styles.container}>
-                                {context.state.playerTwo.units.map(model => (
+                                {context.state.playerOne.units.map(modelP1 => (
                                 <Model 
-                                    id={model.id} 
-                                    key={model.id} 
-                                    model={styles[model.style]}
-                                    movement={model.m}
-                                    playerState={context.state.playerTwo}
-                                    updateUnits={context.updateUnits}
+                                    id={modelP1.id} 
+                                    key={modelP1.id} 
+                                    modelP2={styles[modelP1.style]}
+                                    movement={modelP1.m}
+                                    playerState={context.state.playerOne}
+                                    updateUnits={context.updateP1Units}
                                     state={PhysContext.state} 
                                     calcDistance={PhysContext.calcDistance}
                                     getStartXY={PhysContext.getStartXY}
@@ -74,39 +74,39 @@ const styles = StyleSheet.create({
         // justifyContent: "center"
     },
     modelPurple: {
-        backgroundColor: "#900090"
+        backgroundColor: "#600060"
     },
     modelKiwi: {
-        backgroundColor: "#909000",
+        backgroundColor: "#606000",
     },
     modelAqua: {
-        backgroundColor: "#009090"
+        backgroundColor: "#006060"
     },
     modelRed: {
-        backgroundColor: "#900000"
+        backgroundColor: "#600000"
     },
     modelGreen: {
-        backgroundColor: "#009000"
+        backgroundColor: "#006000"
     },
     modelBlue: {
-        backgroundColor: "#000090"
+        backgroundColor: "#000060"
     },
     modelLtPurple: {
-        backgroundColor: "#ca00ca"
+        backgroundColor: "#ca80ca"
     },
     modelLtKiwi: {
-        backgroundColor: "#caca00",
+        backgroundColor: "#caca80",
     },
     modelLtAqua: {
-        backgroundColor: "#00caca"
+        backgroundColor: "#80caca"
     },
     modelLtRed: {
-        backgroundColor: "#ca0000"
+        backgroundColor: "#ca8080"
     },
     modelLtGreen: {
-        backgroundColor: "#00ca00"
+        backgroundColor: "#80ca80"
     },
     modelLtBlue: {
-        backgroundColor: "#0000ca"
+        backgroundColor: "#8080ca"
     }
 });

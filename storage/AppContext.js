@@ -144,11 +144,18 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-  updateUnits = (newUnits) => {
+  updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
     // console.log(playerOne.units)
     this.setState({ playerOne });
+  }
+  
+  updateP2Units = (newUnits) => {
+    const playerTwo = { ...this.state.playerTwo };
+    playerTwo.units = newUnits;
+    // console.log(playerOne.units)
+    this.setState({ playerTwo });
   }
 
   getAllData = async () => {
@@ -437,7 +444,8 @@ export class AppProvider extends React.Component {
         addTerrainObject: this.addTerrainObject,
         setFaction: this.setFaction,
         setUnit: this.setUnit,
-        updateUnits: this.updateUnits,
+        updateP1Units: this.updateP1Units,
+        updateP2Units: this.updateP2Units,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData
