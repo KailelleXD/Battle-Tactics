@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import GhostModel from '../Model/GhostModel';
+import GhostModel from './GhostModel';
 import { 
     View,
     Text,
@@ -35,6 +35,12 @@ export default class Model extends Component {
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
+        console.log("=================================================")
+        console.log(unit);
+
+
+        
+        console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.val = { x: unit.x, y: unit.y }
@@ -179,10 +185,42 @@ export default class Model extends Component {
         console.log("The resetModelLocation function has ended.")    
     }
 
-    updateModelLocation (gesture) {
+<<<<<<< HEAD
+=======
+    resetModelLocation () {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
             if (unit.id === this.props.id) {
+                const newUnit = {...unit};
+                newUnit.x = this.position.x;
+                newUnit.y = this.position.y;
+                console.log("newUnit.x")
+                console.log(newUnit.x)
+                return newUnit;
+            } else {
+                return unit;
+            }
+
+
+        })
+        this.setState({
+          resetPosition: false
+        })
+        this.props.updateUnits(updatedUnits);
+    }   
+
+    
+>>>>>>> master
+    updateModelLocation (gesture) {
+        const oldUnits = [...this.props.playerState.units];
+        const updatedUnits = oldUnits.map(unit => {
+            if (unit.id === this.props.id &&
+                this.state.resetPosition === true) {
+                const newUnit = {...unit};
+                newUnit.x = unit.x - gesture.dx / this.props.state.scale;
+                newUnit.y = unit.y - gesture.dy / this.props.state.scale;
+                return newUnit;
+            } else if (unit.id === this.props.id) {
                 const newUnit = {...unit};
                 newUnit.x = unit.x + gesture.dx / this.props.state.scale;
                 newUnit.y = unit.y + gesture.dy / this.props.state.scale;
@@ -191,7 +229,6 @@ export default class Model extends Component {
                 return unit;
             }
         });
-        
         this.props.updateUnits(updatedUnits);
     }
 
