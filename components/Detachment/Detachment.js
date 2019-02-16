@@ -20,24 +20,43 @@ export default class Detachment extends React.Component {
                 {(PhysContext) => (
                 <AppConsumer>
                     {(context) => (
-                        <View style={styles.container}>
-                        {/* {console.log(context.state.playerOne.units)} */}
-                            {context.state.playerOne.units.map(model => (
-                            <Model 
-                                id={model.id} 
-                                key={model.id} 
-                                model={styles[model.style]}
-                                movement={model.m}
-                                playerState={context.state.playerOne}
-                                updateUnits={context.updateUnits}
-                                state={PhysContext.state} 
-                                calcDistance={PhysContext.calcDistance}
-                                getStartXY={PhysContext.getStartXY}
-                                getEndXY={PhysContext.getEndXY}
-                                clearEndXY={PhysContext.clearEndXY}
-                                getTempXY={PhysContext.getTempXY}
-                                />
-                        ))}
+                        <View>
+                            <View style={styles.container}>
+                                {context.state.playerOne.units.map(model => (
+                                <Model 
+                                    id={model.id} 
+                                    key={model.id} 
+                                    model={styles[model.style]}
+                                    movement={model.m}
+                                    playerState={context.state.playerOne}
+                                    updateUnits={context.updateUnits}
+                                    state={PhysContext.state} 
+                                    calcDistance={PhysContext.calcDistance}
+                                    getStartXY={PhysContext.getStartXY}
+                                    getEndXY={PhysContext.getEndXY}
+                                    clearEndXY={PhysContext.clearEndXY}
+                                    getTempXY={PhysContext.getTempXY}
+                                    />
+                            ))}
+                            </View>
+                            <View style={styles.container}>
+                                {context.state.playerTwo.units.map(model => (
+                                <Model 
+                                    id={model.id} 
+                                    key={model.id} 
+                                    model={styles[model.style]}
+                                    movement={model.m}
+                                    playerState={context.state.playerTwo}
+                                    updateUnits={context.updateUnits}
+                                    state={PhysContext.state} 
+                                    calcDistance={PhysContext.calcDistance}
+                                    getStartXY={PhysContext.getStartXY}
+                                    getEndXY={PhysContext.getEndXY}
+                                    clearEndXY={PhysContext.clearEndXY}
+                                    getTempXY={PhysContext.getTempXY}
+                                    />
+                            ))}
+                            </View>
                         </View>
                     )}
                 </AppConsumer>
@@ -50,26 +69,44 @@ export default class Detachment extends React.Component {
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
-        // backgroundColor: "#fff",
+        // backgroundColor: "#caf",
         // alignItems: "center",
         // justifyContent: "center"
     },
     modelPurple: {
-        backgroundColor: "#FF00FF"
+        backgroundColor: "#900090"
     },
     modelKiwi: {
-        backgroundColor: "#FFFF00",
+        backgroundColor: "#909000",
     },
     modelAqua: {
-        backgroundColor: "#00FFFF"
+        backgroundColor: "#009090"
     },
     modelRed: {
-        backgroundColor: "#FF0000"
+        backgroundColor: "#900000"
     },
     modelGreen: {
-        backgroundColor: "#00FF00"
+        backgroundColor: "#009000"
     },
     modelBlue: {
-        backgroundColor: "#0000FF"
+        backgroundColor: "#000090"
+    },
+    modelLtPurple: {
+        backgroundColor: "#ca00ca"
+    },
+    modelLtKiwi: {
+        backgroundColor: "#caca00",
+    },
+    modelLtAqua: {
+        backgroundColor: "#00caca"
+    },
+    modelLtRed: {
+        backgroundColor: "#ca0000"
+    },
+    modelLtGreen: {
+        backgroundColor: "#00ca00"
+    },
+    modelLtBlue: {
+        backgroundColor: "#0000ca"
     }
 });

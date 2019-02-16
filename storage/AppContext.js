@@ -1,6 +1,7 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-import models from "../utils/data/models.json";
+import modelP1 from "../utils/data/modelP1.json";
+import modelP2 from "../utils/data/modelP2.json";
 import factions from "../utils/data/factions.json";
 
 export const AppContext = React.createContext();
@@ -39,7 +40,7 @@ export class AppProvider extends React.Component {
         deploymentArea: "",
         // terrain: [],
         faction: "",
-        units: models,
+        units: modelP1,
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -49,7 +50,7 @@ export class AppProvider extends React.Component {
         // mapName: "",
         // terrain: [],
         faction: "",
-        units: [],
+        units: modelP2,
         points: 0,
         test: "**** TESTER ****",
         randomStart: false
@@ -146,7 +147,7 @@ export class AppProvider extends React.Component {
   updateUnits = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
-    console.log(playerOne.units)
+    // console.log(playerOne.units)
     this.setState({ playerOne });
   }
 
