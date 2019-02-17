@@ -1,6 +1,7 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-import models from "../utils/data/models.json";
+import modelP1 from "../utils/data/modelP1.json";
+import modelP2 from "../utils/data/modelP2.json";
 import factions from "../utils/data/factions.json";
 
 export const AppContext = React.createContext();
@@ -50,7 +51,7 @@ export class AppProvider extends React.Component {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: models,
+        units: modelP1,
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -58,7 +59,7 @@ export class AppProvider extends React.Component {
       playerTwo: {
         name: "jill",
         faction: "",
-        units: [],
+        units: modelP2,
         points: 0,
         randomStart: false
       },
@@ -141,10 +142,18 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-  updateUnits = (newUnits) => {
+  updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
+    // console.log(playerOne.units)
     this.setState({ playerOne });
+  }
+  
+  updateP2Units = (newUnits) => {
+    const playerTwo = { ...this.state.playerTwo };
+    playerTwo.units = newUnits;
+    // console.log(playerOne.units)
+    this.setState({ playerTwo });
   }
 
   updateModalVisibility = (newVisibility) => {
@@ -208,10 +217,12 @@ export class AppProvider extends React.Component {
             codexObj = result.catalogue;
             catalogue = codexObj[Object.keys(codexObj)[0]];
             categories = codexObj.categoryEntries[0].categoryEntry;
-            console.log("END PARSSTRING: " + factionName)
+            console.log("END PARSSTRING: " + factionName);
 
-            let array = []
+            let array = [];
+            let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
+
 
             for (var i = 0; i < fullList.length; i++) {
               if (fullList[i].$.type != 'upgrade') {
@@ -352,6 +363,43 @@ export class AppProvider extends React.Component {
                 // }
                 var bf_role = returnUnit(unitRole)
 
+                let abilityTargetIdArray = []
+
+                //  grab list of abilities
+                if (fullList[i].infoLinks[0].infoLink) {
+                  let abilitiesList = fullList[i].infoLinks[0].infoLink
+                  for (var j = 0; j < abilitiesList.length; j++) {
+                    if (abilitiesList[j].$.type == "profile") {
+                      abilityTargetIdArray.push(abilitiesList[j].$.targetId)
+                    }
+                  }
+                }
+      
+                var abilityObjectArray = []
+      
+                for (var j = 0; j < abilityTargetIdArray.length; j++) {
+                  var abilityid = abilityTargetIdArray[j]
+      
+                  for (k = 0; k < abilitiesArray.length; k++) { 
+                    if (abilityid == abilitiesArray[k].$.id && abilitiesArray[k].$.profileTypeName == "Abilities") {
+                      
+                      var abilityName = abilitiesArray[k].$.name;
+                      var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
+                      console.log(abilityDescription)
+      
+                      var abilityObject = {
+                        "name" : abilityName,
+                        "description" : abilityDescription
+                      }
+      
+                      abilityObjectArray.push(abilityObject)
+      
+      
+                    }
+                  }
+                  
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
@@ -383,7 +431,8 @@ export class AppProvider extends React.Component {
                     "landing pad configuration": landingPad,
                     "weapon": weapon,
                   },
-                  "profile_additional": parseAdditionalArray(additionalArray)
+                  "profile_additional": parseAdditionalArray(additionalArray),
+                  "abilities": abilityObjectArray
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
@@ -415,8 +464,9 @@ export class AppProvider extends React.Component {
         addTerrainObject: this.addTerrainObject,
         setFaction: this.setFaction,
         setUnit: this.setUnit,
-        updateUnits: this.updateUnits,
         updateModalVisibility: this.updateModalVisibility,
+        updateP1Units: this.updateP1Units,
+        updateP2Units: this.updateP2Units,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData,
