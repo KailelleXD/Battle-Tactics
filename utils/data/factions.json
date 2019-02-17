@@ -1,158 +1,197 @@
 [
   {
     "id": 1,
-    "name": "Aeldari - Drukhari"
+    "name": "Aeldari - Drukhari",
+    "factionName": "1-Aeldari-Drukhari"
   },
   {
     "id": 2,
-    "name": "Aeldari - FW Corsairs"
+    "name": "Aeldari - FW Corsairs",
+    "factionName": "2-Aeldari-FW-Corsairs"
   },
   {
     "id": 3,
-    "name": "Aeldari - Harlequins"
+    "name": "Aeldari - Harlequins",
+    "factionName": "3-Aeldari-Harlequins"
   },
   {
     "id": 4,
-    "name": "Aeldari - Ynnari"
+    "name": "Aeldari - Ynnari",
+    "factionName": "4-Aeldari-Ynnari"
   },
   {
     "id": 5,
-    "name": "Chaos - Chaos Space Marines"
+    "name": "Chaos - Chaos Space Marines",
+    "factionName": "5-ChaosSpaceMarines"
   },
   {
     "id": 6,
-    "name": "Chaos - Daemons"
+    "name": "Chaos - Daemons",
+    "factionName": "6-Chaos-Daemons"
   },
   {
     "id": 7,
-    "name": "Chaos - Dark Mechanicum"
+    "name": "Chaos - Dark Mechanicum",
+    "factionName": "7-Chaos-DarkMechanicum"
   },
   {
     "id": 8,
-    "name": "Chaos - Death Guard"
+    "name": "Chaos - Death Guard",
+    "factionName": "8-Chaos-DeathGuard"
   },
   {
     "id": 9,
-    "name": "Chaos - FW Heretic Astartes"
+    "name": "Chaos - FW Heretic Astartes",
+    "factionName": "9-FW-HereticAstartes"
   },
   {
     "id": 10,
-    "name": "Chaos - FW Renegade and Heretics"
+    "name": "Chaos - FW Renegade and Heretics",
+    "factionName": "10-Chaos-FW-RenegateHeretics"
   },
   {
     "id": 11,
-    "name": "Chaos - Questor Traitoris"
+    "name": "Chaos - Questor Traitoris",
+    "factionName": "11-Chaos-QuestorTraitoris"
   },
   {
     "id": 12,
-    "name": "Chaos - Thousand Sons"
+    "name": "Chaos - Thousand Sons",
+    "factionName": "12-Chaos-ThousandSons"
   },
   {
     "id": 13,
-    "name": "Chaos - Titanicus Traitoris"
+    "name": "Chaos - Titanicus Traitoris",
+    "factionName": "13-TitanicusTraitoris"
   },
   {
     "id": 14,
-    "name": "Imperium - Adeptus Astra Telepathica"
+    "name": "Imperium - Adeptus Astra Telepathica",
+    "factionName": "14-Imperium-AdeptusAstraTelepathica"
   },
   {
     "id": 15,
-    "name": "Imperium - Adeptus Custodes"
+    "name": "Imperium - Adeptus Custodes",
+    "factionName": "15-Imperium-AdeptusCustodes"
   },
   {
     "id": 16,
-    "name": "Imperium - Adeptus Mechanicus"
+    "name": "Imperium - Adeptus Mechanicus",
+    "factionName": "16-Imperium-AdeptusMechanicus"
   },
   {
     "id": 17,
-    "name": "Imperium - Adeptus Ministorum"
+    "name": "Imperium - Adeptus Ministorum",
+    "factionName": "17-Imperium-AdeptusMinistorum"
   },
   {
     "id": 18,
-    "name": "Imperium - Adeptus Titanicus"
+    "name": "Imperium - Adeptus Titanicus",
+    "factionName": "18-Imperium-AdeptusTitanicus"
   },
   {
     "id": 19,
-    "name": "Imperium - Astra Militarum"
+    "name": "Imperium - Astra Militarum",
+    "factionName": "19-Imperium-AstraMilitarum"
   },
   {
     "id": 20,
-    "name": "Imperium - Blood Angels"
+    "name": "Imperium - Blood Angels",
+    "factionName": "20-Imperium-BloodAngels"
   },
   {
     "id": 21,
-    "name": "Imperium - Dark Angels"
+    "name": "Imperium - Dark Angels",
+    "factionName": "21-Imperium-DarkAngels"
   },
   {
     "id": 22,
-    "name": "Imperium - Deathwatch"
+    "name": "Imperium - Deathwatch",
+    "factionName": "22-Imperium-Deathwatch"
   },
   {
     "id": 23,
-    "name": "Imperium - FW Adeptus Astartes"
+    "name": "Imperium - FW Adeptus Astartes",
+    "factionName": "23-Imperium-FWAdeptusAstartes"
   },
   {
     "id": 24,
-    "name": "Imperium - FW Death Korps of Krieg"
+    "name": "Imperium - FW Death Korps of Krieg",
+    "factionName": "24-Imperium-FWDeathKorpsofKrieg"
   },
   {
     "id": 25,
-    "name": "Imperium - FW Elysians"
+    "name": "Imperium - FW Elysians",
+    "factionName": "25-Imperium-FW-Elysians"
   },
   {
     "id": 26,
-    "name": "Imperium - Grey Knights"
+    "name": "Imperium - Grey Knights",
+    "factionName": "26-Imperium-GreyKnights"
   },
   {
     "id": 27,
-    "name": "Imperium - Inquisition"
+    "name": "Imperium - Inquisition",
+    "factionName": "27-Imperium-Inquisition"
   },
   {
     "id": 28,
-    "name": "Imperium - Legion of the Damned"
+    "name": "Imperium - Legion of the Damned",
+    "factionName": "28-Imperium-LegionoftheDamned"
   },
   {
     "id": 29,
-    "name": "Imperium - Officio Assassinorum"
+    "name": "Imperium - Officio Assassinorum",
+    "factionName": "29-Imperium-OfficioAssassinorum"
   },
   {
     "id": 30,
-    "name": "Imperium - Questor Imperialis"
+    "name": "Imperium - Questor Imperialis",
+    "factionName": "30-Imperium-QuestorImperialis"
   },
   {
     "id": 31,
-    "name": "Imperium - Sisters of Silence"
+    "name": "Imperium - Sisters of Silence",
+    "factionName": "31-Imperium-SistersofSilence"
   },
   {
     "id": 32,
-    "name": "Imperium - Space Marines"
+    "name": "Imperium - Space Marines",
+    "factionName": "32-Imperium-SpaceMarines"
   },
   {
     "id": 33,
-    "name": "Imperium - Space Wolves"
+    "name": "Imperium - Space Wolves",
+    "factionName": "33-Imperium-SpaceWolves"
   },
   {
     "id": 34,
-    "name": "Necrons"
+    "name": "Necrons",
+    "factionName": "34-Necrons"
   },
   {
     "id": 35,
-    "name": "Orks"
+    "name": "Orks",
+    "factionName": "35-Orks"
   },
   {
     "id": 36,
-    "name": "T'au Empire"
+    "name": "T'au Empire",
+    "factionName": "26-TauEmpire"
   },
   {
     "id": 37,
-    "name": "Tyranids - Genestealer Cults"
+    "name": "Tyranids - Genestealer Cults",
+    "factionName": "37-Tyranids-GenestealerCults"
   },
   {
     "id": 38,
-    "name": "Tyranids"
+    "name": "Tyranids",
+    "factionName": "38-Tyranids"
   },
   {
     "id": 39,
-    "name": "Warhammer 40,000 8th Edition"
+    "name": "Warhammer 40,000 8th Edition",
+    "factionName": "Ignore"
   }
 ]

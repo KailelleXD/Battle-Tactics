@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Container, Text, Button } from 'native-base'
+import { Container, Text, Button, Content } from 'native-base'
 // components
 import RandomStart from '../components/RandomStart'
 import { AppConsumer } from '../storage/AppContext'
@@ -19,52 +19,78 @@ export default class SettingsScreen extends Component {
     },
   };
 
-  render () {
+  render() {
     return (
       <AppConsumer>
 
-      {(context) => (
-      <Container>
-      
+        {(context) => (
+          <Container>
 
-        <Text>This is the Screen screen</Text>
-        
-        <Button
-        info
-        rounded
-        large
-        style={styles.button}
-        onPress={() => { this.props.navigation.navigate("PlayerOne") }}
-        >
-        <Text>Player One</Text>
-        </Button>
+            <Content>
 
-        <Button
-        info
-        rounded
-        large
-        style={styles.button} 
-        onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
-        >
-        <Text>Player Two</Text>
-        </Button>
+              <Text>This is the Screen screen</Text>
+
+              <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { this.props.navigation.navigate("PlayerOne") }}
+              >
+                <Text>Player One</Text>
+              </Button>
+
+              <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
+              >
+                <Text>Player Two</Text>
+              </Button>
 
 
-        <Button
-        info
-        rounded
-        large
-        style={styles.button}
-        onPress={() => {context.getAllData()}}
-        >
-          <Text>Import Armies</Text>
-        </Button>
-       
-        {/* <RandomStart random={this.props.randomStart} />  */}
+              <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { context.getAllData() }}
+              >
+                <Text>Import Armies</Text>
+              </Button>
 
-      </Container>
-      )}
-      
+              <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { context.consoleLogFactionTEST() }}
+              >
+                <Text>consoleLogFactionTEST</Text>
+              </Button>
+
+              <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { context.clearAsyncStorage() }}
+              >
+                <Text>clearAsyncStorage</Text>
+              </Button>
+
+                            <Button
+                info
+                rounded
+                style={styles.button}
+                onPress={() => { context.getFactionFromStorage() }}
+              >
+                <Text>getFactionFromStorage</Text>
+              </Button>
+
+              {/* <RandomStart random={this.props.randomStart} />  */}
+
+            </Content>
+          </Container>
+        )}
+
       </AppConsumer>
     );
 
