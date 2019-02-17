@@ -75,19 +75,18 @@ export class AppProvider extends React.Component {
         lastScale: 1,
       },
       modalData: {
-        isModalVisible: true,
-        unitID: 0,
-        modalText: "This is a modal"
+        isModalVisible: false,
+        unit: {}
       }
     }
 
 
 
     let allPlayers = {}
-    AsyncStorage.getItem("Game13").then((value) => {
+    AsyncStorage.getItem("Test10").then((value) => {
       if (!value) {
         allPlayers = initialState
-        AsyncStorage.setItem('Game13', JSON.stringify(initialState))
+        AsyncStorage.setItem('Test10', JSON.stringify(initialState))
       } else {
         allPlayers = JSON.parse(value)
       }
@@ -99,7 +98,7 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne }
     playerOne.name = newName
     this.setState({ playerOne }, () => {
-      AsyncStorage.setItem('Game13', JSON.stringify(this.state))
+      AsyncStorage.setItem('Test10', JSON.stringify(this.state))
     })
   }
 
@@ -145,23 +144,37 @@ export class AppProvider extends React.Component {
   updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
-    // console.log(playerOne.units)
-    this.setState({ playerOne });
+    console.log("Updating P1 Units");
+    console.log(playerOne.units);
+    this.setState({ playerOne }, () => {
+      console.log(this.state.playerOne.units);
+    });
   }
   
   updateP2Units = (newUnits) => {
     const playerTwo = { ...this.state.playerTwo };
     playerTwo.units = newUnits;
-    // console.log(playerOne.units)
-    this.setState({ playerTwo });
+    console.log("Updating P2 Units");
+    console.log(playerTwo.units)
+    this.setState({ playerTwo }, () => {
+      console.log(this.state.playerTwo.units);
+    });
   }
 
   updateModalVisibility = (newVisibility) => {
-    console.log("Attempting to update modal visibility");
+    // console.log("Attempting to update modal visibility");
     const modalData = {...this.state.modalData};
     modalData.isModalVisible = newVisibility;
+    this.setState({ modalData }, () => {
+      console.log(modalData);
+    });
+  }
+
+  deployUnitModal = (unit) => {
+    const modalData = {...this.state.modalData};
+    modalData.isModalVisible = true;
+    modalData.unit = unit;
     this.setState({ modalData });
-    console.log(this.state.modalData);
   }
 
   getFactionFromStorage = (faction) => {
@@ -464,9 +477,10 @@ export class AppProvider extends React.Component {
         addTerrainObject: this.addTerrainObject,
         setFaction: this.setFaction,
         setUnit: this.setUnit,
-        updateModalVisibility: this.updateModalVisibility,
         updateP1Units: this.updateP1Units,
         updateP2Units: this.updateP2Units,
+        updateModalVisibility: this.updateModalVisibility,
+        deployUnitModal: this.deployUnitModal,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData,

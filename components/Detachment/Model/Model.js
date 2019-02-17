@@ -32,7 +32,7 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
-            modalPopUp: false,
+            // modalPopUp: false,
             resetPosition: false,
             offsetX: 0,
             offsetY: 0,
@@ -40,7 +40,8 @@ export default class Model extends Component {
             doubleTap: false,
         }
 
-        const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
+        const unit = this.props.unit;
+        // const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
         // console.log("=================================================")
         // console.log(unit);
 
@@ -235,34 +236,37 @@ export default class Model extends Component {
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
             // console.log("DoubleTap!");
             // Set up toggle function.
-            this.toggleDblTap();
+            this.props.deployModal(this.props.unit);
         } else {
             this.lastTap = now;
             // console.log("no Doubletap.");
         }
     };
 
-    // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
-    toggleDblTap = () => {
-        this.setState(previousState => (
-            { 
-                doubleTap: !previousState.doubleTap,
-                modalPopUp: !previousState.modalPopUp
-            }
-        ), () => {
-            console.log(
-                "doubleTap: " + this.state.doubleTap + "\n" +
-                "modalPopUp: " + this.state.modalPopUp
-                )
-                if (this.state.doubleTap === true) {    
-                    // IF doubleTap state is true, display pop-up modal.
-                    console.log("Modal should be visible.");
-                } else {
-                    // IF doubleTap state is false, hide pop-up modal.
-                    console.log("Modal should NOT be visible.");
-                }
-            })
-    }
+    // // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
+    // toggleDblTap = () => {
+    //     this.setState(previousState => (
+    //         { 
+    //             doubleTap: !previousState.doubleTap,
+    //             // modalPopUp: !previousState.modalPopUp
+    //         }
+    //     ), () => {
+    //         console.log(
+    //             "doubleTap: " + this.state.doubleTap + "\n" +
+    //             "modalPopUp: " + this.state.modalPopUp
+    //             )
+    //             if (this.state.doubleTap === true) {    
+    //                 // IF doubleTap state is true, display pop-up modal.
+    //                 console.log("Modal should be visible.");
+    //             } else {
+    //                 // IF doubleTap state is false, hide pop-up modal.
+    //                 console.log("Modal should NOT be visible.");
+    //             }
+    //             console.log(this.unit);
+    //             // this.props.deployModal(this.unit);
+    //         });
+            
+    // }
 
     // STYLE FUNCTIONS ////
     
@@ -304,15 +308,15 @@ export default class Model extends Component {
 
     // RENDER FUNCTIONS ////
 
-    modalPopUp () {
-        if (this.state.modalPopUp === true) {
-            return (
-                <Test val={this.val} />
-            )
-        } else if (this.state.modalPopUp === false) {
+    // modalPopUp () {
+    //     if (this.state.modalPopUp === true) {
+    //         return (
+    //             <Test val={this.val} />
+    //         )
+    //     } else if (this.state.modalPopUp === false) {
 
-        }
-    }
+    //     }
+    // }
     
     placeGhostModel () {
         if (this.state.onTouch === true) {
@@ -341,7 +345,7 @@ export default class Model extends Component {
                     {this.renderModels()}
                 </TouchableWithoutFeedback>
                 {this.placeGhostModel()}
-                {this.modalPopUp()}
+                {/* {this.modalPopUp()} */}
             </View>
         )
     }

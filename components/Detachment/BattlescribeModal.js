@@ -3,7 +3,7 @@ import { Button, Dimensions, StyleSheet, Text, TouchableOpacity, View } from "re
 import Modal from "react-native-modal";
 
 const { width, height } = Dimensions.get("window");
-const MODAL_HEIGHT = height / 2;
+const MODAL_HEIGHT = height / 2.5;
 
 export default class BattlescribeModal extends Component {
   state = {
@@ -15,35 +15,78 @@ export default class BattlescribeModal extends Component {
   increaseWoundCounterHandler = () => {
     const currentCount = this.state.woundCounter;
     this.setState({ woundCounter: currentCount + 1 });
-  }
+  } 
 
   decreaseWoundCounterHandler = () => {
     const currentCount = this.state.woundCounter;
     this.setState({ woundCounter: currentCount - 1 });
   }
 
+  onOpenHandler = () => {
+    this.setState({ woundCounter: this.props.data.unit.wound });
+  } 
+
+  onCloseHandler = () => {
+    // Storing current unit that deployed the modal
+    const modalUnit = {...this.props.data.unit};
+    console.log("onCloseHandler initialized");
+
+    if (modalUnit.player === 1) {
+      const oldUnits = [...this.props.playerOneState.units];
+      const updatedUnits = oldUnits.map(unit => {
+          if (unit.id === modalUnit.id) {
+              const newUnit = {...unit};
+              newUnit.wound = this.state.woundCounter;
+              return newUnit;
+          } else {
+              return unit;
+          }
+      });
+
+      this.props.updateP1Units(updatedUnits);
+
+    } else if (modalUnit.player === 2) {
+      const oldUnits = [...this.props.playerTwoState.units];
+      const updatedUnits = oldUnits.map(unit => {
+          if (unit.id === modalUnit.id) {
+              const newUnit = {...unit};
+              newUnit.wound = this.state.woundCounter;
+              return newUnit;
+          } else {
+              return unit;
+          }
+      });
+
+      this.props.updateP2Units(updatedUnits);
+
+    }
+    this.props.updateVis(false);
+  }
+
   render() {
     return (
         <Modal 
           isVisible={this.props.data.isModalVisible}
-          onBackdropPress={() => this.props.updateVis(false)}
+          onBackdropPress={this.onCloseHandler}
+          onModalShow={this.onOpenHandler}
           backdropOpacity={.5}
+          hideModalContentWhileAnimating={true}
           >
           <View style={styles.modal}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalHeaderText}>Unit Information: {this.props.data.unitID ? this.props.data.unitID : "Null"}</Text>
+              <Text style={styles.modalHeaderText}>Unit Information: P{this.props.data.unit.player}-{this.props.data.unit.id}</Text>
               <View style={styles.modalSeparatorLine} />
             </View>
           <View style={styles.modalMainBody}>
             <View style={styles.modalColumn}>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>X Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.x}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Y Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.y}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Movement Value: </Text><Text style={styles.dataValue}>{this.props.data.unit.m}</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
@@ -90,7 +133,7 @@ export default class BattlescribeModal extends Component {
                 color="red"
                 onPress={this.decreaseWoundCounterHandler}
               />
-              <Text>Wound Count: {this.state.woundCounter}</Text>
+              <Text>Wounds: {this.state.woundCounter}</Text>
               <Button 
                 title="+"
                 color="green"
