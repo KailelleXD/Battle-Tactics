@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native';
-import { Text } from 'native-base';
+import { Text, Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
 import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
 import MapSelector from '../components/MapSelector'
 import NextBackWrapper from '../components/NextBackWrapper';
 // context
 import { AppConsumer } from '../storage/AppContext';
+
+// import Image from '../assets/img/map5.jpg'
 
 export default class ChooseMap extends Component {
   static navigationOptions = {
@@ -22,8 +24,18 @@ export default class ChooseMap extends Component {
     },
   };
 
+  
+
   render() {
     const { navigate } = this.props.navigation;
+    // const cards = [
+    //   {
+    //     text: 'Card One',
+    //     name: 'One',
+        // image: require('../assets/img/map5.jpg'),
+        
+    //   }
+    // ]
 
     return (
       <AppConsumer>
@@ -47,12 +59,40 @@ export default class ChooseMap extends Component {
               <NextBackWrapper path="Terrain" />
             </Row>
 
+            {/* <View>
+              <DeckSwiper
+                dataSource={cards}
+                renderItem={item =>
+                  <Card style={{ elevation: 3 }}>
+                    <CardItem>
+                      <Left>
+                        <Thumbnail source={item.image} />
+                        <Body>
+                          <Text>{item.text}</Text>
+                          <Text note>NativeBase</Text>
+                        </Body>
+                      </Left>
+                    </CardItem>
+                    <CardItem cardBody>
+                      <Image style={{ height: 300, flex: 1 }} source={item.image} />
+                    </CardItem>
+                    <CardItem>
+                      <Icon name="heart" style={{ color: '#ED4A6A' }} />
+                      <Text>{item.name}</Text>
+                    </CardItem>
+                  </Card>
+                }
+              />
+            </View> */}
+
           </Grid>
         )}
+  
       </AppConsumer>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   grid: {
@@ -61,4 +101,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around"
   },
+
+  cards: {
+    display: "flex",
+  }
 })
+
