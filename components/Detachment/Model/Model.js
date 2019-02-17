@@ -10,18 +10,12 @@ import {
 } from 'react-native';
 import { Platform } from 'expo-core';
 
-// this.props.calcDistance();
-// this.props.getStartXY(x, y);
-// this.props.getEndXY(x, y);
-// this.props.calcDistance();
-
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
 const MODEL_RADIUS = SCREEN_WIDTH / 48;
 const ON_TOUCH_MULTIPLIER = 6;
 const ON_TOUCH_MODEL_OFFSET = (MODEL_RADIUS*ON_TOUCH_MULTIPLIER - MODEL_RADIUS)/2;
 const ON_TOUCH_MODEL_HIGHLIGHT = MODEL_RADIUS*ON_TOUCH_MULTIPLIER;
-
 this.ON_TOUCH_MODEL_HIGHLIGHT = ON_TOUCH_MODEL_HIGHLIGHT;
 export default class Model extends Component {
     constructor(props) {
@@ -61,11 +55,9 @@ export default class Model extends Component {
         });
     }
 
-
-
     _handleStartShouldSetPanResponder = (event, gesture) => {
         
-        console.log("You are now touching the model component.");
+        // console.log("You are now touching the model component.");
         this.setState({
             ghostModel: true
         }, () => {
@@ -86,6 +78,7 @@ export default class Model extends Component {
     }
 
     _handlePanResponderMove = (event, gesture) => {
+        // console.log(gesture.dx + ", " + gesture.dy)
         // Single Touch moves the Model.js component.
         if (gesture.numberActiveTouches === 1) {
             this.position.setValue({
@@ -100,12 +93,14 @@ export default class Model extends Component {
         // Two Finger touch places component in 'reset' state.
         if (gesture.numberActiveTouches === 2 && 
             this.state.resetPosition === false) {
-            console.log("The RESET PROCESS has been initiated!");
+            // console.log("The RESET PROCESS has been initiated!");
 
             // Set 'resetPosition' to true. to prevent this code from firing more than once.
             this.setState({
                 resetPosition: true,
-            }, () => console.log(this.state))
+            }, () => {
+                // console.log(this.state)
+            })
 
             // Change the OFFSET of the 'position' object to visually show that this component will be reset back to it's prior position.
             this.position.setOffset({
@@ -113,38 +108,30 @@ export default class Model extends Component {
                 y: this.unit.y - gesture.dy / this.props.state.scale
                 })
 
-            //---------------------------------------------------////
-            // Console.log of X and Y values used in .setOffset()
-            // console.log(
-            //     this.unit.x - gesture.dx / this.props.state.scale
-            //     )
-            // console.log(
-            //     this.unit.y - gesture.dy / this.props.state.scale
-            //     )
-            //---------------------------------------------------////
-
             // Set LOCAL-STATE for the values of X and Y from the above position.setOffset()
             this.setState({
                 offsetX: this.unit.x - gesture.dx / this.props.state.scale,
                 offsetY: this.unit.y - gesture.dy / this.props.state.scale,
-            }, () => {console.log(
-                // "offsetX: " + this.state.offsetX + "\n" + 
-                // "offsetY: " + this.state.offsetY
-                )
+            }, () => {
+                // console.log(
+                    // "offsetX: " + this.state.offsetX + "\n" + 
+                    // "offsetY: " + this.state.offsetY
+                // )
                 // CB-function to call helper function that will assign the offset X Y values to our models.json in the correct location.
                 this.resetModelLocation(
                     this.state.offsetX, this.state.offsetY
                     );
                 // Console.log that the 'Reset Procedure has been completed'
-                console.log("The RESET PROCESS has been completed.")
+                // console.log("The RESET PROCESS has been completed.")
             })
         } // END_IF    
     }
 
     _handlePanResponderEnd =  (event, gesture) => {
+        this.tapForModal(event);
         this.cancelTimer();
         this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-        console.log("You are no longer touching the model component.")
+        // console.log("You are no longer touching the model component.")
         this.setState({
             onTouch: false,
             ghostModel: false,
@@ -193,7 +180,7 @@ export default class Model extends Component {
         // console.log("The resetModelLocation function has ended.")    
     }
 
-     // Function to update Model XY Data in model json.
+    // Function to update Model XY Data in model json.
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -214,24 +201,37 @@ export default class Model extends Component {
         });
         this.props.updateUnits(updatedUnits);
     }
-
-     // Function to determine if a user has double-tapped on the screen.
-    lastTap = null;
-    handleDoubleTap = () => {
-        const now = Date.now();
-        const DOUBLE_PRESS_DELAY = 300;
-        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            // console.log("DoubleTap!");
+    
+    // Function to determine if a user has tried to open the Modal.
+    tapForModal = (event) => {
+        // Calculate distance traveled in x and y.
+        let x = Math.abs(this.props.state.startXY.x - event.nativeEvent.pageX);
+        let y = Math.abs(this.props.state.startXY.y - event.nativeEvent.pageY);
+        // console.log(`x: ${x} y: ${y}`)
+        // IF user has moved less than 3px in any direction, deploy the Modal.
+        if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
+            // console.log("Deploying Modal...")
             this.props.deployModal(this.props.unit);
-        } else {
-            this.lastTap = now;
-            // console.log("no Doubletap.");
         }
-    };
+    }
+
+    //  // Function to determine if a user has double-tapped on the screen.
+    // lastTap = null;
+    // handleDoubleTap = () => {
+    //     const now = Date.now();
+    //     const DOUBLE_PRESS_DELAY = 300;
+    //     if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
+    //         // console.log("DoubleTap!");
+    //         this.props.deployModal(this.props.unit);
+    //     } else {
+    //         this.lastTap = now;
+    //         // console.log("no Doubletap.");
+    //     }
+    // };
 
     // Function to delay the display of model highlight dependant of conditions.
     delayHighlight = () => {
-        console.log("Timeout process started.") 
+        // console.log("Timeout process started.") 
         this.timer = setTimeout(() => {
             this.setState({
                 onTouch: true,
@@ -239,14 +239,14 @@ export default class Model extends Component {
                 // console.log(this.state)
             })
             this.timer = "end";
-            console.log("Timeout process complete.")
+            // console.log("Timeout process complete.")
         }, 290);           
     }
 
     cancelTimer = () => {
         if (this.timer !== "end") {
             clearTimeout(this.timer);
-            console.log("Timeout process cancelled.")
+            // console.log("Timeout process cancelled.")
         }
     }
 
