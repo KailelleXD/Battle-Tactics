@@ -3,7 +3,7 @@ import { Button, Dimensions, StyleSheet, Text, TouchableOpacity, View } from "re
 import Modal from "react-native-modal";
 
 const { width, height } = Dimensions.get("window");
-const MODAL_HEIGHT = height / 2.5;
+const MODAL_HEIGHT = height / 2;
 
 export default class BattlescribeModal extends Component {
   state = {
@@ -101,7 +101,7 @@ export default class BattlescribeModal extends Component {
               <Button
                 title="Delete Unit"
                 color="red"
-                onPress={null} 
+                onPress={() => this.props.updateVis(false)} 
               />
             </View>
           </View>
@@ -114,7 +114,7 @@ export default class BattlescribeModal extends Component {
 const styles = StyleSheet.create({
   modal: {
     height: MODAL_HEIGHT,
-    width: "85%",
+    width: "100%",
     backgroundColor: "rgb(245,245,245)",
     borderRadius: 5,
     alignSelf: "center"
