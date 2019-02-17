@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GhostModel from './GhostModel';
+import WeaponRange from './WeaponRange';
 import Test from './Test';
 import { 
     View,
@@ -28,7 +29,7 @@ export default class Model extends Component {
             offsetX: 0,
             offsetY: 0,
             doubleTap: false,
-            modalActive: false
+            displayWeaponRange: false,
         }
 
         let timer;
@@ -128,7 +129,7 @@ export default class Model extends Component {
     }
 
     _handlePanResponderEnd =  (event, gesture) => {
-        this.tapForModal(event);
+        // this.tapForModal(event);
         this.cancelTimer();
         this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
         // console.log("You are no longer touching the model component.")
@@ -237,18 +238,21 @@ export default class Model extends Component {
         }
     }
 
-    //  // Function to determine if a user has double-tapped on the screen.
+    // Function to determine if a user has double-tapped on the screen.
     lastTap = null;
     handleDoubleTap = () => {
         const now = Date.now();
         const DOUBLE_PRESS_DELAY = 300;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            // console.log("DoubleTap!");
-            console.log("Display Weapon Ranges")
+            console.log("DoubleTap!");
+            // console.log("Display Weapon Ranges")
+            this.getWeaponInfo(this.unit);
+            this.toggleDblTap();
         } else {
             this.lastTap = now;
-            // console.log("no Doubletap.");
+            console.log("no Doubletap.");
         }
+        console.log(`Time between taps is: ${now - this.lastTap}`)
     };
     
     // Toggle function that works in conjunction with 'handleDoubleTap' to display a units weapon ranges.
@@ -264,12 +268,27 @@ export default class Model extends Component {
                 if (this.state.displayWeaponRange === true) {    
                     // IF doubleTap state is true, display pop-up modal.
                     console.log("Weapon Ranges should be visible.");
+
                 } else {
                     // IF doubleTap state is false, hide pop-up modal.
                     console.log("Weapon Ranges should NOT be visible.");
                 }
             });
             
+    }
+
+    getWeaponInfo (unit) {
+        const weaponInfo = [...unit.weapons]
+        const name = weaponInfo.map(weapon => {
+            return weapon.name;
+        })
+        const range = weaponInfo.map(weapon => {
+            return weapon.range;
+        })
+        this.name = name;
+        this.range = range;
+        console.log(this.name);
+        console.log(this.range);
     }
 
     // STYLE FUNCTIONS ////
@@ -311,6 +330,23 @@ export default class Model extends Component {
     }
 
     // RENDER FUNCTIONS ////
+
+    showWeaponRange () {
+        if (this.state.displayWeaponRange === true) {
+            return (
+                <WeaponRange 
+                    val={this.val} 
+                    weapons={this.name}
+                    range={this.range}
+                    unit={this.props.unit} 
+                    ppi={this.props.state.ppi} 
+                    />
+            )
+        } else if (this.state.displayWeaponRange === false) {
+
+        }
+    }
+
     
     placeGhostModel () {
         if (this.state.ghostModel === true) {
@@ -322,7 +358,7 @@ export default class Model extends Component {
         }
     }
 
-    renderModels() {
+    renderModels () {
         return (
             <Animated.View
                     style={[this.position.getLayout()]}
@@ -345,7 +381,7 @@ export default class Model extends Component {
             <View style={styles.mainContainer}>
                     {this.renderModels()}
                 {this.placeGhostModel()}
-                {/* {this.modalPopUp()} */}
+                {this.showWeaponRange()}
             </View>
         )
     }
