@@ -6,29 +6,40 @@ import factions from "../utils/data/factions.json";
 export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
 
-export function getFactionFromStorage(faction) {
-  this.setState({
-    factionLoaded : false
-  })
+export async function getFactionFromStorage(faction) {
+
+
+  // this.setState({
+  //   factionLoaded : false
+  // })
+
+  
   console.log("getting Faction from storage")
   // just for testing
-  AsyncStorage.getItem("1-Aeldari-Drukhari").then((value) => {
-    const data = JSON.parse(value)
-    // console.log(data)
-    BSData = { ...this.state.BSData.factionName }
-
+  
+  try{
+    let value = AsyncStorage.getItem("1-Aeldari-Drukhari");
+    const data = JSON.parse(JSON.stringify(value));
+      // console.log(data);
+    const BSData = { ...this.state.BSData.factionName }
     this.setState({
       BSData: data
-    })
-
-    console.log("async getItem Complete:")
-    // console.log(this.state.BSData)
-
+    });
+  
+    console.log("async getItem Complete:");
+      // console.log(this.state.BSData)
+  
     this.setState({
-      factionLoaded : true
-    })
-    
-  })
+    factionLoaded : true
+    });
+      
+   
+
+
+
+  } catch (error){
+    console.log(error)
+  }
  
 }
 
@@ -45,7 +56,7 @@ export class AppProvider extends React.Component {
     super(props);
 
     const initialState = {
-      factionLoaded: true,
+      factionLoaded: false,
       playerOne: {
         name: "jack",
         deploymentArea: "",
@@ -78,10 +89,10 @@ export class AppProvider extends React.Component {
 
 
     let allPlayers = {}
-    AsyncStorage.getItem("Game9").then((value) => {
+    AsyncStorage.getItem("Game11").then((value) => {
       if (!value) {
         allPlayers = initialState
-        AsyncStorage.setItem('Game9', JSON.stringify(initialState))
+        AsyncStorage.setItem('Game11', JSON.stringify(initialState))
       } else {
         allPlayers = JSON.parse(value)
       }
@@ -93,7 +104,7 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne }
     playerOne.name = newName
     this.setState({ playerOne }, () => {
-      AsyncStorage.setItem('Game9', JSON.stringify(this.state))
+      AsyncStorage.setItem('Game11', JSON.stringify(this.state))
     })
   }
 
@@ -107,6 +118,7 @@ export class AppProvider extends React.Component {
     const gameData = { ...this.state.gameData }
     gameData.mapName = newMap
     this.setState({ gameData })
+    console.log("Map name set to gameData: ", gameData.mapName)
   }
 
 
@@ -147,7 +159,7 @@ export class AppProvider extends React.Component {
     AsyncStorage.getItem("1-Aeldari-Drukhari").then((value) => {
       const data = JSON.parse(value)
       console.log(data)
-      BSData = { ...this.state.BSData.factionName }
+      const BSData = { ...this.state.BSData.factionName }
 
       this.setState({
         BSData: data

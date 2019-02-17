@@ -8,9 +8,9 @@ import Units from '../utils/data/units.json';
 export default class UnitSelector extends Component {
 
   
-  // componentWillMount() {
-    // getFactionFromStorage();
-  // }
+  componentWillMount() {
+    getFactionFromStorage();
+  }
 
   render() {
 
@@ -23,7 +23,8 @@ export default class UnitSelector extends Component {
             {context.state.factionLoaded ?(
 
             <Content>
-            {context.state.BSData.map(unit => (
+              {console.log(context.state.BSData)}
+              {context.state.BSData.map(unit => (
               (unit["type"] === "unit") ? (
 
                 <UnitCard 
