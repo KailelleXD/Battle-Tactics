@@ -4,11 +4,9 @@ import GhostModel from './GhostModel';
 import Test from './Test';
 import { 
     View,
-    Text,
     Animated,
     PanResponder,
     Dimensions,
-    TouchableWithoutFeedback
 } from 'react-native';
 import { Platform } from 'expo-core';
 
@@ -32,24 +30,16 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
-            // modalPopUp: false,
             resetPosition: false,
             offsetX: 0,
             offsetY: 0,
-            // longPress: false,
             doubleTap: false,
+            modalActive: false
         }
 
-
+        let timer;
+        this.timer = timer;
         const unit = this.props.unit;
-        // const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
-        // console.log("=================================================")
-        // console.log(unit);
-
-
-        
-        // console.log("=================================================")
-
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.val = { x: unit.x, y: unit.y }
@@ -74,22 +64,15 @@ export default class Model extends Component {
 
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
-        // If longPress state has been set to true.
-        // if (this.state.longPress === true) {
-            console.log("You are now touching the model component.");
-            this.setState({
-                onTouch: true,
-                ghostModel: true
-            }, () => {
-                // console.log(this.state)
-            })
-            return true;
-        // } 
-
-        // If doubleTap state has been set to true.
-        // if (this.state.doubleTap === true) {
-        //     console.log("You have double-tapped this component!")
-        // }
+        
+        console.log("You are now touching the model component.");
+        this.setState({
+            ghostModel: true
+        }, () => {
+            // console.log(this.state)
+        })
+        this.delayHighlight();
+        return true;
     }
 
     _handlePanResponderGrant = (event, gesture) => {
@@ -159,6 +142,7 @@ export default class Model extends Component {
     }
 
     _handlePanResponderEnd =  (event, gesture) => {
+        this.cancelTimer();
         this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
         console.log("You are no longer touching the model component.")
         this.setState({
@@ -177,7 +161,7 @@ export default class Model extends Component {
 
     // Function to reset Model XY Data in model json.
     resetModelLocation (offsetX, offsetY) {
-        console.log("The resetModelLocation function has been called.")
+        // console.log("The resetModelLocation function has been called.")
         // Check that the values have been passed in correctly.
         // console.log(
         //     "offsetX: " + offsetX + "\n" +
@@ -206,7 +190,7 @@ export default class Model extends Component {
         // call the .updateUnits(updatedUnits); function from AppContext.js.
         this.props.updateUnits(updatedUnits);
         // Console.log the end of this function..
-        console.log("The resetModelLocation function has ended.")    
+        // console.log("The resetModelLocation function has ended.")    
     }
 
      // Function to update Model XY Data in model json.
@@ -235,16 +219,36 @@ export default class Model extends Component {
     lastTap = null;
     handleDoubleTap = () => {
         const now = Date.now();
-        const DOUBLE_PRESS_DELAY = 750;
+        const DOUBLE_PRESS_DELAY = 300;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            console.log("DoubleTap!");
-            // Set up toggle function.
+            // console.log("DoubleTap!");
             this.props.deployModal(this.props.unit);
         } else {
             this.lastTap = now;
-            console.log("no Doubletap.");
+            // console.log("no Doubletap.");
         }
     };
+
+    // Function to delay the display of model highlight dependant of conditions.
+    delayHighlight = () => {
+        console.log("Timeout process started.") 
+        this.timer = setTimeout(() => {
+            this.setState({
+                onTouch: true,
+            }, () => {
+                // console.log(this.state)
+            })
+            this.timer = "end";
+            console.log("Timeout process complete.")
+        }, 290);           
+    }
+
+    cancelTimer = () => {
+        if (this.timer !== "end") {
+            clearTimeout(this.timer);
+            console.log("Timeout process cancelled.")
+        }
+    }
 
     // // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
     // toggleDblTap = () => {
@@ -322,7 +326,7 @@ export default class Model extends Component {
     // }
     
     placeGhostModel () {
-        if (this.state.onTouch === true) {
+        if (this.state.ghostModel === true) {
             return (
                 <GhostModel val={this.val} modelStyle={styles[styles.model]} />
             )
