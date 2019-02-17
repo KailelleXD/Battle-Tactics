@@ -35,17 +35,11 @@ export default class Model extends Component {
             resetPosition: false,
             offsetX: 0,
             offsetY: 0,
-            longPress: true,
+            // longPress: false,
             doubleTap: false,
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
-        // console.log("=================================================")
-        // console.log(unit);
-
-
-        
-        // console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.val = { x: unit.x, y: unit.y }
@@ -62,13 +56,16 @@ export default class Model extends Component {
             onPanResponderGrant: this._handlePanResponderGrant,
             onPanResponderMove: this._handlePanResponderMove,
             onPanResponderRelease: this._handlePanResponderEnd,
+            onShouldBlockNativeResponder: (event, gesture) => false,
             onPanResponderTerminationRequest: (event, gesture) => false,
         });
     }
 
+
+
     _handleStartShouldSetPanResponder = (event, gesture) => {
         // If longPress state has been set to true.
-        if (this.state.longPress === true) {
+        // if (this.state.longPress === true) {
             console.log("You are now touching the model component.");
             this.setState({
                 onTouch: true,
@@ -77,28 +74,27 @@ export default class Model extends Component {
                 // console.log(this.state)
             })
             return true;
-        }
+        // } 
 
         // If doubleTap state has been set to true.
-        if (this.state.doubleTap === true) {
-            console.log("You have double-tapped this component!")
-        }
+        // if (this.state.doubleTap === true) {
+        //     console.log("You have double-tapped this component!")
+        // }
     }
 
     _handlePanResponderGrant = (event, gesture) => {
-        if (this.state.longPress === true) {
+        // if (this.state.longPress === true) {
             this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
             this.position.setOffset({
                 x: this.val.x,
                 y: this.val.y 
             });
-        }
+        // }
     }
 
     _handlePanResponderMove = (event, gesture) => {
         // Single Touch moves the Model.js component.
-        if (gesture.numberActiveTouches === 1 && 
-            this.state.longPress === true) {
+        if (gesture.numberActiveTouches === 1) {
             this.position.setValue({
                 x: gesture.dx / this.props.state.scale, 
                 y: gesture.dy / this.props.state.scale 
@@ -110,8 +106,7 @@ export default class Model extends Component {
 
         // Two Finger touch places component in 'reset' state.
         if (gesture.numberActiveTouches === 2 && 
-            this.state.resetPosition === false && 
-            this.state.longPress === true) {
+            this.state.resetPosition === false) {
             console.log("The RESET PROCESS has been initiated!");
 
             // Set 'resetPosition' to true. to prevent this code from firing more than once.
@@ -232,12 +227,12 @@ export default class Model extends Component {
         const now = Date.now();
         const DOUBLE_PRESS_DELAY = 750;
         if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            // console.log("DoubleTap!");
+            console.log("DoubleTap!");
             // Set up toggle function.
             this.toggleDblTap();
         } else {
             this.lastTap = now;
-            // console.log("no Doubletap.");
+            console.log("no Doubletap.");
         }
     };
 
@@ -326,19 +321,25 @@ export default class Model extends Component {
     renderModels() {
         return (
             <Animated.View
-                    style={[this.position.getLayout(), this.whichPlayerBorder(), this.onTouchModelStyle(), this.maxMovementStyle(), this.whichPlayerStyle()]}
+                    style={[this.position.getLayout()]}
                     {...this.panResponder.panHandlers}
+                    
                 >
+                    <View 
+                        onTouchStart={this.handleDoubleTap}
+                        style={[this.whichPlayerBorder(), this.onTouchModelStyle(), this.maxMovementStyle(), this.whichPlayerStyle()]}
+                    />
             </Animated.View>
         )
     }
-    
+
+    // onTouchStart={() => console.log('A unspecified touched')}
+    // onPress={this.handleDoubleTap}
+
     render() {
         return (
             <View style={styles.mainContainer}>
-                <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
                     {this.renderModels()}
-                </TouchableWithoutFeedback>
                 {this.placeGhostModel()}
                 {this.modalPopUp()}
             </View>
