@@ -153,20 +153,20 @@ export class AppProvider extends React.Component {
   updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
-    console.log("Updating P1 Units");
-    console.log(playerOne.units);
+    // console.log("Updating P1 Units");
+    // console.log(playerOne.units);
     this.setState({ playerOne }, () => {
-      console.log(this.state.playerOne.units);
+      // console.log(this.state.playerOne.units);
     });
   }
   
   updateP2Units = (newUnits) => {
     const playerTwo = { ...this.state.playerTwo };
     playerTwo.units = newUnits;
-    console.log("Updating P2 Units");
-    console.log(playerTwo.units)
+    // console.log("Updating P2 Units");
+    // console.log(playerTwo.units)
     this.setState({ playerTwo }, () => {
-      console.log(this.state.playerTwo.units);
+      // console.log(this.state.playerTwo.units);
     });
   }
 
@@ -175,7 +175,7 @@ export class AppProvider extends React.Component {
     const modalData = {...this.state.modalData};
     modalData.isModalVisible = newVisibility;
     this.setState({ modalData }, () => {
-      console.log(modalData);
+      // console.log(modalData);
     });
   }
 
