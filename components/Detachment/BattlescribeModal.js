@@ -77,7 +77,7 @@ export default class BattlescribeModal extends Component {
       const updatedUnits = oldUnits.filter(unit => unit.id !== modalUnit.id);
 
       // console.log(updatedUnits);
-      this.props.updateP1Units(updatedUnits);
+      this.props.updateP2Units(updatedUnits);
     }
     this.props.updateVis(false);
   }
@@ -89,7 +89,6 @@ export default class BattlescribeModal extends Component {
           onBackdropPress={this.onCloseHandler}
           onModalShow={this.onOpenHandler}
           backdropOpacity={.5}
-          hideModalContentWhileAnimating={true}
           >
           <View style={styles.modal}>
             <View style={styles.modalHeader}>
