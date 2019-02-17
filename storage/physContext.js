@@ -62,7 +62,7 @@ export class PhysProvider extends React.Component {
         const PPI = SCREEN_WIDTH/48;
         // console.log("screenWidth: " + SCREEN_WIDTH);
         // console.log("screenHeight: " + SCREEN_WIDTH*1.5)
-        console.log("Pixels/Inch: " + PPI);
+        // console.log("Pixels/Inch: " + PPI);
         this.setState({
             screenWidth: SCREEN_WIDTH,
             ppi: PPI

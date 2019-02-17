@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import GhostModel from './GhostModel';
+import Test from './Test';
 import { 
     View,
     Text,
     Animated,
     PanResponder,
-    Dimensions
+    Dimensions,
+    TouchableWithoutFeedback
 } from 'react-native';
 
 // this.props.calcDistance();
@@ -29,18 +31,21 @@ export default class Model extends Component {
         this.state = {
             onTouch: false,
             ghostModel: false,
+            modalPopUp: false,
             resetPosition: false,
             offsetX: 0,
-            offsetY: 0
+            offsetY: 0,
+            longPress: true,
+            doubleTap: false,
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
-        console.log("=================================================")
-        console.log(unit);
+        // console.log("=================================================")
+        // console.log(unit);
 
 
         
-        console.log("=================================================")
+        // console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.val = { x: unit.x, y: unit.y }
@@ -62,27 +67,38 @@ export default class Model extends Component {
     }
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
-        console.log("You are now touching the model component.");
-        this.setState({
-            onTouch: true,
-            ghostModel: true
-        }, () => {
-            // console.log(this.state)
-        })
-        return true;
+        // If longPress state has been set to true.
+        if (this.state.longPress === true) {
+            console.log("You are now touching the model component.");
+            this.setState({
+                onTouch: true,
+                ghostModel: true
+            }, () => {
+                // console.log(this.state)
+            })
+            return true;
+        }
+
+        // If doubleTap state has been set to true.
+        if (this.state.doubleTap === true) {
+            console.log("You have double-tapped this component!")
+        }
     }
 
     _handlePanResponderGrant = (event, gesture) => {
-        this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
-        this.position.setOffset({
-            x: this.val.x,
-            y: this.val.y 
-        });
+        if (this.state.longPress === true) {
+            this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
+            this.position.setOffset({
+                x: this.val.x,
+                y: this.val.y 
+            });
+        }
     }
 
     _handlePanResponderMove = (event, gesture) => {
         // Single Touch moves the Model.js component.
-        if (gesture.numberActiveTouches === 1) {
+        if (gesture.numberActiveTouches === 1 && 
+            this.state.longPress === true) {
             this.position.setValue({
                 x: gesture.dx / this.props.state.scale, 
                 y: gesture.dy / this.props.state.scale 
@@ -93,7 +109,9 @@ export default class Model extends Component {
         } // END_IF
 
         // Two Finger touch places component in 'reset' state.
-        if (gesture.numberActiveTouches === 2 && this.state.resetPosition === false) {
+        if (gesture.numberActiveTouches === 2 && 
+            this.state.resetPosition === false && 
+            this.state.longPress === true) {
             console.log("The RESET PROCESS has been initiated!");
 
             // Set 'resetPosition' to true. to prevent this code from firing more than once.
@@ -152,6 +170,7 @@ export default class Model extends Component {
 
     // HELPER FUNCTIONS ////
 
+    // Function to reset Model XY Data in model json.
     resetModelLocation (offsetX, offsetY) {
         console.log("The resetModelLocation function has been called.")
         // Check that the values have been passed in correctly.
@@ -185,6 +204,7 @@ export default class Model extends Component {
         console.log("The resetModelLocation function has ended.")    
     }
 
+     // Function to update Model XY Data in model json.
     updateModelLocation (gesture) {
         const oldUnits = [...this.props.playerState.units];
         const updatedUnits = oldUnits.map(unit => {
@@ -204,6 +224,43 @@ export default class Model extends Component {
             }
         });
         this.props.updateUnits(updatedUnits);
+    }
+
+     // Function to determine if a user has double-tapped on the screen.
+    lastTap = null;
+    handleDoubleTap = () => {
+        const now = Date.now();
+        const DOUBLE_PRESS_DELAY = 750;
+        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
+            // console.log("DoubleTap!");
+            // Set up toggle function.
+            this.toggleDblTap();
+        } else {
+            this.lastTap = now;
+            // console.log("no Doubletap.");
+        }
+    };
+
+    // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
+    toggleDblTap = () => {
+        this.setState(previousState => (
+            { 
+                doubleTap: !previousState.doubleTap,
+                modalPopUp: !previousState.modalPopUp
+            }
+        ), () => {
+            console.log(
+                "doubleTap: " + this.state.doubleTap + "\n" +
+                "modalPopUp: " + this.state.modalPopUp
+                )
+                if (this.state.doubleTap === true) {    
+                    // IF doubleTap state is true, display pop-up modal.
+                    console.log("Modal should be visible.");
+                } else {
+                    // IF doubleTap state is false, hide pop-up modal.
+                    console.log("Modal should NOT be visible.");
+                }
+            })
     }
 
     // STYLE FUNCTIONS ////
@@ -245,6 +302,16 @@ export default class Model extends Component {
     }
 
     // RENDER FUNCTIONS ////
+
+    modalPopUp () {
+        if (this.state.modalPopUp === true) {
+            return (
+                <Test val={this.val} />
+            )
+        } else if (this.state.modalPopUp === false) {
+
+        }
+    }
     
     placeGhostModel () {
         if (this.state.onTouch === true) {
@@ -259,9 +326,9 @@ export default class Model extends Component {
     renderModels() {
         return (
             <Animated.View
-                style={[this.position.getLayout(), this.whichPlayerBorder(), this.onTouchModelStyle(), this.maxMovementStyle(), this.whichPlayerStyle()]}
-                {...this.panResponder.panHandlers}
-            >
+                    style={[this.position.getLayout(), this.whichPlayerBorder(), this.onTouchModelStyle(), this.maxMovementStyle(), this.whichPlayerStyle()]}
+                    {...this.panResponder.panHandlers}
+                >
             </Animated.View>
         )
     }
@@ -269,12 +336,16 @@ export default class Model extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-                {this.renderModels()}
+                <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
+                    {this.renderModels()}
+                </TouchableWithoutFeedback>
                 {this.placeGhostModel()}
+                {this.modalPopUp()}
             </View>
         )
     }
 }
+
 
 const styles = {
     text: {
