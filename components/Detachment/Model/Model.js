@@ -201,33 +201,6 @@ export default class Model extends Component {
         });
         this.props.updateUnits(updatedUnits);
     }
-    
-    // Function to determine if a user has tried to open the Modal.
-    tapForModal = (event) => {
-        // Calculate distance traveled in x and y.
-        let x = Math.abs(this.props.state.startXY.x - event.nativeEvent.pageX);
-        let y = Math.abs(this.props.state.startXY.y - event.nativeEvent.pageY);
-        // console.log(`x: ${x} y: ${y}`)
-        // IF user has moved less than 3px in any direction, deploy the Modal.
-        if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
-            // console.log("Deploying Modal...")
-            this.props.deployModal(this.props.unit);
-        }
-    }
-
-    //  // Function to determine if a user has double-tapped on the screen.
-    // lastTap = null;
-    // handleDoubleTap = () => {
-    //     const now = Date.now();
-    //     const DOUBLE_PRESS_DELAY = 300;
-    //     if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-    //         // console.log("DoubleTap!");
-    //         this.props.deployModal(this.props.unit);
-    //     } else {
-    //         this.lastTap = now;
-    //         // console.log("no Doubletap.");
-    //     }
-    // };
 
     // Function to delay the display of model highlight dependant of conditions.
     delayHighlight = () => {
@@ -243,37 +216,61 @@ export default class Model extends Component {
         }, 290);           
     }
 
+    // Function that works in conjunction with delayHighlight(); to cancel the 'setTimeout' if the user has only pressed the component and not held their finger to it.
     cancelTimer = () => {
         if (this.timer !== "end") {
             clearTimeout(this.timer);
             // console.log("Timeout process cancelled.")
         }
     }
+    
+    // Function to determine if a user has tried to open the Modal.
+    tapForModal = (event) => {
+        // Calculate distance traveled in x and y.
+        let x = Math.abs(this.props.state.startXY.x - event.nativeEvent.pageX);
+        let y = Math.abs(this.props.state.startXY.y - event.nativeEvent.pageY);
+        // console.log(`x: ${x} y: ${y}`)
+        // IF user has moved less than 3px in any direction, deploy the Modal.
+        if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
+            // console.log("Deploying Modal...")
+            this.props.deployModal(this.props.unit);
+        }
+    }
 
-    // // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
-    // toggleDblTap = () => {
-    //     this.setState(previousState => (
-    //         { 
-    //             doubleTap: !previousState.doubleTap,
-    //             // modalPopUp: !previousState.modalPopUp
-    //         }
-    //     ), () => {
-    //         console.log(
-    //             "doubleTap: " + this.state.doubleTap + "\n" +
-    //             "modalPopUp: " + this.state.modalPopUp
-    //             )
-    //             if (this.state.doubleTap === true) {    
-    //                 // IF doubleTap state is true, display pop-up modal.
-    //                 console.log("Modal should be visible.");
-    //             } else {
-    //                 // IF doubleTap state is false, hide pop-up modal.
-    //                 console.log("Modal should NOT be visible.");
-    //             }
-    //             console.log(this.unit);
-    //             // this.props.deployModal(this.unit);
-    //         });
+    //  // Function to determine if a user has double-tapped on the screen.
+    lastTap = null;
+    handleDoubleTap = () => {
+        const now = Date.now();
+        const DOUBLE_PRESS_DELAY = 300;
+        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
+            // console.log("DoubleTap!");
+            console.log("Display Weapon Ranges")
+        } else {
+            this.lastTap = now;
+            // console.log("no Doubletap.");
+        }
+    };
+    
+    // Toggle function that works in conjunction with 'handleDoubleTap' to display a units weapon ranges.
+    toggleDblTap = () => {
+        this.setState(previousState => (
+            { 
+                displayWeaponRange: !previousState.displayWeaponRange,
+            }
+        ), () => {
+            console.log(
+                "displayWeaponRange: " + this.state.displayWeaponRange
+                )
+                if (this.state.displayWeaponRange === true) {    
+                    // IF doubleTap state is true, display pop-up modal.
+                    console.log("Weapon Ranges should be visible.");
+                } else {
+                    // IF doubleTap state is false, hide pop-up modal.
+                    console.log("Weapon Ranges should NOT be visible.");
+                }
+            });
             
-    // }
+    }
 
     // STYLE FUNCTIONS ////
     
@@ -314,16 +311,6 @@ export default class Model extends Component {
     }
 
     // RENDER FUNCTIONS ////
-
-    // modalPopUp () {
-    //     if (this.state.modalPopUp === true) {
-    //         return (
-    //             <Test val={this.val} />
-    //         )
-    //     } else if (this.state.modalPopUp === false) {
-
-    //     }
-    // }
     
     placeGhostModel () {
         if (this.state.ghostModel === true) {

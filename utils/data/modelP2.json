@@ -7,7 +7,18 @@
         "x": 350,
         "y": 550,
         "m": 20,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Macrostubber",
+                "range": 12
+            },
+            {
+                "name": "Volkite Blaster",
+                "range": 24
+            }
+        ]
+        
     },
     { 
         "id": 2,
@@ -19,7 +30,17 @@
         "x": 341.5,
         "y": 550,
         "m": 15,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Laspistol",
+                "range": 12
+            },
+            {
+                "name": "Volkite Blaster",
+                "range": 24
+            }
+        ]
     },
     { 
         "id": 3,
@@ -29,7 +50,13 @@
         "x": 333,
         "y": 550,
         "m": 15,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 4,
@@ -39,7 +66,13 @@
         "x": 324.5,
         "y": 550,
         "m": 7,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 5,
@@ -49,7 +82,13 @@
         "x": 316,
         "y": 550,
         "m": 7,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 6,
@@ -59,7 +98,13 @@
         "x": 307.5,
         "y": 550,
         "m": 7,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 7,
@@ -69,7 +114,13 @@
         "x": 299,
         "y": 550,
         "m": 7,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 8,
@@ -79,7 +130,13 @@
         "x": 290.5,
         "y": 550,
         "m": 7,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Stubcarbine",
+                "range": 18
+            }
+        ]
     },
     { 
         "id": 9,
@@ -89,7 +146,13 @@
         "x": 282,
         "y": 550,
         "m": 9,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Galvanic Rifle",
+                "range": 30
+            }
+        ]
     },
     { 
         "id": 10,
@@ -99,7 +162,13 @@
         "x": 273.5,
         "y": 550,
         "m": 9,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Galvanic Rifle",
+                "range": 30
+            }
+        ]
     },
     { 
         "id": 11,
@@ -109,7 +178,13 @@
         "x": 265,
         "y": 550,
         "m": 9,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Galvanic Rifle",
+                "range": 30
+            }
+        ]
     },
     { 
         "id": 12,
@@ -119,7 +194,13 @@
         "x": 256.5,
         "y": 550,
         "m": 9,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Galvanic Rifle",
+                "range": 30
+            }
+        ]
     },
     { 
         "id": 13,
@@ -129,6 +210,12 @@
         "x": 248,
         "y": 550,
         "m": 9,
-        "wound": 0
+        "wound": 0,
+        "weapons": [
+            {
+                "name": "Galvanic Rifle",
+                "range": 30
+            }
+        ]
     }
   ]
