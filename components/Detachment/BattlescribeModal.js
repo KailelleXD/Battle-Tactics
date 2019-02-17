@@ -10,8 +10,6 @@ export default class BattlescribeModal extends Component {
     woundCounter: 0,
   };
 
-  // _toggleModal = () =>
-  //   this.setState({ isModalVisible: !this.state.isModalVisible });
   increaseWoundCounterHandler = () => {
     const currentCount = this.state.woundCounter;
     this.setState({ woundCounter: currentCount + 1 });
@@ -63,6 +61,27 @@ export default class BattlescribeModal extends Component {
     this.props.updateVis(false);
   }
 
+  deleteUnitHandler = () => {
+    const modalUnit = {...this.props.data.unit};
+    console.log("deleteUnitHandler initialized");
+
+    if (modalUnit.player === 1) {
+      const oldUnits = [...this.props.playerOneState.units];
+      const updatedUnits = oldUnits.filter(unit => unit.id !== modalUnit.id);
+
+      // console.log(updatedUnits);
+      this.props.updateP1Units(updatedUnits);
+
+    } else if (modalUnit.player === 2) {
+      const oldUnits = [...this.props.playerTwoState.units];
+      const updatedUnits = oldUnits.filter(unit => unit.id !== modalUnit.id);
+
+      // console.log(updatedUnits);
+      this.props.updateP1Units(updatedUnits);
+    }
+    this.props.updateVis(false);
+  }
+
   render() {
     return (
         <Modal 
@@ -92,13 +111,13 @@ export default class BattlescribeModal extends Component {
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
             </View>
             <View style={styles.modalColumn}>
@@ -106,19 +125,19 @@ export default class BattlescribeModal extends Component {
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Statistic: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
@@ -144,7 +163,7 @@ export default class BattlescribeModal extends Component {
               <Button
                 title="Delete Unit"
                 color="red"
-                onPress={() => this.props.updateVis(false)} 
+                onPress={this.deleteUnitHandler} 
               />
             </View>
           </View>
