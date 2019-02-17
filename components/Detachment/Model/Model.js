@@ -40,12 +40,6 @@ export default class Model extends Component {
         }
 
         const unit = this.props.playerState.units.filter(item => item.id === this.props.id)[0];
-        // console.log("=================================================")
-        // console.log(unit);
-
-
-        
-        // console.log("=================================================")
         const position = new Animated.ValueXY({x: unit.x, y: unit.y });
 
         this.val = { x: unit.x, y: unit.y }
@@ -60,11 +54,18 @@ export default class Model extends Component {
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
             onPanResponderGrant: this._handlePanResponderGrant,
-            onPanResponderMove: this._handlePanResponderMove,
+            onMoveShouldSetPanResponder: this._handlePanResponderMove,
             onPanResponderRelease: this._handlePanResponderEnd,
             onPanResponderTerminationRequest: (event, gesture) => false,
         });
     }
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.longPress !== this.state.longPress) {
+    //         console.log(`this.state.longPress has beeen set to ${this.state.longPress}`);
+            
+    //     }
+    // }
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
         // If longPress state has been set to true.
@@ -227,41 +228,41 @@ export default class Model extends Component {
     }
 
      // Function to determine if a user has double-tapped on the screen.
-    lastTap = null;
-    handleDoubleTap = () => {
-        const now = Date.now();
-        const DOUBLE_PRESS_DELAY = 750;
-        if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-            // console.log("DoubleTap!");
-            // Set up toggle function.
-            this.toggleDblTap();
-        } else {
-            this.lastTap = now;
-            // console.log("no Doubletap.");
-        }
-    };
+    // lastTap = null;
+    // handleDoubleTap = () => {
+    //     const now = Date.now();
+    //     const DOUBLE_PRESS_DELAY = 750;
+    //     if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
+    //         // console.log("DoubleTap!");
+    //         // Set up toggle function.
+    //         this.toggleDblTap();
+    //     } else {
+    //         this.lastTap = now;
+    //         // console.log("no Doubletap.");
+    //     }
+    // };
 
     // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
-    toggleDblTap = () => {
-        this.setState(previousState => (
-            { 
-                doubleTap: !previousState.doubleTap,
-                modalPopUp: !previousState.modalPopUp
-            }
-        ), () => {
-            console.log(
-                "doubleTap: " + this.state.doubleTap + "\n" +
-                "modalPopUp: " + this.state.modalPopUp
-                )
-                if (this.state.doubleTap === true) {    
-                    // IF doubleTap state is true, display pop-up modal.
-                    console.log("Modal should be visible.");
-                } else {
-                    // IF doubleTap state is false, hide pop-up modal.
-                    console.log("Modal should NOT be visible.");
-                }
-            })
-    }
+    // toggleDblTap = () => {
+    //     this.setState(previousState => (
+    //         { 
+    //             doubleTap: !previousState.doubleTap,
+    //             modalPopUp: !previousState.modalPopUp
+    //         }
+    //     ), () => {
+    //         console.log(
+    //             "doubleTap: " + this.state.doubleTap + "\n" +
+    //             "modalPopUp: " + this.state.modalPopUp
+    //             )
+    //             if (this.state.doubleTap === true) {    
+    //                 // IF doubleTap state is true, display pop-up modal.
+    //                 console.log("Modal should be visible.");
+    //             } else {
+    //                 // IF doubleTap state is false, hide pop-up modal.
+    //                 console.log("Modal should NOT be visible.");
+    //             }
+    //         })
+    // }
 
     // STYLE FUNCTIONS ////
     
@@ -336,11 +337,11 @@ export default class Model extends Component {
     render() {
         return (
             <View style={styles.mainContainer}>
-                <TouchableWithoutFeedback onPress={this.handleDoubleTap}>
+                {/* <TouchableWithoutFeedback onPress={this.handleDoubleTap}> */}
                     {this.renderModels()}
-                </TouchableWithoutFeedback>
+                {/* </TouchableWithoutFeedback> */}
                 {this.placeGhostModel()}
-                {this.modalPopUp()}
+                {/* {this.modalPopUp()} */}
             </View>
         )
     }
