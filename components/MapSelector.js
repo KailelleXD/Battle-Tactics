@@ -5,6 +5,8 @@ import { AppConsumer } from '../storage/AppContext';
 
 import Maps from '../utils/data/maps.json';
 
+// import Image from 'assets/img/map5.jpg'
+
 
 export default class MapSelector extends Component {
   render() {

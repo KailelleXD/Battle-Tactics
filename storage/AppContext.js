@@ -110,7 +110,7 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-<<<<<< dev-refactor-context
+// dev-refactor-context
     setMap = (newMap) => {
       const gameData = {...this.state.gameData}
       gameData.mapName = newMap
