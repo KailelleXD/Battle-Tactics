@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native';
 import { Grid, Row } from 'react-native-easy-grid';
-import { Container } from 'native-base';
+import { Container, Content } from 'native-base';
 import UnitSelector from '../components/UnitSelector';
 import NextBackWrapper from '../components/NextBackWrapper';
 
@@ -23,11 +23,12 @@ export default class ChooseUnitScreen extends Component {
     return (
       <Container>
       <Grid style={styles.grid}>
-        <Row size={60}>
+
+        <Row size={85}>
           <UnitSelector />
         </Row>
 
-        <Row size={10}>
+        <Row size={15}>
           <NextBackWrapper path="DeploymentArea" />
         </Row>
 
