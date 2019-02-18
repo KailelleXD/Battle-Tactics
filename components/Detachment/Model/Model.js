@@ -28,7 +28,8 @@ export default class Model extends Component {
             offsetX: 0,
             offsetY: 0,
             doubleTap: false,
-            modalActive: false
+            modalActive: false,
+            distanceBetweenPoints: 0 
         }
 
         let timer;
@@ -43,6 +44,7 @@ export default class Model extends Component {
         this.movement = unit.m;
         this.position = position;
     }
+    
 
     componentWillMount() {
         this.panResponder = PanResponder.create({
@@ -211,7 +213,8 @@ export default class Model extends Component {
         // IF user has moved less than 3px in any direction, deploy the Modal.
         if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
             // console.log("Deploying Modal...")
-            this.props.deployModal(this.props.unit);
+            // this.props.deployModal(this.props.unit);
+            this.calcDistanceFromEnemyModels();
         }
     }
 
@@ -274,6 +277,49 @@ export default class Model extends Component {
     //         });
             
     // }
+
+    calcDistanceFromEnemyModels = () => {
+        // Get this model's current XY position.
+        // console.log(`current position: ${this.unit.x}, ${this.unit.y}`)
+        const enemyUnits = [...this.props.enemyUnits]
+        const updatedEnemyUnits = enemyUnits.map((enemyUnit, i) => {
+            // Calculate distance to current Enemy Model.
+            console.log(`-------------------------`)
+            console.log("player: " + enemyUnit.player)
+            console.log(enemyUnit.style)
+            console.log("Position: (" + enemyUnit.x + ", " + enemyUnit.y + ")")
+            console.log(`-------------------------`)
+            let dx = Math.abs(this.val.x - enemyUnit.x);
+            let dy = Math.abs(this.val.y - enemyUnit.y);
+            let distanceBetweenPoints = Math.sqrt(dx * dx + dy * dy);
+            console.log(`distance from enemy unit.id ${i + 1}: ${distanceBetweenPoints}`)
+            // Convert pixels to inches.
+            let inches = (distanceBetweenPoints-MODEL_RADIUS) / (SCREEN_WIDTH/48);
+            console.log(`distance in inches: ${inches}`);
+            console.log(`-------------------------`)
+            console.log("player: " + this.unit.player);
+            console.log(this.unit.style);
+            console.log("Position: (" + this.val.x + ", " + this.val.y + ")")
+            console.log(`-------------------------`)
+            // If within weapon's range, change inRange to true.
+            // for-loop to iterate through this components weapon array.
+            // for (let k = 0; k < this.unit.weapons.length; k++) {
+            //     // If inches <= unit.weapons[k].range,
+            //     if (inches <= this.unit.weapons[k].range) {
+            //         console.log(`The range for ${this.unit.weapons[k].name} is ${this.unit.weapons[k].range}.`)
+            //         // Then change unit.inRange to TRUE.
+            //         enemyUnit.inRange = true;
+            //         console.log(`unit.id #${enemyUnit.id}'s unit.inRange was set to ${enemyUnit.inRange}`)
+                // }
+            // }
+            // return updatedEnemyUnit
+            // else, return enemyUnit
+            // console.log(`Enemy Model at Index #${i}:`)
+            // console.log(enemyUnit)
+            // console.log(`-------------------------`)
+        })
+        
+    }
 
     // STYLE FUNCTIONS ////
     

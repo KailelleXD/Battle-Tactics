@@ -31,6 +31,7 @@ export default class Detachment extends React.Component {
                                     movement={modelP2.m}
                                     playerState={context.state.playerTwo}
                                     unit={context.state.playerTwo.units[i]}
+                                    enemyUnits={context.state.playerOne.units}
                                     updateUnits={context.updateP2Units}
                                     deployModal={context.deployUnitModal}
                                     state={PhysContext.state} 
@@ -51,6 +52,7 @@ export default class Detachment extends React.Component {
                                     movement={modelP1.m}
                                     playerState={context.state.playerOne}
                                     unit={context.state.playerOne.units[i]}
+                                    enemyUnits={context.state.playerTwo.units}
                                     updateUnits={context.updateP1Units}
                                     deployModal={context.deployUnitModal}
                                     state={PhysContext.state} 
