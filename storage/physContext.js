@@ -114,15 +114,6 @@ export class PhysProvider extends React.Component {
         }
     }
 
-    distanceFromTwoPoints = (startXYObj, endXYObj) => {
-        let dx = Math.abs(startXYObj.x - endXYObj.x);
-        let dy = Math.abs(startXYObj.y - endXYObj.y);
-        let distanceBetweenPoints = Math.sqrt(dx * dx + dy * dy);
-        this.setState({
-            distanceBetweenPoints: distanceBetweenPoints
-        })
-    }
-
     clearEndXY = () => {
         this.setState({
             endXY: {
