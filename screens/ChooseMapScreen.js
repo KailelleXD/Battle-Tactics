@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native';
-import { Text, Container, Header, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
+import { StyleSheet, Image } from 'react-native';
+import { Text, Container, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
+
 import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
 import MapSelector from '../components/MapSelector'
 import NextBackWrapper from '../components/NextBackWrapper';
+import MapCardsSelector from '../components/MapCardsSelector';
+
 // context
 import { AppConsumer } from '../storage/AppContext';
 
-// import Image from '../assets/img/map5.jpg'
 
 export default class ChooseMap extends Component {
   static navigationOptions = {
@@ -27,6 +29,7 @@ export default class ChooseMap extends Component {
   
 
   render() {
+
     const { navigate } = this.props.navigation;
     // const cards = [
     //   {
@@ -37,57 +40,37 @@ export default class ChooseMap extends Component {
     //   }
     // ]
 
+
     return (
       <AppConsumer>
         {(context) => (
-          <Grid style={styles.grid}>
+          <Container>
+            <Grid style={styles.grid}>
+              
+              <Row size={75}>
+                <Container>
+                  <MapCardsSelector />
+                </Container>
+              </Row>
 
-            <Row size={15}>
-              <Text>This is the choose Map screen</Text>
-            </Row>
+              <Row size={10}>
+              <Container>
+                <Text>{context.state.gameData.mapName}</Text>
+              </Container>
+              </Row>
 
-            <Row size={60}>
-              <MapSelector />
-            </Row>
 
-            <Row size={10}>
-              <Text>{context.state.gameData.mapName}</Text>
-            </Row>
+              <Row size={15}>
+                <Container>
+                  <NextBackWrapper path="Terrain" />
+                </Container>
+              </Row>
 
-            {/* <NextButton path="Terrain" /> */}
-            <Row size={15}>
-              <NextBackWrapper path="Terrain" />
-            </Row>
-
-            {/* <View>
-              <DeckSwiper
-                dataSource={cards}
-                renderItem={item =>
-                  <Card style={{ elevation: 3 }}>
-                    <CardItem>
-                      <Left>
-                        <Thumbnail source={item.image} />
-                        <Body>
-                          <Text>{item.text}</Text>
-                          <Text note>NativeBase</Text>
-                        </Body>
-                      </Left>
-                    </CardItem>
-                    <CardItem cardBody>
-                      <Image style={{ height: 300, flex: 1 }} source={item.image} />
-                    </CardItem>
-                    <CardItem>
-                      <Icon name="heart" style={{ color: '#ED4A6A' }} />
-                      <Text>{item.name}</Text>
-                    </CardItem>
-                  </Card>
-                }
-              />
-            </View> */}
-
-          </Grid>
+            </Grid>
+          </Container>
         )}
-  
+
+
       </AppConsumer>
     );
   }
@@ -105,5 +88,7 @@ const styles = StyleSheet.create({
   cards: {
     display: "flex",
   }
+
 })
+
 
