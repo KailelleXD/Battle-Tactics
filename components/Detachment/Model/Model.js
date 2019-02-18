@@ -39,7 +39,10 @@ export default class Model extends Component {
 
         this.val = { x: unit.x, y: unit.y }
         position.addListener((value) => this.val = value);
-        
+
+        this.localStartX = 0;
+        this.localStartY = 0;
+
         this.unit = unit;
         this.movement = unit.m;
         this.position = position;
@@ -76,13 +79,22 @@ export default class Model extends Component {
             // console.log(this.state)
         })
         this.delayHighlight();
-        this.longPress();
+        this.longPress(event);
         return true;
     }
 
     _handlePanResponderGrant = (event, gesture) => {
         // if (this.state.longPress === true) {
             this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
+            // this.setState({
+            //     localStartX: event.nativeEvent.touches[0].pageX,
+            //     localStartY: event.nativeEvent.touches[0].pageY
+            // }, () => {
+            //     console.log(this.state.localStartX + " | " + this.state.localStartY)
+            // })
+            this.localStartX = event.nativeEvent.touches[0].pageX,
+            this.localStartY = event.nativeEvent.touches[0].pageY
+
             this.position.setOffset({
                 x: this.val.x,
                 y: this.val.y 
@@ -142,7 +154,7 @@ export default class Model extends Component {
 
     _handlePanResponderEnd =  (event, gesture) => {
         this.cancelLongPress()
-        if (this.state.longPress === false) {
+        if (this.state.longPress === false && this.state.rangeFinder === false) {
             this.tapForModal(event);
         }
         this.cancelTimer();
@@ -222,18 +234,18 @@ export default class Model extends Component {
     // Function to determine if a user has tried to open the Modal.
     tapForModal = (event) => {
         // Calculate distance traveled in x and y.
-        let x = Math.abs(this.props.state.startXY.x - event.nativeEvent.pageX);
-        let y = Math.abs(this.props.state.startXY.y - event.nativeEvent.pageY);
+        let x = Math.abs(this.localStartX - event.nativeEvent.pageX);
+        let y = Math.abs(this.localStartY - event.nativeEvent.pageY);
         // console.log(`x: ${x} y: ${y}`)
         // IF user has moved less than 3px in any direction, deploy the Modal.
         if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
             // console.log("Deploying Modal...")
             this.props.deployModal(this.props.unit);
-            this.setState({
-                modelActive: true
-            }, () => {
-                // console.log(this.state.modelActive)
-            })
+            // this.setState({
+                // modalActive: true
+            // }, () => {
+                // console.log(this.state.modalActive)
+            // })
         }
     }
 
@@ -295,18 +307,25 @@ export default class Model extends Component {
     
     //----------------------------------------------------------------------------
     // Function to determine if press is longer than 2 sec.
-    longPress = () => {
-        console.log("longPressTimer started");
-        this.longPressTimer = setTimeout(() => {
-            this.setState({
-                longPress: true,
-            }, () => {
-                console.log(this.state);
-                this.toggleRangeFinder();
-            })
-            this.longPressTimer = "end";
-            console.log("longPressTimer complete")
-        }, 2000);
+    longPress = (event) => {
+        // Calculate distance traveled in x and y.
+        // let x = Math.abs(this.localStartX - event.nativeEvent.pageX);
+        // let y = Math.abs(this.localStartY - event.nativeEvent.pageY);
+        // console.log(`x:${x}|y:${y}`)
+        // if (x <= 15 || y <= 15 && this.state.resetPosition === false) {
+        if (this.state.resetPosition === false) {
+            console.log("longPressTimer started");
+            this.longPressTimer = setTimeout(() => {
+                this.setState({
+                    longPress: true,
+                }, () => {
+                    console.log(this.state.longPress);
+                    this.toggleRangeFinder();
+                })
+                this.longPressTimer = "end";
+                console.log("longPressTimer complete")
+            }, 1500);
+        }   
     }
 
     cancelLongPress = () => {
@@ -381,10 +400,20 @@ export default class Model extends Component {
     // STYLE FUNCTIONS ////    
     
     onTouchModelStyle () {
-        if (this.state.onTouch === true) {
+        if (this.state.onTouch === true && this.state.rangeFinder === false) {
             return styles.onTouch;            
+        } else if (this.state.onTouch === true && this.state.rangeFinder === true) {
+            return styles.onTouchRF;
         } else {
             return styles.model;
+        }
+    }
+
+    onTouchRFPlusStyle () {
+        if (this.state.onTouch === true && this.state.rangeFinder === true) {
+            return styles.onTouchRFPlus;
+        } else {
+
         }
     }
     
@@ -424,9 +453,18 @@ export default class Model extends Component {
             // console.log("inRangeStyle should be showing")
             return styles.inRangeStyle
         } else {
-            
-        }
 
+        }
+    }
+
+    rangeFinderOnStyle () {
+        // console.log(this.props.unit.id + ": [" + this.props.unit.style + "] " + this.props.unit.inRange);
+        if (this.state.rangeFinder === true) {
+            // console.log("outRangeStyle should be showing")
+            return styles.outRangeStyle
+        } else {
+
+        }
     }
 
     // RENDER FUNCTIONS ////
@@ -442,7 +480,7 @@ export default class Model extends Component {
     // }
     
     placeGhostModel () {
-        if (this.state.ghostModel === true) {
+        if (this.state.ghostModel === true && this.state.rangeFinder == false) {
             return (
                 <GhostModel val={this.val} modelStyle={styles[styles.model]} />
             )
@@ -465,7 +503,9 @@ export default class Model extends Component {
                             this.onTouchModelStyle(), 
                             this.maxMovementStyle(), 
                             this.whichPlayerStyle(), 
-                            this.inWeaponRangeStyle()
+                            this.inWeaponRangeStyle(),
+                            this.rangeFinderOnStyle(),
+                            this.onTouchRFPlusStyle()
                             ]}
                     />
             </Animated.View>
@@ -528,6 +568,35 @@ const styles = {
         padding: 0,
         opacity: .8,
     },
+    outRangeStyle: {
+        width: MODEL_RADIUS*1.5,
+        height: MODEL_RADIUS*1.5,
+        backgroundColor: '#0f0',
+        borderColor: '#cdcdcd',
+        borderWidth: 3,
+        borderRadius: MODEL_RADIUS*1.5,
+        top: -(2),
+        left: -(2),
+        margin: 0,
+        padding: 0,
+        opacity: .8,
+    },
+    onTouchRF: {
+        // width: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        // height: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        backgroundColor: '#bc9caa',
+        margin: 0,
+        padding: 0,
+        opacity: 0.2,
+    },
+    onTouchRFPlus: {
+        width: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        height: this.ON_TOUCH_MODEL_HIGHLIGHT,
+        backgroundColor: '#bc9caa',
+        margin: 0,
+        padding: 0,
+        opacity: 0.2,
+    },    
     onTouch: {
         width: this.ON_TOUCH_MODEL_HIGHLIGHT,
         height: this.ON_TOUCH_MODEL_HIGHLIGHT,
