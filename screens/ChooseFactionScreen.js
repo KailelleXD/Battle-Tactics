@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import { Container, Text } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid'
+import { Grid, Col, Row } from 'react-native-easy-grid';
+// context
+import { AppConsumer } from '../storage/AppContext';
 // components
 import FactionSelector from '../components/FactionSelector'
 import NextButton from '../components/NextButton';
@@ -27,19 +29,23 @@ export default class ChooseFactionScreen extends Component {
     const {navigate} = this.props.navigation;
 
     return (
-      <Container>
-        <Grid style={styles.grid}>
-          <Row size={5}>
-            <Text>This is the Choose Faction screen</Text>
-          </Row>
-          <Row size={80}>
-            <FactionSelector />
-          </Row>
-          <Row size={15}>
-            <NextBackWrapper path="Units"/>
-          </Row>
-        </Grid>
-      </Container>
+      <AppConsumer>
+        {(context) => (     
+          <Container>
+            <Grid style={styles.grid}>
+              <Row size={5}>
+                <Text>This is the Choose Faction screen</Text>
+              </Row>
+              <Row size={80}>
+                <FactionSelector />
+              </Row>
+              <Row size={15}>
+                <NextBackWrapper path="Units"/>
+              </Row>
+            </Grid>
+          </Container>
+        )}
+      </AppConsumer>
     );
   }
 }

@@ -29,7 +29,7 @@ class NextButton extends React.Component {
           info
           large
           style={styles.button}
-          onPress={() => { this.props.navigation.navigate(this.props.path) }}
+          onPress={() => { this.props.loadUnits, this.props.navigation.navigate(this.props.path) }}
         >
           <Text>Next</Text>
         </Button>
