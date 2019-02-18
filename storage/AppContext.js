@@ -18,7 +18,7 @@ export class AppProvider extends React.Component {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: modelP1,
+        units: [],
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -118,9 +118,18 @@ export class AppProvider extends React.Component {
   }
 
   setUnit = (newUnit) => {
-    const playerOne = { ...this.state.playerOne }
-    playerOne.units = playerOne.units.concat(newUnit);
-    this.setState({ playerOne });
+    // console.log(newUnit)
+    this.state.BSData.data.map(unit => {
+      // console.log(unit.profileType)
+      if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
+        // console.log("selected: unit.profileType")
+        // console.log(unit.profileType)
+        const playerOne = { ...this.state.playerOne }
+        playerOne.units = playerOne.units.concat(unit.name);
+        this.setState({ playerOne });
+      }
+    })
+    console.log(this.state.playerOne.units)
   }
 
   updateP1Units = (newUnits) => {
@@ -185,7 +194,7 @@ export class AppProvider extends React.Component {
       this.setState({
         BSData
       })
-      console.log(this.state.BSData.data);
+      // console.log(this.state.BSData.data);
     })
   } 
 
@@ -213,12 +222,10 @@ export class AppProvider extends React.Component {
         console.log("consoleLogFactionTEST: done")
   }
 
-
   clearAsyncStorage = async () => {
     AsyncStorage.clear();
     console.log("clearing asyncStorage...")
   }
-
 
   getAllData = async () => {
     console.log("FETCHING DATA!")
@@ -226,7 +233,7 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
 
 
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
@@ -243,7 +250,6 @@ export class AppProvider extends React.Component {
             let array = [];
             let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
-
 
             for (var i = 0; i < fullList.length; i++) {
               if (fullList[i].$.type != 'upgrade') {
@@ -406,7 +412,7 @@ export class AppProvider extends React.Component {
                       
                       var abilityName = abilitiesArray[k].$.name;
                       var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
-                      console.log(abilityDescription)
+                      // console.log(abilityDescription)
       
                       var abilityObject = {
                         "name" : abilityName,
