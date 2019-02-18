@@ -1,24 +1,12 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
-import models from "../utils/data/models.json";
+import modelP1 from "../utils/data/modelP1.json";
+import modelP2 from "../utils/data/modelP2.json";
 import factions from "../utils/data/factions.json";
 
 export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
 
-// export function getFactionFromStorage(faction) {
-//   AsyncStorage.getItem("1-Aeldari-Drukhari")
-//     .then(value => {
-//       return JSON.parse(value)
-//     })
-//     .then(value => {
-//       console.log("running app provider")
-//       // this.context.setBSData(value);
-//       console.log(JSON.stringify(this))
-//       console.log("app provider value: ");
-//       // console.log(value)
-//     })
-// }
 
 export class AppProvider extends React.Component {
 
@@ -26,12 +14,11 @@ export class AppProvider extends React.Component {
     super(props);
 
     const initialState = {
-      // factionLoaded: false,
       playerOne: {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: models,
+        units: modelP1,
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -39,7 +26,7 @@ export class AppProvider extends React.Component {
       playerTwo: {
         name: "jill",
         faction: "",
-        units: [],
+        units: modelP2,
         points: 0,
         randomStart: false
       },
@@ -54,16 +41,23 @@ export class AppProvider extends React.Component {
       posData: {
         scaleData: 1,
         lastScale: 1,
+      },
+      modalData: {
+        isModalVisible: false,
+        unit: {}
       }
     }
 
 
 
     let allPlayers = {}
+
     AsyncStorage.getItem("Game12").then((value) => {
       if (!value) {
         allPlayers = initialState
         AsyncStorage.setItem('Game12', JSON.stringify(initialState))
+
+
       } else {
         allPlayers = JSON.parse(value)
       }
@@ -76,6 +70,7 @@ export class AppProvider extends React.Component {
     playerOne.name = newName
     this.setState({ playerOne }, () => {
       AsyncStorage.setItem('Game12', JSON.stringify(this.state))
+
     })
   }
 
@@ -85,11 +80,21 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
+
+// dev-refactor-context
+    setMap = (newMap) => {
+      const gameData = {...this.state.gameData}
+      gameData.mapName = newMap
+        this.setState( {gameData} )
+    }
+
   setMap = (newMap) => {
     const gameData = { ...this.state.gameData }
     gameData.mapName = newMap
     this.setState({ gameData })
+    console.log("Map name set to gameData: ", gameData.mapName)
   }
+
 
 
   setDeploymentArea = (newDeploymentArea) => {
@@ -118,16 +123,47 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-  updateUnits = (newUnits) => {
+  updateP1Units = (newUnits) => {
     const playerOne = { ...this.state.playerOne };
     playerOne.units = newUnits;
-    this.setState({ playerOne });
+    // console.log("Updating P1 Units");
+    // console.log(playerOne.units);
+    this.setState({ playerOne }, () => {
+      // console.log(this.state.playerOne.units);
+    });
+  }
+  
+  updateP2Units = (newUnits) => {
+    const playerTwo = { ...this.state.playerTwo };
+    playerTwo.units = newUnits;
+    // console.log("Updating P2 Units");
+    // console.log(playerTwo.units)
+    this.setState({ playerTwo }, () => {
+      // console.log(this.state.playerTwo.units);
+    });
+  }
+
+  updateModalVisibility = (newVisibility) => {
+    // console.log("Attempting to update modal visibility");
+    const modalData = {...this.state.modalData};
+    modalData.isModalVisible = newVisibility;
+    this.setState({ modalData }, () => {
+      // console.log(modalData);
+    });
+  }
+
+  deployUnitModal = (unit) => {
+    const modalData = {...this.state.modalData};
+    modalData.isModalVisible = true;
+    modalData.unit = unit;
+    this.setState({ modalData });
   }
 
 // ==================================================================
 
   getFactionFromStorage = (faction) => {
     // just for testing
+
     console.log("get faction from storage is running---------------------------")
     AsyncStorage.getItem("1-Aeldari-Drukhari")
     .then(value => {
@@ -137,6 +173,7 @@ export class AppProvider extends React.Component {
       console.log("setting BSData ---------------------------------------------")
       const BSData = {...this.state.BSData}
       BSData.data = value;
+
       this.setState({
         BSData
       })
@@ -190,10 +227,12 @@ export class AppProvider extends React.Component {
             codexObj = result.catalogue;
             catalogue = codexObj[Object.keys(codexObj)[0]];
             categories = codexObj.categoryEntries[0].categoryEntry;
-            console.log("END PARSSTRING: " + factionName)
+            console.log("END PARSSTRING: " + factionName);
 
-            let array = []
+            let array = [];
+            let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
+
 
             for (var i = 0; i < fullList.length; i++) {
               if (fullList[i].$.type != 'upgrade') {
@@ -334,6 +373,43 @@ export class AppProvider extends React.Component {
                 // }
                 var bf_role = returnUnit(unitRole)
 
+                let abilityTargetIdArray = []
+
+                //  grab list of abilities
+                if (fullList[i].infoLinks[0].infoLink) {
+                  let abilitiesList = fullList[i].infoLinks[0].infoLink
+                  for (var j = 0; j < abilitiesList.length; j++) {
+                    if (abilitiesList[j].$.type == "profile") {
+                      abilityTargetIdArray.push(abilitiesList[j].$.targetId)
+                    }
+                  }
+                }
+      
+                var abilityObjectArray = []
+      
+                for (var j = 0; j < abilityTargetIdArray.length; j++) {
+                  var abilityid = abilityTargetIdArray[j]
+      
+                  for (k = 0; k < abilitiesArray.length; k++) { 
+                    if (abilityid == abilitiesArray[k].$.id && abilitiesArray[k].$.profileTypeName == "Abilities") {
+                      
+                      var abilityName = abilitiesArray[k].$.name;
+                      var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
+                      console.log(abilityDescription)
+      
+                      var abilityObject = {
+                        "name" : abilityName,
+                        "description" : abilityDescription
+                      }
+      
+                      abilityObjectArray.push(abilityObject)
+      
+      
+                    }
+                  }
+                  
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
@@ -365,7 +441,8 @@ export class AppProvider extends React.Component {
                     "landing pad configuration": landingPad,
                     "weapon": weapon,
                   },
-                  "profile_additional": parseAdditionalArray(additionalArray)
+                  "profile_additional": parseAdditionalArray(additionalArray),
+                  "abilities": abilityObjectArray
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
@@ -397,7 +474,10 @@ export class AppProvider extends React.Component {
         addTerrainObject: this.addTerrainObject,
         setFaction: this.setFaction,
         setUnit: this.setUnit,
-        updateUnits: this.updateUnits,
+        updateP1Units: this.updateP1Units,
+        updateP2Units: this.updateP2Units,
+        updateModalVisibility: this.updateModalVisibility,
+        deployUnitModal: this.deployUnitModal,
         setDeploymentArea: this.setDeploymentArea,
         addUnitPlacementObject: this.addUnitPlacementObject,
         getAllData: this.getAllData,

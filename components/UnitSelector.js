@@ -15,7 +15,9 @@ class CustomDidMount extends Component {
   }
 }
 
+
 export default class UnitSelector extends Component {
+
 
   render() {
     return (
@@ -29,7 +31,11 @@ export default class UnitSelector extends Component {
             </Button>
             {/* {context.state.factionLoaded ? ( */}
             <Content>
+
             {context.state.BSData.data.map(unit => (
+
+              {console.log(context.state.BSData)}
+
               (unit["type"] === "unit") ? (
 
                 <UnitCard 

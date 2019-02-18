@@ -1,0 +1,134 @@
+[
+    { 
+        "id": 1,
+        "player": 1, 
+        "text": "", 
+        "style": "modelKiwi",
+        "x": 41,
+        "y": 20,
+        "m": 20,
+        "wound": 0
+    },
+    { 
+        "id": 2,
+        "player": 1, 
+        "text": "", 
+        "style": "modelPurple",
+        "lastX": 0,
+        "lastY": 0,
+        "x": 49.5,
+        "y": 20,
+        "m": 15,
+        "wound": 0
+    },
+    { 
+        "id": 3,
+        "player": 1,
+        "text": "", 
+        "style": "modelPurple",
+        "x": 58,
+        "y": 20,
+        "m": 15,
+        "wound": 0
+    },
+    { 
+        "id": 4,
+        "player": 1,
+        "text": "", 
+        "style": "modelBlue",
+        "x": 66.5,
+        "y": 20,
+        "m": 7,
+        "wound": 0
+    },
+    { 
+        "id": 5,
+        "player": 1,
+        "text": "", 
+        "style": "modelBlue",
+        "x": 75,
+        "y": 20,
+        "m": 7,
+        "wound": 0
+    },
+    { 
+        "id": 6,
+        "player": 1,
+        "text": "", 
+        "style": "modelBlue",
+        "x": 83.5,
+        "y": 20,
+        "m": 7,
+        "wound": 0
+    },
+    { 
+        "id": 7,
+        "player": 1,
+        "text": "", 
+        "style": "modelBlue",
+        "x": 92,
+        "y": 20,
+        "m": 7,
+        "wound": 0
+    },
+    { 
+        "id": 8,
+        "player": 1,
+        "text": "", 
+        "style": "modelBlue",
+        "x": 100.5,
+        "y": 20,
+        "m": 7,
+        "wound": 0
+    },
+    { 
+        "id": 9,
+        "player": 1,
+        "text": "", 
+        "style": "modelAqua",
+        "x": 109,
+        "y": 20,
+        "m": 9,
+        "wound": 0
+    },
+    { 
+        "id": 10,
+        "player": 1,
+        "text": "", 
+        "style": "modelAqua",
+        "x": 117.5,
+        "y": 20,
+        "m": 9,
+        "wound": 0
+    },
+    { 
+        "id": 11,
+        "player": 1,
+        "text": "", 
+        "style": "modelAqua",
+        "x": 126,
+        "y": 20,
+        "m": 9,
+        "wound": 0
+    },
+    { 
+        "id": 12,
+        "player": 1,
+        "text": "", 
+        "style": "modelAqua",
+        "x": 134.5,
+        "y": 20,
+        "m": 9,
+        "wound": 0
+    },
+    { 
+        "id": 13,
+        "player": 1,
+        "text": "", 
+        "style": "modelAqua",
+        "x": 143,
+        "y": 20,
+        "m": 9,
+        "wound": 0
+    }
+  ]
