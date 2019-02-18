@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image } from 'react-native';
 import { Text, Container, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
+
 import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
 import MapSelector from '../components/MapSelector'
@@ -25,9 +26,19 @@ export default class ChooseMap extends Component {
     },
   };
 
+  
+
   render() {
 
     const { navigate } = this.props.navigation;
+    // const cards = [
+    //   {
+    //     text: 'Card One',
+    //     name: 'One',
+        // image: require('../assets/img/map5.jpg'),
+        
+    //   }
+    // ]
 
 
     return (
@@ -59,6 +70,7 @@ export default class ChooseMap extends Component {
           </Container>
         )}
 
+
       </AppConsumer>
     );
   }
@@ -76,4 +88,7 @@ const styles = StyleSheet.create({
   cards: {
     display: "flex",
   }
+
 })
+
+
