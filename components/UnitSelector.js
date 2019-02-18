@@ -1,30 +1,41 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
-import { Container, Content } from 'native-base';
-import { AppConsumer, getFactionFromStorage } from '../storage/AppContext';
+import { AsyncStorage, StyleSheet } from 'react-native';
+import { Container, Content, Button, Text } from 'native-base';
+import { AppProvider, AppConsumer } from '../storage/AppContext';
 import UnitCard from '../components/UnitCard';
 import Units from '../utils/data/units.json';
 
+class CustomDidMount extends Component {
+  componentDidMount () {
+    this.props.getFactionFromStorage
+    console.log("CUSTOMDIDMOOUNTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
+  }
+  render () {
+    return null
+  }
+}
+
+
 export default class UnitSelector extends Component {
 
-  
-  componentWillMount() {
-    getFactionFromStorage();
-  }
 
   render() {
-
-
     return (
         <AppConsumer>
         {(context) => (
           <Container>
-
-            {context.state.factionLoaded ?(
-
+            <Button
+              onPress={() => context.getFactionFromStorage()}
+            >
+              <Text>Load Units</Text>
+            </Button>
+            {/* {context.state.factionLoaded ? ( */}
             <Content>
+
+            {context.state.BSData.data.map(unit => (
+
               {console.log(context.state.BSData)}
-              {context.state.BSData.map(unit => (
+
               (unit["type"] === "unit") ? (
 
                 <UnitCard 
@@ -36,19 +47,9 @@ export default class UnitSelector extends Component {
                   // }}
                   >{}</UnitCard>
 
-              ) : (console.log(""))           
-         
+              ) : (console.log(""))              
               ))}
-
-            {/* {context.state.playerOne.units.map(unit => (
-              <Text key={unit.id}>Unit: {unit.name}</Text>
-            ))} */}
-          
-          
             </Content>
-
-            ) : (<Text>Loading Units...</Text>)}
-
 
           </Container>
         )}
