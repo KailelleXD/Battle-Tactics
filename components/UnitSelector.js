@@ -15,38 +15,31 @@ class CustomDidMount extends Component {
   }
 }
 
-
 export default class UnitSelector extends Component {
-
-
   render() {
     return (
         <AppConsumer>
         {(context) => (
           <Container>
             <Button
-              onPress={() => context.getFactionFromStorage()}
+              onPress={() => context.getFactionFromStorage(context.state.playerOne.faction)}
             >
               <Text>Load Units</Text>
             </Button>
+            
             {/* {context.state.factionLoaded ? ( */}
+
             <Content>
-
+            {console.log(context.state.BSData)}
             {context.state.BSData.data.map(unit => (
-
-              {console.log(context.state.BSData)}
-
               (unit["type"] === "unit") ? (
-
                 <UnitCard 
-              
                 key={unit["id"]} 
                 name={unit["name"]} 
                 // cardPress={() => {
                   //   context.setUnit({name: unit.name, id: unit.id})
                   // }}
                   >{}</UnitCard>
-
               ) : (console.log(""))              
               ))}
             </Content>

@@ -163,15 +163,23 @@ export class AppProvider extends React.Component {
 
   getFactionFromStorage = (faction) => {
     // just for testing
+    // {const selectedFaction = context.state.playerOne.faction}
 
     console.log("get faction from storage is running---------------------------")
-    AsyncStorage.getItem("1-Aeldari-Drukhari")
+    AsyncStorage.getItem(faction)
     .then(value => {
       return JSON.parse(value);
     })
     .then(value => {
       console.log("setting BSData ---------------------------------------------")
       const BSData = {...this.state.BSData}
+      
+      const newFaction = {
+        factionName: faction,
+        factionData: value
+      }
+
+      // BSData.data = BSData.data.concat(newFaction);
       BSData.data = value;
 
       this.setState({
@@ -181,6 +189,8 @@ export class AppProvider extends React.Component {
     })
   } 
 
+ 
+
   setBSData = (newData) => {
     console.log("running setBSData ------------------------------------------------------------")
     const BSData = { ...this.state.BSData }
@@ -189,6 +199,7 @@ export class AppProvider extends React.Component {
       BSData
     });
   }
+
 
 // =====================================================================
   consoleLogFactionTEST = () => {

@@ -25,7 +25,7 @@ export default class FactionSelector extends Component {
                     detail={faction.detail} 
                     path="FactionDetail"
                     cardPress={() => {
-                      context.setFaction(faction.name)
+                      context.setFaction(faction.factionName)
                     }}
                     ></FactionCard>
                     ))}
