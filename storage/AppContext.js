@@ -247,6 +247,58 @@ export class AppProvider extends React.Component {
             categories = codexObj.categoryEntries[0].categoryEntry;
             console.log("END PARSSTRING: " + factionName);
 
+
+            // weapons object
+            let weaponsArray = codexObj.sharedProfiles[0].profile
+            let weaponsObjArray = []
+
+            for (var i = 0; i < weaponsArray.length; i++) {
+
+              var weaponsObj = {
+                "name": null,
+                "range": null,
+                "type": null,
+                "S": null,
+                "AP": null,
+                "D": null,
+                "abilities": null
+              }
+
+              if (weaponsArray[i].$.profileTypeName == "Weapon") {
+
+                weaponsObj.name = weaponsArray[i].$.name;
+
+                for (var j = 0; j < weaponsArray[i].characteristics[0].characteristic.length; j++) {
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Range") {
+                    weaponsObj.range = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Type") {
+                    weaponsObj.type = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "S") {
+                    weaponsObj.S = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "AP") {
+                    weaponsObj.AP = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "D") {
+                    weaponsObj.D = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Abilities") {
+                    weaponsObj.abilities = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                }
+
+                weaponsObjArray.push(weaponsObj)
+              }
+            }
+
             let array = [];
             let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
@@ -427,6 +479,28 @@ export class AppProvider extends React.Component {
                   
                 }
 
+                // logic to retrieve weapons
+                var entryLinks = fullList[i].entryLinks[0].entryLink
+
+                var entryNames = []
+                var entryWeapons = []
+
+                if (entryLinks) {
+                  for (var j = 0; j < entryLinks.length; j++) {
+                    entryNames.push(entryLinks[j].$.name)
+                  }
+                }
+
+                if (entryNames) {
+                  for (var j = 0; j < entryNames.length; j++) {
+                    for (var k = 0; k < weaponsObjArray.length; k++) {
+                      if (entryNames[j] == weaponsObjArray[k].name) {
+                        entryWeapons.push(weaponsObjArray[k])
+                      }
+                    }
+                  }
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
@@ -459,7 +533,8 @@ export class AppProvider extends React.Component {
                     "weapon": weapon,
                   },
                   "profile_additional": parseAdditionalArray(additionalArray),
-                  "abilities": abilityObjectArray
+                  "abilities": abilityObjectArray,
+                  "weapons": entryWeapons
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
