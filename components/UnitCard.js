@@ -11,7 +11,10 @@ class UnitCard extends Component {
           <Card>
             <CardItem>
               <Body>
-                <Text> {this.props.name} </Text>
+                <Text>Model Name: {this.props.modelName}</Text>
+                <Text>BFRole: {this.props.bfRole}</Text>
+                <Text>Points: {this.props.points}</Text>
+                <Text>PL: {this.props.PL}</Text>
               </Body>
             </CardItem>
           </Card>

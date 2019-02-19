@@ -1,0 +1,3788 @@
+[{
+    "id": "d957-0f84-bce5-1298",
+    "name": "Biovores",
+    "type": "unit",
+    "bf_role": "Heavy Support",
+    "pts": "0.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {},
+    "profileType": {
+        "keywords": "Biovores"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "96c9-795a-8498-07e6",
+    "name": "Carnifexes",
+    "type": "unit",
+    "bf_role": "Heavy Support",
+    "pts": "0.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {},
+    "profileType": {
+        "keywords": "Carnifexes"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Monstrous Brood",
+        "description": "The first time this unit is set up on the battlefield, all of its models must be placed within 6\" of at least one other model in their unit. From that point onwards, each operates independently and is treated as a separate unit."
+    }, {
+        "name": "Living Battering Ram",
+        "description": "When a Carnifex finishes a charge move, roll a dice; on a 4+ one enemy unit with 1\" suffers a mortal wound. In addition, add 1 to all hit rolls in the Fight phase for a Carnifex that charged in the same turn."
+    }]
+}, {
+    "id": "a886-3ba1-c505-1200",
+    "name": "Exocrine",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "170.0",
+    "PL": "11.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "8",
+        "W": "12",
+        "A": "*",
+        "Ld": "6",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Symbiotic Targeting",
+        "unit": "Exocrine",
+        "keywords": "Exocrine"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": "D3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }, {
+        "name": "Weapon Beast",
+        "description": "If this model does not move in your Movement phase, it can shoot all of its weapons twice in your Shooting phase."
+    }]
+}, {
+    "id": "21fc-05c5-6fd6-2d0a",
+    "name": "Gargoyles",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "3.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "8",
+        "W": "12",
+        "A": "*",
+        "Ld": "6",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Swooping Assault",
+        "unit": "Exocrine",
+        "keywords": "Gargoyles"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Hail of Living Ammunition",
+        "description": "If this unit contains 20 or more models, you can re-roll wound rolls of 1 when it shoots."
+    }]
+}, {
+    "id": "593d-594c-e42d-02f5",
+    "name": "Genestealers",
+    "type": "unit",
+    "bf_role": "Troops",
+    "pts": "0.0",
+    "PL": "4.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "8",
+        "W": "12",
+        "A": "*",
+        "Ld": "6",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Infestation",
+        "unit": "Exocrine",
+        "keywords": "Genestealers"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Lightning Reflexes",
+        "description": "Models in this unit have a 5+ invulnerable save."
+    }, {
+        "name": "Swift and Deadly",
+        "description": "Models in this unit can charge even if they Advanced during its turn."
+    }]
+}, {
+    "id": "ee16-7977-eb9b-88e7",
+    "name": "Harpy",
+    "type": "model",
+    "bf_role": null,
+    "pts": "105.0",
+    "PL": "9.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "6",
+        "T": "6",
+        "W": "12",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Spore Mine Cysts",
+        "unit": "Harpy",
+        "keywords": "Harpy"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "30\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "20\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "10\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "10\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "a753-2d35-9437-02d3",
+    "name": "Haruspex",
+    "type": "model",
+    "bf_role": "Elites",
+    "pts": "170.0",
+    "PL": "10.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "7\"",
+        "WS": "*",
+        "BS": "*",
+        "S": "*",
+        "T": "8",
+        "W": "13",
+        "A": "4",
+        "Ld": "6",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "unit": "Haruspex",
+        "keywords": "Haruspex"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-13+",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": "7",
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": "6",
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": "5",
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": "5",
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Acid Blood",
+        "description": "Each time this model loses a wound in the Fight phase, roll a D6; on a 6, the unit that inflicted the damage suffers a mortal wound after all of their attacks have been resolved."
+    }]
+}, {
+    "id": "7c4f-3eb2-a044-15a8",
+    "name": "Hive Crone",
+    "type": "model",
+    "bf_role": null,
+    "pts": "135.0",
+    "PL": "8.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "6",
+        "T": "6",
+        "W": "12",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "unit": "Hive Crone",
+        "keywords": "Hive Crone"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "30\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "20\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "10\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "10\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "c941-0aa1-f972-429c",
+    "name": "Hive Guard",
+    "type": "unit",
+    "bf_role": "Elites",
+    "pts": "0.0",
+    "PL": "7.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "6",
+        "T": "6",
+        "W": "12",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "unit": "Hive Crone",
+        "keywords": "Hive Guard"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "add7-3535-a4cd-9ba5",
+    "name": "Hive Tyrant",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "143.0",
+    "PL": "9.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "6",
+        "T": "7",
+        "W": "12",
+        "A": "4",
+        "Ld": "10",
+        "Sv": "3+/4++"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Hive Tyrant",
+        "unit": "Hive Tyrant",
+        "keywords": "Hive Tyrant"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": "2+",
+            "Strength": null,
+            "BS": "3+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": "3+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "The Will of the Hive Mind",
+        "description": "The range of this model's Synapse ability is 18\" rather than 12\"."
+    }, {
+        "name": "Psychic Barrier",
+        "description": "A model with this ability has a 4+ invulnerable save."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "0843-c3c5-0340-2a53",
+    "name": "Hormagaunts",
+    "type": "unit",
+    "bf_role": "Troops",
+    "pts": "0.0",
+    "PL": "3.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "6",
+        "T": "7",
+        "W": "12",
+        "A": "4",
+        "Ld": "10",
+        "Sv": "3+/4++"
+    },
+    "profileType": {
+        "abilities": "Hungering Swarm",
+        "psyker": "Hive Tyrant",
+        "unit": "Hive Tyrant",
+        "keywords": "Hormagaunts"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "a5e2-a0a5-57f0-27b6",
+    "name": "Lictor",
+    "type": "model",
+    "bf_role": "Elites",
+    "pts": "30.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "9\"",
+        "WS": "2+",
+        "BS": "4+",
+        "S": "6",
+        "T": "4",
+        "W": "4",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "5+"
+    },
+    "profileType": {
+        "abilities": "Chameleonic Skin",
+        "psyker": "Hive Tyrant",
+        "unit": "Lictor",
+        "keywords": "Lictor"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Hidden Hunter",
+        "description": "During deployment, you can set up this model in hiding instead of placing it on the battlefield. At the end of any of your Movement phases, this model can spring from its hiding place - set it up anywhere on the battlefield that is more than 9\" away from enemy models. You can re-roll the this model's charge distance in the turn in which it uses this ability to arrive on the battlefield."
+    }]
+}, {
+    "id": "9801-59fc-296b-6b85",
+    "name": "Maleceptor",
+    "type": "model",
+    "bf_role": "Elites",
+    "pts": "150.0",
+    "PL": "9.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "7\"",
+        "WS": "*",
+        "BS": "4+",
+        "S": "*",
+        "T": "7",
+        "W": "12",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "3+/4++"
+    },
+    "profileType": {
+        "abilities": "Psychic Overload",
+        "psyker": "Maleceptor",
+        "unit": "Maleceptor",
+        "keywords": "Maleceptor"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": "6 Units",
+            "S": "7"
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": "3 Units",
+            "S": "6"
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "6+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": "D3 Units",
+            "S": "5"
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "6+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": "D3 Units",
+            "S": "5"
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Psychic Barrier",
+        "description": "A model with this ability has a 4+ invulnerable save."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }]
+}, {
+    "id": "92ec-64fb-e5a7-65c1",
+    "name": "Mawloc",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "104.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Burrow",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Mawloc"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": "4+",
+            "Strength": "6",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": "5+",
+            "Strength": "5",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "6+",
+            "Strength": "4",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "6+",
+            "Strength": "4",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "9773-03e8-68e5-8ea1",
+    "name": "Mucolid Spores",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "1.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Burrow",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Mawloc"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": "4+",
+            "Strength": "6",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": "5+",
+            "Strength": "5",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "6+",
+            "Strength": "4",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "6+",
+            "Strength": "4",
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Float Down",
+        "description": "During deployment, you can set up this unit in the upper atmosphere instead of on the battlefield. At the end of any of your Movement phases, it can float down to the battlefield - set it up anywhere that is more than 12\" from any enemy models."
+    }, {
+        "name": "Living Bombs",
+        "description": "This unit automatically passes Morale tests. Furthermore, this unit is discounted for the purposes of any victory conditions - their destruction never awards any victory points, they do not count towards the number of models controlling an objective, and they do not count when determining if a player has any models left on the battlefield. If you are playing a matched game, the creation of these units by another unit (eg. from a Sporocyst's Spore Node ability) is free, and the unit's points cost does not come out of your pool of reinforcement points."
+    }, {
+        "name": "Floating Death (Mucolid Spore)",
+        "description": "A Mucolid Spore explodes if it is within 3\" of any enemy units at the end of any Charge phase. Each time a Mucolid Spore explodes, roll a D6; on a 1 it fails to inflict an harm, on a 2-5 it inflicts D3 mortal wounds on the nearest enemy unit, and on a 6 it inflicts D6 mortal wounds on that unit. The Mucolid Spore is then destroyed."
+    }]
+}, {
+    "id": "cb6d-b756-8436-074e",
+    "name": "Pyrovores",
+    "type": "unit",
+    "bf_role": "Elites",
+    "pts": "0.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Volatile",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Pyrovores"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Acid Blood",
+        "description": "Each time this model loses a wound in the Fight phase, roll a D6; on a 6, the unit that inflicted the damage suffers a mortal wound after all of their attacks have been resolved."
+    }]
+}, {
+    "id": "eda6-2686-5153-3ac8",
+    "name": "Raveners",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "4.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Volatile",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Raveners"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death from Below",
+        "description": "During deployment, you can set up this unit underground instead of placing it on the battlefield. At the end of any of your Movement phases, the unit can burrow to the surface - set it up anywhere on the battlefield that is more than 9\" away from any enemy models."
+    }]
+}, {
+    "id": "04a7-33a3-6396-b371",
+    "name": "Ripper Swarms",
+    "type": "unit",
+    "bf_role": "Troops",
+    "pts": "0.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Burrowers",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Ripper Swarm"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "d7ba-bc0a-efeb-36f3",
+    "name": "Sky-slasher Swarms",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Burrowers",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Sky-slasher Swarm"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "0a0b-c7ca-2804-4f90",
+    "name": "Spore Mines",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "2.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "-",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "7",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Burrowers",
+        "psyker": "Maleceptor",
+        "unit": "Mawloc",
+        "keywords": "Sky-slasher Swarm"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Float Down",
+        "description": "During deployment, you can set up this unit in the upper atmosphere instead of on the battlefield. At the end of any of your Movement phases, it can float down to the battlefield - set it up anywhere that is more than 12\" from any enemy models."
+    }, {
+        "name": "Living Bombs",
+        "description": "This unit automatically passes Morale tests. Furthermore, this unit is discounted for the purposes of any victory conditions - their destruction never awards any victory points, they do not count towards the number of models controlling an objective, and they do not count when determining if a player has any models left on the battlefield. If you are playing a matched game, the creation of these units by another unit (eg. from a Sporocyst's Spore Node ability) is free, and the unit's points cost does not come out of your pool of reinforcement points."
+    }, {
+        "name": "Floating Death (Spore Mine)",
+        "description": "A Spore Mine explodes if it is within 3\" of any enemy units at the end of any Charge phase. Each time a Spore Mine explodes, roll a D6; on a 1 it fails to inflict an harm, on a 2-5 it inflicts 1 mortal wound on the nearest enemy unit, and on a 6 it inflicts D3 mortal wounds on that unit. The Spore Mine is then destroyed."
+    }]
+}, {
+    "id": "4fe0-a701-3f44-b703",
+    "name": "Sporocyst",
+    "type": "model",
+    "bf_role": "Fortification",
+    "pts": "79.0",
+    "PL": "7.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "-",
+        "WS": "5+",
+        "BS": "5+",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Spawn Spore Mines",
+        "psyker": "Maleceptor",
+        "unit": "Sporocyst",
+        "keywords": "Sporocyst"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": null,
+            "WS": null,
+            "Strength": "5",
+            "BS": null,
+            "Attacks": "D6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": null,
+            "WS": null,
+            "Strength": "4",
+            "BS": null,
+            "Attacks": "D3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": null,
+            "Strength": "3",
+            "BS": null,
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": null,
+            "Strength": "3",
+            "BS": null,
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "2e2b-aedb-e20b-9c8b",
+    "name": "Termagants",
+    "type": "unit",
+    "bf_role": "Troops",
+    "pts": "0.0",
+    "PL": "3.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "-",
+        "WS": "5+",
+        "BS": "5+",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Spawn Spore Mines",
+        "psyker": "Maleceptor",
+        "unit": "Sporocyst",
+        "keywords": "Termagants"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Hail of Living Ammunition",
+        "description": "If this unit contains 20 or more models, you can re-roll wound rolls of 1 when it shoots."
+    }]
+}, {
+    "id": "0507-f341-5267-7cc5",
+    "name": "Tervigon",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "180.0",
+    "PL": "13.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "8",
+        "W": "14",
+        "A": "3",
+        "Ld": "9",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Spawn Termagants",
+        "psyker": "Tervigon",
+        "unit": "Tervigon",
+        "keywords": "Tervigon"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "8-14+",
+            "Movement": "8\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-7",
+            "Movement": "6\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "4\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "4\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }]
+}, {
+    "id": "cdd9-7d89-df58-3760",
+    "name": "Toxicrene",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "140.0",
+    "PL": "8.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "8\"",
+        "WS": "*",
+        "BS": "4+",
+        "S": "*",
+        "T": "7",
+        "W": "12",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Tervigon",
+        "unit": "Toxicrene",
+        "keywords": "Toxicrene"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": null,
+            "WS": "3+",
+            "Strength": "7",
+            "BS": null,
+            "Attacks": "6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": null,
+            "WS": "4+",
+            "Strength": "6",
+            "BS": null,
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": "5",
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": "5+",
+            "Strength": "5",
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Acid Blood",
+        "description": "Each time this model loses a wound in the Fight phase, roll a D6; on a 6, the unit that inflicted the damage suffers a mortal wound after all of their attacks have been resolved."
+    }]
+}, {
+    "id": "f628-1bb2-0620-3beb",
+    "name": "Trygon",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "108.0",
+    "PL": "9.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "6",
+        "W": "12",
+        "A": "6",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Tervigon",
+        "unit": "Trygon",
+        "keywords": "Trygon"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Subterranean Assault",
+        "description": "During deployment, you can set up a Trygon underground instead of placing it on the battlefield. At the same time, you can set up a <HIVE FLEET> Troops unit in the Trygon's tunnel. At the end of any of your Movement phases, set up the Trygon anywhere on the battlefield that is  more than 9\" away from any enemy models. If there is another unit in the Trygon's tunnel, set it up at the same time wholly within 3\" of the Trygon and more than 9\" away from any enemy models. Any models that you cannot place in this way are destroyed."
+    }, {
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "1864-f6fc-3f51-0c34",
+    "name": "Trygon Prime",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "138.0",
+    "PL": "10.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "6",
+        "W": "12",
+        "A": "6",
+        "Ld": "9",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Tervigon",
+        "unit": "Trygon Prime",
+        "keywords": "Trygon Prime"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }, {
+        "name": "Subterranean Assault",
+        "description": "During deployment, you can set up a Trygon underground instead of placing it on the battlefield. At the same time, you can set up a <HIVE FLEET> Troops unit in the Trygon's tunnel. At the end of any of your Movement phases, set up the Trygon anywhere on the battlefield that is  more than 9\" away from any enemy models. If there is another unit in the Trygon's tunnel, set it up at the same time wholly within 3\" of the Trygon and more than 9\" away from any enemy models. Any models that you cannot place in this way are destroyed."
+    }]
+}, {
+    "id": "0435-abe8-4398-eff8",
+    "name": "Tyranid Shrikes",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "6",
+        "W": "12",
+        "A": "6",
+        "Ld": "9",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Tervigon",
+        "unit": "Trygon Prime",
+        "keywords": "Tyranid Shrikes"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }]
+}, {
+    "id": "8ffc-a0f3-766e-8ae4",
+    "name": "Tyranid Warriors",
+    "type": "unit",
+    "bf_role": "Troops",
+    "pts": "0.0",
+    "PL": "5.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "6",
+        "W": "12",
+        "A": "6",
+        "Ld": "9",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Frenzied Death Throes",
+        "psyker": "Tervigon",
+        "unit": "Trygon Prime",
+        "keywords": "Tyranid Warriors"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }]
+}, {
+    "id": "0daf-d491-1f32-1322",
+    "name": "Tyrannocyte",
+    "type": "model",
+    "bf_role": "Dedicated Transport",
+    "pts": "75.0",
+    "PL": "8.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "5+",
+        "BS": "5+",
+        "S": "*",
+        "T": "6",
+        "W": "12",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Transport Spore",
+        "psyker": "Tervigon",
+        "unit": "Tyrannocyte",
+        "keywords": "Tyrannocyte"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "6\"",
+            "WS": null,
+            "Strength": "5",
+            "BS": null,
+            "Attacks": "D6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "4\"",
+            "WS": null,
+            "Strength": "4",
+            "BS": null,
+            "Attacks": "D3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "2\"",
+            "WS": null,
+            "Strength": "3",
+            "BS": null,
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "2\"",
+            "WS": null,
+            "Strength": "3",
+            "BS": null,
+            "Attacks": "1",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "f535-4e40-2b57-2bf7",
+    "name": "Tyrannofex",
+    "type": "model",
+    "bf_role": "Heavy Support",
+    "pts": "151.0",
+    "PL": "11.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "4+",
+        "BS": "*",
+        "S": "*",
+        "T": "8",
+        "W": "14",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Bio-tank",
+        "psyker": "Tervigon",
+        "unit": "Tyrannofex",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Tyrannofex"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "8-14+",
+            "Movement": null,
+            "WS": null,
+            "Strength": "7",
+            "BS": "4+",
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-7",
+            "Movement": null,
+            "WS": null,
+            "Strength": "6",
+            "BS": "5+",
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": null,
+            "Strength": "5",
+            "BS": "5+",
+            "Attacks": "2",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": null,
+            "WS": null,
+            "Strength": "5",
+            "BS": "5+",
+            "Attacks": "2",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Weapon Beast",
+        "description": "If this model does not move in your Movement phase, it can shoot all of its weapons twice in your Shooting phase."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "66df-c9ba-5ea8-e524",
+    "name": "Tyrant Guard",
+    "type": "unit",
+    "bf_role": "Elites",
+    "pts": "0.0",
+    "PL": "7.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "4+",
+        "BS": "*",
+        "S": "*",
+        "T": "8",
+        "W": "14",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Shieldwall",
+        "psyker": "Tervigon",
+        "unit": "Tyrannofex",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Tyrant Guard"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "90b8-1695-18c9-1512",
+    "name": "Venomthropes",
+    "type": "unit",
+    "bf_role": "Elites",
+    "pts": "0.0",
+    "PL": "5.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "4+",
+        "BS": "*",
+        "S": "*",
+        "T": "8",
+        "W": "14",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Toxic Miasma",
+        "psyker": "Tervigon",
+        "unit": "Tyrannofex",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Venomthropes"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "c1b3-01e5-3175-3107",
+    "name": "Zoanthropes",
+    "type": "unit",
+    "bf_role": "Elites",
+    "pts": "0.0",
+    "PL": "0.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "4+",
+        "BS": "*",
+        "S": "*",
+        "T": "8",
+        "W": "14",
+        "A": "*",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Warp Blast",
+        "psyker": "Zoanthropes",
+        "unit": "Tyrannofex",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Zoanthropes"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Warp Field",
+        "description": "Models in this unit have a 3+ invulnerable save."
+    }]
+}, {
+    "id": "0e09-72a3-df36-ebd8",
+    "name": "Deathleaper",
+    "type": "model",
+    "bf_role": "Elites",
+    "pts": "60.0",
+    "PL": "5.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "9\"",
+        "WS": "2+",
+        "BS": "4+",
+        "S": "6",
+        "T": "4",
+        "W": "6",
+        "A": "4",
+        "Ld": "10",
+        "Sv": "5+"
+    },
+    "profileType": {
+        "abilities": "It's After Me!",
+        "psyker": "Zoanthropes",
+        "unit": "Deathleaper",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Deathleaper"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Hidden Hunter",
+        "description": "During deployment, you can set up this model in hiding instead of placing it on the battlefield. At the end of any of your Movement phases, this model can spring from its hiding place - set it up anywhere on the battlefield that is more than 9\" away from enemy models. You can re-roll the this model's charge distance in the turn in which it uses this ability to arrive on the battlefield."
+    }]
+}, {
+    "id": "d83b-acf3-2677-40e1",
+    "name": "Old One Eye",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "200.0",
+    "PL": "10.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "7\"",
+        "WS": "3+",
+        "BS": "-",
+        "S": "7",
+        "T": "7",
+        "W": "9",
+        "A": "5",
+        "Ld": "7",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Regeneration",
+        "psyker": "Zoanthropes",
+        "unit": "Old One Eye",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Old One Eye"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "6bad-120f-afa0-1745",
+    "name": "The Red Terror",
+    "type": "model",
+    "bf_role": "Elites",
+    "pts": "50.0",
+    "PL": "4.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "12\"",
+        "WS": "3+",
+        "BS": "4+",
+        "S": "5",
+        "T": "5",
+        "W": "6",
+        "A": "4",
+        "Ld": "7",
+        "Sv": "4+"
+    },
+    "profileType": {
+        "abilities": "Swallow Whole",
+        "psyker": "Zoanthropes",
+        "unit": "The Red Terror",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "The Red Terror"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Death from Below",
+        "description": "During deployment, you can set up this unit underground instead of placing it on the battlefield. At the end of any of your Movement phases, the unit can burrow to the surface - set it up anywhere on the battlefield that is more than 9\" away from any enemy models."
+    }]
+}, {
+    "id": "5a85-738f-f138-2640",
+    "name": "The Swarmlord",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "250.0",
+    "PL": "15.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "2+",
+        "BS": "3+",
+        "S": "*",
+        "T": "7",
+        "W": "12",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "3+/4++"
+    },
+    "profileType": {
+        "abilities": "Hive Commander",
+        "psyker": "The Swarmlord",
+        "unit": "The Swarmlord",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "The Swarmlord"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "7-12+",
+            "Movement": "9\"",
+            "WS": null,
+            "Strength": "8",
+            "BS": null,
+            "Attacks": "6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-6",
+            "Movement": "7\"",
+            "WS": null,
+            "Strength": "7",
+            "BS": null,
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": null,
+            "Strength": "6",
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "5\"",
+            "WS": null,
+            "Strength": "6",
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "The Will of the Hive Mind",
+        "description": "The range of this model's Synapse ability is 18\" rather than 12\"."
+    }, {
+        "name": "Psychic Barrier",
+        "description": "A model with this ability has a 4+ invulnerable save."
+    }, {
+        "name": "Death Throes",
+        "description": "If this model is reduced to 0 wounds, roll a dice before removing it from the battlefield; on a 6, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }]
+}, {
+    "id": "d254-4969-7e67-32a9",
+    "name": "Tyranid Prime",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "70.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "6\"",
+        "WS": "2+",
+        "BS": "3+",
+        "S": "5",
+        "T": "5",
+        "W": "6",
+        "A": "4",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Alpha Warrior",
+        "psyker": "The Swarmlord",
+        "unit": "Tyranid Prime",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Tyranid Prime"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }]
+}, {
+    "id": "35c3-a8c2-fe10-325f",
+    "name": "Barbed Hierodule",
+    "type": "model",
+    "bf_role": "Lord of War",
+    "pts": "420.0",
+    "PL": "22.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "3+",
+        "BS": "*",
+        "S": "10",
+        "T": "8",
+        "W": "22",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Titanic Monster",
+        "psyker": "The Swarmlord",
+        "unit": "Barbed Hierodule",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Barbed Hierodule"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "11-22+",
+            "Movement": "12\"",
+            "WS": null,
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "6-10",
+            "Movement": "8\"",
+            "WS": null,
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-5",
+            "Movement": "4\"",
+            "WS": null,
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-5",
+            "Movement": "4\"",
+            "WS": null,
+            "Strength": null,
+            "BS": "6+",
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Death Throes (Hierodule)",
+        "description": "If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield; on a 5+, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }, {
+        "name": "Agile",
+        "description": "When this model Advances, increase its Move characteristic by 6\" until the end of phase - do not roll any dice. Additionally, this model may roll 3D6 when charging and discard the lowest result."
+    }, {
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "31b7-cfad-2be9-9997",
+    "name": "Dimachaeron",
+    "type": "model",
+    "bf_role": "Fast Attack",
+    "pts": "200.0",
+    "PL": "10.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "3+",
+        "S": "6",
+        "T": "6",
+        "W": "14",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Leaper-killer",
+        "psyker": "The Swarmlord",
+        "unit": "Dimachaeron",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Dimachaeron"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "8-14+",
+            "Movement": "12\"",
+            "WS": "2+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "4-7",
+            "Movement": "9\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-3",
+            "Movement": "6\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-3",
+            "Movement": "6\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "d1cb-8964-788a-7e66",
+    "name": "Harridan",
+    "type": "model",
+    "bf_role": "Lord of War",
+    "pts": "740.0",
+    "PL": "32.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "7",
+        "W": "30",
+        "A": "5",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Flying Titanic Monster",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Harridan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Harridan"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "16-30+",
+            "Movement": "30\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": "3+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "10-15",
+            "Movement": "20\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": "4+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "5-9",
+            "Movement": "15\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "5-9",
+            "Movement": "15\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": "5+",
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": []
+}, {
+    "id": "fb84-bb9f-5abe-be3f",
+    "name": "Malanthropes",
+    "type": "unit",
+    "bf_role": "HQ",
+    "pts": "0.0",
+    "PL": "5.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "7",
+        "W": "30",
+        "A": "5",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Enhanced Toxic Miasma",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Harridan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Malanthrope"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Monstrous Brood",
+        "description": "The first time this unit is set up on the battlefield, all of its models must be placed within 6\" of at least one other model in their unit. From that point onwards, each operates independently and is treated as a separate unit."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }, {
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }]
+}, {
+    "id": "dec0-7f71-801a-6d37",
+    "name": "Meiotic Spores",
+    "type": "unit",
+    "bf_role": "Fast Attack",
+    "pts": "0.0",
+    "PL": "3.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "*",
+        "S": "7",
+        "T": "7",
+        "W": "30",
+        "A": "5",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Outriders of the Swarm",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Harridan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Meiotic Spores"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Living Bombs",
+        "description": "This unit automatically passes Morale tests. Furthermore, this unit is discounted for the purposes of any victory conditions - their destruction never awards any victory points, they do not count towards the number of models controlling an objective, and they do not count when determining if a player has any models left on the battlefield. If you are playing a matched game, the creation of these units by another unit (eg. from a Sporocyst's Spore Node ability) is free, and the unit's points cost does not come out of your pool of reinforcement points."
+    }]
+}, {
+    "id": "633b-45d1-420d-61ba",
+    "name": "Scythed Hierodule",
+    "type": "model",
+    "bf_role": "Lord of War",
+    "pts": "350.0",
+    "PL": "22.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "4+",
+        "S": "10",
+        "T": "8",
+        "W": "22",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "3+"
+    },
+    "profileType": {
+        "abilities": "Titanic Monster",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Scythed Hierodule",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Scythed Hierodule"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "11-22+",
+            "Movement": "12\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "7",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "6-10",
+            "Movement": "8\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "1-5",
+            "Movement": "4\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "1-5",
+            "Movement": "4\"",
+            "WS": "5+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "3",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Agile",
+        "description": "When this model Advances, increase its Move characteristic by 6\" until the end of phase - do not roll any dice. Additionally, this model may roll 3D6 when charging and discard the lowest result."
+    }, {
+        "name": "Death Throes (Hierodule)",
+        "description": "If this model is reduced to 0 wounds, roll a D6 before removing it from the battlefield; on a 5+, it lashes out in its death throes, and each unit within 3\" suffers D3 mortal wounds."
+    }, {
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }]
+}, {
+    "id": "8d05-bafd-ea07-c4af",
+    "name": "Hierophant Bio-titan",
+    "type": "model",
+    "bf_role": "Lord of War",
+    "pts": "2000.0",
+    "PL": "90.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "3+",
+        "S": "10",
+        "T": "8",
+        "W": "50",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "2+"
+    },
+    "profileType": {
+        "abilities": "Titanic Monster",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Hierophant Bio-titan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Hierophant Bio-titan"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": "35-50+",
+            "Movement": "12\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "6",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": "20-34",
+            "Movement": "9\"",
+            "WS": "3+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "5",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": "5-19",
+            "Movement": "6\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": "5-19",
+            "Movement": "6\"",
+            "WS": "4+",
+            "Strength": null,
+            "BS": null,
+            "Attacks": "4",
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": []
+}, {
+    "id": "5c6d-f382-b731-f5ca",
+    "name": "Stone Crusher Carnifex Brood",
+    "type": "unit",
+    "bf_role": "Heavy Support",
+    "pts": "0.0",
+    "PL": "5.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "3+",
+        "S": "10",
+        "T": "8",
+        "W": "50",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "2+"
+    },
+    "profileType": {
+        "abilities": "Carapace Chitin Rams",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Hierophant Bio-titan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Stone Crusher Carnifex Brood"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Monstrous Brood",
+        "description": "The first time this unit is set up on the battlefield, all of its models must be placed within 6\" of at least one other model in their unit. From that point onwards, each operates independently and is treated as a separate unit."
+    }]
+}, {
+    "id": "797b-c7fe-679a-7117",
+    "name": "Screamer-Killers",
+    "type": "unit",
+    "bf_role": null,
+    "pts": "0.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "*",
+        "WS": "*",
+        "BS": "3+",
+        "S": "10",
+        "T": "8",
+        "W": "50",
+        "A": "*",
+        "Ld": "10",
+        "Sv": "2+"
+    },
+    "profileType": {
+        "abilities": "Terrifying",
+        "transport": "Harridan",
+        "psyker": "The Swarmlord",
+        "unit": "Hierophant Bio-titan",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Stone Crusher Carnifex Brood"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Monstrous Brood",
+        "description": "The first time this unit is set up on the battlefield, all of its models must be placed within 6\" of at least one other model in their unit. From that point onwards, each operates independently and is treated as a separate unit."
+    }]
+}, {
+    "id": "cd9f-f30b-27c3-2869",
+    "name": "Neurothrope",
+    "type": "model",
+    "bf_role": "HQ",
+    "pts": "90.0",
+    "PL": "4.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "5\"",
+        "WS": "4+",
+        "BS": "3+",
+        "S": "4",
+        "T": "4",
+        "W": "5",
+        "A": "1",
+        "Ld": "9",
+        "Sv": "5+/3++"
+    },
+    "profileType": {
+        "abilities": "Warp Siphon",
+        "transport": "Harridan",
+        "psyker": "Neurothrope",
+        "unit": "Neurothrope",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Neurothrope"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Warp Field",
+        "description": "Models in this unit have a 3+ invulnerable save."
+    }, {
+        "name": "Shadow in the Warp",
+        "description": "Enemy PSKYERS must subtract 1 from any Psychic tests they make if they are within 18\" of any units with this ability. TYRANID PSYKERS are not affected."
+    }, {
+        "name": "Synapse",
+        "description": "<HIVE FLEET> units automatically pass Morale tests if they are within 12\" of any friendly <HIVE FLEET> units with this ability."
+    }]
+}, {
+    "id": "6f2a-1546-df78-9521",
+    "name": "Thornbacks",
+    "type": "unit",
+    "bf_role": null,
+    "pts": "0.0",
+    "PL": "6.0",
+    "CP": "0.0",
+    "profile": {
+        "M": "5\"",
+        "WS": "4+",
+        "BS": "3+",
+        "S": "4",
+        "T": "4",
+        "W": "5",
+        "A": "1",
+        "Ld": "9",
+        "Sv": "5+/3++"
+    },
+    "profileType": {
+        "abilities": "Vicious Hunter",
+        "transport": "Harridan",
+        "psyker": "Neurothrope",
+        "unit": "Neurothrope",
+        "Stat Damage - BS, S & A": "Tyrannofex (2)",
+        "keywords": "Neurothrope"
+    },
+    "profile_additional": [{
+        "profileOne": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileTwo": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileThree": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }, {
+        "profileFour": {
+            "W": null,
+            "Movement": null,
+            "WS": null,
+            "Strength": null,
+            "BS": null,
+            "Attacks": null,
+            "PsychicOverLoad": null,
+            "S": null
+        }
+    }],
+    "abilities": [{
+        "name": "Instinctive Behaviour",
+        "description": "Unless a <HIVE FLEET> unit with this ability is within 24\" of any friendly <HIVE FLEET> Synapse unit, you must subtract 1 from any hit rolls made for it when shooting any target other than the nearest visible enemy unit, and you must subtract 2 from its charge roll if it declares a charge against any unit other than the nearest enemy unit."
+    }, {
+        "name": "Monstrous Brood",
+        "description": "The first time this unit is set up on the battlefield, all of its models must be placed within 6\" of at least one other model in their unit. From that point onwards, each operates independently and is treated as a separate unit."
+    }]
+}]

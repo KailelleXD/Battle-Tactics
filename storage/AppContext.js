@@ -119,16 +119,16 @@ export class AppProvider extends React.Component {
 
   setUnit = (newUnit) => {
     // console.log(newUnit)
-    this.state.BSData.data.map(unit => {
+    // this.state.BSData.data.map(unit => {
       // console.log(unit.profileType)
-      if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
+      // if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
         // console.log("selected: unit.profileType")
         // console.log(unit.profileType)
         const playerOne = { ...this.state.playerOne }
-        playerOne.units = playerOne.units.concat(unit.name);
+        playerOne.units = playerOne.units.concat(newUnit);
         this.setState({ playerOne });
-      }
-    })
+      // }
+    // })
     console.log(this.state.playerOne.units)
   }
 
@@ -212,14 +212,17 @@ export class AppProvider extends React.Component {
 
 // =====================================================================
   consoleLogFactionTEST = () => {
-      const data = this.state.BSData
-      console.log("model type : ")
-        for(let i = 0; i < data.length; i++){
-          console.log("id: " + data[i]["id"])
-          console.log("name: " + data[i]["name"])
-          console.log("type: " + data[i]["type"])
-        }
-        console.log("consoleLogFactionTEST: done")
+      // const data = this.state.BSData
+      // console.log("model type : ")
+      //   for(let i = 0; i < data.length; i++){
+      //     console.log("id: " + data[i]["id"])
+      //     console.log("name: " + data[i]["name"])
+      //     console.log("type: " + data[i]["type"])
+      //   }
+      //   console.log("consoleLogFactionTEST: done")
+      AsyncStorage.getItem("38-Tyranids").then(value => {
+        console.log(value)
+      })
   }
 
   clearAsyncStorage = async () => {
