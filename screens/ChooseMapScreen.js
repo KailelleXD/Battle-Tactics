@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, ImageBackground } from 'react-native';
 import { Text, Container, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
 
 import { Grid, Col, Row } from 'react-native-easy-grid';
@@ -31,14 +31,6 @@ export default class ChooseMap extends Component {
   render() {
 
     const { navigate } = this.props.navigation;
-    // const cards = [
-    //   {
-    //     text: 'Card One',
-    //     name: 'One',
-        // image: require('../assets/img/map5.jpg'),
-        
-    //   }
-    // ]
 
 
     return (
@@ -46,7 +38,6 @@ export default class ChooseMap extends Component {
         {(context) => (
           <Container>
             <Grid style={styles.grid}>
-              
               <Row size={75}>
                 <Container>
                   <MapCardsSelector />
@@ -84,10 +75,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around"
   },
-
-  cards: {
-    display: "flex",
-  }
 
 })
 
