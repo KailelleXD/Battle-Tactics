@@ -48,7 +48,7 @@ export default class ChooseTerrain extends Component {
                 </Row>
                 
                 <Row size={15}>
-                  <NextBackWrapper path="BattleScribe"/>
+                  <NextBackWrapper path="Factions"/>
                 </Row>
               
               </Grid>
