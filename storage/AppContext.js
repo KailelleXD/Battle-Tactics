@@ -18,7 +18,7 @@ export class AppProvider extends React.Component {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: [],
+        units: modelP1,
         unitPlacement: [],
         points: 0,
         randomStart: false

@@ -1,0 +1,113 @@
+[
+    {
+      "id": 1,
+      "name": "3x12",
+      "style": "terrainRed",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 3,
+      "feetHeight": 12,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 2,
+      "name": "6x9",
+      "style": "terrainOrange",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 6,
+      "feetHeight": 9,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 3,
+      "name": "9x6",
+      "style": "terrainYellow",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 9,
+      "feetHeight": 6,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 4,
+      "name": "12x3",
+      "style": "terrainGreen",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 12,
+      "feetHeight": 3,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 5,
+      "name": "12x3",
+      "style": "terrainBlue",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 12,
+      "feetHeight": 3,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 6,
+      "name": "9x6",
+      "style": "terrainViolet",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 9,
+      "feetHeight": 6,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 7,
+      "name": "6x9",
+      "style": "terrainStrawberry",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 6,
+      "feetHeight": 9,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 8,
+      "name": "3x12",
+      "style": "terrainLime",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 3,
+      "feetHeight": 12,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 9,
+      "name": "15x15",
+      "style": "terrainPrune",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 15,
+      "feetHeight": 15,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 10,
+      "name": "15x15",
+      "style": "terrainGrass",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 15,
+      "feetHeight": 15,
+      "radius": 12,
+      "zIndex": 0
+    }
+]
+  

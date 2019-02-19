@@ -56,6 +56,9 @@ export default class HomeScreen extends Component {
                   <Row style={styles.row}>
                     <HomeScreenButton title='GameStart' />
                   </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='TerrainPlacement' />
+                  </Row>
         
               </Col>
               </ImageBackground>
