@@ -42,13 +42,28 @@ export default class UnitSelector extends Component {
                   {/* {console.log(context.state.BSData)} */}
                   {context.state.BSData.data.map(unit => (
 
-                    (unit.type === "unit") ? (
+                    (unit.type === "model") ? (
 
                       <UnitCard
                         key={unit["id"]}
-                        name={unit.name}
+                        modelName={unit.name}
+                        bfRole={unit.bf_role}
+                        points={unit.pts}
+                        PL={unit.PL}
                         cardPress={() => {
-                          context.setUnit({ id: unit.id, unitName: unit.profileType.unit, modelName: unit.name })
+                          context.setUnit({ 
+                            id: unit.id, 
+                            modelName: unit.name,
+                            player: 1,
+                            x: 0,
+                            y: 0,
+                            inRange: false,
+                            // text
+                            // style
+                            // m
+                            // wound
+                            // weapons - name & range
+                          })
                         }}
                       >{}</UnitCard>
 

@@ -6,6 +6,10 @@ import GameMenuButton from '../components/GameMenuButton';
 import NextBackWrapper from '../components/NextBackWrapper';
 import { AppConsumer } from '../storage/AppContext';
 import DiceManager from '../components/DiceManager';
+import GameStartScreen from '../screens/GameStartScreen';
+import NextButton from '../components/NextButton';
+import BackButton from '../components/BackButton';
+import { red } from 'ansi-colors';
 
 
 export default class GameScreen extends Component {
@@ -27,7 +31,8 @@ export default class GameScreen extends Component {
         this.handleClick = this.handleClick.bind(this);
         this.diceToggle = this.diceToggle.bind(this);
         this.state = {
-            diceManagerIsHidden: true
+            diceManagerIsHidden: true,
+            isModalVisiable: false
         }
     }
 
@@ -47,12 +52,12 @@ export default class GameScreen extends Component {
         {(context) => (
             <Container>
                 <Grid>
-                    <Row>
+                    <Row size={10}>
                         <Col>
-                            <Text>Player One Faction: {context.state.playerOne.faction}</Text>
+                            <Text>Faction: {context.state.playerOne.faction}</Text>
                         </Col>
                         <Col>
-                            <Text>Player One Points: {context.state.playerOne.points}</Text>
+                            <Text>Points: {context.state.playerOne.points}</Text>
                         </Col>
                         <Col>
                             <Button
@@ -61,26 +66,62 @@ export default class GameScreen extends Component {
                                 <Text>Dice</Text>
                             </Button>
                         </Col>
-                        <Col>
+                        {/* <Col>
                             <Text>Player Two Points</Text>
                         </Col>
                         <Col>
                             <Text>Player Two Faction</Text>
-                        </Col>
+                        </Col> */}
                     </Row>
                     <Row>
                         <Container>
                             {this.state.diceManagerIsHidden ? (
-                                <Text> no manager </Text>
-                                ) : <DiceManager />}
-                            
+                                console.log("")
+                                ) : 
+                                <DiceManager />
+                            }                           
                         </Container>
                     </Row>
-                    <Row>
-                        <GameMenuButton path="GameReview" />
+                    <Row size={75}>
+                        <GameStartScreen />
                     </Row>
                     <Row>
-                        <NextBackWrapper path="" />
+                    </Row>
+                    <Row size={15}>
+                        <Container>
+                        <Grid>
+
+                        <Col style={styles.buttonCol}>
+                            <Container>
+                                <Button
+                                    style={styles.button}
+                                    >
+                                    <Text>Back</Text>
+                                </Button>
+                            </Container>
+                        </Col>
+                        <Col style={styles.buttonCol}>
+                            <Container>
+                                <Button
+                                    style={styles.button}
+                                    >
+                                    <Text>Menu</Text>
+                                </Button>
+                                {/* <GameMenuButton path="GameReview" /> */}
+                            </Container>
+                        </Col>
+                        <Col style={styles.buttonCol}>
+                            <Container>
+                                <Button
+                                    style={styles.button}
+                                    >
+                                    <Text>Next</Text>
+                                </Button>
+                            </Container>
+                        </Col>
+                        </Grid>
+                        </Container>
+                        {/* <NextBackWrapper path="" /> */}
                     </Row>
                 </Grid>
             </Container>
@@ -90,4 +131,15 @@ export default class GameScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    button: {
+        borderRadius: 10,
+        backgroundColor: "#e5b83b",
+      },
+    buttonCol: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 20,
+    },
+})
