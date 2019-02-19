@@ -1,75 +1,113 @@
 [
     {
       "id": 1,
-      "name": "12x10",
+      "name": "3x12",
       "style": "terrainRed",
       "x": 0,
       "y": 0,
-      "feetWidth": 12,
-      "feetHeight": 10
+      "feetWidth": 3,
+      "feetHeight": 12,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 2,
-      "name": "3x12",
+      "name": "6x9",
       "style": "terrainOrange",
       "x": 0,
       "y": 0,
-      "feetWidth": 3,
-      "feetHeight": 12
+      "feetWidth": 6,
+      "feetHeight": 9,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 3,
-      "name": "12x12",
+      "name": "9x6",
       "style": "terrainYellow",
       "x": 0,
       "y": 0,
-      "feetWidth": 12,
-      "feetHeight": 12
+      "feetWidth": 9,
+      "feetHeight": 6,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 4,
-      "name": "15x6",
+      "name": "12x3",
       "style": "terrainGreen",
       "x": 0,
       "y": 0,
-      "feetWidth": 15,
-      "feetHeight": 6
+      "feetWidth": 12,
+      "feetHeight": 3,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 5,
-      "name": "6x9",
+      "name": "12x3",
       "style": "terrainBlue",
       "x": 0,
       "y": 0,
-      "feetWidth": 6,
-      "feetHeight": 9
+      "feetWidth": 12,
+      "feetHeight": 3,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 6,
-      "name": "6x15",
+      "name": "9x6",
       "style": "terrainViolet",
       "x": 0,
       "y": 0,
-      "feetWidth": 6,
-      "feetHeight": 15
+      "feetWidth": 9,
+      "feetHeight": 6,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 7,
-      "name": "12x3",
+      "name": "6x9",
       "style": "terrainStrawberry",
       "x": 0,
       "y": 0,
-      "feetWidth": 12,
-      "feetHeight": 3
+      "feetWidth": 6,
+      "feetHeight": 9,
+      "radius": 12,
+      "zIndex": 0
     },
     {
       "id": 8,
-      "name": "18x6",
+      "name": "3x12",
       "style": "terrainLime",
       "x": 0,
       "y": 0,
-      "feetWidth": 18,
-      "feetHeight": 6
+      "feetWidth": 3,
+      "feetHeight": 12,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 9,
+      "name": "15x15",
+      "style": "terrainPrune",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 15,
+      "feetHeight": 15,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 10,
+      "name": "15x15",
+      "style": "terrainGrass",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 15,
+      "feetHeight": 15,
+      "radius": 12,
+      "zIndex": 0
     }
 ]
   

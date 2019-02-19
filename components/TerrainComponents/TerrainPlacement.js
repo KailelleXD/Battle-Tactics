@@ -62,9 +62,21 @@ const styles = StyleSheet.create({
         backgroundColor: "#49C42F",
         borderColor: "#8CE47A"
     },
+    terrainLime: {
+        backgroundColor: "#91A437",
+        borderColor: "#E8F6A4"
+    },
+    terrainGrass: {
+        backgroundColor: "#AAAA39",
+        borderColor: "#FFFFAA"
+    },
     terrainBlue: {
         backgroundColor: "#2A6C96",
         borderColor: "#6EA2C3"
+    },
+    terrainPrune: {
+        backgroundColor: "#2E4372",
+        borderColor: "#7788AA"
     },
     terrainViolet: {
         backgroundColor: "#5526A6",
@@ -73,9 +85,5 @@ const styles = StyleSheet.create({
     terrainStrawberry: {
         backgroundColor: "#D11F67",
         borderColor: "#E66C9D"
-    },
-    terrainLime: {
-        backgroundColor: "#91A437",
-        borderColor: "#E8F6A4"
     }
 });
