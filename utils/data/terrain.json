@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "name": "12x10",
+      "style": "terrainRed",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 12,
+      "feetHeight": 10
+    },
+    {
+      "id": 2,
+      "name": "3x12",
+      "style": "terrainOrange",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 3,
+      "feetHeight": 12
+    },
+    {
+      "id": 3,
+      "name": "12x12",
+      "style": "terrainYellow",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 12,
+      "feetHeight": 12
+    },
+    {
+      "id": 4,
+      "name": "15x6",
+      "style": "terrainGreen",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 15,
+      "feetHeight": 6
+    },
+    {
+      "id": 5,
+      "name": "6x9",
+      "style": "terrainBlue",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 6,
+      "feetHeight": 9
+    },
+    {
+      "id": 6,
+      "name": "6x15",
+      "style": "terrainViolet",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 6,
+      "feetHeight": 15
+    },
+    {
+      "id": 7,
+      "name": "12x3",
+      "style": "terrainStrawberry",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 12,
+      "feetHeight": 3
+    },
+    {
+      "id": 8,
+      "name": "18x6",
+      "style": "terrainLime",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 18,
+      "feetHeight": 6
+    }
+]
+  

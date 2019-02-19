@@ -15,15 +15,6 @@ const ONE_INCH = SCREEN_WIDTH / 48;
 // In Warhammer 1 inch represents 60 inches (1:60 scale)
 // AKA 1 inch is 5ft.
 
-// let feetWidth = 12; // this.props.feetWidth
-// let feetHeight = 15; // this.props.feetHeight
-
-// let width = ONE_INCH * feetWidth;
-// let height = ONE_INCH * feetHeight;
-
-const BG_COLOR = "#700F1C"; // this.props.bgColor
-const BORDER_COLOR = "#D4717F"; // this.props.borderColor
-
 export default class Building extends Component {
     constructor(props) {
         super(props);
@@ -78,6 +69,14 @@ export default class Building extends Component {
 
     _handlePanResponderEnd =  (event, gesture) => {}
 
+// STYLE FUNCTIONS ////
+
+terrainStyle () {
+    return this.props.terrainStyle;
+}
+
+// RENDER FUNCTIONS ////
+
     renderBuildings() {
         return (
             <Animated.View
@@ -88,6 +87,7 @@ export default class Building extends Component {
                     <View 
                         // onTouchStart={this.handleDoubleTap}
                         style={[
+                            this.terrainStyle(),
                             styles.buildingStyle,
                             {
                                 width: this.width,
@@ -103,7 +103,6 @@ export default class Building extends Component {
     render() {
         return (
             <View style={[styles.mainContainer]}>
-                <Text style={styles.textStyle} />
                 {this.renderBuildings()}
             </View>
         );
@@ -119,10 +118,8 @@ const styles = StyleSheet.create({
         left: 0
     },
     buildingStyle: {
-        backgroundColor: BG_COLOR,
-        borderColor: BORDER_COLOR,
         borderRadius: 12,
-        borderWidth: 6,
-        opacity: 0.75
+        borderWidth: 4,
+        opacity: 0.65
     },
 });

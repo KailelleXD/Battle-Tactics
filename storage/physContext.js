@@ -1,5 +1,6 @@
 import React from "react";
 import { Dimensions } from 'react-native';
+import terrain from "../utils/data/terrain.json";
 
 export const PhysContext = React.createContext();
 export const PhysConsumer = PhysContext.Consumer;
@@ -25,7 +26,8 @@ export class PhysProvider extends React.Component {
             inches: 0,
             distanceBetweenPoints: 0,
             TempX: 0,
-            TempY: 0
+            TempY: 0,
+            terrain: terrain,
         };
     }
 
