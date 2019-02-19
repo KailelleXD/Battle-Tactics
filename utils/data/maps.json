@@ -2,26 +2,44 @@
     {
       "id": 1,
       "name": "Dust Plains",
-      "text": "Fight in the dusty plains of planet-EX",
-      "subNote": "Dusty Plains of Planet-EX",
+      "text": "Select Dust Plains",
       "image": "map1"
       
 
     },
     {
       "id": 2,
-      "name": "Mr. Krabs",
-      "text": "Mr. Krabs blah blah text name",
-      "subNote": "this is sub headerr extra too",
+      "name": "Eerie Forest",
+      "text": "Select Eerie Forest",
       "image": "map2"
 
     },
     {
       "id": 3,
-      "name": "Squidward",
-      "text": "more text stuff Squidward",
-      "subNote": "sub header is kinda extra too",
+      "name": "Grassy Vale",
+      "text": "Select Grassy Vale",
       "image": "map3"
+    },
+    {
+      "id": 4,
+      "name": "White Harbor",
+      "text": "Select White Harbor",
+      "image": "map4"
+
+    },
+    {
+      "id": 5,
+      "name": "Poddingfield",
+      "text": "Select Poddingfield",
+      "image": "map5"
+
+    },
+    {
+      "id": 6,
+      "name": "Highgarden",
+      "text": "Select Highgarden",
+      "image": "map6"
+
     }
 ]
   
