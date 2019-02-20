@@ -235,6 +235,10 @@ export class AppProvider extends React.Component {
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
       let URLname = this.state.BSData.factions[j].name.replace(/\s/g, '%20')
+      if (factionCode === "Ignore"){
+        let faction = null;
+      }
+      else{
       await fetch('https://raw.githubusercontent.com/BSData/wh40k/master/' + URLname + '.cat')
         .then(response => response.text())
         .then((response) => {
@@ -246,9 +250,14 @@ export class AppProvider extends React.Component {
 
 
             // weapons object
-            let weaponsArray = codexObj.sharedProfiles[0].profile
             let weaponsObjArray = []
 
+            if (!codexObj.sharedProfiles[0].profile){
+              let weaponsArray = null;
+            }
+            else{ 
+              let weaponsArray = codexObj.sharedProfiles[0].profile
+              // console.log(weaponsArray)
             for (var i = 0; i < weaponsArray.length; i++) {
 
               var weaponsObj = {
@@ -295,7 +304,7 @@ export class AppProvider extends React.Component {
                 weaponsObjArray.push(weaponsObj)
               }
             }
-
+          }
             let array = [];
             let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
@@ -394,13 +403,17 @@ export class AppProvider extends React.Component {
                 }
                 // logic to derive additional profile
                 if (!fullList[i].profiles[0].profile) {
-                  var profile = null
+                  var profileAdditional = null
                 } else {
 
                   var profileAdditional = fullList[i].profiles[0].profile
                   var additionalArray = []
 
                   for (var j = 0; j < profileAdditional.length; j++) {
+                    if(!profileAdditional[j].$.profileTypeName){
+                      let profileAdditionalObj = null;
+                    }
+                    else{
                     if (profileAdditional[j].$.profileTypeName.match(/^Stat Damage.*$/)) {
                       var profileAdditionalObj = {
                         "name": profileAdditional[j].$.name,
@@ -409,6 +422,7 @@ export class AppProvider extends React.Component {
                       }
                       additionalArray.push(profileAdditionalObj)
                     }
+                  }
                   }
                 }
                 if (!fullList[i].costs[0]) {
@@ -550,7 +564,7 @@ export class AppProvider extends React.Component {
     }
 
   }
-
+  }
   // END OF GETALLDATA
 
 
@@ -581,6 +595,7 @@ export class AppProvider extends React.Component {
     )
   }
 }
+
 
 returnUnit = (unitRole) => {
   if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
@@ -616,6 +631,7 @@ returnUnit = (unitRole) => {
     return null
   }
 }
+
 
 parseAdditionalArray = (additionalArray) => {
 
