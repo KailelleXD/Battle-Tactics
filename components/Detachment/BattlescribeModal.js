@@ -98,25 +98,25 @@ export default class BattlescribeModal extends Component {
           <View style={styles.modalMainBody}>
             <View style={styles.modalColumn}>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>X Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.x}</Text>
+                <Text style={styles.dataHeader}>X Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.x === 0 ? this.props.data.unit.x : this.props.data.unit.x.toFixed(8)}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Y Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.y}</Text>
+                <Text style={styles.dataHeader}>Y Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.y === 0 ? this.props.data.unit.y : this.props.data.unit.y.toFixed(8)}</Text>
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Movement Value: </Text><Text style={styles.dataValue}>{this.props.data.unit.m}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>W1: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[0].name}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>W1 Range: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[0].range}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>W2: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[1] ? this.props.data.unit.weapons[1].name : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>W2 Range: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[1] ? this.props.data.unit.weapons[1].range : "N/A"}</Text>
               </View>
             </View>
             <View style={styles.modalColumn}>
