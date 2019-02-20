@@ -7,6 +7,7 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
 import DeploymentSelector from '../components/DeploymentSelector'
 import NextButton from '../components/NextButton';
+import { Container } from 'native-base';
 
 export default class ChooseDeployment extends Component {
   static navigationOptions = {
@@ -29,23 +30,14 @@ export default class ChooseDeployment extends Component {
       <AppConsumer>
         {(context) => (
           <Grid style={styles.wrapper}>
-
-            <Row size={15}>
-              <Text>This is the choose Deployment screen</Text>
+            <Row size={90}>
+              <Container>
+                <DeploymentSelector />
+              </Container>
             </Row>
-
-            <Row size={60}>
-              <DeploymentSelector />
-            </Row>
-
             <Row size={10}>
-            <Text>{context.state.playerOne.deploymentArea}</Text>
-            </Row>
-
-            <Row size={15}>
               <NextBackWrapper path="GameScreen" />
             </Row>
-
           </Grid>
         )}
       </AppConsumer>

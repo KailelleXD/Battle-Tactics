@@ -1,8 +1,12 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, ScrollView, Dimensions, Image, Button } from 'react-native';
 
+import React, { Component } from 'react'
+import { TouchableHighlight, View, StyleSheet, Image, Dimensions, ScrollView, ImageBackground } from 'react-native'
 import { AppConsumer } from '../storage/AppContext';
+import { Container } from 'native-base';
 import DeploymentAreas from '../utils/data/deploymentAreas.json';
+import MapSwitch from '../components/MapSwitch';
+
+const deviceWidth = Dimensions.get('window').width
 
 getDeploymentArea = (area) => {
   switch (area) {
@@ -37,29 +41,86 @@ getDeploymentArea = (area) => {
 }
 
 export default class DeploymentSelector extends Component {
-  render() {
-
+  render () {
     return (
-        <AppConsumer>
-            {(context) => (
-              <View>
-                  {DeploymentAreas.map(area => (
-                    <Button 
-                      title={area.name}
-                      key={area.id}
-                      onPress={() => {
-                        context.setDeploymentArea(area.name);
-                      }}
-                    />
-                  ))}
-              </View>
-            )}
-        </AppConsumer>
+      <AppConsumer>
+        {(context) => (
+          <View>
+            <ImageBackground 
+              // resizeMode="cover" 
+              style={{width: "100%", height: "100%"}}
+              source={MapSwitch(context.state.gameData.mapName)} 
+            >
+            <ScrollView
+              horizontal={true}
+              pagingEnabled={true}
+              showsHorizontalScrollIndicator={false}
+              >
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area1")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area1")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area2")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area2")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area3")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area3")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area4")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area4")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area5")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area5")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+              <TouchableHighlight
+                onPress={() => {context.setDeploymentArea("area6")}}
+              >
+                <Image 
+                  style={{width: deviceWidth, height: deviceWidth * 1.5, opacity: 0.6}}
+                  source={getDeploymentArea("area6")} 
+                  resizeMode='cover'          
+                  />
+              </TouchableHighlight>
+                
+            </ScrollView>
+            </ImageBackground>
+
+          </View>
+        )}
+      </AppConsumer>
     )
   }
 }
 
 const styles = StyleSheet.create({
 
-});
-
+})
