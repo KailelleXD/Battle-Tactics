@@ -120,6 +120,21 @@ updateTerrainLocation (gesture) {
     this.props.updateTerrain(updatedTerrainData);
 }
 
+// Function to update lock status.
+updateLockStatus () {
+    const oldData = [...this.props.terrainData];
+    const updatedLockData = oldData.map(data => {
+        if (data.id === this.props.id) {
+            const newData = {...data};
+            newData.locked = this.state.terrainLocked;
+            return newData;
+        } else {
+            return data;
+        } // END-IF
+    });
+    this.props.updateLock(updatedLockData);
+}
+
 
 // TOUCH FUNCTIONS ////
 // Personal note to decouple these functions into their own components to improve reusability.
@@ -168,7 +183,7 @@ toggleTerrainLock = () => {
             () => {
                 console.log(`terrainLocked: ${this.state.terrainLocked}`)
                 console.log("calling this.props.updateLockStatus")
-                this.props.updateLockStatus(this.state.terrainLocked);
+                this.updateLockStatus();
             });
 }
 

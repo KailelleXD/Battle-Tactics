@@ -28,7 +28,7 @@ export default class TerrainPlacement extends React.Component {
                             terrain={PhysContext.state.terrain[i]}
                             lockStatus={PhysContext.state.terrain[i].locked}
                             updateTerrain={PhysContext.updateTerrain}
-                            updateLockStatus={PhysContext.updateLockStatus}
+                            updateLock={PhysContext.updateLock}
                             state={PhysContext.state}
                             feetWidth={terrain.feetWidth}
                             feetHeight={terrain.feetHeight}
