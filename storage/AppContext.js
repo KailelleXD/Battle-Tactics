@@ -123,7 +123,7 @@ export class AppProvider extends React.Component {
         this.setState({ playerOne });
       // }
     // })
-    console.log(this.state.playerOne.units)
+    console.log(newUnit)
   }
 
   updateP1Units = (newUnits) => {
@@ -157,6 +157,7 @@ export class AppProvider extends React.Component {
 
   deployUnitModal = (unit) => {
     const modalData = {...this.state.modalData};
+    console.log(modalData)
     modalData.isModalVisible = true;
     modalData.unit = unit;
     this.setState({ modalData });
@@ -213,16 +214,24 @@ export class AppProvider extends React.Component {
       //     console.log("name: " + data[i]["name"])
       //     console.log("type: " + data[i]["type"])
       //   }
-      AsyncStorage.getItem("38-Tyranids").then(value => {
-        console.log(value)
-        // console.log("model type : ")
-        // for(let i = 0; i < value.length; i++){
-        //   console.log("id: " + value[i]["id"])
-        //   console.log("name: " + value[i]["name"])
-        //   console.log("type: " + value[i]["type"])
-        // }
+        AsyncStorage.getItem("8-Chaos-DeathGuard").then(value => {
+          return parsed = JSON.parse(value)
+        }).then(value => {
+          
+          for(let i = 0; i < value.length; i++){
+            console.log(value[i].name)
+            console.log(value[i].weapons)
+            console.log(value[i].weapons.length)
+            console.log(value[i].type)
+            for(let j = 0; j < value[i].weapons.length; j++){
+              console.log(value[i].weapons.length[j])
+            }
+
+            
+          }
+          console.log(value.length)
+        })
         console.log("consoleLogFactionTEST: done")
-      })
   }
 
   clearAsyncStorage = async () => {
@@ -236,7 +245,7 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
 
 
-    for (let j = 0; j < BSData.factions.length; j++) {
+    for (let j = 0; j < this.state.BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
@@ -328,7 +337,7 @@ export class AppProvider extends React.Component {
                   var profile = fullList[i].profiles[0].profile[0].characteristics[0].characteristic
                   for (var j = 0; j < profile.length; j++) {
                     if (profile[j].$.name === "M") {
-                      var profileM = profile[j].$.value
+                      var profileM = parseInt(profile[j].$.value)
                     }
                     if (profile[j].$.name === "WS") {
                       var profileWS = profile[j].$.value
@@ -498,6 +507,13 @@ export class AppProvider extends React.Component {
                   for (var j = 0; j < entryNames.length; j++) {
                     for (var k = 0; k < weaponsObjArray.length; k++) {
                       if (entryNames[j] == weaponsObjArray[k].name) {
+                        
+                        if(weaponsObjArray[k].type === "Melee"){
+                          weaponsObjArray[k].range = 0
+                        } 
+                        else{
+                          weaponsObjArray[k].range = parseInt(weaponsObjArray[k].range) 
+                        }
                         entryWeapons.push(weaponsObjArray[k])
                       }
                     }

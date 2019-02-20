@@ -50,6 +50,7 @@ export default class UnitSelector extends Component {
                         bfRole={unit.bf_role}
                         points={unit.pts}
                         PL={unit.PL}
+                        weapons={unit.weapons}
                         cardPress={() => {
                           context.setUnit({ 
                             id: unit.id, 
@@ -62,16 +63,7 @@ export default class UnitSelector extends Component {
                             m: unit.profile.M,
                             wound: unit.profile.W,
                             inRange: false,
-                            weapons: [
-                              {
-                                  name: "Macrostubber",
-                                  range: 12
-                              },
-                              {
-                                  name: "Volkite Blaster",
-                                  range: 24
-                              }
-                          ]
+                            weapons: unit.weapons
                           })
                         }}
                       >{}</UnitCard>
@@ -104,7 +96,10 @@ export default class UnitSelector extends Component {
               </Row>
 
               <Row size={20}>
-                <Text>{context.state.playerOne.units}</Text>
+
+                {context.state.playerOne.units.map(model => {
+                  <Text>{model.name}</Text>
+                })}
               </Row>
 
             </Grid>
