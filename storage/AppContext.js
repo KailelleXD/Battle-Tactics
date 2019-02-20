@@ -44,7 +44,7 @@ export class AppProvider extends React.Component {
       },
       modalData: {
         isModalVisible: false,
-        unit: {}
+        unit: modelP1[0]
       }
     }
 
@@ -52,10 +52,10 @@ export class AppProvider extends React.Component {
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("Game12").then((value) => {
+    AsyncStorage.getItem("Game13").then((value) => {
       if (!value) {
         allPlayers = initialState
-        AsyncStorage.setItem('Game12', JSON.stringify(initialState))
+        AsyncStorage.setItem('Game13', JSON.stringify(initialState))
 
 
       } else {
@@ -69,7 +69,7 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne }
     playerOne.name = newName
     this.setState({ playerOne }, () => {
-      AsyncStorage.setItem('Game12', JSON.stringify(this.state))
+      AsyncStorage.setItem('Game13', JSON.stringify(this.state))
 
     })
   }
