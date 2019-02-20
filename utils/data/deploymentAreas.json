@@ -1,22 +1,40 @@
 [
   {
     "id": 1,
-    "name": "Blue on Top | Red on Bottom"
+    "name": "01-spearhead-assault",
+    "text": "01-spearhead-assault",
+    "image": "area1"
   },
   {
     "id": 2,
-    "name": "Blue on TopRight angle | Red on BottomLeft angle"
+    "name": "02-dawn-of-war",
+    "text": "02-dawn-of-war",
+    "image": "area2"
   },
   {
     "id": 3,
-    "name": "Blue on Left | Red on Right"
+    "name": "03-search-and-destroy",
+    "text": "03-search-and-destroy",
+    "image": "area3"
   },
   {
     "id": 4,
-    "name": "Blue on Right | Red on Left"
+    "name": "04-hammer-and-anvil",
+    "text": "04-hammer-and-anvil",
+    "image": "area4"
   },
   {
     "id": 5,
-    "name": "Blue on Bottom | Red on Top"
+    "name": "05-front-line-assault",
+    "text": "Front line assault",
+    "image": "area5"
+  },
+  {
+    "id": 6,
+    "name": "06-vanguard-strike",
+    "text": "The Vanguard Strike",
+    "image": "area6"
   }
 ]
+
+
