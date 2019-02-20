@@ -3,37 +3,43 @@
     "id": 1,
     "name": "01-spearhead-assault",
     "text": "01-spearhead-assault",
-    "image": "area1"
+    "image": "area1",
+    "style": "image"
   },
   {
     "id": 2,
     "name": "02-dawn-of-war",
     "text": "02-dawn-of-war",
-    "image": "area2"
+    "image": "area2",
+    "style": "image"
   },
   {
     "id": 3,
     "name": "03-search-and-destroy",
     "text": "03-search-and-destroy",
-    "image": "area3"
+    "image": "area3",
+    "style": "image"
   },
   {
     "id": 4,
     "name": "04-hammer-and-anvil",
     "text": "04-hammer-and-anvil",
-    "image": "area4"
+    "image": "area4",
+    "style": "image"
   },
   {
     "id": 5,
     "name": "05-front-line-assault",
     "text": "Front line assault",
-    "image": "area5"
+    "image": "area5",
+    "style": "image"
   },
   {
     "id": 6,
     "name": "06-vanguard-strike",
     "text": "The Vanguard Strike",
-    "image": "area6"
+    "image": "area6",
+    "style": "image"
   }
 ]
 

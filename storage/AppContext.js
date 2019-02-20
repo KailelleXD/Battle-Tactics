@@ -16,7 +16,6 @@ export class AppProvider extends React.Component {
     const initialState = {
       playerOne: {
         name: "jack",
-        deploymentArea: "",
         faction: "",
         units: [],
         unitPlacement: [],
@@ -33,6 +32,7 @@ export class AppProvider extends React.Component {
       gameData: {
         mapName: "",
         terrain: [],
+        deploymentArea: "",
       },
       BSData: {
         factions: factions,
@@ -92,9 +92,12 @@ export class AppProvider extends React.Component {
 
 
   setDeploymentArea = (newDeploymentArea) => {
-    const playerOne = { ...this.state.playerOne }
-    playerOne.deploymentArea = newDeploymentArea
-    this.setState({ playerOne })
+    const gameData = { ...this.state.gameData }
+    gameData.deploymentArea = newDeploymentArea
+    this.setState({ gameData }, () => {
+
+      console.log("Deployment Area: ", this.state.gameData.deploymentArea)
+    })
   }
 
   addTerrainObject = (newTerrainObject) => {

@@ -33,16 +33,10 @@ export default class HomeScreen extends Component {
             {/* {console.log(context.state)}         */}
             <Grid>
             <ImageBackground source={Image} style={{width: '100%', height: '100%'}}>
-        
-        
-
               <Col style={styles.col}>
-
-
                    {/* <Row style={styles.row}>
                      <HomeScreenButton title='Factions' />
                    </Row> */}
-
 
                   <Row style={styles.row}>
                     <HomeScreenButton title='Create' />
@@ -53,13 +47,6 @@ export default class HomeScreen extends Component {
                   <Row style={styles.row}>
                     <HomeScreenButton title='Settings' />
                   </Row>
-                  <Row style={styles.row}>
-                    <HomeScreenButton title='GameStart' />
-                  </Row>
-                  <Row style={styles.row}>
-                    <HomeScreenButton title='TerrainPlacement' />
-                  </Row>
-        
               </Col>
               </ImageBackground>
             </Grid>
