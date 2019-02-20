@@ -512,6 +512,39 @@ export class AppProvider extends React.Component {
                   }
                 }
 
+                //logic for additional weapons
+                if (fullList[i].selectionEntries[0].selectionEntry) {
+                  var additionalWeapons = fullList[i].selectionEntries[0].selectionEntry[0].entryLinks[0].entryLink
+
+                  if (additionalWeapons) {
+                    for (var j = 0; j < additionalWeapons.length; j++) {
+                      for (var k = 0; k < weaponsObjArray.length; k++) {
+                        if (additionalWeapons[j].$.name == weaponsObjArray[k].name) {
+                          entryWeapons.push(weaponsObjArray[k])
+                        }
+                      }
+                    }
+                  }
+                }
+
+
+                if (fullList[i].selectionEntryGroups[0].selectionEntryGroup) {
+                  var additionalWeaponspt2 = fullList[i].selectionEntryGroups[0].selectionEntryGroup[0].selectionEntries[0].selectionEntry
+
+                  if (additionalWeaponspt2) {
+                    additionalWeaponspt2 = additionalWeaponspt2[0].infoLinks[0].infoLink
+                    if (additionalWeaponspt2) {
+                      additionalWeaponspt2 = additionalWeaponspt2[0].$.name
+
+                      for (var k = 0; k < weaponsObjArray.length; k++) {
+                        if (additionalWeaponspt2 == weaponsObjArray[k].name) {
+                          entryWeapons.push(weaponsObjArray[k])
+                        }
+                      }
+                    }
+                  }
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
