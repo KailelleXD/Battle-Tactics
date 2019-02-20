@@ -31,6 +31,36 @@ export class PhysProvider extends React.Component {
         };
     }
 
+    updateTerrain = (UpdatedTerrainData) => {
+        const newLine = "---------------------------------------------";
+        const newDblLine = "=============================================";
+        let terrain = { ...this.state.terrain };
+        // console.log("Current State of Terrain Data json");
+        // console.log(terrain[9]);
+        terrain = UpdatedTerrainData;
+        // console.log("Updating Terrain Locations");
+        this.setState({ terrain }, () => {
+            // console.log(newLine);
+            // console.log(this.state.terrain[9]);
+            // console.log(newLine);
+            // console.log(newLine);
+        });
+    }
+
+    updateLockStatus = (UpdatedLockStatus) => {
+        console.log("updateLockStatus function called");
+        console.log(UpdatedLockStatus);
+        // const newLine = "---------------------------------------------"
+        // const newDblLine = "=============================================";
+        // let terrain = { ...this.state.terrain};
+        // terrain.locked = UpdatedLockStatus;
+        // this.setState({ terrain }, () => {
+        //     console.log(newLine);
+        //     console.log(this.state.terrain[9]);
+        //     console.log(newDblLine);
+        // });
+    }
+
     updateScale = (newScale) => {
         this.setState({
             scale: newScale
@@ -129,6 +159,8 @@ export class PhysProvider extends React.Component {
         return (
             <PhysContext.Provider value={{
                 state: this.state,
+                updateTerrain: this.updateTerrain,
+                updateLockStatus: this.updateLockStatus,
                 updateScale: this.updateScale,
                 updateOffset: this.updateOffset,
                 updateLast: this.updateLast,

@@ -2,6 +2,7 @@
     {
       "id": 1,
       "name": "3x12",
+      "locked": false,
       "style": "terrainRed",
       "x": 0,
       "y": 0,
@@ -13,6 +14,7 @@
     {
       "id": 2,
       "name": "6x9",
+      "locked": false,
       "style": "terrainOrange",
       "x": 0,
       "y": 0,
@@ -24,6 +26,7 @@
     {
       "id": 3,
       "name": "9x6",
+      "locked": false,
       "style": "terrainYellow",
       "x": 0,
       "y": 0,
@@ -35,6 +38,7 @@
     {
       "id": 4,
       "name": "12x3",
+      "locked": false,
       "style": "terrainGreen",
       "x": 0,
       "y": 0,
@@ -46,6 +50,7 @@
     {
       "id": 5,
       "name": "12x3",
+      "locked": false,
       "style": "terrainBlue",
       "x": 0,
       "y": 0,
@@ -57,6 +62,7 @@
     {
       "id": 6,
       "name": "9x6",
+      "locked": false,
       "style": "terrainViolet",
       "x": 0,
       "y": 0,
@@ -68,6 +74,7 @@
     {
       "id": 7,
       "name": "6x9",
+      "locked": false,
       "style": "terrainStrawberry",
       "x": 0,
       "y": 0,
@@ -79,6 +86,7 @@
     {
       "id": 8,
       "name": "3x12",
+      "locked": false,
       "style": "terrainLime",
       "x": 0,
       "y": 0,
@@ -90,6 +98,7 @@
     {
       "id": 9,
       "name": "15x15",
+      "locked": false,
       "style": "terrainPrune",
       "x": 0,
       "y": 0,
@@ -101,6 +110,7 @@
     {
       "id": 10,
       "name": "15x15",
+      "locked": false,
       "style": "terrainGrass",
       "x": 0,
       "y": 0,

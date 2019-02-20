@@ -19,12 +19,16 @@ export default class TerrainPlacement extends React.Component {
             <PhysConsumer>
                 {PhysContext => (
                     <View>
-
                         {PhysContext.state.terrain.map((terrain, i) => (
                         <Building
                             id={terrain.id}
                             key={terrain.id}
                             terrainStyle={styles[terrain.style]}
+                            terrainData={PhysContext.state.terrain}
+                            terrain={PhysContext.state.terrain[i]}
+                            lockStatus={PhysContext.state.terrain[i].locked}
+                            updateTerrain={PhysContext.updateTerrain}
+                            updateLockStatus={PhysContext.updateLockStatus}
                             state={PhysContext.state}
                             feetWidth={terrain.feetWidth}
                             feetHeight={terrain.feetHeight}
