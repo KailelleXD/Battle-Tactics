@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, Button } from 'react-native';
 // import Drawer from 'react-native-drawer';
-import Terrains from '../utils/data/terrains.json';
+import Terrain from '../utils/data/terrain.json';
 import { AppConsumer } from '../storage/AppContext';
 
 export default class TerrainSideMenu extends Component {
@@ -10,7 +10,7 @@ export default class TerrainSideMenu extends Component {
         <AppConsumer>
             {(context) => (
               <View>
-                  {Terrains.map(terrain => (
+                  {Terrain.map(terrain => (
                     <Button 
                       title={terrain.name}
                       key={terrain.id}

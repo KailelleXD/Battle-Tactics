@@ -6,8 +6,6 @@ import { PhysConsumer } from '../../storage/physContext';
 
 import models from "../../utils/data/models.json";
 import BattlescribeModal from "./BattlescribeModal";
-
-
 export default class Detachment extends React.Component {
     state = {
         models: models

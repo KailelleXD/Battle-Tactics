@@ -1,5 +1,6 @@
 import React from "react";
 import { Dimensions } from 'react-native';
+import terrain from "../utils/data/terrain.json";
 
 export const PhysContext = React.createContext();
 export const PhysConsumer = PhysContext.Consumer;
@@ -25,8 +26,40 @@ export class PhysProvider extends React.Component {
             inches: 0,
             distanceBetweenPoints: 0,
             TempX: 0,
-            TempY: 0
+            TempY: 0,
+            terrain: terrain,
         };
+    }
+
+    updateTerrain = (UpdatedTerrainData) => {
+        const newLine = "---------------------------------------------";
+        const newDblLine = "=============================================";
+        let terrain = { ...this.state.terrain };
+        // console.log("Current State of Terrain Data json");
+        // console.log(terrain[9]);
+        terrain = UpdatedTerrainData;
+        // console.log(newLine);
+        console.log("Updating Terrain Locations");
+        this.setState({ terrain }, () => {
+            // console.log(newLine);
+            // console.log(this.state.terrain[9]);
+            // console.log(newLine);
+            // console.log(newLine);
+        });
+    }
+
+    updateLock = (UpdatedLockData) => {
+        // console.log("updateLock function called");
+        // console.log(UpdatedLockData);
+        const newLine = "---------------------------------------------"
+        const newDblLine = "=============================================";
+        let terrain = { ...this.state.terrain};
+        // console.log(terrain);
+        terrain = UpdatedLockData;
+        console.log(terrain.locked)
+        this.setState({ terrain }, () => {
+            // console.log(this.state.terrain)
+        });
     }
 
     updateScale = (newScale) => {
@@ -127,6 +160,8 @@ export class PhysProvider extends React.Component {
         return (
             <PhysContext.Provider value={{
                 state: this.state,
+                updateTerrain: this.updateTerrain,
+                updateLock: this.updateLock,
                 updateScale: this.updateScale,
                 updateOffset: this.updateOffset,
                 updateLast: this.updateLast,

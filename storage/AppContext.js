@@ -44,7 +44,7 @@ export class AppProvider extends React.Component {
       },
       modalData: {
         isModalVisible: false,
-        unit: {}
+        unit: modelP1[0]
       }
     }
 
@@ -52,10 +52,10 @@ export class AppProvider extends React.Component {
 
     let allPlayers = {}
 
-    AsyncStorage.getItem("Game12").then((value) => {
+    AsyncStorage.getItem("Game13").then((value) => {
       if (!value) {
         allPlayers = initialState
-        AsyncStorage.setItem('Game12', JSON.stringify(initialState))
+        AsyncStorage.setItem('Game13', JSON.stringify(initialState))
 
 
       } else {
@@ -69,7 +69,7 @@ export class AppProvider extends React.Component {
     const playerOne = { ...this.state.playerOne }
     playerOne.name = newName
     this.setState({ playerOne }, () => {
-      AsyncStorage.setItem('Game12', JSON.stringify(this.state))
+      AsyncStorage.setItem('Game13', JSON.stringify(this.state))
 
     })
   }
@@ -81,12 +81,6 @@ export class AppProvider extends React.Component {
   }
 
 
-// dev-refactor-context
-    setMap = (newMap) => {
-      const gameData = {...this.state.gameData}
-      gameData.mapName = newMap
-        this.setState( {gameData} )
-    }
 
   setMap = (newMap) => {
     const gameData = { ...this.state.gameData }
@@ -119,17 +113,17 @@ export class AppProvider extends React.Component {
 
   setUnit = (newUnit) => {
     // console.log(newUnit)
-    this.state.BSData.data.map(unit => {
+    // this.state.BSData.data.map(unit => {
       // console.log(unit.profileType)
-      if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
+      // if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
         // console.log("selected: unit.profileType")
         // console.log(unit.profileType)
         const playerOne = { ...this.state.playerOne }
-        playerOne.units = playerOne.units.concat(unit.name);
+        playerOne.units = playerOne.units.concat(newUnit);
         this.setState({ playerOne });
-      }
-    })
-    console.log(this.state.playerOne.units)
+      // }
+    // })
+    console.log(newUnit)
   }
 
   updateP1Units = (newUnits) => {
@@ -163,6 +157,7 @@ export class AppProvider extends React.Component {
 
   deployUnitModal = (unit) => {
     const modalData = {...this.state.modalData};
+    console.log(modalData)
     modalData.isModalVisible = true;
     modalData.unit = unit;
     this.setState({ modalData });
@@ -212,13 +207,30 @@ export class AppProvider extends React.Component {
 
 // =====================================================================
   consoleLogFactionTEST = () => {
-      const data = this.state.BSData
-      console.log("model type : ")
-        for(let i = 0; i < data.length; i++){
-          console.log("id: " + data[i]["id"])
-          console.log("name: " + data[i]["name"])
-          console.log("type: " + data[i]["type"])
-        }
+      // const data = this.state.BSData
+      // console.log("model type : ")
+      //   for(let i = 0; i < data.length; i++){
+      //     console.log("id: " + data[i]["id"])
+      //     console.log("name: " + data[i]["name"])
+      //     console.log("type: " + data[i]["type"])
+      //   }
+        AsyncStorage.getItem("8-Chaos-DeathGuard").then(value => {
+          return parsed = JSON.parse(value)
+        }).then(value => {
+          
+          for(let i = 0; i < value.length; i++){
+            console.log(value[i].name)
+            console.log(value[i].weapons)
+            console.log(value[i].weapons.length)
+            console.log(value[i].type)
+            for(let j = 0; j < value[i].weapons.length; j++){
+              console.log(value[i].weapons.length[j])
+            }
+
+            
+          }
+          console.log(value.length)
+        })
         console.log("consoleLogFactionTEST: done")
   }
 
@@ -233,11 +245,15 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
 
 
-    for (let j = 0; j < BSData.factions.length; j++) {
+    for (let j = 0; j < this.state.BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
       let URLname = this.state.BSData.factions[j].name.replace(/\s/g, '%20')
+      if (factionCode === "Ignore"){
+        let faction = null;
+      }
+      else{
       await fetch('https://raw.githubusercontent.com/BSData/wh40k/master/' + URLname + '.cat')
         .then(response => response.text())
         .then((response) => {
@@ -247,6 +263,63 @@ export class AppProvider extends React.Component {
             categories = codexObj.categoryEntries[0].categoryEntry;
             console.log("END PARSSTRING: " + factionName);
 
+
+            // weapons object
+            let weaponsObjArray = []
+
+            if (!codexObj.sharedProfiles[0].profile){
+              let weaponsArray = null;
+            }
+            else{ 
+              let weaponsArray = codexObj.sharedProfiles[0].profile
+              // console.log(weaponsArray)
+            for (var i = 0; i < weaponsArray.length; i++) {
+
+              var weaponsObj = {
+                "name": null,
+                "range": null,
+                "type": null,
+                "S": null,
+                "AP": null,
+                "D": null,
+                "abilities": null
+              }
+
+              if (weaponsArray[i].$.profileTypeName == "Weapon") {
+
+                weaponsObj.name = weaponsArray[i].$.name;
+
+                for (var j = 0; j < weaponsArray[i].characteristics[0].characteristic.length; j++) {
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Range") {
+                    weaponsObj.range = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Type") {
+                    weaponsObj.type = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "S") {
+                    weaponsObj.S = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "AP") {
+                    weaponsObj.AP = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "D") {
+                    weaponsObj.D = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Abilities") {
+                    weaponsObj.abilities = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  }
+
+                }
+
+                weaponsObjArray.push(weaponsObj)
+              }
+            }
+          }
             let array = [];
             let abilitiesArray = codexObj.sharedProfiles[0].profile;
             let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
@@ -273,7 +346,7 @@ export class AppProvider extends React.Component {
                   var profile = fullList[i].profiles[0].profile[0].characteristics[0].characteristic
                   for (var j = 0; j < profile.length; j++) {
                     if (profile[j].$.name === "M") {
-                      var profileM = profile[j].$.value
+                      var profileM = parseInt(profile[j].$.value)
                     }
                     if (profile[j].$.name === "WS") {
                       var profileWS = profile[j].$.value
@@ -345,13 +418,17 @@ export class AppProvider extends React.Component {
                 }
                 // logic to derive additional profile
                 if (!fullList[i].profiles[0].profile) {
-                  var profile = null
+                  var profileAdditional = null
                 } else {
 
                   var profileAdditional = fullList[i].profiles[0].profile
                   var additionalArray = []
 
                   for (var j = 0; j < profileAdditional.length; j++) {
+                    if(!profileAdditional[j].$.profileTypeName){
+                      let profileAdditionalObj = null;
+                    }
+                    else{
                     if (profileAdditional[j].$.profileTypeName.match(/^Stat Damage.*$/)) {
                       var profileAdditionalObj = {
                         "name": profileAdditional[j].$.name,
@@ -360,6 +437,7 @@ export class AppProvider extends React.Component {
                       }
                       additionalArray.push(profileAdditionalObj)
                     }
+                  }
                   }
                 }
                 if (!fullList[i].costs[0]) {
@@ -427,6 +505,68 @@ export class AppProvider extends React.Component {
                   
                 }
 
+                // logic to retrieve weapons
+                var entryLinks = fullList[i].entryLinks[0].entryLink
+
+                var entryNames = []
+                var entryWeapons = []
+
+                if (entryLinks) {
+                  for (var j = 0; j < entryLinks.length; j++) {
+                    entryNames.push(entryLinks[j].$.name)
+                  }
+                }
+
+                if (entryNames) {
+                  for (var j = 0; j < entryNames.length; j++) {
+                    for (var k = 0; k < weaponsObjArray.length; k++) {
+                      if (entryNames[j] == weaponsObjArray[k].name) {
+                        
+                        if(weaponsObjArray[k].type === "Melee"){
+                          weaponsObjArray[k].range = 0
+                        } 
+                        else{
+                          weaponsObjArray[k].range = parseInt(weaponsObjArray[k].range) 
+                        }
+                        entryWeapons.push(weaponsObjArray[k])
+                      }
+                    }
+                  }
+                }
+
+                //logic for additional weapons
+                if (fullList[i].selectionEntries[0].selectionEntry) {
+                  var additionalWeapons = fullList[i].selectionEntries[0].selectionEntry[0].entryLinks[0].entryLink
+
+                  if (additionalWeapons) {
+                    for (var j = 0; j < additionalWeapons.length; j++) {
+                      for (var k = 0; k < weaponsObjArray.length; k++) {
+                        if (additionalWeapons[j].$.name == weaponsObjArray[k].name) {
+                          entryWeapons.push(weaponsObjArray[k])
+                        }
+                      }
+                    }
+                  }
+                }
+
+
+                if (fullList[i].selectionEntryGroups[0].selectionEntryGroup) {
+                  var additionalWeaponspt2 = fullList[i].selectionEntryGroups[0].selectionEntryGroup[0].selectionEntries[0].selectionEntry
+
+                  if (additionalWeaponspt2) {
+                    additionalWeaponspt2 = additionalWeaponspt2[0].infoLinks[0].infoLink
+                    if (additionalWeaponspt2) {
+                      additionalWeaponspt2 = additionalWeaponspt2[0].$.name
+
+                      for (var k = 0; k < weaponsObjArray.length; k++) {
+                        if (additionalWeaponspt2 == weaponsObjArray[k].name) {
+                          entryWeapons.push(weaponsObjArray[k])
+                        }
+                      }
+                    }
+                  }
+                }
+
                 var characterList = {
                   "id": fullList[i].$.id,
                   "name": fullList[i].$.name,
@@ -459,7 +599,8 @@ export class AppProvider extends React.Component {
                     "weapon": weapon,
                   },
                   "profile_additional": parseAdditionalArray(additionalArray),
-                  "abilities": abilityObjectArray
+                  "abilities": abilityObjectArray,
+                  "weapons": entryWeapons
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
@@ -478,7 +619,7 @@ export class AppProvider extends React.Component {
     }
 
   }
-
+  }
   // END OF GETALLDATA
 
 
@@ -509,6 +650,7 @@ export class AppProvider extends React.Component {
     )
   }
 }
+
 
 returnUnit = (unitRole) => {
   if (unitRole === "ff36a6f3-19bf-4f48-8956-adacfd28fe74") {
@@ -544,6 +686,7 @@ returnUnit = (unitRole) => {
     return null
   }
 }
+
 
 parseAdditionalArray = (additionalArray) => {
 

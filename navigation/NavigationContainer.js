@@ -17,6 +17,7 @@ import PlaceUnitsScreen from '../screens/PlaceUnitsScreen';
 import GameReviewScreen from '../screens/GameReviewScreen';
 import GameScreen from '../screens/GameScreen';
 import GameStartScreen from '../screens/GameStartScreen';
+import TerrainPlacement from '../components/TerrainComponents/TerrainPlacement'
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -35,7 +36,8 @@ const StackNavigator = createStackNavigator({
     PlaceUnits: PlaceUnitsScreen,
     GameReview: GameReviewScreen,
     GameScreen: GameScreen,
-    GameStart: GameStartScreen
+    GameStart: GameStartScreen,
+    TerrainPlacement: TerrainPlacement
   });
   
 const NavigationContainer = createAppContainer(StackNavigator);

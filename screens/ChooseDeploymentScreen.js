@@ -43,7 +43,7 @@ export default class ChooseDeployment extends Component {
             </Row>
 
             <Row size={15}>
-              <NextBackWrapper path="PlaceUnits" />
+              <NextBackWrapper path="GameScreen" />
             </Row>
 
           </Grid>

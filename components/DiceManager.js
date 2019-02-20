@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native'
 import { Container, Text, Button, Item, Picker, Form, Content } from 'native-base';
 import { Grid, Row, Col } from 'react-native-easy-grid';
 import { AppConsumer } from '../storage/AppContext';
+import Modal from "react-native-modal";
 
 
 export default class DiceManager extends Component {
@@ -56,6 +57,8 @@ export default class DiceManager extends Component {
 
   render() {
     return (
+
+      
       <Container>
         <Grid>
           <Text>Dice Manager Open</Text>
