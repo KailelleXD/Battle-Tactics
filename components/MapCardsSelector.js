@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Container, StyleSheet, Image } from 'react-native'
 import { View, Text, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon, Button } from 'native-base';
 
-
 // components
 import Maps from '../utils/data/maps.json';
 
