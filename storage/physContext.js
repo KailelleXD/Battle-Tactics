@@ -56,7 +56,7 @@ export class PhysProvider extends React.Component {
         let terrain = { ...this.state.terrain};
         // console.log(terrain);
         terrain = UpdatedLockData;
-        // console.log(terrain.locked)
+        console.log(terrain.locked)
         this.setState({ terrain }, () => {
             // console.log(this.state.terrain)
         });

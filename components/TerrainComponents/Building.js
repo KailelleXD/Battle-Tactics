@@ -54,13 +54,18 @@ export default class Building extends Component {
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
         // console.log(newLine);
-        this.setState({
-            onPress: true
-        }, () => {
-            // console.log(`onPress: ${this.state.onPress}`)
-        })
+
+        if (this.props.lockStatus === false) {
+            this.setState({
+                onPress: true
+            }, () => {
+                // console.log(`onPress: ${this.state.onPress}`)
+            })
             this.longPress(event);
             return true;
+        } else {
+            return false;
+        }
     };
 
     _handlePanResponderGrant = (event, gesture) => {            
@@ -97,14 +102,9 @@ export default class Building extends Component {
 
 // Function to update Model XY Data in model json.
 updateTerrainLocation (gesture) {
-    // console.log(`updateTerrainLocation(); has been called!`)
-    // console.log(newLine);
-    // console.log(`Gesture data from _handlePanResponderEnd:`)
-    // console.log(gesture);
-    // console.log(newLine);
     const oldData = [...this.props.terrainData];
     const updatedTerrainData = oldData.map(data => {
-        if (data.id === this.props.id && this.state.terrainLocked === false) {
+        if (data.id === this.props.id) {
             const newData = {...data};
             newData.x = data.x + gesture.dx;
             newData.y = data.y + gesture.dy;
