@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { PhysConsumer } from "../../storage/physContext";
 import Building from "./Building";
-import SandDunes from "../../graphics/maps/SandDunes.png";
+import SandDunes from "../../graphics/maps/SandDunes.jpg";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;

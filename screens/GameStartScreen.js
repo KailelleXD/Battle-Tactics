@@ -4,9 +4,9 @@ import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
 import TerrainPlacement from "../components/TerrainComponents/TerrainPlacement";
-import SandDunes from "../graphics/maps/SandDunes.png";
-import RockFormations from "../graphics/maps/RockFormations.png";
-import DustPlains from "../graphics/maps/DustPlains.png";
+import SandDunes from "../graphics/maps/SandDunes.jpg";
+// import RockFormations from "../graphics/maps/RockFormations.png";
+// import DustPlains from "../graphics/maps/DustPlains.png";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
