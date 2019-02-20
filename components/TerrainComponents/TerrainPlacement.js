@@ -14,6 +14,31 @@ const SCREEN_WIDTH = Window.width;
 const SCREEN_HEIGHT = SCREEN_WIDTH * 1.5;
 
 export default class TerrainPlacement extends React.Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            terrainSelectionScreen: true
+        }
+    }
+
+    // RENDER FUNCTION ////
+
+    renderBackground() {
+        if (this.state.terrainSelectionScreen === true) {
+            return (
+                <ImageBackground
+                source={SandDunes}
+                style={{
+                    width: SCREEN_WIDTH,
+                    height: SCREEN_HEIGHT,
+                    zIndex: -5,
+                    }}
+                />
+            )
+        }
+    }
+
     render() {
         return (
             <PhysConsumer>
@@ -34,14 +59,7 @@ export default class TerrainPlacement extends React.Component {
                             feetHeight={terrain.feetHeight}
                             />
                         ))}
-                        <ImageBackground
-                                source={SandDunes}
-                                style={{
-                                    width: SCREEN_WIDTH,
-                                    height: SCREEN_HEIGHT,
-                                    zIndex: -5,
-                                }}
-                            />
+                        {this.renderBackground()}
                     </View>
                 )}
             </PhysConsumer>
