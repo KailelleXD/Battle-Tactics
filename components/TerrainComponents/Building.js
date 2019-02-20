@@ -26,7 +26,7 @@ export default class Building extends Component {
         }
 
         console.log(newLine)
-        console.log(this.props.lockStatus);
+        console.log("this one: " + this.props.lockStatus);
         console.log(newLine)
 
         // Convert props passed in as feet into proper scale for map.

@@ -48,8 +48,8 @@ export class PhysProvider extends React.Component {
     }
 
     updateLock = (UpdatedLockData) => {
-        console.log("updateLock function called");
-        console.log(UpdatedLockData);
+        // console.log("updateLock function called");
+        // console.log(UpdatedLockData);
         const newLine = "---------------------------------------------"
         const newDblLine = "=============================================";
         let terrain = { ...this.state.terrain};
