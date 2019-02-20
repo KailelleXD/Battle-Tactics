@@ -53,16 +53,25 @@ export default class UnitSelector extends Component {
                         cardPress={() => {
                           context.setUnit({ 
                             id: unit.id, 
+                            style: "modelKiwi",
+                            text: "",
                             modelName: unit.name,
                             player: 1,
                             x: 0,
                             y: 0,
+                            m: unit.profile.M,
+                            wound: unit.profile.W,
                             inRange: false,
-                            // text
-                            // style
-                            // m
-                            // wound
-                            // weapons - name & range
+                            weapons: [
+                              {
+                                  name: "Macrostubber",
+                                  range: 12
+                              },
+                              {
+                                  name: "Volkite Blaster",
+                                  range: 24
+                              }
+                          ]
                           })
                         }}
                       >{}</UnitCard>

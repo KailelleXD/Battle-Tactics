@@ -18,7 +18,7 @@ export class AppProvider extends React.Component {
         name: "jack",
         deploymentArea: "",
         faction: "",
-        units: modelP1,
+        units: [],
         unitPlacement: [],
         points: 0,
         randomStart: false
@@ -219,9 +219,15 @@ export class AppProvider extends React.Component {
       //     console.log("name: " + data[i]["name"])
       //     console.log("type: " + data[i]["type"])
       //   }
-      //   console.log("consoleLogFactionTEST: done")
       AsyncStorage.getItem("38-Tyranids").then(value => {
         console.log(value)
+        // console.log("model type : ")
+        // for(let i = 0; i < value.length; i++){
+        //   console.log("id: " + value[i]["id"])
+        //   console.log("name: " + value[i]["name"])
+        //   console.log("type: " + value[i]["type"])
+        // }
+        console.log("consoleLogFactionTEST: done")
       })
   }
 
