@@ -5,6 +5,7 @@ import { Grid, Col, Row } from 'react-native-easy-grid';
 // components
 import TerrainSideMenu from '../components/TerrainSideMenu';
 import NextBackWrapper from '../components/NextBackWrapper';
+import TerrainPlacement from '../components/TerrainComponents/TerrainPlacement';
 // context
 import { AppConsumer } from '../storage/AppContext';
 
@@ -29,25 +30,11 @@ export default class ChooseTerrain extends Component {
             <Container>
 
               <Grid style={styles.grid}>
-
-                <Row size={15}>
-                  <Text>This is the choose terrain screen</Text>
-                  <Text>Current Map:{context.state.gameData.mapName}</Text>
-                </Row>
                 
-                <Row size={35}>
-                <TerrainSideMenu />
+                <Row size={90}>
+                  <TerrainPlacement />
                 </Row>
-
-                <Row size={35}>
-                  <Col>
-                    {context.state.gameData.terrain.map(terrain => (
-                      <Text key={terrain.id}>{terrain.name}</Text>
-                    ))}
-                  </Col>
-                </Row>
-                
-                <Row size={15}>
+                <Row size={10}>
                   <NextBackWrapper path="Factions"/>
                 </Row>
               

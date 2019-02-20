@@ -8,12 +8,19 @@ import {
 import { PhysConsumer } from "../../storage/physContext";
 import Building from "./Building";
 import SandDunes from "../../graphics/maps/SandDunes.jpg";
+import MapSwitch from '../MapSwitch';
+import { AppConsumer } from "../../storage/AppContext";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
 const SCREEN_HEIGHT = SCREEN_WIDTH * 1.5;
 
 export default class TerrainPlacement extends React.Component {
+    static navigationOptions = {
+        title: "Place Terrains",
+        headerLeft: null
+    }
+
     constructor(props) {
         super(props);
         
@@ -24,11 +31,11 @@ export default class TerrainPlacement extends React.Component {
 
     // RENDER FUNCTION ////
 
-    renderBackground() {
+    renderBackground(source) {
         if (this.state.terrainSelectionScreen === true) {
             return (
                 <ImageBackground
-                source={SandDunes}
+                source={source}
                 style={{
                     width: SCREEN_WIDTH,
                     height: SCREEN_HEIGHT,
@@ -43,24 +50,28 @@ export default class TerrainPlacement extends React.Component {
         return (
             <PhysConsumer>
                 {PhysContext => (
-                    <View>
-                        {PhysContext.state.terrain.map((terrain, i) => (
-                        <Building
-                            id={terrain.id}
-                            key={terrain.id}
-                            terrainStyle={styles[terrain.style]}
-                            terrainData={PhysContext.state.terrain}
-                            terrain={PhysContext.state.terrain[i]}
-                            lockStatus={PhysContext.state.terrain[i].locked}
-                            updateTerrain={PhysContext.updateTerrain}
-                            updateLock={PhysContext.updateLock}
-                            state={PhysContext.state}
-                            feetWidth={terrain.feetWidth}
-                            feetHeight={terrain.feetHeight}
-                            />
-                        ))}
-                        {this.renderBackground()}
-                    </View>
+                    <AppConsumer>
+                        {(context) => (
+                            <View>
+                                {PhysContext.state.terrain.map((terrain, i) => (
+                                <Building
+                                    id={terrain.id}
+                                    key={terrain.id}
+                                    terrainStyle={styles[terrain.style]}
+                                    terrainData={PhysContext.state.terrain}
+                                    terrain={PhysContext.state.terrain[i]}
+                                    lockStatus={PhysContext.state.terrain[i].locked}
+                                    updateTerrain={PhysContext.updateTerrain}
+                                    updateLock={PhysContext.updateLock}
+                                    state={PhysContext.state}
+                                    feetWidth={terrain.feetWidth}
+                                    feetHeight={terrain.feetHeight}
+                                    />
+                                ))}
+                                {this.renderBackground(MapSwitch(context.state.gameData.mapName))}
+                            </View>
+                        )}
+                    </AppConsumer>
                 )}
             </PhysConsumer>
         );

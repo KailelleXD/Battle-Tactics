@@ -27,7 +27,7 @@ class NextButton extends React.Component {
       {this.state.fontLoaded ? (
         <Button 
           info
-          large
+          small
           style={styles.button}
           onPress={() => { this.props.loadUnits, this.props.navigation.navigate(this.props.path) }}
         >

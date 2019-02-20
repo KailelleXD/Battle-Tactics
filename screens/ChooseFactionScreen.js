@@ -33,13 +33,10 @@ export default class ChooseFactionScreen extends Component {
         {(context) => (     
           <Container>
             <Grid style={styles.grid}>
-              <Row size={5}>
-                <Text>This is the Choose Faction screen</Text>
-              </Row>
-              <Row size={80}>
+              <Row size={90}>
                 <FactionSelector />
               </Row>
-              <Row size={15}>
+              <Row size={10}>
                 <NextBackWrapper path="Units"/>
               </Row>
             </Grid>

@@ -27,7 +27,7 @@ class BackButton extends React.Component {
       {this.state.fontLoaded ? (
         <Button 
           info
-          large
+          small
           style={styles.button}
           onPress={() => { this.props.navigation.goBack()}}
         >
