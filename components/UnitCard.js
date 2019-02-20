@@ -15,6 +15,21 @@ class UnitCard extends Component {
                 <Text>BFRole: {this.props.bfRole}</Text>
                 <Text>Points: {this.props.points}</Text>
                 <Text>PL: {this.props.PL}</Text>
+                {this.props.weapons.length >= 1 ? (
+                  this.props.weapons.length === 1 ? 
+                  (<Text>{this.props.weapons.length} Weapon Available</Text>) 
+                  : (<Text>{this.props.weapons.length} Weapons Available</Text>)
+          
+          
+          // this.props.weapons.map(weapon => {
+                  // <Text
+                  //   key={weapon.name}
+                  // >{weapon.name}</Text>
+                  // })
+                ) : (
+                  console.log("")
+                )}
+                
               </Body>
             </CardItem>
           </Card>

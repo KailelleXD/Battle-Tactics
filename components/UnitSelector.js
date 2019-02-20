@@ -50,19 +50,20 @@ export default class UnitSelector extends Component {
                         bfRole={unit.bf_role}
                         points={unit.pts}
                         PL={unit.PL}
+                        weapons={unit.weapons}
                         cardPress={() => {
                           context.setUnit({ 
                             id: unit.id, 
+                            style: "modelKiwi",
+                            text: "",
                             modelName: unit.name,
                             player: 1,
                             x: 0,
                             y: 0,
+                            m: unit.profile.M,
+                            wound: unit.profile.W,
                             inRange: false,
-                            // text
-                            // style
-                            // m
-                            // wound
-                            // weapons - name & range
+                            weapons: unit.weapons
                           })
                         }}
                       >{}</UnitCard>
@@ -95,7 +96,10 @@ export default class UnitSelector extends Component {
               </Row>
 
               <Row size={20}>
-                <Text>{context.state.playerOne.units}</Text>
+
+                {context.state.playerOne.units.map(model => {
+                  <Text>{model.name}</Text>
+                })}
               </Row>
 
             </Grid>
