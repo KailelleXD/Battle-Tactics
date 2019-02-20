@@ -25,10 +25,6 @@ export default class Building extends Component {
             terrainLocked: false
         }
 
-        console.log(newLine)
-        console.log("this one: " + this.props.lockStatus);
-        console.log(newLine)
-
         // Convert props passed in as feet into proper scale for map.
         const WIDTH =  ONE_INCH * this.props.feetWidth;
         const HEIGHT = ONE_INCH * this.props.feetHeight;
@@ -92,7 +88,7 @@ export default class Building extends Component {
         this.setState({
             onPress: false
         }, () => {
-            // console.log(`onPress: ${this.state.onPress}`)
+            console.log(`onPress: ${this.state.onPress}`)
         })
         this.updateTerrainLocation(gesture);
     }
@@ -144,30 +140,30 @@ updateLockStatus () {
     longPress = (event) => {
         // Insert any needed conditional logic.
         if (true === true) {
-            // console.log("longPressTimer started");
+            console.log("longPressTimer started");
             this.longPressTimer = setTimeout(() => {
                 this.setState({
                     longPress: true,
                 }, () => {
-                    // console.log(`longPress: ${this.state.longPress}`);
+                    console.log(`longPress: ${this.state.longPress}`);
                     // Place function you want to fire-off after longPress here.
-                    // console.log("Function should be called")
+                    console.log("Function should be called")
                     this.toggleTerrainLock();
                 })
                 this.longPressTimer = "end";
-                // console.log("longPressTimer complete")
-            }, 1500);
+                console.log("longPressTimer complete")
+            }, 2000);
         }   
     }
 
     cancelLongPress = () => {
         if (this.longPressTimer != "end") {
             clearTimeout(this.longPressTimer);
-            // console.log("Timeout process cancelled.")
+            console.log("Timeout process cancelled.")
             this.setState({
                 longPress: false,
             }, () => {
-                // console.log(`longPress: ${this.state.longPress}`);
+                console.log(`longPress: ${this.state.longPress}`);
             })
         }
     }
@@ -194,7 +190,9 @@ terrainStyle () {
 }
 
 offLockStyle () {
-    if (this.state.terrainLocked === false) {
+    if (this.props.lockStatus === false) {
+        console.log("this.props.lockStatus")
+        console.log(this.props.lockStatus)
         return styles.offLockStyle;
     } else {
 

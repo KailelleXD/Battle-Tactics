@@ -38,7 +38,8 @@ export class PhysProvider extends React.Component {
         // console.log("Current State of Terrain Data json");
         // console.log(terrain[9]);
         terrain = UpdatedTerrainData;
-        // console.log("Updating Terrain Locations");
+        // console.log(newLine);
+        console.log("Updating Terrain Locations");
         this.setState({ terrain }, () => {
             // console.log(newLine);
             // console.log(this.state.terrain[9]);
