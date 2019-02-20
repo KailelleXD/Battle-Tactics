@@ -3,6 +3,7 @@ import { View, ImageBackground, Dimensions } from "react-native";
 import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
+import TerrainPlacement from "../components/TerrainComponents/TerrainPlacement";
 import SandDunes from "../graphics/maps/SandDunes.png";
 import RockFormations from "../graphics/maps/RockFormations.png";
 import DustPlains from "../graphics/maps/DustPlains.png";
@@ -26,6 +27,7 @@ export default class GameStartScreen extends Component {
                     >
                         <View>
                             <Detachment style={{ zIndex: 99 }} />
+                            <TerrainPlacement style={{ zIndex: 0 }} />
                             <ImageBackground
                                 source={SandDunes}
                                 style={{
