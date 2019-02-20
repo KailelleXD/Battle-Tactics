@@ -38,7 +38,7 @@ export default class ChooseMap extends Component {
         {(context) => (
           <Container>
             <Grid style={styles.grid}>
-              <Row size={75}>
+              <Row size={80}>
                 <Container>
                   <MapCardsSelector />
                 </Container>
@@ -51,7 +51,7 @@ export default class ChooseMap extends Component {
               </Row>
 
 
-              <Row size={15}>
+              <Row size={10}>
                 <Container>
                   <NextBackWrapper path="Terrain" />
                 </Container>

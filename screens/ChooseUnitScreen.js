@@ -24,11 +24,11 @@ export default class ChooseUnitScreen extends Component {
       <Container>
       <Grid style={styles.grid}>
 
-        <Row size={85}>
+        <Row size={90}>
           <UnitSelector />
         </Row>
 
-        <Row size={15}>
+        <Row size={10}>
           <NextBackWrapper path="DeploymentArea" />
         </Row>
 

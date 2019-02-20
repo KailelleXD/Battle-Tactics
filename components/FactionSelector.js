@@ -33,7 +33,7 @@ export default class FactionSelector extends Component {
                 </Content>
                   </Row>
 
-                  <Row size={30}>
+                  <Row size={20}>
                   <Text>Faction: {context.state.playerOne.faction}</Text>
 
                   </Row>
