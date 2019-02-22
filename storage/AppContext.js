@@ -413,6 +413,9 @@ export class AppProvider extends React.Component {
                     }
                     if (profileType[j].$.profileTypeName === "Keywords") {
                       var keywords = profileType[j].$.name
+                      var keywordsFaction = profileType[j].characteristics[0].characteristic[0].$.value;
+                      var keywordsBasic = profileType[j].characteristics[0].characteristic[1].$.value;
+      
                     }
                     if (profileType[j].$.profileTypeName === "Landing Pad Configuration") {
                       var landingPad = profileType[j].$.name
@@ -578,6 +581,8 @@ export class AppProvider extends React.Component {
                   "pts": pts,
                   "PL": PL,
                   "CP": CP,
+                  "keywords (faction)": keywordsFaction,
+                  "keywords (basic)": keywordsBasic,
                   "profile": {
                     "M": profileM,
                     "WS": profileWS,
@@ -607,7 +612,7 @@ export class AppProvider extends React.Component {
                   // "test" : fullList[i]
                 }
                 array.push(characterList)
-
+                
               }
             }
 
