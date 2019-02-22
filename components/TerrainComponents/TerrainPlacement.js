@@ -21,18 +21,18 @@ export default class TerrainPlacement extends React.Component {
         headerLeft: null
     }
 
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
         
-        this.state = {
-            terrainSelectionScreen: true
-        }
-    }
+    //     this.state = {
+    //         terrainSelectionScreen: true
+    //     }
+    // }
 
-    // RENDER FUNCTION ////
+    // // RENDER FUNCTION ////
 
     renderBackground(source) {
-        if (this.state.terrainSelectionScreen === true) {
+        // if (this.state.terrainSelectionScreen === true) {
             return (
                 <ImageBackground
                 source={source}
@@ -43,7 +43,7 @@ export default class TerrainPlacement extends React.Component {
                     }}
                 />
             )
-        }
+        // }
     }
 
     render() {

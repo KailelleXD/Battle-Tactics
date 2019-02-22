@@ -52,7 +52,7 @@ export default class GameScreen extends Component {
         {(context) => (
             <Container>
                 <Grid>
-                    <Row size={10}>
+                    <Row size={8}>
                         <Col>
                             <Text>Faction: {context.state.playerOne.faction}</Text>
                         </Col>
@@ -87,7 +87,7 @@ export default class GameScreen extends Component {
                     </Row>
                     <Row>
                     </Row>
-                    <Row size={15}>
+                    <Row size={8}>
                         <Container>
                         <Grid>
 
@@ -140,6 +140,6 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 20,
+        marginTop: 5,
     },
 })
