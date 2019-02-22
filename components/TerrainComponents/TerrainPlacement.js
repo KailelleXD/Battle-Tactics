@@ -7,7 +7,6 @@ import {
 } from "react-native";
 import { PhysConsumer } from "../../storage/physContext";
 import Building from "./Building";
-import SandDunes from "../../graphics/maps/SandDunes.jpg";
 import MapSwitch from '../MapSwitch';
 import { AppConsumer } from "../../storage/AppContext";
 

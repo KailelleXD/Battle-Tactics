@@ -11,7 +11,6 @@ import BattleScribeScreen from '../screens/BattleScribeScreen';
 import ChooseFactionScreen from '../screens/ChooseFactionScreen';
 import FactionDetailScreen from '../screens/FactionDetailScreen';
 import ChooseUnitScreen from '../screens/ChooseUnitScreen';
-import TestScreen from '../screens/TestScreen';
 import ChooseDeploymentScreen from '../screens/ChooseDeploymentScreen';
 import PlaceUnitsScreen from '../screens/PlaceUnitsScreen';
 import GameReviewScreen from '../screens/GameReviewScreen';
@@ -31,7 +30,6 @@ const StackNavigator = createStackNavigator({
     Factions: ChooseFactionScreen,
     FactionDetail: FactionDetailScreen,
     Units: ChooseUnitScreen,
-    TestScreen: TestScreen,
     DeploymentArea: ChooseDeploymentScreen,
     PlaceUnits: PlaceUnitsScreen,
     GameReview: GameReviewScreen,

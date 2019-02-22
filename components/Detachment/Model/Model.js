@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import GhostModel from './GhostModel';
 import { 
     View,
@@ -7,7 +6,6 @@ import {
     PanResponder,
     Dimensions,
 } from 'react-native';
-import { Platform } from 'expo-core';
 
 let Window = Dimensions.get('window');
 const SCREEN_WIDTH = Window.width;
@@ -59,23 +57,11 @@ export default class Model extends Component {
         });
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevProps.unit.inRange !== this.props.unit.inRange) {
-    //         if (this.props.unit.inRange === true) {
-                
-    //         } else {
-
-    //         }
-    //     }
-    // }
-
     _handleStartShouldSetPanResponder = (event, gesture) => {
-        
-        // console.log("You are now touching the model component.");
         this.setState({
             ghostModel: true
         }, () => {
-            // console.log(this.state)
+            // console.log(this.state) // use this to check state.
         })
         this.delayHighlight();
         this.longPress(event);
@@ -83,14 +69,7 @@ export default class Model extends Component {
     }
 
     _handlePanResponderGrant = (event, gesture) => {
-        // if (this.state.longPress === true) {
             this.props.getStartXY(event.nativeEvent.touches[0].pageX, event.nativeEvent.touches[0].pageY);
-            // this.setState({
-            //     localStartX: event.nativeEvent.touches[0].pageX,
-            //     localStartY: event.nativeEvent.touches[0].pageY
-            // }, () => {
-            //     console.log(this.state.localStartX + " | " + this.state.localStartY)
-            // })
             this.localStartX = event.nativeEvent.touches[0].pageX,
             this.localStartY = event.nativeEvent.touches[0].pageY
 
@@ -98,11 +77,9 @@ export default class Model extends Component {
                 x: this.val.x,
                 y: this.val.y 
             });
-        // }
     }
 
     _handlePanResponderMove = (event, gesture) => {
-        // console.log(gesture.dx + ", " + gesture.dy)
         // Single Touch moves the Model.js component.
         if (gesture.numberActiveTouches === 1) {
             this.position.setValue({
@@ -117,13 +94,12 @@ export default class Model extends Component {
         // Two Finger touch places component in 'reset' state.
         if (gesture.numberActiveTouches === 2 && 
             this.state.resetPosition === false) {
-            // console.log("The RESET PROCESS has been initiated!");
 
             // Set 'resetPosition' to true. to prevent this code from firing more than once.
             this.setState({
                 resetPosition: true,
             }, () => {
-                // console.log(this.state)
+                // console.log(this.state) // use this to check state.
             })
 
             // Change the OFFSET of the 'position' object to visually show that this component will be reset back to it's prior position.
@@ -137,16 +113,10 @@ export default class Model extends Component {
                 offsetX: this.unit.x - gesture.dx / this.props.state.scale,
                 offsetY: this.unit.y - gesture.dy / this.props.state.scale,
             }, () => {
-                // console.log(
-                    // "offsetX: " + this.state.offsetX + "\n" + 
-                    // "offsetY: " + this.state.offsetY
-                // )
                 // CB-function to call helper function that will assign the offset X Y values to our models.json in the correct location.
                 this.resetModelLocation(
                     this.state.offsetX, this.state.offsetY
                     );
-                // Console.log that the 'Reset Procedure has been completed'
-                // console.log("The RESET PROCESS has been completed.")
             })
         } // END_IF    
     }
@@ -158,14 +128,12 @@ export default class Model extends Component {
         }
         this.cancelTimer();
         this.props.getEndXY(event.nativeEvent.pageX, event.nativeEvent.pageY);
-        // console.log("You are no longer touching the model component.")
         this.setState({
             onTouch: false,
             ghostModel: false,
             resetPosition: false,
-            // longPress: false,
         }, () => {
-            // console.log(this.state)
+            // console.log(this.state) // use this to check state.
         })
         this.updateModelLocation(gesture);
         this.props.calcDistance(gesture);
@@ -176,17 +144,10 @@ export default class Model extends Component {
 
     // Function to reset Model XY Data in model json.
     resetModelLocation (offsetX, offsetY) {
-        // console.log("The resetModelLocation function has been called.")
         // Check that the values have been passed in correctly.
-        // console.log(
-        //     "offsetX: " + offsetX + "\n" +
-        //     "offsetY: " + offsetY
-        //     )
         // Functional Code to dynamically replace the X and Y values for this specific component within Models.json
         // Use the SPREAD OPERATOR to assign the data inside of Models.json into a CONST variable called 'oldUnits'.
         const oldUnits = [...this.props.playerState.units];
-        // Console.log oldUnits to check for correct data.
-        // console.log(oldUnits);
         // Use the .map method to iterate through the oldUnits array and assign the results into a CONST variable called 'updatedUnits'.
         const updatedUnits = oldUnits.map(unit => {
             // IF, the unit.id matches the .id of this component...
@@ -235,34 +196,12 @@ export default class Model extends Component {
         // Calculate distance traveled in x and y.
         let x = Math.abs(this.localStartX - event.nativeEvent.pageX);
         let y = Math.abs(this.localStartY - event.nativeEvent.pageY);
-        // console.log(`x: ${x} y: ${y}`)
         // IF user has moved less than 3px in any direction, deploy the Modal.
         if (x <= 3 || y <= 3 && this.state.resetPosition === false) {
             // console.log("Deploying Modal...")
             this.props.deployModal(this.props.unit);
-            // this.setState({
-                // modalActive: true
-            // }, () => {
-                // console.log(this.state.modalActive)
-            // })
         }
     }
-
-     // Function to determine if a user has double-tapped on the screen.
-    // lastTap = null;
-    // handleDoubleTap = () => {
-    //     const now = Date.now();
-    //     const DOUBLE_PRESS_DELAY = 300;
-    //     if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-    //         console.log("DoubleTap!");
-    //         this.calcDistanceFromEnemyModels();
-
-    //         // this.toggleDblTap();
-    //     } else {
-    //         this.lastTap = now;
-    //         // console.log("no Doubletap.");
-    //     }
-    // };
 
     // Toggle function that works in conjunction with 'handleDoubleTap' to change the styling of our pop-up modal and make it invisible/visible.
     toggleRangeFinder = () => {
@@ -270,7 +209,6 @@ export default class Model extends Component {
             previousState => ({ 
                 rangeFinder: !previousState.rangeFinder }), 
                 () => {
-                    // console.log("doubleTap: " + this.state.doubleTap)
                     if (this.state.rangeFinder === true) {    
                         this.calcDistanceFromEnemyModels();
                     } else {
@@ -282,6 +220,7 @@ export default class Model extends Component {
     // TIMER FUNCTIONS ////
     //----------------------------------------------------------------------------
     // Function to delay the display of model highlight dependant of conditions.
+    // Un-comment console longs to see how timer functions.
     delayHighlight = () => {
         // console.log("Timeout process started.") 
         this.timer = setTimeout(() => {
@@ -307,11 +246,6 @@ export default class Model extends Component {
     //----------------------------------------------------------------------------
     // Function to determine if press is longer than 2 sec.
     longPress = (event) => {
-        // Calculate distance traveled in x and y.
-        // let x = Math.abs(this.localStartX - event.nativeEvent.pageX);
-        // let y = Math.abs(this.localStartY - event.nativeEvent.pageY);
-        // console.log(`x:${x}|y:${y}`)
-        // if (x <= 15 || y <= 15 && this.state.resetPosition === false) {
         if (this.state.resetPosition === false) {
             console.log("longPressTimer started");
             this.longPressTimer = setTimeout(() => {
@@ -343,48 +277,28 @@ export default class Model extends Component {
     //Function to calc distance from enemy models (for weapon range).
     calcDistanceFromEnemyModels = () => {
         // Get this model's current XY position.
-        // console.log(`current position: ${this.unit.x}, ${this.unit.y}`)
         const enemyUnits = [...this.props.enemyUnits]
         const updatedEnemyUnits = enemyUnits.map((enemyUnit, i) => {
             // Calculate distance to current Enemy Model.
-            // console.log(`-------------------------`)
-            // console.log("player: " + enemyUnit.player)
-            // console.log(enemyUnit.style)
-            // console.log("Position: (" + enemyUnit.x + ", " + enemyUnit.y + ")")
-            // console.log(`-------------------------`)
             let dx = Math.abs(this.val.x - enemyUnit.x);
             let dy = Math.abs(this.val.y - enemyUnit.y);
             let distanceBetweenPoints = Math.sqrt(dx * dx + dy * dy);
-            // console.log(`distance from enemy unit.id ${i + 1}: ${distanceBetweenPoints}`)
             // Convert pixels to inches.
             let inches = (distanceBetweenPoints-MODEL_RADIUS) / (SCREEN_WIDTH/48);
-            // console.log(`distance in inches: ${inches}`);
-            // console.log(`-------------------------`)
-            // console.log("player: " + this.unit.player);
-            // console.log(this.unit.style);
-            // console.log("Position: (" + this.val.x + ", " + this.val.y + ")")
-            // console.log(`-------------------------`)
             // If within weapon's range, change inRange to true.
             // for-loop to iterate through this components weapon array.
             for (let k = 0; k < this.unit.weapons.length; k++) {
                 // If inches <= unit.weapons[k].range,
                 if (inches <= this.unit.weapons[k].range) {
-                    // console.log(`The range for ${this.unit.weapons[k].name} is ${this.unit.weapons[k].range}.`);
-                    // console.log(`distance in to Enemy in inches: ${inches}`);
                     // Then change unit.inRange to TRUE.
                     enemyUnit.inRange = true;
-                    // console.log(`unit.id #${enemyUnit.id}'s unit.inRange was set to ${enemyUnit.inRange}`);
                     return enemyUnit;
                 } else {
                     enemyUnit.inRange = false;
                     return enemyUnit;
                 }
             }
-            // console.log(`Enemy Model at Index #${i}:`)
-            // console.log(enemyUnit)
-            // console.log(`-------------------------`)
         })
-        // console.log(updatedEnemyUnits)
     }
 
     resetRangeFinder = () => {
@@ -393,7 +307,6 @@ export default class Model extends Component {
             enemyUnit.inRange = false;
             return enemyUnit;
             })
-        // console.log(updatedEnemyUnits)
     }
 
     // STYLE FUNCTIONS ////    
@@ -444,12 +357,8 @@ export default class Model extends Component {
         }
     }
 
-
-
     inWeaponRangeStyle () {
-        // console.log(this.props.unit.id + ": [" + this.props.unit.style + "] " + this.props.unit.inRange);
         if (this.props.unit.inRange === true) {
-            // console.log("inRangeStyle should be showing")
             return styles.inRangeStyle
         } else {
 
@@ -457,9 +366,7 @@ export default class Model extends Component {
     }
 
     rangeFinderOnStyle () {
-        // console.log(this.props.unit.id + ": [" + this.props.unit.style + "] " + this.props.unit.inRange);
         if (this.state.rangeFinder === true) {
-            // console.log("outRangeStyle should be showing")
             return styles.outRangeStyle
         } else {
 
@@ -467,16 +374,6 @@ export default class Model extends Component {
     }
 
     // RENDER FUNCTIONS ////
-
-    // modalPopUp () {
-    //     if (this.state.modalPopUp === true) {
-    //         return (
-    //             <Test val={this.val} />
-    //         )
-    //     } else if (this.state.modalPopUp === false) {
-
-    //     }
-    // }
     
     placeGhostModel () {
         if (this.state.ghostModel === true && this.state.rangeFinder == false) {
@@ -493,7 +390,6 @@ export default class Model extends Component {
             <Animated.View
                     style={[this.position.getLayout()]}
                     {...this.panResponder.panHandlers}
-                    
                 >
                     <View 
                         onTouchStart={this.handleDoubleTap}
@@ -516,7 +412,6 @@ export default class Model extends Component {
             <View style={styles.mainContainer}>
                 {this.renderModels()}
                 {this.placeGhostModel()}
-                {/* {this.modalPopUp()} */}
             </View>
         )
     }
@@ -536,8 +431,6 @@ const styles = {
         width: Window.width,
         top: 0,
         left: 0
-        // top: 40,
-        // left: Window.width / 2 - MODEL_RADIUS / 2
     },
     model: {
         width: MODEL_RADIUS,
@@ -581,8 +474,6 @@ const styles = {
         opacity: .8,
     },
     onTouchRF: {
-        // width: this.ON_TOUCH_MODEL_HIGHLIGHT,
-        // height: this.ON_TOUCH_MODEL_HIGHLIGHT,
         backgroundColor: '#bc9caa',
         margin: 0,
         padding: 0,
