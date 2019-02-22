@@ -12,9 +12,9 @@ export default class App extends React.Component {
   render() {
     return (
       <PhysProvider>
-      <AppProvider>
-        <NavigationContainer />
-      </AppProvider>
+        <AppProvider>
+          <NavigationContainer />
+        </AppProvider>
       </PhysProvider>
     );
   }
