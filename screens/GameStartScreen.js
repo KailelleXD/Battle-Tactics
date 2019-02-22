@@ -4,7 +4,6 @@ import { PhysConsumer } from "../storage/physContext";
 import PinchZoomView from "../utils/PinchZoomView";
 import Detachment from "../components/Detachment/Detachment";
 import TerrainPlacement from "../components/TerrainComponents/TerrainPlacement";
-import SandDunes from "../graphics/maps/SandDunes.jpg";
 
 const Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
@@ -26,14 +25,6 @@ export default class GameStartScreen extends Component {
                         <View>
                             <Detachment style={{ zIndex: 99 }} />
                             <TerrainPlacement style={{ zIndex: 0 }} />
-                            <ImageBackground
-                                source={SandDunes}
-                                style={{
-                                    width: SCREEN_WIDTH,
-                                    height: SCREEN_HEIGHT,
-                                    zIndex: -5,
-                                }}
-                            />
                         </View>
                     </PinchZoomView>
                 )}
