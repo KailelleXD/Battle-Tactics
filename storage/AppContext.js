@@ -217,18 +217,18 @@ export class AppProvider extends React.Component {
       //     console.log("name: " + data[i]["name"])
       //     console.log("type: " + data[i]["type"])
       //   }
-        AsyncStorage.getItem("8-Chaos-DeathGuard").then(value => {
+        AsyncStorage.getItem("38-Tyranids").then(value => {
           return parsed = JSON.parse(value)
         }).then(value => {
           
           for(let i = 0; i < value.length; i++){
-            console.log(value[i].name)
-            console.log(value[i].weapons)
-            console.log(value[i].weapons.length)
-            console.log(value[i].type)
-            for(let j = 0; j < value[i].weapons.length; j++){
-              console.log(value[i].weapons.length[j])
-            }
+            // console.log(value[i]["keywords (faction)"])
+            console.log(value[i])
+            // console.log(value[i].weapons.length)
+            // console.log(value[i].type)
+            // for(let j = 0; j < value[i].weapons.length; j++){
+            //   console.log(value[i].weapons.length[j])
+            // }
 
             
           }
@@ -413,8 +413,10 @@ export class AppProvider extends React.Component {
                     }
                     if (profileType[j].$.profileTypeName === "Keywords") {
                       var keywords = profileType[j].$.name
-                      var keywordsFaction = profileType[j].characteristics[0].characteristic[0].$.value;
-                      var keywordsBasic = profileType[j].characteristics[0].characteristic[1].$.value;
+                      var preSplit = profileType[j].characteristics[0].characteristic[0].$.value;
+                      var keywordsFaction = preSplit.split(",")
+                      var preSplit2 = profileType[j].characteristics[0].characteristic[1].$.value;
+                      var keywordsBasic = preSplit2.split(",") 
       
                     }
                     if (profileType[j].$.profileTypeName === "Landing Pad Configuration") {
