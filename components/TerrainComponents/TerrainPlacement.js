@@ -20,18 +20,9 @@ export default class TerrainPlacement extends React.Component {
         headerLeft: null
     }
 
-    // constructor(props) {
-    //     super(props);
-        
-    //     this.state = {
-    //         terrainSelectionScreen: true
-    //     }
-    // }
-
-    // // RENDER FUNCTION ////
+    // RENDER FUNCTION ////
 
     renderBackground(source) {
-        // if (this.state.terrainSelectionScreen === true) {
             return (
                 <ImageBackground
                 source={source}
@@ -42,7 +33,6 @@ export default class TerrainPlacement extends React.Component {
                     }}
                 />
             )
-        // }
     }
 
     render() {
@@ -117,5 +107,13 @@ const styles = StyleSheet.create({
     terrainStrawberry: {
         backgroundColor: "#D11F67",
         borderColor: "#E66C9D"
+    },
+    terrainRaspberry: {
+        backgroundColor: "#8C2F5E",
+        borderColor: "#D28CB0"
+    },
+    terrainBlueish: {
+        backgroundColor: "#0E4D93",
+        borderColor: "#A8BDD5"
     }
 });

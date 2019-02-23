@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Alien Marsh",
     "text": "Select Alien Marsh",
-    "image": "map1"
+    "style": "map1"
 
 
   },
@@ -11,97 +11,97 @@
     "id": 2,
     "name": "Dark Lands",
     "text": "Select Dark Lands",
-    "image": "map2"
+    "style": "map2"
 
   },
   {
     "id": 3,
     "name": "Dead Lands",
     "text": "Select Dead Lands",
-    "image": "map3"
+    "style": "map3"
   },
   {
     "id": 4,
     "name": "Dry Desert",
     "text": "Select Dry Desert",
-    "image": "map4"
+    "style": "map4"
 
   },
   {
     "id": 5,
     "name": "Dust Plains",
     "text": "Select Dust Plains",
-    "image": "map5"
+    "style": "map5"
 
   },
   {
     "id": 6,
     "name": "Grassfield",
     "text": "Select Grassfield",
-    "image": "map6"
+    "style": "map6"
 
   },
   {
     "id": 7,
     "name": "Io",
     "text": "Select Io",
-    "image": "map7"
+    "style": "map7"
 
   },
   {
     "id": 8,
     "name": "Mars",
     "text": "Select Mars",
-    "image": "map8"
+    "style": "map8"
 
   },
   {
     "id": 9,
     "name": "Muddy River",
     "text": "Select Muddy River",
-    "image": "map9"
+    "style": "map9"
 
   },
   {
     "id": 10,
     "name": "Rock Formations",
     "text": "Select Rock Formations",
-    "image": "map10"
+    "style": "map10"
 
   },
   {
     "id": 11,
     "name": "Sand Dunes",
     "text": "Select Sand Dunes",
-    "image": "map11"
+    "style": "map11"
 
   },
   {
     "id": 12,
     "name": "Shallow Sea",
     "text": "Select Shallow Sea",
-    "image": "map12"
+    "style": "map12"
 
   },
   {
     "id": 13,
     "name": "Venus",
     "text": "Select Venus",
-    "image": "map13"
+    "style": "map13"
 
   },
   {
     "id": 14,
     "name": "Wasteland",
     "text": "Select Wasteland",
-    "image": "map14"
+    "style": "map14"
 
   },
   {
     "id": 15,
     "name": "Wetlands",
     "text": "Select Wetlands",
-    "image": "map15"
+    "style": "map15"
 
   }
 ]
