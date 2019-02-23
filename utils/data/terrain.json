@@ -37,7 +37,7 @@
     },
     {
       "id": 4,
-      "name": "12x3",
+      "name": "9x3",
       "locked": false,
       "style": "terrainGreen",
       "x": 0,
@@ -49,7 +49,7 @@
     },
     {
       "id": 5,
-      "name": "12x3",
+      "name": "9x3",
       "locked": false,
       "style": "terrainBlue",
       "x": 0,
@@ -140,6 +140,18 @@
       "y": 0,
       "feetWidth": 9,
       "feetHeight": 9,
+      "radius": 12,
+      "zIndex": 0
+    },
+    {
+      "id": 13,
+      "name": "9x3",
+      "locked": false,
+      "style": "terrainGolden",
+      "x": 0,
+      "y": 0,
+      "feetWidth": 9,
+      "feetHeight": 3,
       "radius": 12,
       "zIndex": 0
     }
