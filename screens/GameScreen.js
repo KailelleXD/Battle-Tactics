@@ -59,7 +59,7 @@ export default class GameScreen extends Component {
                         <Col>
                             <Text>Points: {context.state.playerOne.points}</Text>
                         </Col>
-                        <Col>
+                        <Col style={{ zIndex: -5 }} >
                             <Button
                                 onPress={this.handleClick}
                             >
@@ -83,7 +83,7 @@ export default class GameScreen extends Component {
                         </Container>
                     </Row>
                     <Row size={75}>
-                        <GameStartScreen />
+                        <GameStartScreen style={{ zIndex: 99 }} />
                     </Row>
                     <Row>
                     </Row>
