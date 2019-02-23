@@ -115,5 +115,9 @@ const styles = StyleSheet.create({
     terrainBlueish: {
         backgroundColor: "#0E4D93",
         borderColor: "#A8BDD5"
+    },
+    terrainGolden: {
+        backgroundColor: "#E2BB03",
+        borderColor: "#FFF5C4"
     }
 });
