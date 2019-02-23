@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Button, Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Dimensions, StyleSheet, TouchableOpacity, View, ScrollView } from "react-native";
+import { Container, Content, Text } from 'native-base';
 import Modal from "react-native-modal";
 
 const { width, height } = Dimensions.get("window");
@@ -92,11 +93,14 @@ export default class BattlescribeModal extends Component {
           >
           <View style={styles.modal}>
             <View style={styles.modalHeader}>
-              <Text style={styles.modalHeaderText}>Unit Information: P{this.props.data.unit.player}-{this.props.data.unit.id}</Text>
+              <Text style={styles.modalHeaderText}>Unit Information: P{this.props.data.unit.player}-{this.props.data.unit.name}</Text>
               <View style={styles.modalSeparatorLine} />
             </View>
+
+          {/* <Container> */}
           <View style={styles.modalMainBody}>
             <View style={styles.modalColumn}>
+            {/* <Content> */} 
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>X Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.x === 0 ? this.props.data.unit.x : this.props.data.unit.x.toFixed(8)}</Text>
               </View>
@@ -104,46 +108,39 @@ export default class BattlescribeModal extends Component {
                 <Text style={styles.dataHeader}>Y Index: </Text><Text style={styles.dataValue}>{this.props.data.unit.y === 0 ? this.props.data.unit.y : this.props.data.unit.y.toFixed(8)}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Movement Value: </Text><Text style={styles.dataValue}>{this.props.data.unit.m}</Text>
+                <Text style={styles.dataHeader}>Move: </Text><Text style={styles.dataValue}>{this.props.data.unit.m}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>W1: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[0].name}</Text>
+                <Text style={styles.dataHeader}>Weapon Skill: </Text><Text style={styles.dataValue}>{this.props.data.unit.ws ? this.props.data.unit.ws : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>W1 Range: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[0].range}</Text>
+                <Text style={styles.dataHeader}>Ballistic Skill: </Text><Text style={styles.dataValue}>{this.props.data.unit.bs ? this.props.data.unit.bs : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>W2: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[1] ? this.props.data.unit.weapons[1].name : "N/A"}</Text>
+                <Text style={styles.dataHeader}>Strength: </Text><Text style={styles.dataValue}>{this.props.data.unit.s ? this.props.data.unit.s : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>W2 Range: </Text><Text style={styles.dataValue}>{this.props.data.unit.weapons[1] ? this.props.data.unit.weapons[1].range : "N/A"}</Text>
-              </View>
-            </View>
-            <View style={styles.modalColumn}>
-              <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Toughness: </Text><Text style={styles.dataValue}>{this.props.data.unit.t ? this.props.data.unit.t : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Wound: </Text><Text style={styles.dataValue}>{this.props.data.unit.w ? this.props.data.unit.w : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Attacks: </Text><Text style={styles.dataValue}>{this.props.data.unit.a ? this.props.data.unit.a : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Leadership: </Text><Text style={styles.dataValue}>{this.props.data.unit.ld ? this.props.data.unit.ld : "N/A"}</Text>
               </View>
               <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
+                <Text style={styles.dataHeader}>Save: </Text><Text style={styles.dataValue}>{this.props.data.unit.sv ? this.props.data.unit.sv : "N/A"}</Text>
               </View>
-              <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
-              </View>
-              <View style={styles.dataLine}>
-                <Text style={styles.dataHeader}>Unit Stat: </Text><Text style={styles.dataValue}>0</Text>
-              </View>
+              {/* </Content> */}
             </View>
             <View style={styles.modalSeparatorLine} />
           </View>
+            {/* </Container> */}
+
+
           <View style={styles.modalBottom}>
             <View style={styles.modelBottomColumn}>
               <Button 
@@ -174,11 +171,15 @@ export default class BattlescribeModal extends Component {
 
 const styles = StyleSheet.create({
   modal: {
-    height: MODAL_HEIGHT,
+    // height: MODAL_HEIGHT,
+    // height: height,
     width: "100%",
     backgroundColor: "rgb(245,245,245)",
     borderRadius: 5,
-    alignSelf: "center"
+    alignSelf: "center",
+    display: "flex",
+    // flexDirection: "column",q
+    justifyContent: "space-between",
   },
   modalHeader: {
     width: "100%",
@@ -193,7 +194,7 @@ const styles = StyleSheet.create({
   },
   modalSeparatorLine: {
     width: "100%",
-    height: StyleSheet.hairlineWidth,
+    // height: StyleSheet.hairlineWidth,
     backgroundColor: "rgb(185,185,185)",
     position: "absolute",
     bottom: 0,

@@ -21,9 +21,7 @@ export default class FactionSelector extends Component {
                   {Factions.map(faction => (
                     <FactionCard 
                     key={faction.id} 
-                    name={faction.name} 
-                    detail={faction.detail} 
-                    path="FactionDetail"
+                    name={faction.name}
                     cardPress={() => {
                       context.setFaction(faction.factionName)
                     }}

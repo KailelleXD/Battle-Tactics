@@ -46,6 +46,8 @@ export default class UnitSelector extends Component {
 
                       <UnitCard
                         key={unit["id"]}
+                        detail={unit.abilities}
+                        path="FactionDetail"
                         modelName={unit.name}
                         bfRole={unit.bf_role}
                         points={unit.pts}
@@ -60,8 +62,16 @@ export default class UnitSelector extends Component {
                             player: 1,
                             x: 0,
                             y: 0,
+                            a: unit.profile.A,
+                            bs: unit.profile.BS,
+                            ld: unit.profile.Ld,
                             m: unit.profile.M,
+                            s: unit.profile.S,
+                            sv: unit.profile.Sv,
+                            t: unit.profile.T,
+                            ws: unit.profile.WS,
                             wound: unit.profile.W,
+                            ability: unit.abilities,
                             inRange: false,
                             weapons: unit.weapons
                           })
@@ -113,4 +123,3 @@ export default class UnitSelector extends Component {
 const styles = StyleSheet.create({
 
 });
-

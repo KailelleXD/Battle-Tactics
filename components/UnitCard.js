@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button, TouchableHighlight} from 'react-native'
-import { Container, Header, Content, Card, CardItem, Body, } from 'native-base';
-// import { withNavigation } from 'react-navigation';
+import { StyleSheet, View, TouchableHighlight} from 'react-native'
+import { Container, Header, Content, Card, CardItem, Body, Button, Text } from 'native-base';
+import { withNavigation } from 'react-navigation';
 
 class UnitCard extends Component {
   render () {
@@ -19,6 +19,8 @@ class UnitCard extends Component {
                   this.props.weapons.length === 1 ? 
                   (<Text>{this.props.weapons.length} Weapon Available</Text>) 
                   : (<Text>{this.props.weapons.length} Weapons Available</Text>)
+
+                
           
           
           // this.props.weapons.map(weapon => {
@@ -29,6 +31,14 @@ class UnitCard extends Component {
                 ) : (
                   console.log("")
                 )}
+
+                      <Button 
+                        onPress={() => { this.props.navigation.navigate(this.props.path, {
+                          detail: this.props.detail
+                        })}}
+                      >
+                        <Text>View Detail</Text>
+                      </Button>
                 
               </Body>
             </CardItem>
@@ -43,4 +53,4 @@ const styles = StyleSheet.create({})
 
 // export default withNavigation(FactionCard);
 
-export default UnitCard;
+export default withNavigation(UnitCard);
