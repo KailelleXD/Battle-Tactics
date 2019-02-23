@@ -62,28 +62,12 @@ export default class SettingsScreen extends Component {
                 info
                 rounded
                 style={styles.button}
-                onPress={() => { context.consoleLogFactionTEST() }}
+                onPress={() => { this.props.navigation.navigate("Developer") }}
               >
-                <Text>consoleLogFactionTEST</Text>
+                <Text>Developer's Settings</Text>
               </Button>
 
-              <Button
-                info
-                rounded
-                style={styles.button}
-                onPress={() => { context.clearAsyncStorage() }}
-              >
-                <Text>clearAsyncStorage</Text>
-              </Button>
-
-                            <Button
-                info
-                rounded
-                style={styles.button}
-                onPress={() => { context.getFactionFromStorage() }}
-              >
-                <Text>getFactionFromStorage</Text>
-              </Button>
+              
 
               {/* <RandomStart random={this.props.randomStart} />  */}
 
