@@ -32,15 +32,8 @@ export default class PinchZoomView extends Component {
     this.position = position;
 
     this.state = {
-      // scale: 1,
-      // lastScale: 1,
-      // offsetX: 0,
-      // offsetY: 0,
-      // lastX: 0,
-      // lastY: 0,
       lastMovePinch: false
     };
-    // this.distant = 150;
   }
 
   componentWillMount() {
@@ -105,11 +98,6 @@ export default class PinchZoomView extends Component {
       this.props.state.offsetY,
       this.props.state.scale
     );
-    // this.setState({
-    //   lastX: this.props.state.offsetX,
-    //   lastY: this.props.state.offsetY,
-    //   lastScale: this.props.state.scale
-    // });
   };
 
   _handlePanResponderMove = (event, gesture) => {
@@ -126,55 +114,21 @@ export default class PinchZoomView extends Component {
       //check scale min to max hello
       if (scale < this.props.maxScale && scale > this.props.minScale) {
         this.props.updateScale(scale);
-        // this.setState({ scale, lastMovePinch: true });
         this.setState({ lastMovePinch: true });
       }
     }
     // translate
-    // else if (gesture.numberActiveTouches === 1) {
     else if (gesture.numberActiveTouches === 1 && this.props.state.scale > 1.25) {
-    // if (gesture.numberActiveTouches === 1 && this.props.state.scale > 1.0) {
       if (this.state.lastMovePinch) {
         gesture.dx = 0;
         gesture.dy = 0;
       }
       let offsetX = this.props.state.lastX + gesture.dx / this.props.state.scale;
       let offsetY = this.props.state.lastY + gesture.dy / this.props.state.scale;
-      // if ( offsetX < 0  || offsetY <  0 )
-      // this.setState({ offsetX, offsetY, lastMovePinch: false });
       this.setState({ lastMovePinch: false });
       this.props.updateOffset(offsetX, offsetY);
     }
   };
-
-  // lastTap = null;
-  // handleDoubleTap = () => {
-  //     const now = Date.now();
-  //     const DOUBLE_PRESS_DELAY = 300;
-  //     if (this.lastTap && now - this.lastTap < DOUBLE_PRESS_DELAY) {
-  //         this.centerMap();
-  //         console.log("DoubleTap!");
-  //     } else {
-  //         this.lastTap = now;
-  //         console.log("no Doubletap.");
-  //     }
-  // };
-
-  // centerMap = () => {
-  //   console.log("centerMap function called")
-  //   // if (this.state.scale >= 1.0) {
-  //     console.log("map should center")
-  //     console.log("offsetX: " + this.props.state.offsetX + "\noffsetY: " + this.props.state.offsetY)
-  //     this.props.updateScale(1);
-  //     this.props.updateDistant(150);
-  //         Animated.spring(this.position, {
-  //             toValue: { 
-  //               x: -this.props.state.offsetX, 
-  //               y: -this.props.state.offsetY
-  //             }
-  //         }).start()
-  //     // }
-  // }
 
   render() {
     return (

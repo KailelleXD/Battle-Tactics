@@ -13,7 +13,6 @@ export default class ghostModel extends Component {
         super(props);
 
         this.val = {...this.props.val};
-        // console.log(this.props.state.TempX)
 
       }
       
@@ -21,8 +20,6 @@ export default class ghostModel extends Component {
         return (
             <View style={[{
           transform: [
-            // { translateX: this.props.state.TempX },
-            // { translateY: this.props.state.TempY }
             { translateX: this.val.x },
             { translateY: this.val.y }
           ]},

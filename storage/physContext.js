@@ -32,33 +32,18 @@ export class PhysProvider extends React.Component {
     }
 
     updateTerrain = (UpdatedTerrainData) => {
-        const newLine = "---------------------------------------------";
-        const newDblLine = "=============================================";
         let terrain = { ...this.state.terrain };
-        // console.log("Current State of Terrain Data json");
-        // console.log(terrain[9]);
         terrain = UpdatedTerrainData;
-        // console.log(newLine);
-        console.log("Updating Terrain Locations");
         this.setState({ terrain }, () => {
-            // console.log(newLine);
-            // console.log(this.state.terrain[9]);
-            // console.log(newLine);
-            // console.log(newLine);
         });
     }
 
     updateLock = (UpdatedLockData) => {
-        // console.log("updateLock function called");
-        // console.log(UpdatedLockData);
-        const newLine = "---------------------------------------------"
-        const newDblLine = "=============================================";
         let terrain = { ...this.state.terrain};
-        // console.log(terrain);
         terrain = UpdatedLockData;
         console.log(terrain.locked)
         this.setState({ terrain }, () => {
-            // console.log(this.state.terrain)
+            // console.log(this.state.terrain) // use this to check state.
         });
     }
 
@@ -93,6 +78,7 @@ export class PhysProvider extends React.Component {
         let Window = Dimensions.get('window');
         const SCREEN_WIDTH = Window.width*this.state.scale;
         const PPI = SCREEN_WIDTH/48;
+        // Un-comment to check screen width and pixels per inch.
         // console.log("screenWidth: " + SCREEN_WIDTH);
         // console.log("screenHeight: " + SCREEN_WIDTH*1.5)
         // console.log("Pixels/Inch: " + PPI);
@@ -103,7 +89,6 @@ export class PhysProvider extends React.Component {
     }
 
     getStartXY = (x, y) => {
-        // console.log("x: " + x + " | " + "y: " + y)
         let startObj = {
             x: x,
             y: y
@@ -114,7 +99,6 @@ export class PhysProvider extends React.Component {
     }
 
     getEndXY = (x, y) => {
-        // console.log("x: " + x + " | " + "y: " + y)
         let endObj = {
             x: x,
             y: y
@@ -125,21 +109,17 @@ export class PhysProvider extends React.Component {
     }
 
     getTempXY = (x, y) => {
-        console.log("x: " + x + " | " + "y: " + y)
         this.setState({
             tempX: x,
             tempY: y
         })
     }
 
+    // Function to calc distance between model components.
     calcDistance = (gesture) => {
         if(this.state.endXY.x == null && this.state.endXY.y == null) {
-            // console.log("Running Calc");
             let distance = Math.sqrt(gesture.dx * gesture.dx + gesture.dy * gesture.dy);
-            // let scaleDistance = distance / this.state.scale;
             let inches = distance / this.state.ppi;
-            // console.log("Total Distance in Pixels: " + distance);
-            // console.log("Total Distance in Inches: " + inches);
             this.setState({
                 distance: distance,
                 inches: inches

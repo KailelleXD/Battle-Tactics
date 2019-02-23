@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Model from "./Model/Model";
 import { AppConsumer } from "../../storage/AppContext";
 import { PhysConsumer } from '../../storage/physContext';
-
 import models from "../../utils/data/models.json";
 import BattlescribeModal from "./BattlescribeModal";
 export default class Detachment extends React.Component {
@@ -41,7 +40,7 @@ export default class Detachment extends React.Component {
                                     />
                             ))}
                             </View>
-                            <View style={styles.container}>
+                            <View>
                                 {context.state.playerTwo.units.map((modelP2, i) => (
                                 <Model 
                                     id={modelP2.id} 
@@ -80,12 +79,6 @@ export default class Detachment extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        // flex: 1,
-        // backgroundColor: "#caf",
-        // alignItems: "center",
-        // justifyContent: "center"
-    },
     modelPurple: {
         backgroundColor: "#600060"
     },

@@ -10,7 +10,6 @@ import {
 let Window = Dimensions.get("window");
 const SCREEN_WIDTH = Window.width;
 const ONE_INCH = SCREEN_WIDTH / 48;
-const newLine = "---------------------------------------------"
 
 // In Warhammer 1 inch represents 60 inches (1:60 scale)
 // AKA 1 inch is 5ft.
@@ -53,13 +52,11 @@ export default class Building extends Component {
     }
 
     _handleStartShouldSetPanResponder = (event, gesture) => {
-        // console.log(newLine);
-
         if (this.props.lockStatus === false) {
             this.setState({
                 onPress: true
             }, () => {
-                // console.log(`onPress: ${this.state.onPress}`)
+                // console.log(`onPress: ${this.state.onPress}`) // use this to check state.
             })
             this.longPress(event);
             return true;
@@ -76,10 +73,6 @@ export default class Building extends Component {
     };
 
     _handlePanResponderMove = (event, gesture) => {
-        // console.log(newLine)
-        // console.log(this.state)
-        // console.log(newLine)
-        
         if (this.state.longPress === false && this.state.terrainLocked === false) {
             this.position.setValue({
                 x: gesture.dx,
