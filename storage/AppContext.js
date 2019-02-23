@@ -86,7 +86,7 @@ export class AppProvider extends React.Component {
     const gameData = { ...this.state.gameData }
     gameData.mapName = newMap
     this.setState({ gameData }, () => {
-      console.log("Map name set to gameData: ", this.state.gameData.mapName)
+      // console.log("Map name set to: ", this.state.gameData.mapName)
     })
     
   }

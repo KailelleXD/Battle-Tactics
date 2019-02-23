@@ -26,10 +26,10 @@ const MapCardsSelector = () => {
               <Card style={{ elevation: 3 }}>
                 <CardItem style={styles[item.style]}>
                   <Left>
-                    <Thumbnail source={MapSwitch(item.name)} />
+                    <Thumbnail style={styles.thumbnailStyle} source={MapSwitch(item.name)} />
                     <Body>
-                      <Text>{item.name}</Text>
-                      <Text note>{item.subNote}</Text>
+                      <Text style={styles.textStyle}>{item.name}</Text>
+                      <Text style={styles.textStyle} note>{item.subNote}</Text>
                     </Body>
                   </Left>
                 </CardItem>
@@ -40,7 +40,7 @@ const MapCardsSelector = () => {
                   <Icon name="grid" style={{ color: '#f9511d' }} 
                   onPress={() => {
                     context.setMap(item.name);
-                    console.log(context.state.gameData.mapName)
+                    // console.log(context.state.gameData.mapName)
 
                   }}
                   />
@@ -62,6 +62,15 @@ const MapCardsSelector = () => {
 
 
 const styles = StyleSheet.create({
+  thumbnailStyle: {
+    borderColor: '#000',
+    borderWidth: 2,
+    borderRadius: 28
+  },
+  textStyle: {
+    fontWeight: '600',
+    fontSize: 20
+  },
   map1: {
     backgroundColor: '#D7E1E1'
   },

@@ -86,7 +86,7 @@ export default class Building extends Component {
         this.setState({
             onPress: false
         }, () => {
-            console.log(`onPress: ${this.state.onPress}`)
+            // console.log(`onPress: ${this.state.onPress}`)
         })
         this.updateTerrainLocation(gesture);
     }
@@ -127,24 +127,25 @@ updateLockStatus () {
 
 // TOUCH FUNCTIONS ////
 // Personal note to decouple these functions into their own components to improve reusability.
+// Un-comment console logs to see how the longPress functions.
 
 //----------------------------------------------------------------------------
     // Function to determine if press is longer than 2 sec.
     longPress = (event) => {
         // Insert any needed conditional logic.
         if (true === true) {
-            console.log("longPressTimer started");
+            // console.log("longPressTimer started");
             this.longPressTimer = setTimeout(() => {
                 this.setState({
                     longPress: true,
                 }, () => {
-                    console.log(`longPress: ${this.state.longPress}`);
+                    // console.log(`longPress: ${this.state.longPress}`);
                     // Place function you want to fire-off after longPress here.
-                    console.log("Function should be called")
+                    // console.log("Function should be called")
                     this.toggleTerrainLock();
                 })
                 this.longPressTimer = "end";
-                console.log("longPressTimer complete")
+                // console.log("longPressTimer complete")
             }, 2000);
         }   
     }
@@ -152,11 +153,11 @@ updateLockStatus () {
     cancelLongPress = () => {
         if (this.longPressTimer != "end") {
             clearTimeout(this.longPressTimer);
-            console.log("Timeout process cancelled.")
+            // console.log("Timeout process cancelled.")
             this.setState({
                 longPress: false,
             }, () => {
-                console.log(`longPress: ${this.state.longPress}`);
+                // console.log(`longPress: ${this.state.longPress}`);
             })
         }
     }
@@ -170,8 +171,8 @@ toggleTerrainLock = () => {
         previousState => ({ 
             terrainLocked: !previousState.terrainLocked }), 
             () => {
-                console.log(`terrainLocked: ${this.state.terrainLocked}`)
-                console.log("calling this.props.updateLockStatus")
+                // console.log(`terrainLocked: ${this.state.terrainLocked}`)
+                // console.log("calling this.props.updateLockStatus")
                 this.updateLockStatus();
             });
 }
@@ -184,8 +185,8 @@ terrainStyle () {
 
 offLockStyle () {
     if (this.props.lockStatus === false) {
-        console.log("this.props.lockStatus")
-        console.log(this.props.lockStatus)
+        // console.log("this.props.lockStatus")
+        // console.log(this.props.lockStatus)
         return styles.offLockStyle;
     } else {
 
