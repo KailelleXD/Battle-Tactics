@@ -1,8 +1,20 @@
 import React, { Component } from 'react'
 import { StyleSheet, Image, ImageBackground } from 'react-native';
-import { Text, Container, View, DeckSwiper, Card, CardItem, Thumbnail, Left, Body, Icon } from 'native-base';
+import { 
+  Text, 
+  Container, 
+  View, 
+  DeckSwiper, 
+  Card, 
+  CardItem, 
+  Thumbnail, 
+  Left, 
+  Body, 
+  Icon 
+} from 'native-base';
 
 import { Grid, Col, Row } from 'react-native-easy-grid';
+
 // components
 import MapSelector from '../components/MapSelector'
 import NextBackWrapper from '../components/NextBackWrapper';
@@ -26,6 +38,17 @@ export default class ChooseMap extends Component {
     },
   };
 
+  // RENDER FUNCTIONS ////
+
+  // This function uses a conditional to decide whether to display it's text.
+  shouldDisplayText = (mapName) => {
+    if (mapName !== "") {
+      return(
+        <Text style={styles.textStyle}>{mapName} has been selected.</Text>
+      )
+    }
+  }
+
   
 
   render() {
@@ -36,23 +59,23 @@ export default class ChooseMap extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <Container>
+          <Container style={styles.backgroundStyle}>
             <Grid style={styles.grid}>
               <Row size={80}>
-                <Container>
+                <Container style={styles.backgroundStyle}>
                   <MapCardsSelector />
                 </Container>
               </Row>
 
               <Row size={10}>
-              <Container>
-                <Text>{context.state.gameData.mapName}</Text>
+              <Container style={styles.backgroundStyle}>
+                {this.shouldDisplayText(context.state.gameData.mapName)}
               </Container>
               </Row>
 
 
               <Row size={10}>
-                <Container>
+                <Container style={styles.backgroundStyle}>
                   <NextBackWrapper path="Terrain" />
                 </Container>
               </Row>
@@ -75,6 +98,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around"
   },
+  textStyle: {
+    textAlign: 'center',
+    fontWeight: '600',
+    fontSize: 20,
+    backgroundColor: '#EAEEF0',
+    color: '#718EA4'
+  },
+  backgroundStyle: {
+    backgroundColor: '#C7C7C7'
+  }
 
 })
 
