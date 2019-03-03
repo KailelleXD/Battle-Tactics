@@ -146,7 +146,7 @@ updateLockStatus () {
                 })
                 this.longPressTimer = "end";
                 // console.log("longPressTimer complete")
-            }, 2000);
+            }, 1000);
         }   
     }
 

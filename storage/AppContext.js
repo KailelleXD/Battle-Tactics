@@ -25,7 +25,7 @@ export class AppProvider extends React.Component {
       playerTwo: {
         name: "jill",
         faction: "",
-        units: [],
+        units: modelP2,
         points: 0,
         randomStart: false
       },
