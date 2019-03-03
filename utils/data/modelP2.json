@@ -125,7 +125,7 @@
         "weapons": [
             {
                 "name": "Stubcarbine",
-                "range": 18
+                "range": 9
             }
         ]
     },
@@ -142,93 +142,8 @@
         "weapons": [
             {
                 "name": "Stubcarbine",
-                "range": 18
-            }
-        ]
-    },
-    { 
-        "id": 9,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtAqua",
-        "x": 0,
-        "y": 0,
-        "m": 9,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Galvanic Rifle",
-                "range": 30
-            }
-        ]
-    },
-    { 
-        "id": 10,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtAqua",
-        "x": 0,
-        "y": 0,
-        "m": 9,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Galvanic Rifle",
-                "range": 30
-            }
-        ]
-    },
-    { 
-        "id": 11,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtAqua",
-        "x": 0,
-        "y": 0,
-        "m": 9,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Galvanic Rifle",
-                "range": 30
-            }
-        ]
-    },
-    { 
-        "id": 12,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtAqua",
-        "x": 0,
-        "y": 0,
-        "m": 9,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Galvanic Rifle",
-                "range": 30
-            }
-        ]
-    },
-    { 
-        "id": 13,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtAqua",
-        "x": 0,
-        "y": 0,
-        "m": 9,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Galvanic Rifle",
-                "range": 30
+                "range": 9
             }
         ]
     }
-  ]
+]
