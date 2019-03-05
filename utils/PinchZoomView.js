@@ -21,7 +21,7 @@ export default class PinchZoomView extends Component {
 
   static defaultProps = {
     scalable: true,
-    minScale: .75,
+    minScale: 1.0,
     maxScale: 4.0
   };
 
@@ -53,11 +53,11 @@ export default class PinchZoomView extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.state.scale < 1.0) {
+    if (this.props.state.scale < 1.25) {
       Animated.spring(this.position, {
         toValue: { 
           x: -this.props.state.offsetX, 
-          y: -this.props.state.offsetY-20
+          y: -this.props.state.offsetY
         }
     }).start()
     }
