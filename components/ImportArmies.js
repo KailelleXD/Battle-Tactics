@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { Container, Button, Text } from 'native-base';
 import { Grid, Row } from 'react-native-easy-grid';
 
@@ -14,8 +14,13 @@ export default class ImportArmies extends Component {
     this.state = {
       armiesLoaded: false,
       fontLoaded: false,
+      importClicked: false,
 
     }
+  }
+
+  handlePress () {
+    this.setState({ importClicked: true });
   }
 
   componentDidMount() {
@@ -44,7 +49,6 @@ export default class ImportArmies extends Component {
       <AppConsumer>
         {(context) => {
 
-
           if (context.state === null) {
             console.log("state is null")
           } else {
@@ -64,20 +68,23 @@ export default class ImportArmies extends Component {
               return <HomeScreenButton title='Create' />
 
             } else if (this.state.fontLoaded && !context.state.BSData.importedArmies) {
-              return (
-                <View>
 
-                  <Button
-                    danger
-                    rounded
-                    style={styles.button}
-                    onPress={() => { context.getAllData() }}
-                  >
-                    <Text>Import Armies!</Text>
-                  </Button>
-                </View>
-
-              )
+              if (this.state.importClicked) {
+                return <ActivityIndicator size="large" color="white" />
+              } else {
+                return (
+                  <View>
+                    <Button
+                      danger
+                      rounded
+                      style={styles.button}
+                      onPress={() => { this.handlePress(); context.getAllData() }}
+                    >
+                      <Text>Import Armies!</Text>
+                    </Button>
+                  </View>
+                )
+              }
             }
             // else {
             //   return <Button><Text> last condi</Text></Button>
@@ -98,7 +105,6 @@ export default class ImportArmies extends Component {
 
             //   )
           }
-
         }}
       </AppConsumer>
     )

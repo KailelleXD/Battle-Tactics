@@ -253,7 +253,6 @@ export class AppProvider extends React.Component {
           this.setState({ BSData }, () => { return console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies) })
         }
       })
-
   }
 
   clearAsyncStorage = async () => {
