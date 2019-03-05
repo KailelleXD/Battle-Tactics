@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
-import { Container, Text, Button, Content } from 'native-base'
+import { Container, Text, Button, Content, Icon } from 'native-base'
 // components
 import RandomStart from '../components/RandomStart'
 import { AppConsumer } from '../storage/AppContext'

@@ -8,7 +8,7 @@ import Image from "../assets/img/map3.jpg"
 
 
 class HomeScreenButton extends Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class HomeScreenButton extends Component {
     }
   }
 
-  
+
 
   async componentWillMount() {
     await Expo.Font.loadAsync({
@@ -42,27 +42,27 @@ class HomeScreenButton extends Component {
           >
             <Text>{this.props.title}</Text>
           </Button>
-        ):<Text style={styles.text}>"font not loaded"</Text>}
-
-
+        ) : <Text style={styles.text}>"font not loaded"</Text>}
       </View>
 
-      );
 
 
-        // <Button
-        //   title={this.props.title}
-        //   onPress={() => { this.props.navigation.navigate(this.props.title) }}
-        // />
+    );
 
 
-    
+    // <Button
+    //   title={this.props.title}
+    //   onPress={() => { this.props.navigation.navigate(this.props.title) }}
+    // />
+
+
+
   }
 }
 
 const styles = StyleSheet.create({
   button: {
-    margin: 20,
+    // margin: 20,
     padding: 50,
     paddingRight: 10,
     paddingLeft: 10,
@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 10,
     backgroundColor: "#e5b83b",
-
   },
   text: {
     color: "red"
