@@ -35,6 +35,7 @@ export class AppProvider extends React.Component {
         deploymentArea: "",
       },
       BSData: {
+        importedArmies: false,
         factions: factions,
         data: []
       },
@@ -88,7 +89,7 @@ export class AppProvider extends React.Component {
     this.setState({ gameData }, () => {
       // console.log("Map name set to: ", this.state.gameData.mapName)
     })
-    
+
   }
 
 
@@ -119,14 +120,14 @@ export class AppProvider extends React.Component {
   setUnit = (newUnit) => {
     // console.log(newUnit)
     // this.state.BSData.data.map(unit => {
-      // console.log(unit.profileType)
-      // if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
-        // console.log("selected: unit.profileType")
-        // console.log(unit.profileType)
-        const playerOne = { ...this.state.playerOne }
-        playerOne.units = playerOne.units.concat(newUnit);
-        this.setState({ playerOne });
-      // }
+    // console.log(unit.profileType)
+    // if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
+    // console.log("selected: unit.profileType")
+    // console.log(unit.profileType)
+    const playerOne = { ...this.state.playerOne }
+    playerOne.units = playerOne.units.concat(newUnit);
+    this.setState({ playerOne });
+    // }
     // })
     console.log(newUnit)
   }
@@ -140,7 +141,7 @@ export class AppProvider extends React.Component {
       // console.log(this.state.playerOne.units);
     });
   }
-  
+
   updateP2Units = (newUnits) => {
     const playerTwo = { ...this.state.playerTwo };
     playerTwo.units = newUnits;
@@ -153,7 +154,7 @@ export class AppProvider extends React.Component {
 
   updateModalVisibility = (newVisibility) => {
     // console.log("Attempting to update modal visibility");
-    const modalData = {...this.state.modalData};
+    const modalData = { ...this.state.modalData };
     modalData.isModalVisible = newVisibility;
     this.setState({ modalData }, () => {
       // console.log(modalData);
@@ -161,14 +162,14 @@ export class AppProvider extends React.Component {
   }
 
   deployUnitModal = (unit) => {
-    const modalData = {...this.state.modalData};
+    const modalData = { ...this.state.modalData };
     console.log(modalData)
     modalData.isModalVisible = true;
     modalData.unit = unit;
     this.setState({ modalData });
   }
 
-// ==================================================================
+  // ==================================================================
 
   getFactionFromStorage = (faction) => {
     // just for testing
@@ -176,29 +177,29 @@ export class AppProvider extends React.Component {
 
     console.log("get faction from storage is running---------------------------")
     AsyncStorage.getItem(faction)
-    .then(value => {
-      return JSON.parse(value);
-    })
-    .then(value => {
-      console.log("setting BSData ---------------------------------------------")
-      const BSData = {...this.state.BSData}
-      
-      const newFaction = {
-        factionName: faction,
-        factionData: value
-      }
-
-      // BSData.data = BSData.data.concat(newFaction);
-      BSData.data = value;
-
-      this.setState({
-        BSData
+      .then(value => {
+        return JSON.parse(value);
       })
-      // console.log(this.state.BSData.data);
-    })
-  } 
+      .then(value => {
+        console.log("setting BSData ---------------------------------------------")
+        const BSData = { ...this.state.BSData }
 
- 
+        const newFaction = {
+          factionName: faction,
+          factionData: value
+        }
+
+        // BSData.data = BSData.data.concat(newFaction);
+        BSData.data = value;
+
+        this.setState({
+          BSData
+        })
+        // console.log(this.state.BSData.data);
+      })
+  }
+
+
 
   setBSData = (newData) => {
     console.log("running setBSData ------------------------------------------------------------")
@@ -210,38 +211,58 @@ export class AppProvider extends React.Component {
   }
 
 
-// =====================================================================
+  // =====================================================================
   consoleLogFactionTEST = () => {
-      // const data = this.state.BSData
-      // console.log("model type : ")
-      //   for(let i = 0; i < data.length; i++){
-      //     console.log("id: " + data[i]["id"])
-      //     console.log("name: " + data[i]["name"])
-      //     console.log("type: " + data[i]["type"])
-      //   }
-        AsyncStorage.getItem("38-Tyranids").then(value => {
-          return parsed = JSON.parse(value)
-        }).then(value => {
-          
-          for(let i = 0; i < value.length; i++){
-            // console.log(value[i]["keywords (faction)"])
-            console.log(value[i])
-            // console.log(value[i].weapons.length)
-            // console.log(value[i].type)
-            // for(let j = 0; j < value[i].weapons.length; j++){
-            //   console.log(value[i].weapons.length[j])
-            // }
+    // const data = this.state.BSData
+    // console.log("model type : ")
+    //   for(let i = 0; i < data.length; i++){
+    //     console.log("id: " + data[i]["id"])
+    //     console.log("name: " + data[i]["name"])
+    //     console.log("type: " + data[i]["type"])
+    //   }
+    // AsyncStorage.getItem("38-Tyranids").then(value => {
+    //   return parsed = JSON.parse(value)
+    // }).then(value => {
 
-            
-          }
-          console.log(value.length)
-        })
-        console.log("consoleLogFactionTEST: done")
+    //   for(let i = 0; i < value.length; i++){
+    //     // console.log(value[i]["keywords (faction)"])
+    //     console.log(value[i])
+    //     // console.log(value[i].weapons.length)
+    //     // console.log(value[i].type)
+    //     // for(let j = 0; j < value[i].weapons.length; j++){
+    //     //   console.log(value[i].weapons.length[j])
+    //     // }
+
+
+    //   }
+    //   console.log(value.length)
+    // })
+
+    AsyncStorage.getItem("1-Aeldari-Drukhari")
+      .then(value => console.log(value))
+  }
+
+  importArmies = () => {
+    AsyncStorage.getItem("1-Aeldari-Drukhari")
+      .then(value => {
+        if (value === null) {
+
+        } else {
+          const BSData = { ...this.state.BSData };
+          BSData.importedArmies = true
+          this.setState({ BSData }, () => { return console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies) })
+        }
+      })
+
   }
 
   clearAsyncStorage = async () => {
     AsyncStorage.clear();
     console.log("clearing asyncStorage...")
+    const BSData = { ...this.state.BSData };
+    BSData.importedArmies = false
+    this.setState({ BSData }, () => { return console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies) })
+
   }
 
   getAllData = async () => {
@@ -250,387 +271,397 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
 
 
-    for (let j = 0; j < this.state.BSData.factions.length; j++) {
+    for (let j = 0; j < 3; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
       let URLname = this.state.BSData.factions[j].name.replace(/\s/g, '%20')
-      if (factionCode === "Ignore"){
+      if (factionCode === "Ignore") {
         let faction = null;
       }
-      else{
-      await fetch('https://raw.githubusercontent.com/BSData/wh40k/master/' + URLname + '.cat')
-        .then(response => response.text())
-        .then((response) => {
-          parseString(response, function (err, result) {
-            codexObj = result.catalogue;
-            catalogue = codexObj[Object.keys(codexObj)[0]];
-            categories = codexObj.categoryEntries[0].categoryEntry;
-            console.log("END PARSSTRING: " + factionName);
+      else {
+        await fetch('https://raw.githubusercontent.com/BSData/wh40k/master/' + URLname + '.cat')
+          .then(response => response.text())
+          .then((response) => {
+            parseString(response, function (err, result) {
+              codexObj = result.catalogue;
+              catalogue = codexObj[Object.keys(codexObj)[0]];
+              categories = codexObj.categoryEntries[0].categoryEntry;
+              console.log("END PARSSTRING: " + factionName);
 
 
-            // weapons object
-            let weaponsObjArray = []
+              // weapons object
+              let weaponsObjArray = []
 
-            if (!codexObj.sharedProfiles[0].profile){
-              let weaponsArray = null;
-            }
-            else{ 
-              let weaponsArray = codexObj.sharedProfiles[0].profile
-              // console.log(weaponsArray)
-            for (var i = 0; i < weaponsArray.length; i++) {
-
-              var weaponsObj = {
-                "name": null,
-                "range": null,
-                "type": null,
-                "S": null,
-                "AP": null,
-                "D": null,
-                "abilities": null
+              if (!codexObj.sharedProfiles[0].profile) {
+                let weaponsArray = null;
               }
+              else {
+                let weaponsArray = codexObj.sharedProfiles[0].profile
+                // console.log(weaponsArray)
+                for (var i = 0; i < weaponsArray.length; i++) {
 
-              if (weaponsArray[i].$.profileTypeName == "Weapon") {
-
-                weaponsObj.name = weaponsArray[i].$.name;
-
-                for (var j = 0; j < weaponsArray[i].characteristics[0].characteristic.length; j++) {
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Range") {
-                    weaponsObj.range = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                  var weaponsObj = {
+                    "name": null,
+                    "range": null,
+                    "type": null,
+                    "S": null,
+                    "AP": null,
+                    "D": null,
+                    "abilities": null
                   }
 
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Type") {
-                    weaponsObj.type = weaponsArray[i].characteristics[0].characteristic[j].$.value
-                  }
+                  if (weaponsArray[i].$.profileTypeName == "Weapon") {
 
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "S") {
-                    weaponsObj.S = weaponsArray[i].characteristics[0].characteristic[j].$.value
-                  }
+                    weaponsObj.name = weaponsArray[i].$.name;
 
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "AP") {
-                    weaponsObj.AP = weaponsArray[i].characteristics[0].characteristic[j].$.value
-                  }
+                    for (var j = 0; j < weaponsArray[i].characteristics[0].characteristic.length; j++) {
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Range") {
+                        weaponsObj.range = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
 
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "D") {
-                    weaponsObj.D = weaponsArray[i].characteristics[0].characteristic[j].$.value
-                  }
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Type") {
+                        weaponsObj.type = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
 
-                  if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Abilities") {
-                    weaponsObj.abilities = weaponsArray[i].characteristics[0].characteristic[j].$.value
-                  }
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "S") {
+                        weaponsObj.S = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
 
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "AP") {
+                        weaponsObj.AP = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
+
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "D") {
+                        weaponsObj.D = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
+
+                      if (weaponsArray[i].characteristics[0].characteristic[j].$.name == "Abilities") {
+                        weaponsObj.abilities = weaponsArray[i].characteristics[0].characteristic[j].$.value
+                      }
+
+                    }
+
+                    weaponsObjArray.push(weaponsObj)
+                  }
                 }
-
-                weaponsObjArray.push(weaponsObj)
               }
-            }
-          }
-            let array = [];
-            let abilitiesArray = codexObj.sharedProfiles[0].profile;
-            let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
+              let array = [];
+              let abilitiesArray = codexObj.sharedProfiles[0].profile;
+              let fullList = codexObj.sharedSelectionEntries[0].selectionEntry;
 
-            for (var i = 0; i < fullList.length; i++) {
-              if (fullList[i].$.type != 'upgrade') {
-                if (fullList[i].categoryLinks[0].categoryLink) {
-                  for (var j = 0; j < fullList[i].categoryLinks[0].categoryLink.length; j++) {
-                    var value = fullList[i].categoryLinks[0].categoryLink
-                    if (value[j].$.primary === "true") {
-                      var unitRole = value[j].$.targetId
-                      break
+              for (var i = 0; i < fullList.length; i++) {
+                if (fullList[i].$.type != 'upgrade') {
+                  if (fullList[i].categoryLinks[0].categoryLink) {
+                    for (var j = 0; j < fullList[i].categoryLinks[0].categoryLink.length; j++) {
+                      var value = fullList[i].categoryLinks[0].categoryLink
+                      if (value[j].$.primary === "true") {
+                        var unitRole = value[j].$.targetId
+                        break
 
-                    } else {
-                      var unitRole = null
-                    }
-                  }
-                }
-
-                // Logic to derive profile
-                if (!fullList[i].profiles[0].profile) {
-                  var profile = null
-                } else {
-                  var profile = fullList[i].profiles[0].profile[0].characteristics[0].characteristic
-                  for (var j = 0; j < profile.length; j++) {
-                    if (profile[j].$.name === "M") {
-                      var profileM = parseInt(profile[j].$.value)
-                    }
-                    if (profile[j].$.name === "WS") {
-                      var profileWS = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "BS") {
-                      var profileBS = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "S") {
-                      var profileS = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "T") {
-                      var profileT = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "W") {
-                      var profileW = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "A") {
-                      var profileA = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "Ld") {
-                      var profileLd = profile[j].$.value
-                    }
-                    if (profile[j].$.name === "Save") {
-                      var profileSave = profile[j].$.value
-                    }
-                  }
-                }
-
-
-                //logic to derive profileTypeId:  Weapon, Abilities, Transport, Psyker, Psychic Power, Wound Track, Unit, Stat Damage - BS, S & A, Keywords, Landing Pad Configuration
-                if (!fullList[i].profiles[0].profile) {
-                  var profile = null
-                } else {
-                  var profileType = fullList[i].profiles[0].profile;
-                  //fullList[i].profiles[0].profile[0].$.profileTypeName
-                  for (var j = 0; j < profileType.length; j++) {
-
-                    if (profileType[j].$.profileTypeName === "Weapon") {
-                      var weapon = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Abilities") {
-                      var abilities = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Transport") {
-                      var transport = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Psyker") {
-                      var psyker = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Psychic Power") {
-                      var pyschic = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Wound Track") {
-                      var wound = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Unit") {
-                      var unit = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Stat Damage - BS, S & A") {
-                      var statDamage = profileType[j].$.name
-                    }
-                    if (profileType[j].$.profileTypeName === "Keywords") {
-                      var keywords = profileType[j].$.name
-                      var preSplit = profileType[j].characteristics[0].characteristic[0].$.value;
-                      var keywordsFaction = preSplit.split(",")
-                      var preSplit2 = profileType[j].characteristics[0].characteristic[1].$.value;
-                      var keywordsBasic = preSplit2.split(",") 
-      
-                    }
-                    if (profileType[j].$.profileTypeName === "Landing Pad Configuration") {
-                      var landingPad = profileType[j].$.name
-                    }
-                  }
-                }
-                // logic to derive additional profile
-                if (!fullList[i].profiles[0].profile) {
-                  var profileAdditional = null
-                } else {
-
-                  var profileAdditional = fullList[i].profiles[0].profile
-                  var additionalArray = []
-
-                  for (var j = 0; j < profileAdditional.length; j++) {
-                    if(!profileAdditional[j].$.profileTypeName){
-                      let profileAdditionalObj = null;
-                    }
-                    else{
-                    if (profileAdditional[j].$.profileTypeName.match(/^Stat Damage.*$/)) {
-                      var profileAdditionalObj = {
-                        "name": profileAdditional[j].$.name,
-                        "profiletype": profileAdditional[j].$.name.substr(-3),
-                        "characteristic": profileAdditional[j].characteristics[0].characteristic
+                      } else {
+                        var unitRole = null
                       }
-                      additionalArray.push(profileAdditionalObj)
                     }
                   }
-                  }
-                }
-                if (!fullList[i].costs[0]) {
-                  var cost = null;
-                } else {
-                  var cost = fullList[i].costs[0].cost
 
-                  for (var j = 0; j < cost.length; j++) {
-
-                    if (cost[j].$.name === "pts") {
-                      var pts = cost[j].$.value
-                    }
-                    if (cost[j].$.name === " PL") {
-                      var PL = cost[j].$.value
-                    }
-                    if (cost[j].$.name === "CP") {
-                      var CP = cost[j].$.value
-                    }
-                  }
-                }
-                // CAN WE DELETE THIS???
-                // define cost 
-                //use name matching on PTS etc
-                // if (fullList[i].costs[0]) {
-                // 	var pts = fullList[i].costs[0].cost[0].$.value
-                // 	var PL = fullList[i].costs[0].cost[1].$.value
-                // 	var CP = fullList[i].costs[0].cost[2].$.value
-                // }
-                var bf_role = returnUnit(unitRole)
-
-                let abilityTargetIdArray = []
-
-                //  grab list of abilities
-                if (fullList[i].infoLinks[0].infoLink) {
-                  let abilitiesList = fullList[i].infoLinks[0].infoLink
-                  for (var j = 0; j < abilitiesList.length; j++) {
-                    if (abilitiesList[j].$.type == "profile") {
-                      abilityTargetIdArray.push(abilitiesList[j].$.targetId)
-                    }
-                  }
-                }
-      
-                var abilityObjectArray = []
-      
-                for (var j = 0; j < abilityTargetIdArray.length; j++) {
-                  var abilityid = abilityTargetIdArray[j]
-      
-                  for (k = 0; k < abilitiesArray.length; k++) { 
-                    if (abilityid == abilitiesArray[k].$.id && abilitiesArray[k].$.profileTypeName == "Abilities") {
-                      
-                      var abilityName = abilitiesArray[k].$.name;
-                      var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
-                      // console.log(abilityDescription)
-      
-                      var abilityObject = {
-                        "name" : abilityName,
-                        "description" : abilityDescription
+                  // Logic to derive profile
+                  if (!fullList[i].profiles[0].profile) {
+                    var profile = null
+                  } else {
+                    var profile = fullList[i].profiles[0].profile[0].characteristics[0].characteristic
+                    for (var j = 0; j < profile.length; j++) {
+                      if (profile[j].$.name === "M") {
+                        var profileM = parseInt(profile[j].$.value)
                       }
-      
-                      abilityObjectArray.push(abilityObject)
-      
-      
+                      if (profile[j].$.name === "WS") {
+                        var profileWS = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "BS") {
+                        var profileBS = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "S") {
+                        var profileS = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "T") {
+                        var profileT = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "W") {
+                        var profileW = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "A") {
+                        var profileA = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "Ld") {
+                        var profileLd = profile[j].$.value
+                      }
+                      if (profile[j].$.name === "Save") {
+                        var profileSave = profile[j].$.value
+                      }
                     }
                   }
-                  
-                }
 
-                // logic to retrieve weapons
-                var entryLinks = fullList[i].entryLinks[0].entryLink
 
-                var entryNames = []
-                var entryWeapons = []
+                  //logic to derive profileTypeId:  Weapon, Abilities, Transport, Psyker, Psychic Power, Wound Track, Unit, Stat Damage - BS, S & A, Keywords, Landing Pad Configuration
+                  if (!fullList[i].profiles[0].profile) {
+                    var profile = null
+                  } else {
+                    var profileType = fullList[i].profiles[0].profile;
+                    //fullList[i].profiles[0].profile[0].$.profileTypeName
+                    for (var j = 0; j < profileType.length; j++) {
 
-                if (entryLinks) {
-                  for (var j = 0; j < entryLinks.length; j++) {
-                    entryNames.push(entryLinks[j].$.name)
+                      if (profileType[j].$.profileTypeName === "Weapon") {
+                        var weapon = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Abilities") {
+                        var abilities = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Transport") {
+                        var transport = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Psyker") {
+                        var psyker = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Psychic Power") {
+                        var pyschic = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Wound Track") {
+                        var wound = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Unit") {
+                        var unit = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Stat Damage - BS, S & A") {
+                        var statDamage = profileType[j].$.name
+                      }
+                      if (profileType[j].$.profileTypeName === "Keywords") {
+                        var keywords = profileType[j].$.name
+                        var preSplit = profileType[j].characteristics[0].characteristic[0].$.value;
+                        var keywordsFaction = preSplit.split(",")
+                        var preSplit2 = profileType[j].characteristics[0].characteristic[1].$.value;
+                        var keywordsBasic = preSplit2.split(",")
+
+                      }
+                      if (profileType[j].$.profileTypeName === "Landing Pad Configuration") {
+                        var landingPad = profileType[j].$.name
+                      }
+                    }
                   }
-                }
+                  // logic to derive additional profile
+                  if (!fullList[i].profiles[0].profile) {
+                    var profileAdditional = null
+                  } else {
 
-                if (entryNames) {
-                  for (var j = 0; j < entryNames.length; j++) {
-                    for (var k = 0; k < weaponsObjArray.length; k++) {
-                      if (entryNames[j] == weaponsObjArray[k].name) {
-                        
-                        if(weaponsObjArray[k].type === "Melee"){
-                          weaponsObjArray[k].range = 0
-                        } 
-                        else{
-                          weaponsObjArray[k].range = parseInt(weaponsObjArray[k].range) 
+                    var profileAdditional = fullList[i].profiles[0].profile
+                    var additionalArray = []
+
+                    for (var j = 0; j < profileAdditional.length; j++) {
+                      if (!profileAdditional[j].$.profileTypeName) {
+                        let profileAdditionalObj = null;
+                      }
+                      else {
+                        if (profileAdditional[j].$.profileTypeName.match(/^Stat Damage.*$/)) {
+                          var profileAdditionalObj = {
+                            "name": profileAdditional[j].$.name,
+                            "profiletype": profileAdditional[j].$.name.substr(-3),
+                            "characteristic": profileAdditional[j].characteristics[0].characteristic
+                          }
+                          additionalArray.push(profileAdditionalObj)
                         }
-                        entryWeapons.push(weaponsObjArray[k])
                       }
                     }
                   }
-                }
+                  if (!fullList[i].costs[0]) {
+                    var cost = null;
+                  } else {
+                    var cost = fullList[i].costs[0].cost
 
-                //logic for additional weapons
-                if (fullList[i].selectionEntries[0].selectionEntry) {
-                  var additionalWeapons = fullList[i].selectionEntries[0].selectionEntry[0].entryLinks[0].entryLink
+                    for (var j = 0; j < cost.length; j++) {
 
-                  if (additionalWeapons) {
-                    for (var j = 0; j < additionalWeapons.length; j++) {
+                      if (cost[j].$.name === "pts") {
+                        var pts = cost[j].$.value
+                      }
+                      if (cost[j].$.name === " PL") {
+                        var PL = cost[j].$.value
+                      }
+                      if (cost[j].$.name === "CP") {
+                        var CP = cost[j].$.value
+                      }
+                    }
+                  }
+                  // CAN WE DELETE THIS???
+                  // define cost 
+                  //use name matching on PTS etc
+                  // if (fullList[i].costs[0]) {
+                  // 	var pts = fullList[i].costs[0].cost[0].$.value
+                  // 	var PL = fullList[i].costs[0].cost[1].$.value
+                  // 	var CP = fullList[i].costs[0].cost[2].$.value
+                  // }
+                  var bf_role = returnUnit(unitRole)
+
+                  let abilityTargetIdArray = []
+
+                  //  grab list of abilities
+                  if (fullList[i].infoLinks[0].infoLink) {
+                    let abilitiesList = fullList[i].infoLinks[0].infoLink
+                    for (var j = 0; j < abilitiesList.length; j++) {
+                      if (abilitiesList[j].$.type == "profile") {
+                        abilityTargetIdArray.push(abilitiesList[j].$.targetId)
+                      }
+                    }
+                  }
+
+                  var abilityObjectArray = []
+
+                  for (var j = 0; j < abilityTargetIdArray.length; j++) {
+                    var abilityid = abilityTargetIdArray[j]
+
+                    for (k = 0; k < abilitiesArray.length; k++) {
+                      if (abilityid == abilitiesArray[k].$.id && abilitiesArray[k].$.profileTypeName == "Abilities") {
+
+                        var abilityName = abilitiesArray[k].$.name;
+                        var abilityDescription = abilitiesArray[k].characteristics[0].characteristic[0].$.value;
+                        // console.log(abilityDescription)
+
+                        var abilityObject = {
+                          "name": abilityName,
+                          "description": abilityDescription
+                        }
+
+                        abilityObjectArray.push(abilityObject)
+
+
+                      }
+                    }
+
+                  }
+
+                  // logic to retrieve weapons
+                  var entryLinks = fullList[i].entryLinks[0].entryLink
+
+                  var entryNames = []
+                  var entryWeapons = []
+
+                  if (entryLinks) {
+                    for (var j = 0; j < entryLinks.length; j++) {
+                      entryNames.push(entryLinks[j].$.name)
+                    }
+                  }
+
+                  if (entryNames) {
+                    for (var j = 0; j < entryNames.length; j++) {
                       for (var k = 0; k < weaponsObjArray.length; k++) {
-                        if (additionalWeapons[j].$.name == weaponsObjArray[k].name) {
+                        if (entryNames[j] == weaponsObjArray[k].name) {
+
+                          if (weaponsObjArray[k].type === "Melee") {
+                            weaponsObjArray[k].range = 0
+                          }
+                          else {
+                            weaponsObjArray[k].range = parseInt(weaponsObjArray[k].range)
+                          }
                           entryWeapons.push(weaponsObjArray[k])
                         }
                       }
                     }
                   }
-                }
+
+                  //logic for additional weapons
+                  if (fullList[i].selectionEntries[0].selectionEntry) {
+                    var additionalWeapons = fullList[i].selectionEntries[0].selectionEntry[0].entryLinks[0].entryLink
+
+                    if (additionalWeapons) {
+                      for (var j = 0; j < additionalWeapons.length; j++) {
+                        for (var k = 0; k < weaponsObjArray.length; k++) {
+                          if (additionalWeapons[j].$.name == weaponsObjArray[k].name) {
+                            entryWeapons.push(weaponsObjArray[k])
+                          }
+                        }
+                      }
+                    }
+                  }
 
 
-                if (fullList[i].selectionEntryGroups[0].selectionEntryGroup) {
-                  var additionalWeaponspt2 = fullList[i].selectionEntryGroups[0].selectionEntryGroup[0].selectionEntries[0].selectionEntry
+                  if (fullList[i].selectionEntryGroups[0].selectionEntryGroup) {
+                    var additionalWeaponspt2 = fullList[i].selectionEntryGroups[0].selectionEntryGroup[0].selectionEntries[0].selectionEntry
 
-                  if (additionalWeaponspt2) {
-                    additionalWeaponspt2 = additionalWeaponspt2[0].infoLinks[0].infoLink
                     if (additionalWeaponspt2) {
-                      additionalWeaponspt2 = additionalWeaponspt2[0].$.name
+                      additionalWeaponspt2 = additionalWeaponspt2[0].infoLinks[0].infoLink
+                      if (additionalWeaponspt2) {
+                        additionalWeaponspt2 = additionalWeaponspt2[0].$.name
 
-                      for (var k = 0; k < weaponsObjArray.length; k++) {
-                        if (additionalWeaponspt2 == weaponsObjArray[k].name) {
-                          entryWeapons.push(weaponsObjArray[k])
+                        for (var k = 0; k < weaponsObjArray.length; k++) {
+                          if (additionalWeaponspt2 == weaponsObjArray[k].name) {
+                            entryWeapons.push(weaponsObjArray[k])
+                          }
                         }
                       }
                     }
                   }
-                }
 
-                var characterList = {
-                  "id": fullList[i].$.id,
-                  "name": fullList[i].$.name,
-                  "type": fullList[i].$.type,
-                  "bf_role": bf_role,
-                  "pts": pts,
-                  "PL": PL,
-                  "CP": CP,
-                  "keywords (faction)": keywordsFaction,
-                  "keywords (basic)": keywordsBasic,
-                  "profile": {
-                    "M": profileM,
-                    "WS": profileWS,
-                    "BS": profileBS,
-                    "S": profileS,
-                    "T": profileT,
-                    "W": profileW,
-                    "A": profileA,
-                    "Ld": profileLd,
-                    "Sv": profileSave
-                  },
-                  "profileType": {
-                    "abilities": abilities,
-                    "transport": transport,
-                    "psyker": psyker,
-                    "psychic power": pyschic,
-                    "wound track": wound,
-                    "unit": unit,
-                    "Stat Damage - BS, S & A": statDamage,
-                    "keywords": keywords,
-                    "landing pad configuration": landingPad,
-                    "weapon": weapon,
-                  },
-                  "profile_additional": parseAdditionalArray(additionalArray),
-                  "abilities": abilityObjectArray,
-                  "weapons": entryWeapons
-                  // "test" : fullList[i]
+                  var characterList = {
+                    "id": fullList[i].$.id,
+                    "name": fullList[i].$.name,
+                    "type": fullList[i].$.type,
+                    "bf_role": bf_role,
+                    "pts": pts,
+                    "PL": PL,
+                    "CP": CP,
+                    "keywords (faction)": keywordsFaction,
+                    "keywords (basic)": keywordsBasic,
+                    "profile": {
+                      "M": profileM,
+                      "WS": profileWS,
+                      "BS": profileBS,
+                      "S": profileS,
+                      "T": profileT,
+                      "W": profileW,
+                      "A": profileA,
+                      "Ld": profileLd,
+                      "Sv": profileSave
+                    },
+                    "profileType": {
+                      "abilities": abilities,
+                      "transport": transport,
+                      "psyker": psyker,
+                      "psychic power": pyschic,
+                      "wound track": wound,
+                      "unit": unit,
+                      "Stat Damage - BS, S & A": statDamage,
+                      "keywords": keywords,
+                      "landing pad configuration": landingPad,
+                      "weapon": weapon,
+                    },
+                    "profile_additional": parseAdditionalArray(additionalArray),
+                    "abilities": abilityObjectArray,
+                    "weapons": entryWeapons
+                    // "test" : fullList[i]
+                  }
+                  array.push(characterList)
+
                 }
-                array.push(characterList)
-                
               }
-            }
 
-            AsyncStorage.setItem(factionCode, JSON.stringify(array))
+              AsyncStorage.setItem(factionCode, JSON.stringify(array))
+
+
+
+            })
 
           })
+          .catch((err) => {
+            console.log('fetch', err)
+          })
 
-        })
-        .catch((err) => {
-          console.log('fetch', err)
-        })
+
+      }
     }
 
-  }
+    console.log("FINISHED IMPORTING ARMIES")
+    console.log("CURRENT STATE OF IMPORTED ARMIES" + BSData.importedArmies)
+    BSData.importedArmies = true
+    this.setState({ BSData }, () => console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies))
+
+
   }
   // END OF GETALLDATA
 
@@ -655,7 +686,8 @@ export class AppProvider extends React.Component {
         clearAsyncStorage: this.clearAsyncStorage,
         getFactionFromStorage: this.getFactionFromStorage,
         setBSData: this.setBSData,
-        tester: this.tester
+        tester: this.tester,
+        importArmies: this.importArmies
       }}>
         {this.props.children}
       </AppContext.Provider>
