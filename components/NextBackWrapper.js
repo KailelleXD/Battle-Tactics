@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     col: {
         display: "flex",
         alignItems: "center",
+        justifyContent: 'center'
     }
 })
 

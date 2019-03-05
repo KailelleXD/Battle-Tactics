@@ -52,7 +52,7 @@ export default class GameScreen extends Component {
         {(context) => (
             <Container>
                 <Grid>
-                    <Row size={8}>
+                    {/* <Row size={8}>
                         <Col>
                             <Text>Faction: {context.state.playerOne.faction}</Text>
                         </Col>
@@ -66,12 +66,12 @@ export default class GameScreen extends Component {
                                 <Text>Dice</Text>
                             </Button>
                         </Col>
-                        {/* <Col>
+                        <Col>
                             <Text>Player Two Points</Text>
                         </Col>
                         <Col>
                             <Text>Player Two Faction</Text>
-                        </Col> */}
+                        </Col>
                     </Row>
                     <Row>
                         <Container>
@@ -81,13 +81,13 @@ export default class GameScreen extends Component {
                                 <DiceManager />
                             }                           
                         </Container>
-                    </Row>
+                    </Row> */}
                     <Row size={75}>
                         <GameStartScreen style={{ zIndex: 99 }} />
                     </Row>
-                    <Row>
-                    </Row>
-                    <Row size={8}>
+                    {/* <Row>
+                    </Row> */}
+                    {/* <Row size={8}>
                         <Container>
                         <Grid>
 
@@ -107,7 +107,7 @@ export default class GameScreen extends Component {
                                     >
                                     <Text>Menu</Text>
                                 </Button>
-                                {/* <GameMenuButton path="GameReview" /> */}
+                                <GameMenuButton path="GameReview" />
                             </Container>
                         </Col>
                         <Col style={styles.buttonCol}>
@@ -121,8 +121,8 @@ export default class GameScreen extends Component {
                         </Col>
                         </Grid>
                         </Container>
-                        {/* <NextBackWrapper path="" /> */}
-                    </Row>
+                        <NextBackWrapper path="" />
+                    </Row> */}
                 </Grid>
             </Container>
         )}
