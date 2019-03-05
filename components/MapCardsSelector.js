@@ -34,7 +34,7 @@ const MapCardsSelector = () => {
                   </Left>
                 </CardItem>
                 <CardItem cardBody>
-                  <Image style={{ height: 300, flex: 1 }} source={MapSwitch(item.name)} />
+                  <Image style={{ width: '100%', aspectRatio: 1.75 / 1 }} source={MapSwitch(item.name)} />
                 </CardItem>
                 <CardItem style={styles[item.style]}>
                   <Icon name="grid" style={{ color: '#f9511d' }} 

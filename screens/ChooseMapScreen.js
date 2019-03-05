@@ -74,7 +74,7 @@ export default class ChooseMap extends Component {
               </Row>
 
 
-              <Row size={10}>
+              <Row size={9}>
                 <Container style={styles.backgroundStyle}>
                   <NextBackWrapper path="Terrain" />
                 </Container>

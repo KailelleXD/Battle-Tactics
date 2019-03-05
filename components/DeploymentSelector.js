@@ -6,7 +6,7 @@ import { Container } from 'native-base';
 import DeploymentAreas from '../utils/data/deploymentAreas.json';
 import MapSwitch from '../components/MapSwitch';
 
-const deviceWidth = Dimensions.get('window').width
+const deviceWidth = Dimensions.get('window').width/1.25;
 
 getDeploymentArea = (area) => {
   switch (area) {
@@ -48,7 +48,7 @@ export default class DeploymentSelector extends Component {
           <View>
             <ImageBackground 
               // resizeMode="cover" 
-              style={{width: "100%", height: "100%"}}
+              style={{width: deviceWidth, height: deviceWidth * 1.5}}
               source={MapSwitch(context.state.gameData.mapName)} 
             >
             <ScrollView

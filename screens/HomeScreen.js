@@ -60,23 +60,11 @@ export default class HomeScreen extends Component {
 
 const styles = StyleSheet.create({
   col: {
-    // flex: 1,
-    // justifyContent: "center",
-    // margin: 20,
     padding: 10,
-    // display: "flex",
-    // borderWidth: 1,
-    // borderColor: "black",
-    // justifyContent: "center",
-    // alignItems: "center",
   },
   row: {
     margin: 20,
     display: "flex",
-    // flex: 1,
-    // borderWidth: 1,
-    // borderColor: "red",
-    // padding: 50,
     alignItems: "center",
     justifyContent: "center"
   }

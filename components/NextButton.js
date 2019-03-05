@@ -41,11 +41,11 @@ class NextButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    margin: 20,
-    padding: 50,
-    paddingRight: 10,
-    paddingLeft: 10,
-    width: 180,
+    marginTop: '3%',
+    paddingTop: '10%',
+    paddingBottom: '10%',
+    width: '25%',
+    aspectRatio: 3 / 1,
     justifyContent: "center",
     borderRadius: 10,
     backgroundColor: "#e5b83b",

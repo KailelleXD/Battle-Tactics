@@ -31,7 +31,7 @@ export default class ChooseDeployment extends Component {
         {(context) => (
           <Grid style={styles.wrapper}>
             <Row size={90}>
-              <Container>
+              <Container style={styles.center}>
                 <DeploymentSelector />
               </Container>
             </Row>
@@ -52,4 +52,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around"
   },
+  center: {
+    alignItems: 'center'
+  }
 })
