@@ -257,7 +257,7 @@ export default class Model extends Component {
                 })
                 this.longPressTimer = "end";
                 console.log("longPressTimer complete")
-            }, 1500);
+            }, 2000);
         }   
     }
 
