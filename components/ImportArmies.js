@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import { Container, Button, Text } from 'native-base';
-import { Grid, Row } from 'react-native-easy-grid';
+import { StyleSheet, View, ActivityIndicator, AsyncStorage } from 'react-native';
+import { Button, Text } from 'native-base';
 
 import HomeScreenButton from '../components/HomeScreenButton'
 
 import { AppConsumer } from '../storage/AppContext'
-
 
 export default class ImportArmies extends Component {
   constructor(props) {
@@ -19,20 +17,20 @@ export default class ImportArmies extends Component {
     }
   }
 
-  handlePress () {
+  handlePress() {
     this.setState({ importClicked: true });
   }
 
-  componentDidMount() {
-    <AppConsumer>
-      {(context) => {
-        context.importArmies()
-
-      }}
-
-    </AppConsumer>
+  secImportArmies = () => {
+    AsyncStorage.getItem("38-Tyranids")
+      .then(value => {
+        if (value === null) {
+          this.setState({ armiesLoaded: false })
+        } else if (value) {
+          this.setState({ armiesLoaded: true, importClicked: false })
+        }
+      })
   }
-
 
   async componentWillMount() {
     await Expo.Font.loadAsync({
@@ -43,6 +41,9 @@ export default class ImportArmies extends Component {
     this.setState({ fontLoaded: true })
   }
 
+  componentWillUpdate() {
+    this.secImportArmies()
+  }
 
   render() {
     return (
@@ -50,27 +51,17 @@ export default class ImportArmies extends Component {
         {(context) => {
 
           if (context.state === null) {
-            console.log("state is null")
-          } else {
-            console.log("----------")
-            // console.log(context.state.BSData.data)
-            // if (context.state.BSData.data.length >= 1) {
-            //   <Row>
-            //     <Button>GOOD</Button>
-            //   </Row>
-            // } else {
-            //   <Row>
-            //     <Button>You Need To Import Armies</Button>
-            //   </Row>
-            // }
 
-            if (context.state.BSData.importedArmies) {
+          } else {
+
+            if (this.state.armiesLoaded) {
               return <HomeScreenButton title='Create' />
 
-            } else if (this.state.fontLoaded && !context.state.BSData.importedArmies) {
+            } else if (this.state.fontLoaded && !this.state.armiesLoaded) {
 
               if (this.state.importClicked) {
                 return <ActivityIndicator size="large" color="white" />
+
               } else {
                 return (
                   <View>
@@ -86,32 +77,13 @@ export default class ImportArmies extends Component {
                 )
               }
             }
-            // else {
-            //   return <Button><Text> last condi</Text></Button>
-
-            // }
-
-            // context.state.BSData.importedArmies ?
-            //   (
-
-
-            //           <Button><Text>GOOD</Text></Button>
-
-            //   ) :
-            //   (
-
-            //           <Button><Text>You Need To Import Armies</Text></Button>
-
-
-            //   )
           }
         }}
       </AppConsumer>
     )
-
   }
-}
 
+}
 
 const styles = StyleSheet.create({
   button: {

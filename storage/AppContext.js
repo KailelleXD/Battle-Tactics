@@ -213,48 +213,11 @@ export class AppProvider extends React.Component {
 
   // =====================================================================
   consoleLogFactionTEST = () => {
-    // const data = this.state.BSData
-    // console.log("model type : ")
-    //   for(let i = 0; i < data.length; i++){
-    //     console.log("id: " + data[i]["id"])
-    //     console.log("name: " + data[i]["name"])
-    //     console.log("type: " + data[i]["type"])
-    //   }
-    // AsyncStorage.getItem("38-Tyranids").then(value => {
-    //   return parsed = JSON.parse(value)
-    // }).then(value => {
-
-    //   for(let i = 0; i < value.length; i++){
-    //     // console.log(value[i]["keywords (faction)"])
-    //     console.log(value[i])
-    //     // console.log(value[i].weapons.length)
-    //     // console.log(value[i].type)
-    //     // for(let j = 0; j < value[i].weapons.length; j++){
-    //     //   console.log(value[i].weapons.length[j])
-    //     // }
-
-
-    //   }
-    //   console.log(value.length)
-    // })
-
     AsyncStorage.getItem("1-Aeldari-Drukhari")
       .then(value => console.log(value))
   }
 
-  importArmies = () => {
-    AsyncStorage.getItem("1-Aeldari-Drukhari")
-      .then(value => {
-        if (value === null) {
-
-        } else {
-          const BSData = { ...this.state.BSData };
-          BSData.importedArmies = true
-          this.setState({ BSData }, () => { return console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies) })
-        }
-      })
-  }
-
+ 
   clearAsyncStorage = async () => {
     AsyncStorage.clear();
     console.log("clearing asyncStorage...")
@@ -270,7 +233,7 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
 
 
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < this.state.BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
       let factionID = this.state.BSData.factions[j].id
       let factionCode = this.state.BSData.factions[j].factionName
@@ -488,14 +451,8 @@ export class AppProvider extends React.Component {
                       }
                     }
                   }
-                  // CAN WE DELETE THIS???
-                  // define cost 
-                  //use name matching on PTS etc
-                  // if (fullList[i].costs[0]) {
-                  // 	var pts = fullList[i].costs[0].cost[0].$.value
-                  // 	var PL = fullList[i].costs[0].cost[1].$.value
-                  // 	var CP = fullList[i].costs[0].cost[2].$.value
-                  // }
+
+               
                   var bf_role = returnUnit(unitRole)
 
                   let abilityTargetIdArray = []
@@ -655,10 +612,8 @@ export class AppProvider extends React.Component {
       }
     }
 
-    console.log("FINISHED IMPORTING ARMIES")
-    console.log("CURRENT STATE OF IMPORTED ARMIES" + BSData.importedArmies)
     BSData.importedArmies = true
-    this.setState({ BSData }, () => console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies))
+    this.setState({ BSData }, () => console.log("IMPORTED ARMIES: " + BSData.importedArmies))
 
 
   }

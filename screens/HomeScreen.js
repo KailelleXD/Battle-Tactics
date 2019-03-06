@@ -25,66 +25,20 @@ export default class HomeScreen extends Component {
     },
   };
 
-  // importArmiesButton = () => {
-  //   if(context.state.BSData.data){
-  //     return(
-  //       <Row>
-  //       <Text>Good</Text>
-  //     </Row>
-  //     )
-  //   } else{
-  //     <Row>
-  //     <Text>You Need To Import Armies</Text>
-  //   </Row>
-  //   }
-  // }
-
-  // componentDidMount() {
-
-  // }
-
-
   render() {
-    // const { navigate } = this.props.navigation;
     return (
       <AppConsumer>
         {(context) => (
           <Container>
-            {console.log(context.state)}
+
             <Grid>
               <ImageBackground source={Image} style={{ width: '100%', height: '100%' }}>
                 <Col style={styles.col}>
-                  {/* <Row style={styles.row}>
-                     <HomeScreenButton title='Factions' />
-                   </Row> */}
 
-                  {/* <Row style={styles.row}>
-                    <HomeScreenButton title='Create' />
-                  </Row> */}
-                  {/* <Row style={styles.row}>
-                    <HomeScreenButton title='Load' />
-                  </Row> */}
                   <Row style={styles.row}>
-
                     <ImportArmies />
-                    {/* <Text>Hello!</Text> */}
-
                   </Row>
-                  {/* {console.log(context.state)}
-                  {console.log("---")}
-
-                  {context.state.BSData.data ?
-                    (
-                      <Row>
-                        <Text>Good</Text>
-                      </Row>
-                    ) :
-
-                    (
-                      <Row>
-                        <Text>You Need To Import Armies</Text>
-                      </Row>
-                    )} */}
+  
                   <Row style={styles.settings}>
                     <Icon 
                       style={{color:"white"}}
@@ -92,7 +46,7 @@ export default class HomeScreen extends Component {
                       name="settings"
                       onPress={() => { this.props.navigation.navigate("Settings")}}
                     />
-                    {/* <HomeScreenButton title='Settings' /> */}
+
                   </Row>
                 </Col>
               </ImageBackground>
