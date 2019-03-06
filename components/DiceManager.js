@@ -26,11 +26,11 @@ export default class DiceManager extends Component {
       this.setState({
         randomNumber: randomNumber
       })
-      console.log(this.state)
+      // console.log(this.state)
       if (this.state.randomNumber === this.state.reRollOn) {
         randomNumber = Math.floor(Math.random() * 6) + 1;
-        console.log("Reroll number hit: " + this.state.reRollOn);
-        console.log(randomNumber);
+        // console.log("Reroll number hit: " + this.state.reRollOn);
+        // console.log(randomNumber);
         rolledNums.push(randomNumber);
       } else{ rolledNums.push(randomNumber) }
       

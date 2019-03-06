@@ -25,7 +25,7 @@ export default class GameReviewScreen extends Component {
       <AppConsumer>
         {(context) => (
           <Container>
-          {console.log(context.state)}
+          {/* {console.log(context.state)} */}
 
             <Grid style={styles.grid}>
 

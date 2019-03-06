@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button } from 'react-native'
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, Button } from 'react-native';
+import { Container } from 'native-base';
 // components
 import PlayerScreenSubHeader from '../components/PlayerScreenSubHeader'
 // context
@@ -32,7 +33,7 @@ export default class PlayerOneScreen extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <View>
+          <Container style={styles.wrapper}>
             <PlayerScreenSubHeader 
             name={context.state.playerOne.name}
             points={context.state.playerOne.points}
@@ -51,12 +52,17 @@ export default class PlayerOneScreen extends Component {
               }}
             
             />
-            {console.log(context.state)}
-          </View>
+            {/* {console.log(context.state)} */}
+          </Container>
         )}
       </AppConsumer>
     )
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+  }
+})

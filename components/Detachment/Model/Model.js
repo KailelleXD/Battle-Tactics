@@ -247,28 +247,28 @@ export default class Model extends Component {
     // Function to determine if press is longer than 2 sec.
     longPress = (event) => {
         if (this.state.resetPosition === false) {
-            console.log("longPressTimer started");
+            // console.log("longPressTimer started");
             this.longPressTimer = setTimeout(() => {
                 this.setState({
                     longPress: true,
                 }, () => {
-                    console.log(this.state.longPress);
+                    // console.log(this.state.longPress);
                     this.toggleRangeFinder();
                 })
                 this.longPressTimer = "end";
-                console.log("longPressTimer complete")
-            }, 2000);
+                // console.log("longPressTimer complete")
+            }, 1500);
         }   
     }
 
     cancelLongPress = () => {
         if (this.longPressTimer != "end") {
             clearTimeout(this.longPressTimer);
-            console.log("Timeout process cancelled.")
+            // console.log("Timeout process cancelled.")
             this.setState({
                 longPress: false,
             }, () => {
-                console.log(this.state);
+                // console.log(this.state);
             })
         }
     }
