@@ -48,74 +48,6 @@
         "id": 3,
         "player": 2,
         "text": "", 
-        "style": "modelLtPurple",
-        "x": 0,
-        "y": 0,
-        "m": 15,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Stubcarbine",
-                "range": 18
-            }
-        ]
-    },
-    { 
-        "id": 4,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtBlue",
-        "x": 0,
-        "y": 0,
-        "m": 7,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Stubcarbine",
-                "range": 18
-            }
-        ]
-    },
-    { 
-        "id": 5,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtBlue",
-        "x": 0,
-        "y": 0,
-        "m": 7,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Stubcarbine",
-                "range": 18
-            }
-        ]
-    },
-    { 
-        "id": 6,
-        "player": 2,
-        "text": "", 
-        "style": "modelLtBlue",
-        "x": 0,
-        "y": 0,
-        "m": 7,
-        "wound": 0,
-        "inRange": false,
-        "weapons": [
-            {
-                "name": "Stubcarbine",
-                "range": 18
-            }
-        ]
-    },
-    { 
-        "id": 7,
-        "player": 2,
-        "text": "", 
         "style": "modelLtBlue",
         "x": 0,
         "y": 0,
@@ -130,7 +62,7 @@
         ]
     },
     { 
-        "id": 8,
+        "id": 4,
         "player": 2,
         "text": "", 
         "style": "modelLtBlue",
