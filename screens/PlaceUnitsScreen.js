@@ -45,7 +45,7 @@ export default class PlaceUnitsScreen extends Component {
 
                 <Row size={55}>
                   <PlaceUnitsSideMenu />
-                  {console.log(context.state)}
+                  {/* {console.log(context.state)} */}
                 </Row>
 
                 <Row size={15}>

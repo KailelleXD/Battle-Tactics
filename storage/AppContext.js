@@ -7,7 +7,6 @@ import factions from "../utils/data/factions.json";
 export const AppContext = React.createContext();
 export const AppConsumer = AppContext.Consumer;
 
-
 export class AppProvider extends React.Component {
 
   constructor(props) {
@@ -49,16 +48,12 @@ export class AppProvider extends React.Component {
       }
     }
 
-
-
     let allPlayers = {}
 
     AsyncStorage.getItem("Game13").then((value) => {
       if (!value) {
         allPlayers = initialState
         AsyncStorage.setItem('Game13', JSON.stringify(initialState))
-
-
       } else {
         allPlayers = JSON.parse(value)
       }
@@ -81,26 +76,18 @@ export class AppProvider extends React.Component {
     this.setState({ playerOne });
   }
 
-
-
   setMap = (newMap) => {
     const gameData = { ...this.state.gameData }
     gameData.mapName = newMap
     this.setState({ gameData }, () => {
-      // console.log("Map name set to: ", this.state.gameData.mapName)
     })
 
   }
 
-
-
   setDeploymentArea = (newDeploymentArea) => {
     const gameData = { ...this.state.gameData }
     gameData.deploymentArea = newDeploymentArea
-    this.setState({ gameData }, () => {
-
-      console.log("Deployment Area: ", this.state.gameData.deploymentArea)
-    })
+    this.setState({ gameData })
   }
 
   addTerrainObject = (newTerrainObject) => {
@@ -108,7 +95,6 @@ export class AppProvider extends React.Component {
     gameData.terrain = gameData.terrain.concat(newTerrainObject);
     this.setState({ gameData })
   }
-
 
   addUnitPlacementObject = (newUnitPlacementObject) => {
     const playerOne = { ...this.state.playerOne }
@@ -118,18 +104,9 @@ export class AppProvider extends React.Component {
   }
 
   setUnit = (newUnit) => {
-    // console.log(newUnit)
-    // this.state.BSData.data.map(unit => {
-    // console.log(unit.profileType)
-    // if(unit.type === "model" && unit.profileType.unit === newUnit.unitName){
-    // console.log("selected: unit.profileType")
-    // console.log(unit.profileType)
     const playerOne = { ...this.state.playerOne }
     playerOne.units = playerOne.units.concat(newUnit);
     this.setState({ playerOne });
-    // }
-    // })
-    console.log(newUnit)
   }
 
   updateP1Units = (newUnits) => {
@@ -163,7 +140,6 @@ export class AppProvider extends React.Component {
 
   deployUnitModal = (unit) => {
     const modalData = { ...this.state.modalData };
-    console.log(modalData)
     modalData.isModalVisible = true;
     modalData.unit = unit;
     this.setState({ modalData });
@@ -175,13 +151,11 @@ export class AppProvider extends React.Component {
     // just for testing
     // {const selectedFaction = context.state.playerOne.faction}
 
-    console.log("get faction from storage is running---------------------------")
     AsyncStorage.getItem(faction)
       .then(value => {
         return JSON.parse(value);
       })
       .then(value => {
-        console.log("setting BSData ---------------------------------------------")
         const BSData = { ...this.state.BSData }
 
         const newFaction = {
@@ -189,20 +163,15 @@ export class AppProvider extends React.Component {
           factionData: value
         }
 
-        // BSData.data = BSData.data.concat(newFaction);
         BSData.data = value;
 
         this.setState({
           BSData
         })
-        // console.log(this.state.BSData.data);
       })
   }
 
-
-
   setBSData = (newData) => {
-    console.log("running setBSData ------------------------------------------------------------")
     const BSData = { ...this.state.BSData }
     BSData.data = newData
     this.setState({
@@ -210,13 +179,11 @@ export class AppProvider extends React.Component {
     });
   }
 
-
   // =====================================================================
   consoleLogFactionTEST = () => {
     AsyncStorage.getItem("1-Aeldari-Drukhari")
       .then(value => console.log(value))
   }
-
  
   clearAsyncStorage = async () => {
     AsyncStorage.clear();
@@ -224,14 +191,12 @@ export class AppProvider extends React.Component {
     const BSData = { ...this.state.BSData };
     BSData.importedArmies = false
     this.setState({ BSData }, () => { return console.log("NEW STATE OF IMPORTED ARMIES" + BSData.importedArmies) })
-
   }
 
   getAllData = async () => {
     console.log("FETCHING DATA!")
     const parseString = require('react-native-xml2js').parseString;
     const BSData = { ...this.state.BSData };
-
 
     for (let j = 0; j < this.state.BSData.factions.length; j++) {
       let factionName = this.state.BSData.factions[j].name
@@ -250,7 +215,6 @@ export class AppProvider extends React.Component {
               catalogue = codexObj[Object.keys(codexObj)[0]];
               categories = codexObj.categoryEntries[0].categoryEntry;
               console.log("END PARSSTRING: " + factionName);
-
 
               // weapons object
               let weaponsObjArray = []

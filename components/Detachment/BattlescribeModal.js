@@ -28,7 +28,7 @@ export default class BattlescribeModal extends Component {
   onCloseHandler = () => {
     // Storing current unit that deployed the modal
     const modalUnit = {...this.props.data.unit};
-    console.log("onCloseHandler initialized");
+    // console.log("onCloseHandler initialized");
 
     if (modalUnit.player === 1) {
       const oldUnits = [...this.props.playerOneState.units];
@@ -64,7 +64,7 @@ export default class BattlescribeModal extends Component {
 
   deleteUnitHandler = () => {
     const modalUnit = {...this.props.data.unit};
-    console.log("deleteUnitHandler initialized");
+    // console.log("deleteUnitHandler initialized");
 
     if (modalUnit.player === 1) {
       const oldUnits = [...this.props.playerOneState.units];

@@ -16,8 +16,8 @@ class FactionDetailScreen extends Component {
         <Text>{detail[0].name}</Text>
         {detail.map((ability, i) => {
           // <Container>
-            {console.log(ability)}
-            {console.log(ability.name.substring(0, 1))}
+            // {console.log(ability)}
+            // {console.log(ability.name.substring(0, 1))}
             <Card>
               <CardItem>
                 <Body>
