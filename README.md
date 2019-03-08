@@ -10,21 +10,29 @@ To provide a platform for pro-wargamers to strategize in a method similar to how
 
 ![battletacticsgif.gif](https://images.zenhubusercontent.com/5bb4428d58d3b92dfedf3084/3c1fcd7e-cbfc-4124-81c7-492554701828)
 
+# Installation
+
+![bt-qr-code.png](https://images.zenhubusercontent.com/5bb4428d58d3b92dfedf3084/302b5433-9db9-4f6b-86fd-80fa889fe1d1)
+
+1. Download [Expo from Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US). 
+2. Open the Expo App and scan the above QR code.
+
 # Tech/framework used
 
 * React Native
 
 # How to use?
 
-1. Go to settings and import armies.
-2. Return to main screen and select 'Create'.
-3. Choose the map you would like to use.
-4. Place your terrain pieces in any configuration you like.
+1. Click on "Import Armies" button, this will take a few minutes. (you will only have to do this the first time you open the app)
+2. "Create" button will appear on the screen, click on it to proceed.
+3. Swipe through the different maps and click on the red grid icon to select the one you wish to use. 
+4. Drag the terrain pieces in any configuration you like.
     * Press and hold each terrain component to lock into place.
-5. Scroll through faction list to choose what faction you would like to use.
-6. Press the load units button and then select what units you will be using.
-7. Choose which deployment scheme you will be following.
-8. Deploy units.
+5. Click on the faction you would like to use, the selected faction will be displayed at the bottom of the list.
+6. Click on "Load Units" to load the models of your selected faction.
+7. Click on the models to add them to your unit (you can click on multiple models).
+8. Swipe through the different deployment schemes and click on the one you wish to use. 
+9. Drag the models in any configuration you like.
 
 # Additional features
 * While moving a unit, press down a second finger to reset it's position.
