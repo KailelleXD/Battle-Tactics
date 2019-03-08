@@ -28,7 +28,7 @@ export default class ChooseUnitScreen extends Component {
           <UnitSelector />
         </Row>
 
-        <Row size={10}>
+        <Row size={9}>
           <NextBackWrapper path="DeploymentArea" />
         </Row>
 

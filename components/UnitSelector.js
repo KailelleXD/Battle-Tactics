@@ -1,29 +1,63 @@
 import React, { Component } from 'react'
-import { AsyncStorage, StyleSheet } from 'react-native';
+import { AsyncStorage, StyleSheet, Dimensions } from 'react-native';
 import { Container, Content, Button, Text } from 'native-base';
-import { Grid, Row } from 'react-native-easy-grid'
+import { Grid, Row, Col } from 'react-native-easy-grid'
 import { AppProvider, AppConsumer } from '../storage/AppContext';
 import UnitCard from '../components/UnitCard';
 import Units from '../utils/data/units.json';
+import UnitsModal from './UnitsModal';
+
+const {width} = Dimensions.get("window")
+const window = width
 
 export default class UnitSelector extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        isModalVisible: false
+    }
+  }
+
+  toggleModal = () => 
+    this.setState({ isModalVisible: !this.state.isModalVisible})
+
   render() {
     return (
       <AppConsumer>
         {(context) => (
-          <Container>
+          // <Container>
             <Grid>
-
-              <Row size={10}>
-
+              <Row style={{display: "flex", justifyContent: "space-evenly"}} size={7.5}>
+                {/* <Col> */}
                 <Button
+                  style={styles.options}
+                  info
+                  
+                  rounded
                   onPress={() => context.getFactionFromStorage(context.state.playerOne.faction)}
                 >
                   <Text>Load Units</Text>
                 </Button>
+                {/* </Col> */}
+                {/* <Col> */}
+                <Button
+                  style={styles.options}
+                  info
+                 
+                  rounded
+                  onPress={this.toggleModal}
+                >
+                  <Text>View Units</Text>
+                </Button>
+                {/* </Col> */}
               </Row>
 
-              <Row size={70}>
+              <UnitsModal 
+                isModalVisible={this.state.isModalVisible}
+                press={this.toggleModal}
+              />
+
+              <Row size={94}>
                 <Content>
                   {context.state.BSData.data.map(unit => (
 
@@ -69,15 +103,15 @@ export default class UnitSelector extends Component {
 
               </Row>
 
-              <Row size={20}>
+              {/* <Row size={20}>
 
                 {context.state.playerOne.units.map(model => {
                   <Text>{model.name}</Text>
                 })}
-              </Row>
+              </Row> */}
 
             </Grid>
-          </Container>
+          // </Container>
         )}
       </AppConsumer>
     )
@@ -85,5 +119,9 @@ export default class UnitSelector extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  options: {
+    width: window / 2.2,
+    display: "flex", 
+    justifyContent: "space-evenly"
+  }
 });
