@@ -14,6 +14,13 @@ To provide a platform for pro-wargamers to strategize in a method similar to how
 
 * React Native
 
+# Installation
+
+![bt-qr-code.png](https://images.zenhubusercontent.com/5bb4428d58d3b92dfedf3084/302b5433-9db9-4f6b-86fd-80fa889fe1d1)
+
+1. Download [Expo from Google Play Store](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=en_US). 
+2. Open the Expo App and scan the above QR code.
+
 # How to use?
 
 1. Go to settings and import armies.

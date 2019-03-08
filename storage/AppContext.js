@@ -35,7 +35,7 @@ export class AppProvider extends React.Component {
         deploymentArea: "",
       },
       BSData: {
-        importedArmies: false,
+        importedArmies: true,
         factions: factions,
         data: []
       },
@@ -243,6 +243,7 @@ export class AppProvider extends React.Component {
   }
 
   importArmies = () => {
+    console.log("is this doing anything???")
     AsyncStorage.getItem("1-Aeldari-Drukhari")
       .then(value => {
         if (value === null) {

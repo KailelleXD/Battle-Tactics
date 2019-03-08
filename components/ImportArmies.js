@@ -63,12 +63,11 @@ export default class ImportArmies extends Component {
             //     <Button>You Need To Import Armies</Button>
             //   </Row>
             // }
-
             if (context.state.BSData.importedArmies) {
+              console.log("first one")
               return <HomeScreenButton title='Create' />
-
             } else if (this.state.fontLoaded && !context.state.BSData.importedArmies) {
-
+              console.log("second one")
               if (this.state.importClicked) {
                 return <ActivityIndicator size="large" color="white" />
               } else {
