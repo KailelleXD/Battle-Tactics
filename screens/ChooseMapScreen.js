@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     color: '#718EA4'
   },
   backgroundStyle: {
-    backgroundColor: '#C7C7C7'
+    // backgroundColor: '#C7C7C7'
   }
 
 })

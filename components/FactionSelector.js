@@ -13,31 +13,18 @@ export default class FactionSelector extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          // <ScrollView>
-            <Container>
-                <Grid>
-                  <Row size={70}>
-              <Content>
-                  {Factions.map(faction => (
-                    <FactionCard 
-                    key={faction.id} 
-                    name={faction.name}
-                    cardPress={() => {
-                      context.setFaction(faction.factionName)
-                    }}
-                    ></FactionCard>
+                  <Content>
+                    {Factions.map(faction => (
+                      <FactionCard 
+                      key={faction.id} 
+                      name={faction.name}
+                      faction={faction.factionName}
+                      cardPress={() => {
+                        context.setFaction(faction.factionName)
+                      }}
+                      ></FactionCard>
                     ))}
-
-                </Content>
-                  </Row>
-
-                  <Row size={20}>
-                  <Text>Faction: {context.state.playerOne.faction}</Text>
-
-                  </Row>
-                </Grid>
-            </Container>
-          // </ScrollView>
+                  </Content>
         )}
       </AppConsumer>
     )
