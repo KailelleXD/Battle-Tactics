@@ -13,12 +13,12 @@ export default class BattlescribeModal extends Component {
 
   increaseWoundCounterHandler = () => {
     const currentCount = this.state.woundCounter;
-    this.setState({ woundCounter: currentCount + 1 });
+    this.setState({ woundCounter: parseInt(currentCount) + 1 });
   } 
 
   decreaseWoundCounterHandler = () => {
     const currentCount = this.state.woundCounter;
-    this.setState({ woundCounter: currentCount - 1 });
+    this.setState({ woundCounter: parseInt(currentCount) - 1 });
   }
 
   onOpenHandler = () => {
