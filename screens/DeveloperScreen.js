@@ -1,41 +1,38 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Container, Button, Text } from 'native-base';
+import { StyleSheet } from 'react-native'
+import { Container, Content, Button, Text, List, ListItem } from 'native-base';
 import { AppConsumer } from '../storage/AppContext';
 
 export default class DeveloperScreen extends Component {
     static navigationOptions = {
-        title: "DEVELOPER'S SETTINGS"
+        title: "DEVELOPER SETTINGS"
     }
 
   render() {
     return (
         <AppConsumer>
             {(context) => (
-                <Container>
+                <Container style={{backgroundColor: "#333333"}}>
                     <Button
-                            info
-                            rounded
-                            style={styles.button}
-                            onPress={() => { context.consoleLogFactionTEST() }}
+                        block
+                        style={styles.button}
+                        onPress={() => { context.consoleLogFactionTEST() }}
                     >
-                        <Text>consoleLogFactionTEST</Text>
+                        <Text>console log faction test</Text>
                     </Button>
                     <Button
-                            info
-                            rounded
-                            style={styles.button}
-                            onPress={() => { context.clearAsyncStorage() }}
+                        block
+                        style={styles.button}
+                        onPress={() => { context.clearAsyncStorage() }}
                     >
-                        <Text>clearAsyncStorage</Text>
+                        <Text>clear asyncstorage</Text>
                     </Button>
                     <Button
-                            info
-                            rounded
-                            style={styles.button}
-                            onPress={() => { context.getFactionFromStorage() }}
+                        block
+                        style={styles.button}
+                        onPress={() => { context.getFactionFromStorage() }}
                     >
-                        <Text>getFactionFromStorage</Text>
+                        <Text>get faction from storage</Text>
                     </Button>
                 </Container>
             )}
@@ -46,12 +43,10 @@ export default class DeveloperScreen extends Component {
 
 const styles = StyleSheet.create({
     button: {
-        margin: 20,
-        padding: 50,
-        paddingRight: 10,
-        paddingLeft: 10,
-        width: 180,
-        justifyContent: "center",
-        borderRadius: 10
+        backgroundColor: "#e5b83b",
+        margin: 10,
+        alignSelf: "center",
+        width: "80%",
+        borderRadius: 5
     }
 })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Container, Button, Text } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Container, Button, Icon, Text, View } from 'native-base';
 import { withNavigation } from 'react-navigation';
 
 
@@ -23,34 +23,39 @@ class BackButton extends React.Component {
 
   render() {
     return (
-      <Container>
+      <View>
+
+        
       {this.state.fontLoaded ? (
         <Button 
+          iconLeft
           info
-          small
+          full
+          // bordered
           style={styles.button}
           onPress={() => { this.props.navigation.goBack()}}
         >
-          <Text>
-            Back
-          </Text>
+          <Icon style={{color: "#e5b83b"}} name="arrow-back" />
+          <Text style={{color: "#e5b83b"}}>Back</Text>
         </Button>
       ):<Text>"Font of BackButton not loaded."</Text>}
-    </Container>
+    </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: '3%',
-    paddingTop: '10%',
-    paddingBottom: '10%',
-    width: '25%',
-    aspectRatio: 3 / 1,
-    justifyContent: "center",
-    borderRadius: 10,
-    backgroundColor: "#e5b83b",
+    backgroundColor: "#333333",
+    justifyContent: "flex-start"
+    // marginTop: '3%',
+    // paddingTop: '10%',
+    // paddingBottom: '10%',
+    // width: '25%',
+    // aspectRatio: 3 / 1,
+    // justifyContent: "center",
+    // borderRadius: 10,
+    // backgroundColor: "#e5b83b",
   },
 })
 

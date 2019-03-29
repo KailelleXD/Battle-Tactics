@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, TouchableHighlight } from 'react-native'
-import { Card, CardItem, Body, Button, Text } from 'native-base';
+import { StyleSheet, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native'
+import { Card, View, CardItem, Body, Button, Text, Accordion, Container, Content } from 'native-base';
 import { withNavigation } from 'react-navigation';
 import { AppConsumer } from '../storage/AppContext';
+
+const { width } = Dimensions.get("window");
 
 class UnitCard extends Component {
 
@@ -43,19 +45,20 @@ class UnitCard extends Component {
             ) : (
                 <View>
                   <Card>
-                    <CardItem>
+                    <CardItem style={{backgroundColor: "#333333", borderWidth: 1, borderColor: "#ffffff"}}>
                       <Body>
-                        <Text>Model Name: {this.props.modelName}</Text>
-                        <Text>BFRole: {this.props.bfRole}</Text>
-                        <Text>Points: {this.props.points}</Text>
-                        <Text>PL: {this.props.PL}</Text>
-                        {this.props.weapons.length >= 1 ? (
-                          this.props.weapons.length === 1 ?
-                            (<Text>{this.props.weapons.length} Weapon Available</Text>)
-                            : (<Text>{this.props.weapons.length} Weapons Available</Text>)
-                        ) : (
-                            console.log("")
-                          )}
+                          <Text style={styles.text}>Model Name: {this.props.modelName}</Text>
+                          <Text style={styles.text}>BFRole: {this.props.bfRole}</Text>
+                          <Text style={styles.text}>Points: {this.props.points}</Text>
+                          <Text style={styles.text}>PL: {this.props.PL}</Text>
+                          {this.props.weapons.length >= 1 ? (
+                            this.props.weapons.length === 1 ?
+                            (<Text style={styles.text}>{this.props.weapons.length} Weapon Available</Text>)
+                            : (<Text style={styles.text}>{this.props.weapons.length} Weapons Available</Text>)
+                            ) : (
+                              console.log("")
+                              )}
+                            <Text style={{color: "#e5b83b", alignSelf:"flex-end" }}>Add</Text>
                         {/* <Button
                           style={{ marginTop: 5 }}
                           info
@@ -78,11 +81,8 @@ class UnitCard extends Component {
 }
 
 const styles = StyleSheet.create({
-  card: {
-    backgroundColor: "#12566d",
-  },
   text: {
-    color: "white"
+    color: "#ffffff"
   }
 })
 

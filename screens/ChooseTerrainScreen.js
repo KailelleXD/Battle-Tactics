@@ -12,15 +12,6 @@ import { AppConsumer } from '../storage/AppContext';
 export default class ChooseTerrain extends Component {
   static navigationOptions = {
     title: 'CHOOSE TERRAIN',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   render() {
@@ -28,18 +19,14 @@ export default class ChooseTerrain extends Component {
         <AppConsumer>
           {(context) => (
             <Container>
-
               <Grid style={styles.grid}>
-                
                 <Row size={90}>
                   <TerrainPlacement />
                 </Row>
-                <Row size={10}>
+                <Row size={9}>
                   <NextBackWrapper path="Factions"/>
                 </Row>
-              
               </Grid>
-
             </Container>
           )}
         </AppConsumer>
@@ -48,10 +35,10 @@ export default class ChooseTerrain extends Component {
 }
 
 const styles = StyleSheet.create({
-  grid: {
-    display: "flex",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around"
-  },
+  // grid: {
+  //   display: "flex",
+  //   flex: 1,
+  //   alignItems: "center",
+  //   justifyContent: "space-around"
+  // },
 })

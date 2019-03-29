@@ -12,15 +12,6 @@ import { Container } from 'native-base';
 export default class ChooseDeployment extends Component {
   static navigationOptions = {
     title: 'CHOOSE DEPLOYMENT',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   render() {
@@ -31,11 +22,11 @@ export default class ChooseDeployment extends Component {
         {(context) => (
           <Grid style={styles.wrapper}>
             <Row size={90}>
-              <Container style={styles.center}>
+              <Container style={{backgroundColor: "#333333", alignItems: "center", marginTop: 10}}>
                 <DeploymentSelector />
               </Container>
             </Row>
-            <Row size={10}>
+            <Row size={9}>
               <NextBackWrapper path="GameScreen" />
             </Row>
           </Grid>
@@ -50,9 +41,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flex: 1,
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    backgroundColor: "#333333"
   },
-  center: {
-    alignItems: 'center'
-  }
 })

@@ -1,5 +1,7 @@
 import React from 'react';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import { Icon } from 'native-base';
+// screens
 import HomeScreen from '../screens/HomeScreen';
 import ChooseMapScreen from '../screens/ChooseMapScreen';
 import LoadScreen from '../screens/LoadScreen';
@@ -18,6 +20,7 @@ import GameScreen from '../screens/GameScreen';
 import GameStartScreen from '../screens/GameStartScreen';
 import TerrainPlacement from '../components/TerrainComponents/TerrainPlacement';
 import DeveloperScreen from '../screens/DeveloperScreen';
+import MenuButton from '../components/MenuButton';
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -37,9 +40,68 @@ const StackNavigator = createStackNavigator({
     GameScreen: GameScreen,
     GameStart: GameStartScreen,
     TerrainPlacement: TerrainPlacement,
-    Developer: DeveloperScreen
+    Developer: DeveloperScreen,
+  },
+  {
+    initialRouteName: "Home",
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#333333",
+        borderBottomWidth: 2,
+        borderBottomColor: "#111111"
+      },
+      headerTitleStyle: {
+        color: "#e5b83b",
+      },
+      headerLeft: null,
+    },
+    headerLayoutPreset: "center",
+  }
+  );
+
+  const BottomTabNavigator = createBottomTabNavigator({
+    Home: {
+      screen: StackNavigator,
+      navigationOptions: () => ({
+        tabBarIcon: ({tintColor}) => (
+          <Icon
+            name="home"
+            style={{color: tintColor}}
+          />
+        )
+      })
+    },
+    Menu: {
+      screen: () => null,
+      navigationOptions: () => ({
+        tabBarIcon: <MenuButton />
+      })
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: () => ({
+        tabBarIcon: ({tintColor}) => (
+          <Icon
+            name="cog"
+            style={{color: tintColor}}
+          />
+        )
+      })
+    },
+  },{
+    initialRouteName: "Home",
+    tabBarOptions: {
+      showLabel: false,
+      activeTintColor: "#e5b83b",
+      // inactiveTintColor: "red",
+      style: {
+        backgroundColor: "#333333",
+        borderTopWidth: 2,
+        borderTopColor: "#e5b83b"
+      },
+    },
   });
   
-const NavigationContainer = createAppContainer(StackNavigator);
+const NavigationContainer = createAppContainer(BottomTabNavigator);
 
 export default NavigationContainer;

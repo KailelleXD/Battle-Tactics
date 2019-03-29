@@ -33,7 +33,6 @@ class HomeScreenButton extends Component {
       <View>
         {this.state.fontLoaded ? (
           <Button
-            info
             rounded
             large
             style={styles.button}
@@ -63,13 +62,15 @@ class HomeScreenButton extends Component {
 const styles = StyleSheet.create({
   button: {
     // margin: 20,
-    padding: 50,
-    paddingRight: 10,
-    paddingLeft: 10,
+    padding: 10,
+    // paddingRight: 5,
+    // paddingLeft: 5,
     width: 180,
     justifyContent: "center",
     borderRadius: 10,
     backgroundColor: "#e5b83b",
+    borderWidth: 1,
+    borderColor: "white",
   },
   text: {
     color: "red"

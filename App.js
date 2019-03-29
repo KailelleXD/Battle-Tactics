@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Container, Header, Content, Footer, FooterTab, Tab, Button, Icon, Text } from 'native-base';
 // navigation
 import NavigationContainer from './navigation/NavigationContainer';
 
