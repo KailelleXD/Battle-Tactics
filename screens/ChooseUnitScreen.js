@@ -8,21 +8,12 @@ import NextBackWrapper from '../components/NextBackWrapper';
 export default class ChooseUnitScreen extends Component {
   static navigationOptions = {
     title: 'CHOOSE UNIT',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   render() {
     return (
-      <Container>
-      <Grid style={styles.grid}>
+      <Container style={{backgroundColor: "#333333"}}>
+      <Grid>
 
         <Row size={90}>
           <UnitSelector />
@@ -39,10 +30,10 @@ export default class ChooseUnitScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  grid: {
-    display: "flex",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around"
-  },
+  // grid: {
+  //   display: "flex",
+  //   flex: 1,
+  //   alignItems: "center",
+  //   justifyContent: "space-around"
+  // },
 })

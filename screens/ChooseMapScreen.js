@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Image, ImageBackground } from 'react-native';
+import { StyleSheet, Image, ImageBackground, Dimensions } from 'react-native';
 import { 
   Text, 
   Container, 
@@ -27,15 +27,6 @@ import { AppConsumer } from '../storage/AppContext';
 export default class ChooseMap extends Component {
   static navigationOptions = {
     title: 'CHOOSE MAP',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   // RENDER FUNCTIONS ////
@@ -59,32 +50,29 @@ export default class ChooseMap extends Component {
     return (
       <AppConsumer>
         {(context) => (
-          <Container style={styles.backgroundStyle}>
-            <Grid style={styles.grid}>
-              <Row size={80}>
-                <Container style={styles.backgroundStyle}>
-                  <MapCardsSelector />
+          <Container>
+            <Grid>
+              <Row size={90}>
+                <Container style={{backgroundColor: "#333333"}}>
+                  <MapSelector />
                 </Container>
               </Row>
 
-              <Row size={10}>
+              {/* <Row size={10}>
               <Container style={styles.backgroundStyle}>
                 {this.shouldDisplayText(context.state.gameData.mapName)}
               </Container>
-              </Row>
-
+              </Row> */}
 
               <Row size={9}>
-                <Container style={styles.backgroundStyle}>
+                {/* <Container style={styles.backgroundStyle}> */}
                   <NextBackWrapper path="Terrain" />
-                </Container>
+                {/* </Container> */}
               </Row>
 
             </Grid>
           </Container>
         )}
-
-
       </AppConsumer>
     );
   }
@@ -92,23 +80,19 @@ export default class ChooseMap extends Component {
 
 
 const styles = StyleSheet.create({
-  grid: {
-    display: "flex",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around"
-  },
-  textStyle: {
-    textAlign: 'center',
-    fontWeight: '600',
-    fontSize: 20,
-    backgroundColor: '#EAEEF0',
-    color: '#718EA4'
-  },
-  backgroundStyle: {
-    // backgroundColor: '#C7C7C7'
-  }
-
+  // grid: {
+  //   display: "flex",
+  //   flex: 1,
+  //   alignItems: "center",
+  //   justifyContent: "space-around"
+  // },
+  // textStyle: {
+  //   textAlign: 'center',
+  //   fontWeight: '600',
+  //   fontSize: 20,
+  //   backgroundColor: '#EAEEF0',
+  //   color: '#718EA4'
+  // },
 })
 
 

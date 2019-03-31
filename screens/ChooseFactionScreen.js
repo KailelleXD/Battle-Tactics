@@ -14,15 +14,6 @@ import NextBackWrapper from '../components/NextBackWrapper';
 export default class ChooseFactionScreen extends Component {
   static navigationOptions = {
     title: 'CHOOSE FACTION',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   render() {
@@ -31,12 +22,12 @@ export default class ChooseFactionScreen extends Component {
     return (
       <AppConsumer>
         {(context) => (     
-          <Container>
+          <Container style={{backgroundColor: "#333333"}}>
             <Grid style={styles.grid}>
               <Row size={90}>
                 <FactionSelector />
               </Row>
-              <Row size={10}>
+              <Row size={9}>
                 <NextBackWrapper path="Units"/>
               </Row>
             </Grid>
@@ -48,10 +39,10 @@ export default class ChooseFactionScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  grid: {
-    display: "flex",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around"
-  },
+  // grid: {
+  //   display: "flex",
+  //   flex: 1,
+  //   alignItems: "center",
+  //   justifyContent: "space-around"
+  // },
 })

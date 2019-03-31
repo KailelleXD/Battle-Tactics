@@ -1,25 +1,14 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, Button } from 'react-native';
-import { Container } from 'native-base';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Container, Content, Text, Input, Item } from 'native-base';
 // components
 import PlayerScreenSubHeader from '../components/PlayerScreenSubHeader'
 // context
 import { AppConsumer } from '../storage/AppContext';
 
-import { TextInput } from 'react-native-gesture-handler';
-
 export default class PlayerOneScreen extends Component {
   static navigationOptions = {
     title: 'PLAYER ONE',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   constructor(props) {
@@ -34,25 +23,30 @@ export default class PlayerOneScreen extends Component {
       <AppConsumer>
         {(context) => (
           <Container style={styles.wrapper}>
+          <Content>
+
             <PlayerScreenSubHeader 
             name={context.state.playerOne.name}
             points={context.state.playerOne.points}
             />
-            <TextInput 
-              placeholder="enter your name here"
-              value={this.state.name}
-              onChangeText={(text) => {
-                this.setState({name: text})
-              }}  
-            />
-            <Button 
-              title="Set Name"
-              onPress={() => {
-                context.setName(this.state.name);
-              }}
-            
-            />
-            {/* {console.log(context.state)} */}
+
+            <Item rounded style={{width: "80%", alignSelf: "center", margin: 20}}>
+              <Input 
+                style={styles.input}
+                placeholder="Enter Your Name Here"
+                value={this.state.name}
+                onChangeText={(text) => {
+                  this.setState({name: text})
+                }}
+              />
+              <TouchableOpacity style={{padding: 15}}>
+                <Text style={{color: "#e5b83b"}}>
+                  Set
+                </Text>
+              </TouchableOpacity>
+              {/* </Button> */}
+            </Item>
+          </Content>
           </Container>
         )}
       </AppConsumer>
@@ -62,7 +56,10 @@ export default class PlayerOneScreen extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    display: "flex",
-    flexDirection: "column",
+    backgroundColor: "#333333"
+  },
+  input: {
+    borderRadius: 10,
+    color: "#ffffff"
   }
 })

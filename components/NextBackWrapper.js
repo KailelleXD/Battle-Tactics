@@ -18,11 +18,7 @@ const NextBackWrapper = (props) =>
     </Container>
 
 const styles = StyleSheet.create({
-    col: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: 'center'
-    }
+
 })
 
 export default NextBackWrapper

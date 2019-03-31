@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { Container, Text, Button, Content, Icon } from 'native-base'
+import { StyleSheet } from 'react-native'
+import { Container, Text, Button, Content, Icon, List, ListItem, Left, Right } from 'native-base'
 // components
 import RandomStart from '../components/RandomStart'
 import { AppConsumer } from '../storage/AppContext'
@@ -8,15 +8,6 @@ import { AppConsumer } from '../storage/AppContext'
 export default class SettingsScreen extends Component {
   static navigationOptions = {
     title: 'SETTINGS',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
   };
 
   render() {
@@ -24,57 +15,54 @@ export default class SettingsScreen extends Component {
       <AppConsumer>
 
         {(context) => (
-          <Container>
-
-            <Content>
-
-              <Text>This is the Screen screen</Text>
+          <Container style={{backgroundColor: "#333333"}}>
+            <Content>            
+              <List>
+                <ListItem 
+                  noIndent
+                  onPress={() => { this.props.navigation.navigate("PlayerOne") }}
+                >
+                  <Left>
+                    <Text style={styles.listText}>Player One</Text>
+                  </Left>
+                  <Right>
+                    <Icon style={styles.arrow} name="arrow-forward" />
+                  </Right>
+                </ListItem>
+                <ListItem 
+                  noIndent
+                  onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
+                >
+                  <Left>
+                    <Text style={styles.listText}>Player Two</Text>
+                  </Left>
+                  <Right>
+                    <Icon style={styles.arrow} name="arrow-forward" />
+                  </Right>
+                </ListItem>
+                <ListItem 
+                  noIndent
+                  onPress={() => { this.props.navigation.navigate("Developer") }}
+                >
+                  <Left>
+                    <Text style={styles.listText}>Developer Settings</Text>
+                  </Left>
+                  <Right>
+                    <Icon style={styles.arrow} name="arrow-forward" />
+                  </Right>
+                </ListItem>
+              </List>
 
               <Button
-                info
-                rounded
-                style={styles.button}
-                onPress={() => { this.props.navigation.navigate("PlayerOne") }}
-              >
-                <Text>Player One</Text>
-              </Button>
-
-              <Button
-                info
-                rounded
-                style={styles.button}
-                onPress={() => { this.props.navigation.navigate("PlayerTwo") }}
-              >
-                <Text>Player Two</Text>
-              </Button>
-
-
-              <Button
-                info
-                rounded
                 style={styles.button}
                 onPress={() => { context.getAllData() }}
               >
                 <Text>Import Armies</Text>
               </Button>
-
-              <Button
-                info
-                rounded
-                style={styles.button}
-                onPress={() => { this.props.navigation.navigate("Developer") }}
-              >
-                <Text>Developer's Settings</Text>
-              </Button>
-
-              
-
-              {/* <RandomStart random={this.props.randomStart} />  */}
-
             </Content>
+              {/* <RandomStart random={this.props.randomStart} />  */}
           </Container>
         )}
-
       </AppConsumer>
     );
 
@@ -83,12 +71,21 @@ export default class SettingsScreen extends Component {
 
 const styles = StyleSheet.create({
   button: {
-    margin: 20,
-    padding: 50,
-    paddingRight: 10,
-    paddingLeft: 10,
-    width: 180,
-    justifyContent: "center",
-    borderRadius: 10
+    margin: 30,
+    // padding: 50,
+    // paddingRight: 10,
+    // paddingLeft: 10,
+    // width: 180,
+    borderRadius: 5,
+    alignSelf: "center",
+    backgroundColor: "#e5b83b",
+    borderWidth: 1,
+    borderColor: "white"
+  },
+  listText: {
+    color: "#ffffff"
+  },
+  arrow: {
+    color: "#e5b83b"
   }
 })

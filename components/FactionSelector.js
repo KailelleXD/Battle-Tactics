@@ -1,30 +1,35 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, ScrollView, Dimensions, Image, Button, TouchableHighlight } from 'react-native';
-import { Container, Content, Text, } from 'native-base';
-import { Grid, Col, Row } from 'react-native-easy-grid';
+import { StyleSheet, ScrollView, Dimensions, Image, Button, TouchableHighlight, FlatList } from 'react-native';
+import { Container, Content, Text, List, ListItem } from 'native-base';
 
 import { AppConsumer } from '../storage/AppContext';
 import FactionCard from '../components/FactionCard';
 import Factions from '../utils/data/factions.json';
 
 export default class FactionSelector extends Component {
-  render() {
 
+  render() {
     return (
       <AppConsumer>
         {(context) => (
-                  <Content>
-                    {Factions.map(faction => (
-                      <FactionCard 
-                      key={faction.id} 
-                      name={faction.name}
-                      faction={faction.factionName}
-                      cardPress={() => {
-                        context.setFaction(faction.factionName)
-                      }}
-                      ></FactionCard>
-                    ))}
-                  </Content>
+          <Content>
+            <List>
+              {Factions.map(faction => (
+                <ListItem 
+                  noIndent
+                  key={faction.id}
+                  onPress={() => {
+                    context.setFaction(faction.factionName)
+                  }}
+                  style={{
+                    backgroundColor: context.state.playerOne.faction === faction.factionName ? "#e5b83b" : "#333333"
+                  }}
+                >
+                  <Text style={{color: "#ffffff"}}>{faction.name}</Text>
+                </ListItem>
+              ))}
+            </List>
+          </Content>
         )}
       </AppConsumer>
     )

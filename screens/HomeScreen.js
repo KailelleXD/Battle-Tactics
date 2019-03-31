@@ -13,33 +13,24 @@ import ImportArmies from '../components/ImportArmies'
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'BATTLE-TACTICS',
-    headerTintColor: '#ffffff',
-    headerStyle: {
-      backgroundColor: '#1e8fb5',
-      borderBottomColor: '#ffffff',
-      borderBottomWidth: 3,
-    },
-    headerTitleStyle: {
-      fontSize: 23,
-    },
+    title: 'BATTLE TACTICS',
   };
 
   render() {
     return (
       <AppConsumer>
         {(context) => (
-          <Container>
+          <Container style={{backgroundColor: "#333333"}}>
 
             <Grid>
-              <ImageBackground source={Image} style={{ width: '100%', height: '100%' }}>
+              {/* <ImageBackground source={Image} style={{ width: '100%', height: '100%' }}> */}
                 <Col style={styles.col}>
 
                   <Row style={styles.row}>
                     <ImportArmies />
                   </Row>
   
-                  <Row style={styles.settings}>
+                  {/* <Row style={styles.settings}>
                     <Icon 
                       style={{color:"white"}}
                       color="white"
@@ -47,9 +38,9 @@ export default class HomeScreen extends Component {
                       onPress={() => { this.props.navigation.navigate("Settings")}}
                     />
 
-                  </Row>
+                  </Row> */}
                 </Col>
-              </ImageBackground>
+              {/* </ImageBackground> */}
             </Grid>
 
           </Container>
