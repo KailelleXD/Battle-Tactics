@@ -32,7 +32,7 @@ export default class Detachment extends React.Component {
                                     updateUnits={context.updateP1Units}
                                     deployModal={context.deployUnitModal}
                                     state={PhysContext.state} 
-                                    calcDistance={PhysContext.calcDistance}
+                                    calcDistance={this.props.calcDistance}
                                     getStartXY={PhysContext.getStartXY}
                                     getEndXY={PhysContext.getEndXY}
                                     clearEndXY={PhysContext.clearEndXY}
@@ -53,7 +53,7 @@ export default class Detachment extends React.Component {
                                     updateUnits={context.updateP2Units}
                                     deployModal={context.deployUnitModal}
                                     state={PhysContext.state} 
-                                    calcDistance={PhysContext.calcDistance}
+                                    calcDistance={this.props.calcDistance}
                                     getStartXY={PhysContext.getStartXY}
                                     getEndXY={PhysContext.getEndXY}
                                     clearEndXY={PhysContext.clearEndXY}

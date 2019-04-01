@@ -23,7 +23,10 @@ export default class MovementPhaseScreen extends Component {
                         state={context.state}
                     >
                         <View>
-                            <Detachment style={{ zIndex: 99 }} />
+                            <Detachment
+                                style={{ zIndex: 99 }}
+                                calcDistance={context.calcDistance}
+                                />
                             <TerrainPlacement style={{ zIndex: 0 }} />
                         </View>
                     </PinchZoomView>
