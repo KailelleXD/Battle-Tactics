@@ -21,6 +21,13 @@ import GameStartScreen from '../screens/GameStartScreen';
 import TerrainPlacement from '../components/TerrainComponents/TerrainPlacement';
 import DeveloperScreen from '../screens/DeveloperScreen';
 import MenuButton from '../components/MenuButton';
+import MovementPhaseScreen from '../screens/phases/MovementPhaseScreen';
+import PsychicPhaseScreen from '../screens/phases/PsychicPhaseScreen';
+import ShootingPhaseScreen from '../screens/phases/ShootingPhaseScreen';
+import ChargePhaseScreen from '../screens/phases/ChargePhaseScreen';
+import FightPhaseScreen from '../screens/phases/FightPhaseScreen';
+import MoralePhaseScreen from '../screens/phases/MoralePhaseScreen';
+import StartScreen from '../screens/phases/StartScreen';
 
 const StackNavigator = createStackNavigator({
     Home: HomeScreen,
@@ -41,6 +48,13 @@ const StackNavigator = createStackNavigator({
     GameStart: GameStartScreen,
     TerrainPlacement: TerrainPlacement,
     Developer: DeveloperScreen,
+    Movement: MovementPhaseScreen,
+    Psychic: PsychicPhaseScreen,
+    Shooting: ShootingPhaseScreen,
+    Charge: ChargePhaseScreen,
+    Fight: FightPhaseScreen,
+    Morale: MoralePhaseScreen,
+    Start: StartScreen
   },
   {
     initialRouteName: "Home",
