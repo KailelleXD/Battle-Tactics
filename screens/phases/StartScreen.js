@@ -3,17 +3,13 @@ import { StyleSheet, View, ImageBackground } from 'react-native';
 import { Container, Text, Icon } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 // screens
-import HomeScreenButton from '../components/HomeScreenButton';
+import HomeScreenButton from '../../components/HomeScreenButton';
 // context
-import { AppConsumer } from '../storage/AppContext';
-import { ScrollView } from 'react-native-gesture-handler';
-import Image from '../assets/img/map3.jpg'
-
-import ImportArmies from '../components/ImportArmies'
+import { AppConsumer } from '../../storage/AppContext';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'BATTLE TACTICS',
+    title: 'Battle Phases Test Screen',
   };
 
   render() {
@@ -23,28 +19,26 @@ export default class HomeScreen extends Component {
           <Container style={{backgroundColor: "#333333"}}>
 
             <Grid>
-              {/* <ImageBackground source={Image} style={{ width: '100%', height: '100%' }}> */}
                 <Col style={styles.col}>
-
                   <Row style={styles.row}>
-                    <ImportArmies />
+                    <HomeScreenButton title='Movement' />
                   </Row>
-
                   <Row style={styles.row}>
-                    <HomeScreenButton title='Start' />
+                    <HomeScreenButton title='Psychic' />
                   </Row>
-  
-                  {/* <Row style={styles.settings}>
-                    <Icon 
-                      style={{color:"white"}}
-                      color="white"
-                      name="settings"
-                      onPress={() => { this.props.navigation.navigate("Settings")}}
-                    />
-
-                  </Row> */}
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='Shooting' />
+                  </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='Charge' />
+                  </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='Fight' />
+                  </Row>
+                  <Row style={styles.row}>
+                    <HomeScreenButton title='Morale' />
+                  </Row>
                 </Col>
-              {/* </ImageBackground> */}
             </Grid>
 
           </Container>
