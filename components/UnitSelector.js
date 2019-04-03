@@ -89,6 +89,8 @@ export default class UnitSelector extends Component {
                           style: "modelKiwi",
                           text: "",
                           modelName: unit.name,
+                          advance: false,
+                          fallBack: false,
                           player: 1,
                           x: 0,
                           y: 0,

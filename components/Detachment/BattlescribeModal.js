@@ -124,11 +124,11 @@ export default class BattlescribeModal extends Component {
               {/* <Content> */}
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Advance</Text>
-                <Radio onPress={this.handleAdvRadio} selectedColor={"green"} selected={this.state.advance} />
+                <Radio onPress={this.props.advance} selectedColor={"green"} selected={this.props.playerOneState.units.advance} />
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>Fall-Back</Text>
-                <Radio onPress={this.handleFBRadio} selectedColor={"red"} selected={this.state.fallBack} />
+                <Radio onPress={this.props.fallBack} selectedColor={"red"} selected={this.props.playerOneState.units.fallBack} />
               </View>
               <View style={styles.dataLine}>
                 <Text style={styles.dataHeader}>X Index: </Text>

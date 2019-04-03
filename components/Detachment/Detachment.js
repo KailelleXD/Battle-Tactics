@@ -37,6 +37,8 @@ export default class Detachment extends React.Component {
                                     getEndXY={PhysContext.getEndXY}
                                     clearEndXY={PhysContext.clearEndXY}
                                     getTempXY={PhysContext.getTempXY}
+                                    fallBack={context.handleFBRadio}
+                                    advance={context.handleAdvRadio}
                                     />
                             ))}
                             </View>
@@ -58,6 +60,8 @@ export default class Detachment extends React.Component {
                                     getEndXY={PhysContext.getEndXY}
                                     clearEndXY={PhysContext.clearEndXY}
                                     getTempXY={PhysContext.getTempXY}
+                                    fallBack={context.handleFBRadio}
+                                    advance={context.handleAdvRadio}
                                     />
                             ))}
                             </View>
@@ -68,6 +72,8 @@ export default class Detachment extends React.Component {
                                 playerTwoState={context.state.playerTwo}
                                 updateP1Units={context.updateP1Units}
                                 updateP2Units={context.updateP2Units}
+                                fallBack={context.handleFBRadio}
+                                advance={context.handleAdvRadio}
                             />
                         </View>
                     )}
