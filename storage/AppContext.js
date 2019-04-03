@@ -24,7 +24,7 @@ export class AppProvider extends React.Component {
       playerTwo: {
         name: "jill",
         faction: "",
-        units: modelP2,
+        units: [],
         points: 0,
         randomStart: false
       },
@@ -44,7 +44,7 @@ export class AppProvider extends React.Component {
       },
       modalData: {
         isModalVisible: false,
-        unit: modelP1[0]
+        unit: modelP1
       }
     }
 
@@ -143,6 +143,24 @@ export class AppProvider extends React.Component {
     modalData.isModalVisible = true;
     modalData.unit = unit;
     this.setState({ modalData });
+  }
+
+  handleFBRadio = () => {
+    const playerOne = { ...this.state.playerOne };
+    playerOne.units.fallBack = !playerOne.units.fallBack;
+
+    this.setState({ playerOne }, () => {
+      console.log("FALLBACK")
+      console.log(playerOne.units.fallBack)
+    })
+
+  }
+
+  handleAdvRadio = () => {
+    const playerOne = { ...this.state.playerOne };
+    playerOne.units.advance = !playerOne.units.advance;
+
+    this.setState({ playerOne })
   }
 
   // ==================================================================
@@ -605,7 +623,9 @@ export class AppProvider extends React.Component {
         getFactionFromStorage: this.getFactionFromStorage,
         setBSData: this.setBSData,
         tester: this.tester,
-        importArmies: this.importArmies
+        importArmies: this.importArmies,
+        handleFBRadio: this.handleFBRadio,
+        handleAdvRadio: this.handleAdvRadio
       }}>
         {this.props.children}
       </AppContext.Provider>
